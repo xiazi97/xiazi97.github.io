@@ -100,8 +100,8 @@
 <meta property="og:description" content="运算符重载：  operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作：    5个C++不能重载的运算符是哪些？1..*   2. ::    3.sizeof">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/==运算符.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/==5.png">
-<meta property="og:updated_time" content="2018-11-05T15:04:39.840Z">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/5.png">
+<meta property="og:updated_time" content="2018-11-05T15:06:56.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类中默认成员函数浅析（二）">
 <meta name="twitter:description" content="运算符重载：  operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作：    5个C++不能重载的运算符是哪些？1..*   2. ::    3.sizeof">
@@ -401,7 +401,7 @@
 </ol>
 </li>
 </ol>
-<p>5个C++不能重载的运算符是哪些？<br>1..*   2. ::    3.sizeof    4.?:    5..<br><img src="/2018/11/05/类中默认成员函数浅析（二）/==5.png" alt="不能重载的运算符"><br>注意：<br>1.不能通过连接其他符号来创建新的操作符：如operator@<br>2.重载操作符必须有一个类类型或者枚举类型的操作数<br>3.用于内置类型的操作符，其含义不能改变，如不能将+重载为-<br>4.作为类成员的重载函数，其形参看起来比操作数少1，因为操作符一个默认的形参this，限定为第一个形参</p>
+<p>5个C++不能重载的运算符是哪些？<br>1..*   2. ::    3.sizeof    4.?:    5..<br><img src="/2018/11/05/类中默认成员函数浅析（二）/5.png" alt="不能重载的运算符"><br>注意：<br>1.不能通过连接其他符号来创建新的操作符：如operator@<br>2.重载操作符必须有一个类类型或者枚举类型的操作数<br>3.用于内置类型的操作符，其含义不能改变，如不能将+重载为-<br>4.作为类成员的重载函数，其形参看起来比操作数少1，因为操作符一个默认的形参this，限定为第一个形参</p>
 <p>赋值运算符的重载：<br>1.赋值运算符的重载是对一个已存在的对象进行拷贝赋值 。<br>2.当程序没有显式地提供一个以本类或本类的引用为参数的赋值运算符重载函数时，编译器会自动生成这样一个赋 值运算符重载函数<br>思考：为什么operator=赋值函数需要一个 Date&amp;的返回值， 使用void做返回值可以吗？<br>//void<br>    Date&amp; operator=(const Date&amp; d)           //引用效率较高,优先考虑引用<br>    {<br>        _year = d._year;<br>        _month = d._month;<br>        _day = d._day;<br>        return <em>this;<br>    }<br>d1 = d2 = d3;<br>需要注意：<br>1.类型参数    2.返回值         3.检测是否自己给自己赋值        4.返回</em>this</p>
 <p>类的const成员函数：<br>const修饰普通变量<br>在C++中，const修饰的变量已经为一个常量，具有宏的属性，即在编译期间，编译器会将const所修饰的常量进行替换。<br>const修饰类成员</p>
 <ol>
