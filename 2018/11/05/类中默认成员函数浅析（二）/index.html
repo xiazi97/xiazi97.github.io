@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,16 +91,21 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Snoopy">
-<meta property="og:url" content="http://xiazi97.github.io/tags/C语言/index.html">
+<meta name="description" content="运算符重载：  operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作：    5个C++不能重载的运算符是哪些？1..*   2. ::    3.sizeof">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类中默认成员函数浅析（二）">
+<meta property="og:url" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="运算符重载：  operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作：    5个C++不能重载的运算符是哪些？1..*   2. ::    3.sizeof">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/==运算符.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/==5.png">
+<meta property="og:updated_time" content="2018-11-05T15:04:39.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snoopy">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="类中默认成员函数浅析（二）">
+<meta name="twitter:description" content="运算符重载：  operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作：    5个C++不能重载的运算符是哪些？1..*   2. ::    3.sizeof">
+<meta name="twitter:image" content="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/==运算符.png">
 
 
 
@@ -130,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/tags/C语言/">
+  <link rel="canonical" href="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/">
 
 
 
 
 
-  <title>标签: C语言 | Snoopy</title>
+  <title>类中默认成员函数浅析（二） | Snoopy</title>
   
 
 
@@ -164,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -302,52 +307,176 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
   
-  
-  
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>C语言<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李峰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Snoopy">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/10/27/你好，Hexo/" itemprop="url">
-              
-                <span itemprop="name">你好，Hexo</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">类中默认成员函数浅析（二）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-27T15:19:04+08:00" content="2018-10-27">
-          10-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T22:55:24+08:00">
+                2018-11-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>运算符重载：</p>
+<ol>
+<li>operator + 合法的运算符 构成函数名（举例：重载&lt;运算符的函数名：operator&lt; ）。<ol start="2">
+<li>重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。<br>3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数<br>编译器对于==运算符的重载进行的操作：<br><img src="/2018/11/05/类中默认成员函数浅析（二）/==运算符.png" alt="图解编译器对==运算符的操作"></li>
+</ol>
+</li>
+</ol>
+<p>5个C++不能重载的运算符是哪些？<br>1..*   2. ::    3.sizeof    4.?:    5..<br><img src="/2018/11/05/类中默认成员函数浅析（二）/==5.png" alt="不能重载的运算符"><br>注意：<br>1.不能通过连接其他符号来创建新的操作符：如operator@<br>2.重载操作符必须有一个类类型或者枚举类型的操作数<br>3.用于内置类型的操作符，其含义不能改变，如不能将+重载为-<br>4.作为类成员的重载函数，其形参看起来比操作数少1，因为操作符一个默认的形参this，限定为第一个形参</p>
+<p>赋值运算符的重载：<br>1.赋值运算符的重载是对一个已存在的对象进行拷贝赋值 。<br>2.当程序没有显式地提供一个以本类或本类的引用为参数的赋值运算符重载函数时，编译器会自动生成这样一个赋 值运算符重载函数<br>思考：为什么operator=赋值函数需要一个 Date&amp;的返回值， 使用void做返回值可以吗？<br>//void<br>    Date&amp; operator=(const Date&amp; d)           //引用效率较高,优先考虑引用<br>    {<br>        _year = d._year;<br>        _month = d._month;<br>        _day = d._day;<br>        return <em>this;<br>    }<br>d1 = d2 = d3;<br>需要注意：<br>1.类型参数    2.返回值         3.检测是否自己给自己赋值        4.返回</em>this</p>
+<p>类的const成员函数：<br>const修饰普通变量<br>在C++中，const修饰的变量已经为一个常量，具有宏的属性，即在编译期间，编译器会将const所修饰的常量进行替换。<br>const修饰类成员</p>
+<ol>
+<li>const修饰类成员变量时，该成员变量必须在构造函数的初始化列表中初始化 </li>
+<li>const修饰类成员函数，实际修饰该成员函数隐含的this指针，该成员函数中不能对类的任何成员进行修改（ const Test* const）<br>注意：在const成员函数中不能修改类的“成员变量”，因为const在此处修饰的是this指针指向空间中的内容，若需要对类的某个成员变量进行修改，该成员变量只需被mutable关键字修饰即可</li>
+</ol>
+<p>思考：<br>首先明确一点：非const函数实际是可读可写当前对象的函数，如SetData()，而const函数只能读取当前对象的内容,如GetData()</p>
+<ol>
+<li>const对象可以调用非const成员函数和const成员函数吗？<br>答：不能调用普通非const类型成员函数，可以调用const类型成员函数(只读不可写)</li>
+<li>非const对象可以调用非const成员函数和const成员函数吗？<br>答： 可以，非const对象本身就具有可读属性，完全可以使用const函数</li>
+<li>const成员函数内可以调用其它的const成员函数和非const成员函数吗？<br>答：不能调用非const函数，可以调用const类型成员函数<ol start="4">
+<li>非const成员函数内可以调用其它的const成员函数和非const成员函数吗？<br>答：可以</li>
+</ol>
+</li>
+</ol>
+<p>类的取地址操作符重载  &amp; const修饰的取地址操作符重载 ：<br>这两个默认成员函数一般不用重新定义 ，编译器默认会生成。<br>当想让别人获取到你指定的内容才会需要你自己重载这两个操作符<br>Test<em> operator&amp;()<br>{<br>cout &lt;&lt; this  &lt;&lt; endl;<br>return this;<br>}<br> const Date </em> operator&amp;() const<br>{<br>        return this ;<br> }<br>Test<em> operator&amp;();     和   const Test</em> opertor&amp;();形成重载<br>原因是：默认隐藏参数this指针类型不同，第一个是Test <em> const，第二个是const Test</em> const </p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/01/for循环的基础练习/" rel="next" title="for循环的基础练习">
+                <i class="fa fa-chevron-left"></i> for循环的基础练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -355,6 +484,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -620,6 +753,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
