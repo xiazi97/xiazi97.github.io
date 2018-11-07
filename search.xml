@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[new与delete的使用]]></title>
+    <url>%2F2018%2F11%2F07%2Fnew%E4%B8%8Edelete%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回012double *p；p = new double； 此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中delete是释放new请求到的空间的 注意：1.delete必须来释放之前new分配的指针2.用new可以指定分配的内存大小1234int *p;p = new int(30); //为指针p开辟30个字节单元的内存单元...delete p; 3.new可以为数组分配内存，当释放时必须告诉delete数组中有多少元素1234int *p;p = new int[10];...delete [10] p ; 例：123456void Test()&#123;char* p;strcpy(p,&quot;china&quot;);cout &lt;&lt; p &lt;&lt; endl;&#125; 此时只是给变量p分配了一个地址空间，并没有给p所指向的分配空间，所以程序出错应改为：1234567void Test()&#123;char *p;p = new char(10);strcpy(p,&quot;china&quot;);cout &lt;&lt; p &lt;&lt; endl;&#125; 注意：对于用new运算符创建的对象，必须使用delete才能调用析构函数问题：看以下代码：12A *pa = new A[10];delete pa; 则类A的构造函数和析构函数分别执行了几次（）答：构造函数执行了10次，析构函数构造了1次]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[类中默认成员函数浅析（二）]]></title>
     <url>%2F2018%2F11%2F05%2F%E7%B1%BB%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E6%B5%85%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
     <content type="text"><![CDATA[运算符重载： operator + 合法的运算符 构成函数名（举例：重载&lt;运算符的函数名：operator&lt; ）。 重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。3.若成员变量为共有的，则可以重载为全局函数；若为私有的，重载为成员函数编译器对于==运算符的重载进行的操作： 5个C++不能重载的运算符是哪些？1..* 2. :: 3.sizeof 4.?: 5..注意：1.不能通过连接其他符号来创建新的操作符：如operator@2.重载操作符必须有一个类类型或者枚举类型的操作数3.用于内置类型的操作符，其含义不能改变，如不能将+重载为-4.作为类成员的重载函数，其形参看起来比操作数少1，因为操作符一个默认的形参this，限定为第一个形参 赋值运算符的重载：1.赋值运算符的重载是对一个已存在的对象进行拷贝赋值 。2.当程序没有显式地提供一个以本类或本类的引用为参数的赋值运算符重载函数时，编译器会自动生成这样一个赋 值运算符重载函数思考：为什么operator=赋值函数需要一个 Date&amp;的返回值， 使用void做返回值可以吗？//void Date&amp; operator=(const Date&amp; d) //引用效率较高,优先考虑引用 { _year = d._year; _month = d._month; _day = d._day; return this; }d1 = d2 = d3;需要注意：1.类型参数 2.返回值 3.检测是否自己给自己赋值 4.返回this 类的const成员函数：const修饰普通变量在C++中，const修饰的变量已经为一个常量，具有宏的属性，即在编译期间，编译器会将const所修饰的常量进行替换。const修饰类成员 const修饰类成员变量时，该成员变量必须在构造函数的初始化列表中初始化 const修饰类成员函数，实际修饰该成员函数隐含的this指针，该成员函数中不能对类的任何成员进行修改（ const Test* const）注意：在const成员函数中不能修改类的“成员变量”，因为const在此处修饰的是this指针指向空间中的内容，若需要对类的某个成员变量进行修改，该成员变量只需被mutable关键字修饰即可 思考：首先明确一点：非const函数实际是可读可写当前对象的函数，如SetData()，而const函数只能读取当前对象的内容,如GetData() const对象可以调用非const成员函数和const成员函数吗？答：不能调用普通非const类型成员函数，可以调用const类型成员函数(只读不可写) 非const对象可以调用非const成员函数和const成员函数吗？答： 可以，非const对象本身就具有可读属性，完全可以使用const函数 const成员函数内可以调用其它的const成员函数和非const成员函数吗？答：不能调用非const函数，可以调用const类型成员函数 非const成员函数内可以调用其它的const成员函数和非const成员函数吗？答：可以 类的取地址操作符重载 &amp; const修饰的取地址操作符重载 ：这两个默认成员函数一般不用重新定义 ，编译器默认会生成。当想让别人获取到你指定的内容才会需要你自己重载这两个操作符Test operator&amp;(){cout &lt;&lt; this &lt;&lt; endl;return this;} const Date operator&amp;() const{ return this ; }Test operator&amp;(); 和 const Test opertor&amp;();形成重载原因是：默认隐藏参数this指针类型不同，第一个是Test const，第二个是const Test const]]></content>
@@ -23,20 +31,5 @@
       <tags>
         <tag>C++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[你好，Hexo]]></title>
-    <url>%2F2018%2F10%2F27%2F%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>C语言</tag>
-        <tag>C++</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F10%2F27%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.]]></content>
   </entry>
 </search>

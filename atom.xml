@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-05T15:06:56.136Z</updated>
+  <updated>2018-11-07T08:53:21.661Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>new与delete的使用</title>
+    <link href="http://xiazi97.github.io/2018/11/07/new%E4%B8%8Edelete%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://xiazi97.github.io/2018/11/07/new与delete的使用/</id>
+    <published>2018-11-07T08:50:13.000Z</published>
+    <updated>2018-11-07T08:53:21.661Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的&lt;br&gt;new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回0&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>类中默认成员函数浅析（二）</title>
@@ -80,45 +101,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好，Hexo</title>
-    <link href="http://xiazi97.github.io/2018/10/27/%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo/"/>
-    <id>http://xiazi97.github.io/2018/10/27/你好，Hexo/</id>
-    <published>2018-10-27T07:19:04.000Z</published>
-    <updated>2018-10-29T15:51:27.869Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="C语言" scheme="http://xiazi97.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://xiazi97.github.io/2018/10/27/hello-world/"/>
-    <id>http://xiazi97.github.io/2018/10/27/hello-world/</id>
-    <published>2018-10-27T06:46:35.572Z</published>
-    <updated>2018-10-29T15:11:31.253Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   
