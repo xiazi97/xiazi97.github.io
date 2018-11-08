@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-07T08:53:21.661Z</updated>
+  <updated>2018-11-08T09:48:17.058Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Core Dump浅解析</title>
+    <link href="http://xiazi97.github.io/2018/11/08/Core-Dump%E6%B5%85%E8%A7%A3%E6%9E%90/"/>
+    <id>http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/</id>
+    <published>2018-11-08T09:39:53.000Z</published>
+    <updated>2018-11-08T09:48:17.058Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Core Dump（核心转储）：&lt;br&gt;当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试&lt;/p&gt;
+&lt;p&gt;为什么不用gdb呢？&lt;br&gt;答：如
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>new与delete的使用</title>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Core Dump浅解析]]></title>
+    <url>%2F2018%2F11%2F08%2FCore-Dump%E6%B5%85%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[Core Dump（核心转储）：当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试 为什么不用gdb呢？答：如果程序运行错误，可以直接通过core文件来gdb调试（有些错误可能是偶然发生的，可能在gdb调试时并不会显露出来，只有在core dump记录之后才能快速定位进行调试） CoreDump默认关闭：确保隐私安全/资源占用，1.记录的信息里面可能有隐秘性信息（如用户名和密码）2.Core Dump 文件很大且不会自动清理CoreDump打开：ulimit -c （int）当这个值为0 时则关闭（一个进程产生多大的core文件取决于进程的Resource Limit(这个信息保存在PCB中),使用ulimit命令改变这个限制）ulimit命令实际是改变Shell进程的Resourse Limit 1.首先将Core Dump打开 2.运行死循环程序 3.新建窗口，查看PID，并kill该程序 4.重新回到程序运行界面，发现已经Core Dumped，而ls产生了一个CoreDump文件 5.使用Core Dump文件查看错误（core-file ./test.992） 此时查看调用栈信息可以看到：__kernel_vsyscall ()，即为因死循环终止]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[new与delete的使用]]></title>
     <url>%2F2018%2F11%2F07%2Fnew%E4%B8%8Edelete%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回012double *p；p = new double； 此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中delete是释放new请求到的空间的 注意：1.delete必须来释放之前new分配的指针2.用new可以指定分配的内存大小1234int *p;p = new int(30); //为指针p开辟30个字节单元的内存单元...delete p; 3.new可以为数组分配内存，当释放时必须告诉delete数组中有多少元素1234int *p;p = new int[10];...delete [10] p ; 例：123456void Test()&#123;char* p;strcpy(p,&quot;china&quot;);cout &lt;&lt; p &lt;&lt; endl;&#125; 此时只是给变量p分配了一个地址空间，并没有给p所指向的分配空间，所以程序出错应改为：1234567void Test()&#123;char *p;p = new char(10);strcpy(p,&quot;china&quot;);cout &lt;&lt; p &lt;&lt; endl;&#125; 注意：对于用new运算符创建的对象，必须使用delete才能调用析构函数问题：看以下代码：12A *pa = new A[10];delete pa; 则类A的构造函数和析构函数分别执行了几次（）答：构造函数执行了10次，析构函数构造了1次]]></content>

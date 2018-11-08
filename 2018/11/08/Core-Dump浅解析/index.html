@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="C++,">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,18 +91,24 @@
 
 
 
-<meta name="description" content="new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回012double *p；p = new double； 此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中delete是释放new请求到的空间的 注意：1.delete必须来释放之前new">
-<meta name="keywords" content="C++">
+<meta name="description" content="Core Dump（核心转储）：当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试 为什么不用gdb呢？答：如果程序运行错误，可以直接通过core文件来gdb调试（有些错误可能是偶然发生的，可能在gdb调试时并不会显露出来，只有在core dump记录之后才能快速定">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="new与delete的使用">
-<meta property="og:url" content="http://xiazi97.github.io/2018/11/07/new与delete的使用/index.html">
+<meta property="og:title" content="Core Dump浅解析">
+<meta property="og:url" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回012double *p；p = new double； 此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中delete是释放new请求到的空间的 注意：1.delete必须来释放之前new">
+<meta property="og:description" content="Core Dump（核心转储）：当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试 为什么不用gdb呢？答：如果程序运行错误，可以直接通过core文件来gdb调试（有些错误可能是偶然发生的，可能在gdb调试时并不会显露出来，只有在core dump记录之后才能快速定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-07T08:53:21.661Z">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump1.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump2.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump3.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump4.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump5.png">
+<meta property="og:updated_time" content="2018-11-08T09:48:17.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="new与delete的使用">
-<meta name="twitter:description" content="new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回012double *p；p = new double； 此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中delete是释放new请求到的空间的 注意：1.delete必须来释放之前new">
+<meta name="twitter:title" content="Core Dump浅解析">
+<meta name="twitter:description" content="Core Dump（核心转储）：当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试 为什么不用gdb呢？答：如果程序运行错误，可以直接通过core文件来gdb调试（有些错误可能是偶然发生的，可能在gdb调试时并不会显露出来，只有在core dump记录之后才能快速定">
+<meta name="twitter:image" content="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/CoreDump1.png">
 
 
 
@@ -132,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2018/11/07/new与delete的使用/">
+  <link rel="canonical" href="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/">
 
 
 
 
 
-  <title>new与delete的使用 | Snoopy</title>
+  <title>Core Dump浅解析 | Snoopy</title>
   
 
 
@@ -317,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/07/new与delete的使用/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">new与delete的使用</h1>
+          <h1 class="post-title" itemprop="name headline">Core Dump浅解析</h1>
         
 
         <div class="post-meta">
@@ -346,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-07T16:50:13+08:00">
-                2018-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T17:39:53+08:00">
+                2018-11-08
               </time>
             
 
@@ -391,14 +397,20 @@
       
 
       
-        <p>new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的<br>new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double *p；</span><br><span class="line">p = new double；</span><br></pre></td></tr></table></figure></p>
-<p>此时系统会根据double类型的空间大小来开辟一个内存空间，并将地址放在指针p中<br>delete是释放new请求到的空间的</p>
-<p>注意：<br>1.delete必须来释放之前new分配的指针<br>2.用new可以指定分配的内存大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int 	*p;</span><br><span class="line">p = new int(30);     //为指针p开辟30个字节单元的内存单元</span><br><span class="line">...</span><br><span class="line">delete p;</span><br></pre></td></tr></table></figure></p>
-<p>3.new可以为数组分配内存，当释放时必须告诉delete数组中有多少元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int *p;</span><br><span class="line">p = new int[10];</span><br><span class="line">...</span><br><span class="line">delete [10] p ;</span><br></pre></td></tr></table></figure></p>
-<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Test()</span><br><span class="line">&#123;</span><br><span class="line">char* p;</span><br><span class="line">strcpy(p,&quot;china&quot;);</span><br><span class="line">cout &lt;&lt; p &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此时只是给变量p分配了一个地址空间，并没有给p所指向的分配空间，所以程序出错<br>应改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void  Test()</span><br><span class="line">&#123;</span><br><span class="line">char *p;</span><br><span class="line">p = new char(10);</span><br><span class="line">strcpy(p,&quot;china&quot;);</span><br><span class="line">cout &lt;&lt; p &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：对于用new运算符创建的对象，必须使用delete才能调用析构函数<br>问题：看以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A *pa = new A[10];</span><br><span class="line">delete pa;</span><br></pre></td></tr></table></figure></p>
-<p>则类A的构造函数和析构函数分别执行了几次（）<br>答：构造函数执行了10次，析构函数构造了1次</p>
+        <p>Core Dump（核心转储）：<br>当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试</p>
+<p>为什么不用gdb呢？<br>答：如果程序运行错误，可以直接通过core文件来gdb调试（有些错误可能是偶然发生的，可能在gdb调试时并不会显露出来，只有在core dump记录之后才能快速定位进行调试）</p>
+<p>CoreDump默认关闭：确保隐私安全/资源占用，<br>1.记录的信息里面可能有隐秘性信息（如用户名和密码）<br>2.Core Dump 文件很大且不会自动清理<br>CoreDump打开：ulimit -c （int）当这个值为0 时则关闭<br>（一个进程产生多大的core文件取决于进程的Resource Limit(这个信息保存在PCB中),使用ulimit命令改变这个限制）<br>ulimit命令实际是改变Shell进程的Resourse Limit</p>
+<p>1.首先将Core Dump打开</p>
+<p><img src="/2018/11/08/Core-Dump浅解析/CoreDump1.png" alt="更改ulimit默认值"></p>
+<p>2.运行死循环程序</p>
+<p><img src="/2018/11/08/Core-Dump浅解析/CoreDump2.png" alt="运行死循环程序"></p>
+<p>3.新建窗口，查看PID，并kill该程序</p>
+<p><img src="/2018/11/08/Core-Dump浅解析/CoreDump3.png" alt="根据PIDkill该程序"></p>
+<p>4.重新回到程序运行界面，发现已经Core Dumped，而ls产生了一个CoreDump文件</p>
+<p><img src="/2018/11/08/Core-Dump浅解析/CoreDump4.png" alt="查看文件信息"></p>
+<p>5.使用Core Dump文件查看错误（core-file ./test.992）</p>
+<p><img src="/2018/11/08/Core-Dump浅解析/CoreDump5.png" alt="启动gdb调试查看错误信息"></p>
+<p>此时查看调用栈信息可以看到：__kernel_vsyscall ()，即为因死循环终止</p>
 
       
     </div>
@@ -416,7 +428,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -429,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/05/类中默认成员函数浅析（二）/" rel="next" title="类中默认成员函数浅析（二）">
-                <i class="fa fa-chevron-left"></i> 类中默认成员函数浅析（二）
+              <a href="/2018/11/07/new与delete的使用/" rel="next" title="new与delete的使用">
+                <i class="fa fa-chevron-left"></i> new与delete的使用
               </a>
             
           </div>
@@ -438,10 +450,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/08/Core-Dump浅解析/" rel="prev" title="Core Dump浅解析">
-                Core Dump浅解析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
