@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-08T14:46:36.181Z</updated>
+  <updated>2018-11-09T14:55:11.230Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux文件权限</title>
+    <link href="http://xiazi97.github.io/2018/11/08/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/"/>
+    <id>http://xiazi97.github.io/2018/11/08/Linux文件权限/</id>
+    <published>2018-11-08T15:37:20.000Z</published>
+    <updated>2018-11-09T14:55:11.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？&lt;/p&gt;
+&lt;p&gt;​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​&lt;/p&gt;
+&lt;p&gt;文件权限值的表示方法：&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>进程信号之信号周期</title>

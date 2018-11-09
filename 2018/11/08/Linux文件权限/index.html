@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,16 +91,26 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Snoopy">
-<meta property="og:url" content="http://xiazi97.github.io/tags/Linux/index.html">
+<meta name="description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux文件权限">
+<meta property="og:url" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/字符表示法.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/数值表示法.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限1.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限2.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限3.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限4.png">
+<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限5.png">
+<meta property="og:updated_time" content="2018-11-09T14:55:11.230Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snoopy">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="Linux文件权限">
+<meta name="twitter:description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
+<meta name="twitter:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/字符表示法.png">
 
 
 
@@ -130,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/tags/Linux/">
+  <link rel="canonical" href="http://xiazi97.github.io/2018/11/08/Linux文件权限/">
 
 
 
 
 
-  <title>标签: Linux | Snoopy</title>
+  <title>Linux文件权限 | Snoopy</title>
   
 
 
@@ -164,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -302,104 +312,195 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/08/Linux文件权限/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李峰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Snoopy">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/11/08/Linux文件权限/" itemprop="url">
-              
-                <span itemprop="name">Linux文件权限</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Linux文件权限</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-08T23:37:20+08:00" content="2018-11-08">
-          11-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T23:37:20+08:00">
+                2018-11-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/08/进程信号之信号周期/" itemprop="url">
-              
-                <span itemprop="name">进程信号之信号周期</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-08T22:26:27+08:00" content="2018-11-08">
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/08/Core-Dump浅解析/" itemprop="url">
-              
-                <span itemprop="name">Core Dump浅解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-08T17:39:53+08:00" content="2018-11-08">
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？</p>
+<p>​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​</p>
+<p>文件权限值的表示方法：</p>
+<p>​    1.字符表示法：</p>
+<p>​        <img src="/2018/11/08/Linux文件权限/字符表示法.png" alt="字符表示法"></p>
+<p>2.8进制数值表示法</p>
+<p><img src="/2018/11/08/Linux文件权限/数值表示法.png" alt="字符表示法"></p>
+<p>那么如何设置且更改文件的访问权限呢？</p>
+<p>​    <strong><em>使用chmod命令</em></strong>：格式为chmod[参数]权限 文件名</p>
+<p>1.用户标识符+-=权限字符</p>
+<p>​    +：向权限范围增加权限代号所表示的权限</p>
+<p>​    -： 向权限范围取消权限代号所表示的权限</p>
+<p>​    =: 向权限范围赋予权限代号所表示的权限</p>
+<p>​    用户符号：</p>
+<p>​    u：拥有着</p>
+<p>​    g：拥有者同组用</p>
+<p>​    o：其他用户</p>
+<p>​    a：所有用户</p>
+<p>chmod u+w /home/abc/txt</p>
+<p>chmod o-x /home/abc/txt</p>
+<p>chmod a=x /home/abc/txt</p>
+<p>2.三位8进制数字</p>
+<p>chmod 664 /home/abc/txt</p>
+<p>chmod 640 /home/abc/txt</p>
+<p>下面进行具体的操作：</p>
+<p>1.创建一个目录，并将其权限改为000</p>
+<p>​    <img src="/2018/11/08/Linux文件权限/权限1.png" alt="字符表示法"></p>
+<p>2.此时进入目录发现权限不够</p>
+<p><img src="/2018/11/08/Linux文件权限/权限2.png" alt="字符表示法"></p>
+<p>3.给该目录所有者加上读权限，并尝试进入目录，发现权限不够</p>
+<p><img src="/2018/11/08/Linux文件权限/权限3.png" alt="字符表示法"></p>
+<p>4.将该目录所有者的读权限取掉，加上写权限，进入目录，发现权限不够</p>
+<p><img src="/2018/11/08/Linux文件权限/权限4.png" alt="字符表示法"></p>
+<p>5.将该目录所有者的写权限取掉，加上执行权限，进入目录，可以进入</p>
+<p><img src="/2018/11/08/Linux文件权限/权限5.png" alt="字符表示法"></p>
+<p>由此可得：</p>
+<p>1.读（r/4）：<strong><em>Read</em></strong>对文件而言，具有<strong>读取文件内容</strong>的权限</p>
+<p>​                    对于目录来说，具有<strong>浏览该目录信息的</strong>权限</p>
+<p>2.写（w/2）：<strong><em>Write</em></strong>对文件而言，具有<strong>修改</strong>文件内容的权限</p>
+<p>​                    对于目录来货，具有<strong>删除</strong>移动目录内文件的权限</p>
+<p>3.执行（x/1）：<strong><em>Execute</em></strong>对文件而言，具有执行文件的权限</p>
+<p>​                    对于文件而言，具有<strong>执行文件</strong>的权限</p>
+<p>​                    对于目录来说，具有<strong>进入**</strong>目录**的权限</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/进程信号之信号周期/" rel="next" title="进程信号之信号周期">
+                <i class="fa fa-chevron-left"></i> 进程信号之信号周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -407,6 +508,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -672,6 +777,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
