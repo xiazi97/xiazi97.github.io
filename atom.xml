@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-09T14:55:11.230Z</updated>
+  <updated>2018-11-10T02:37:21.966Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>进程信号之自定义处理</title>
+    <link href="http://xiazi97.github.io/2018/11/10/%E8%BF%9B%E7%A8%8B%E4%BF%A1%E5%8F%B7%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%A4%84%E7%90%86/"/>
+    <id>http://xiazi97.github.io/2018/11/10/进程信号之自定义处理/</id>
+    <published>2018-11-10T02:22:03.000Z</published>
+    <updated>2018-11-10T02:37:21.966Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;信号的捕捉流程：主要是针对信号的自定义处理方式&lt;/p&gt;
+&lt;p&gt;信号并不是立即处理的，而是选择一个合适的时机去处理，合适的时机就是当前程序从内核态切换到用户态的时候&lt;/p&gt;
+&lt;p&gt;注意：程序如何从用户态切换到内核态?&lt;/p&gt;
+&lt;p&gt;答：1.程序异常的时候    2.发起系统调
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux文件权限</title>
