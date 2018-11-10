@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-10T02:37:21.966Z</updated>
+  <updated>2018-11-10T07:43:39.670Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可重入函数</title>
+    <link href="http://xiazi97.github.io/2018/11/10/%E5%8F%AF%E9%87%8D%E5%85%A5%E5%87%BD%E6%95%B0/"/>
+    <id>http://xiazi97.github.io/2018/11/10/可重入函数/</id>
+    <published>2018-11-10T07:28:16.000Z</published>
+    <updated>2018-11-10T07:43:39.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;不可重入函数：如果函数在不同的地方/时序进行调用，会对函数的功能逻辑造成影响&lt;/p&gt;
+&lt;p&gt;可重入函数：不管怎么调用都不会对函数内部功能/程序逻辑造成影响（局部变量）&lt;/p&gt;
+&lt;p&gt;下面具体演示：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>进程信号之自定义处理</title>
