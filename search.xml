@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[父子进程之SIGCHLD]]></title>
+    <url>%2F2018%2F11%2F11%2F%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B9%8BSIGCHLD%2F</url>
+    <content type="text"><![CDATA[​ 在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子进程，而在子进程终止时会通知父进程，父进程在信号处理函数中调用wait清理子进程即可。 12345678910111213141516171819202122232425262728293031#include&lt;stdio.h&gt;#include&lt;unistd.h&gt;#include&lt;signal.h&gt;#include&lt;stdlib.h&gt;void sigcb()&#123; //使用非阻塞的循环来处理SIGCHLD信号 //因为SIGCHLD信号是不可靠信号，有可能会丢失 //一旦接受到信号就处理到不能处理为止 //!=0代表一直有子程序在退出，所以一直循环，&gt;0返回子进程PID (!=0可能&lt;0，没有子进程） while(waitpid(-1,NULL,WNOHANG) != 0);//多个子进程可能会同时退出，如果同时退出了那么有些信号就会丢失，使得少处理一个信号 printf(&quot;Have a child exit!\n&quot;);&#125;int main()&#123; signal(SIGCHLD,sigcb); int pid = fork(); if(pid == 0) &#123; exit(0); &#125; //waitpid(-1,NULL,0); //避免产生僵尸子进程，但是使得父进程中后续的操作不能正常继续 while(1) &#123; printf(&quot;--------\n&quot;); sleep(1;) &#125; return 0;&#125;]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[可重入函数]]></title>
     <url>%2F2018%2F11%2F10%2F%E5%8F%AF%E9%87%8D%E5%85%A5%E5%87%BD%E6%95%B0%2F</url>
     <content type="text"><![CDATA[不可重入函数：如果函数在不同的地方/时序进行调用，会对函数的功能逻辑造成影响 可重入函数：不管怎么调用都不会对函数内部功能/程序逻辑造成影响（局部变量） 下面具体演示： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657/** 这是一个演示signal接口修改信号处理方式的demo* 信号的处理方式有三种：* 忽略* 默认* 自定义*/ #include&lt;stdio.h&gt; #include&lt;unistd.h&gt; #include&lt;signal.h&gt; void sigcb(int signo) &#123; static int a= 1;//静态变量，再次进入可能会产生不是预期的结果 static int b = 1; int c = 0; a++; sleep(10); b++; c= a + b; printf(&quot;receive signo:%d---%d\n&quot;,signo,c);/* if(signo == SIGINT ) //因为可能有很多信号来调用这个函数，所以需要做出判断 &#123; &#125; else &#123; &#125; */ return; &#125; int main() &#123; // sighandler_t signal(int signum, sighandler_t handler); //signum:信号的编号 //handler：处理方式 // SIG_IGN 忽略 // SIG_DFL 默认 int i = 0; //signal(SIGINT,SIG_IGN); //提前备注，当这个信号到来时忽略它 signal(SIGINT,sigcb); //自定义方式处理 while(1) &#123; /*printf(&quot;--------------\n&quot;); kill(getpid(),SIGINT); if(++i == 3) &#123; signal(SIGINT,SIG_DFL); &#125;*/ sigcb(SIGQUIT); &#125; return 0; &#125; 运行程序时输入Ctrl+C，发现出现下边的情况： 这是为什么呢？图解如下： 不可重入函数的要点（什么函数是不可重入函数）： 1.函数内部包含有对全局性变量的修改操作 2.函数传参的参数跟其他地方共同使用同一个变量 因为这些对全局变量的操作不是原子性的，因此这些修改操作有可能同时在不同地方进行修改 一个函数是否可重入： 1.是否对全局性的数据进行修改操作（malloc是用全局链表来管理堆的） 2.这个操作是否是原子性的]]></content>
