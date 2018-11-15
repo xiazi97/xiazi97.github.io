@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[动态内存管理]]></title>
+    <url>%2F2018%2F11%2F15%2F%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[父子进程之SIGCHLD]]></title>
     <url>%2F2018%2F11%2F11%2F%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B9%8BSIGCHLD%2F</url>
     <content type="text"><![CDATA[​ 在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子进程，而在子进程终止时会通知父进程，父进程在信号处理函数中调用wait清理子进程即可。 12345678910111213141516171819202122232425262728293031#include&lt;stdio.h&gt;#include&lt;unistd.h&gt;#include&lt;signal.h&gt;#include&lt;stdlib.h&gt;void sigcb()&#123; //使用非阻塞的循环来处理SIGCHLD信号 //因为SIGCHLD信号是不可靠信号，有可能会丢失 //一旦接受到信号就处理到不能处理为止 //!=0代表一直有子程序在退出，所以一直循环，&gt;0返回子进程PID (!=0可能&lt;0，没有子进程） while(waitpid(-1,NULL,WNOHANG) != 0);//多个子进程可能会同时退出，如果同时退出了那么有些信号就会丢失，使得少处理一个信号 printf(&quot;Have a child exit!\n&quot;);&#125;int main()&#123; signal(SIGCHLD,sigcb); int pid = fork(); if(pid == 0) &#123; exit(0); &#125; //waitpid(-1,NULL,0); //避免产生僵尸子进程，但是使得父进程中后续的操作不能正常继续 while(1) &#123; printf(&quot;--------\n&quot;); sleep(1;) &#125; return 0;&#125;]]></content>

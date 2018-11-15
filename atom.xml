@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-11T15:21:47.147Z</updated>
+  <updated>2018-11-15T15:26:17.646Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态内存管理</title>
+    <link href="http://xiazi97.github.io/2018/11/15/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    <id>http://xiazi97.github.io/2018/11/15/动态内存管理/</id>
+    <published>2018-11-15T15:26:17.000Z</published>
+    <updated>2018-11-15T15:26:17.646Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>父子进程之SIGCHLD</title>
