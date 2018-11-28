@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-26T15:59:25.766Z</updated>
+  <updated>2018-11-28T13:01:04.370Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,12 +21,21 @@
     <link href="http://xiazi97.github.io/2018/11/26/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
     <id>http://xiazi97.github.io/2018/11/26/深浅拷贝/</id>
     <published>2018-11-26T15:59:25.000Z</published>
-    <updated>2018-11-26T15:59:25.766Z</updated>
+    <updated>2018-11-28T13:01:04.370Z</updated>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;对象之间可以进行复制操作，包括采用拷贝构造函数的方式用一个对象去构造另一个对象（用一个对象的值初始化一个新的构造的对象），如同指针的复制一样，对象复制也分为浅复制和深复制&lt;/p&gt;
+&lt;p&gt;对象浅拷贝：&lt;/p&gt;
+&lt;p&gt;两个对象之间进行复制时，若复制完成后，他们还共同使用着某些资
+      
+    
     </summary>
     
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
