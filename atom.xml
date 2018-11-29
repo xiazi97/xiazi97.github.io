@@ -44,12 +44,24 @@
     <link href="http://xiazi97.github.io/2018/11/19/%E6%A8%A1%E6%9D%BF/"/>
     <id>http://xiazi97.github.io/2018/11/19/模板/</id>
     <published>2018-11-19T15:09:03.000Z</published>
-    <updated>2018-11-19T15:09:03.347Z</updated>
+    <updated>2018-11-29T09:13:36.244Z</updated>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;如何实现一个通用的函数呢？（如针对不同的参数类型均可）&lt;/p&gt;
+&lt;p&gt;使用函数重载可以实现，但是使得代码复用率和可维护性比较低&lt;/p&gt;
+&lt;p&gt;泛型编程：&lt;/p&gt;
+&lt;p&gt;编写与类型无关，与使用场景无关的通用代码，使得代码可以复用&lt;/p&gt;
+&lt;p&gt;模板：&lt;/p&gt;
+&lt;p&gt;函数模板：
+      
+    
     </summary>
     
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
