@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-28T13:01:04.370Z</updated>
+  <updated>2018-11-30T14:46:31.636Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络基础（一）</title>
+    <link href="http://xiazi97.github.io/2018/11/30/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://xiazi97.github.io/2018/11/30/网络基础（一）/</id>
+    <published>2018-11-30T14:45:41.000Z</published>
+    <updated>2018-11-30T14:46:31.636Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;数据传输（ (不)同主机上的进程间同信）&lt;/p&gt;
+&lt;p&gt;协议：(通信双方的一个数据格式协议)&lt;/p&gt;
+&lt;p&gt;网络中主机之间进行通信也必须使用相同的协议（相同的一个光电信号格式）&lt;/p&gt;
+&lt;p&gt;计算机如何传播数据—-光电波信号&lt;/p&gt;
+&lt;p&gt;在网络中因为主机设备的生产厂商很多
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>深浅拷贝</title>
