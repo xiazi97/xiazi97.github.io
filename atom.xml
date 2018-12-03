@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2018-11-30T14:46:31.636Z</updated>
+  <updated>2018-12-03T14:42:44.011Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="http://xiazi97.github.io/2018/11/30/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://xiazi97.github.io/2018/11/30/网络基础（一）/</id>
     <published>2018-11-30T14:45:41.000Z</published>
-    <updated>2018-11-30T14:46:31.636Z</updated>
+    <updated>2018-12-03T14:42:44.011Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;数据传输（ (不)同主机上的进程间同信）&lt;/p&gt;
-&lt;p&gt;协议：(通信双方的一个数据格式协议)&lt;/p&gt;
-&lt;p&gt;网络中主机之间进行通信也必须使用相同的协议（相同的一个光电信号格式）&lt;/p&gt;
-&lt;p&gt;计算机如何传播数据—-光电波信号&lt;/p&gt;
-&lt;p&gt;在网络中因为主机设备的生产厂商很多
+        &lt;h1 id=&quot;数据传输（-不-同主机上的进程间同信）&quot;&gt;&lt;a href=&quot;#数据传输（-不-同主机上的进程间同信）&quot; class=&quot;headerlink&quot; title=&quot;数据传输（ (不)同主机上的进程间同信）&quot;&gt;&lt;/a&gt;数据传输（ (不)同主机上的进程间同信）&lt;/h1&gt;&lt;h2
       
     
     </summary>
