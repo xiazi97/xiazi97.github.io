@@ -3,7 +3,10 @@
   <entry>
     <title><![CDATA[操作系统之]]></title>
     <url>%2F2019%2F01%2F03%2F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[地址变换]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[网络基础（一）]]></title>
