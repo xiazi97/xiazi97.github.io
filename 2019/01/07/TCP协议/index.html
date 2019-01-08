@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,17 +91,20 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP协议">
 <meta property="og:url" content="http://xiazi97.github.io/2019/01/07/TCP协议/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-07T14:17:56.708Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/TCP协议段格式.png">
+<meta property="og:updated_time" content="2019-01-07T16:43:56.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/TCP协议段格式.png">
 
 
 
@@ -390,7 +393,18 @@
       
 
       
-        
+        <p>对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下</p>
+<p>TCP（Transmission Control Protocol <a href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE/9727741" target="_blank" rel="noopener">传输控制协议</a>）是一种面向连接的、可靠的、基于字节流的<a href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82/4329536" target="_blank" rel="noopener">传输层</a>通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠传输，TCP必须规定传输层的连接建立与拆除的方式，数据传输格式，确认的方式，目标应用进程的识别以及差错控制和流量控制机制等。</p>
+<p>TCP的协议数据单元被称为分段，TCP通过分段的交互来建立连接，传输数据，发出确认，进行差错控制，流量控制及关闭连接。</p>
+<ul>
+<li><strong>TCP协议段格式</strong></li>
+</ul>
+<p><img src="/2019/01/07/TCP协议/TCP协议段格式.png" alt="TCP协议段格式"></p>
+<p>源/目的端口号：表示数据从哪个进程来，到哪个进程去；</p>
+<p>32位序号：该分段在发送方的数据流中的位置，用来保证到达数据顺序的序号</p>
+<p>32位确认序号：下一个期望接收的分段序号，相当于是对方发送的并已经被本方正确接收的分段的确认</p>
+<p>首部长度：表示该TCP头部有多少个4字节，实际相当于给出数据在数据段中的开始位置</p>
+
       
     </div>
     
@@ -404,6 +418,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
       
 
       
@@ -522,7 +542,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">17.4k</span>
+      <span class="site-state-item-count">17.8k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 

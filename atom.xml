@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-01-07T14:17:56.708Z</updated>
+  <updated>2019-01-07T16:43:56.523Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,12 +21,20 @@
     <link href="http://xiazi97.github.io/2019/01/07/TCP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://xiazi97.github.io/2019/01/07/TCP协议/</id>
     <published>2019-01-07T14:17:56.000Z</published>
-    <updated>2019-01-07T14:17:56.708Z</updated>
+    <updated>2019-01-07T16:43:56.523Z</updated>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下&lt;/p&gt;
+&lt;p&gt;TCP（Transmission Control Protocol &lt;a href
+      
+    
     </summary>
     
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
     
   </entry>
   
