@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/TCP协议段格式.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/连接管理机制.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/D:/BLog/source/_posts/TCP%E5%8D%8F%E8%AE%AE/TIME_WAIT.png">
-<meta property="og:updated_time" content="2019-01-24T09:10:15.297Z">
+<meta property="og:updated_time" content="2019-01-24T10:14:25.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议">
 <meta name="twitter:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
@@ -454,7 +454,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
 <h4 id="TIME-WAIT为什么是2MSL呢"><a href="#TIME-WAIT为什么是2MSL呢" class="headerlink" title="TIME_WAIT为什么是2MSL呢"></a>TIME_WAIT为什么是2MSL呢</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSL是TCP报文的最大生存时间，因此TIME_WAIT持续在2MSL时间的话:</span><br><span class="line">1.保证在两个传输方向上的尚未被接收或迟到的报文段都已经消失（否则服务器立即重启就会收到来自上一个进程迟到的数据，而这个数据可能是错误的）</span><br><span class="line">2.在理论上保证最后一个报文可靠到达（假设最后一个ACK丢失了，那么服务器会重发一个FIN。这时候虽然客户端进程不在了，但是TCP连接还在，仍然可以重发LAST_ACK）</span><br></pre></td></tr></table></figure>
 <p>​    此时会出现一个新的问题：如果服务器需要处理大量的客户端连接，但是这些连接的生存周期很短，这个时候如果由服务器来主动关闭连接清除不活跃连接就会导致服务器上产生大量TIME_WAIT连接，从而导致服务器的端口不够用无法处理新的连接。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如何解决这个问题呢？</span><br><span class="line">	</span><br><span class="line">	在server代码的socket()和bind()调用之间插入如下代码：</span><br><span class="line">	int opt = 1;</span><br><span class="line">	setsockopt(listenfd,SOL_SOCKET,SO_REUSEADDR,&amp;opt,sizeof(opt));</span><br><span class="line"></span><br><span class="line">	引入了setsockopt()函数。使用setsockopt()设置socket描述符的选项SO_REUSEADDR为1，表示允许创建端口号相同但IP地址不同的多个socket描述符</span><br></pre></td></tr></table></figure>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
+<h2 id="确认应答（ACK）机制"><a href="#确认应答（ACK）机制" class="headerlink" title="确认应答（ACK）机制"></a>确认应答（ACK）机制</h2>
       
     </div>
     
@@ -601,7 +601,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">20.6k</span>
+      <span class="site-state-item-count">20.7k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -645,7 +645,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.5.</span> <span class="nav-text"> </span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认应答（ACK）机制"><span class="nav-number">3.</span> <span class="nav-text">确认应答（ACK）机制</span></a></li></ol></div>
             
 
           </div>
