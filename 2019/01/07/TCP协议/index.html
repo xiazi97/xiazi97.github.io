@@ -101,8 +101,16 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/TCP协议段格式.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/连接管理机制.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/D:/BLog/source/_posts/TCP%E5%8D%8F%E8%AE%AE/TIME_WAIT.png">
-<meta property="og:updated_time" content="2019-01-24T10:14:25.211Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/TIME_WAIT.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/确认应答.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/超时重传1.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/超时重传2.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口1.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口2.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口3.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口4.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口5.png">
+<meta property="og:updated_time" content="2019-01-26T13:16:50.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议">
 <meta name="twitter:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
@@ -445,7 +453,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">为什么不是两次握手？</span><br><span class="line">	两次握手会产生一个问题——最后一个响应报文(ACK）丢失，从而导致服务器端对客户端的请求进行回应（第二次握手）后，就会认为连接已经建立好。而如果客户端没有收到服务器端对其做出的回应呢？此时，客户端认为连接尚未建立，而服务器端会对已经建立的连接保存必要的资源，如果出现大量的这种情况，服务器端会崩溃。</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">为什么是三次握手？</span><br><span class="line">	我们看了上边的分析又会有一个疑问：既然没法确认第二次的握手，客户端是否可以收到，那么怎么确定第三次握手服务器端就可以收到呢？</span><br><span class="line">	这根本没法确定，因为完全可靠的通信协议是根本不存在的，我们任何的通信协议都是在接受这样的现实情况之上进行的。此时我们假设三次握手的最后一个ACK丢失，这时客户端认为连接已经建立好而服务器端认为没有，连接挂在了客户端上，服务器端就不用耗费资源去管理连接，有效的规避了服务器受到攻击的可能。</span><br><span class="line">	所以使用三次握手可以较为可靠的建立连接！</span><br></pre></td></tr></table></figure>
 <h3 id="理解TIME-WAIT"><a href="#理解TIME-WAIT" class="headerlink" title="理解TIME_WAIT"></a>理解TIME_WAIT</h3><p>释放连接时，提到一个名词–&gt;TIME_WAIT,那么什么是TIME_WAIT？<br>    首先我们可以通过如下测试：启动server，再启动一个client，然后使用Ctrl+C使server终止，这时立马运行server结果是：</p>
-<p><img src="/2019/01/07/TCP协议/D:/BLog/source/_posts/TCP%E5%8D%8F%E8%AE%AE/TIME_WAIT.png" alt="TIME_WAIT"></p>
+<p><img src="/2019/01/07/TCP协议/TIME_WAIT.png" alt="TIME_WAIT"></p>
 <p>这是因为，虽然server的应用程序终止了，但是TCP协议层的连接还没有完全断开，因此不能监听到同样的server端口。</p>
 <ul>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TCP协议规定，主动关闭的一方要处于TIME_WAIT状态，等待两个MSL的时间才能回到CLOSED状态。</span><br><span class="line">我们使用Ctrl+C终止了server，所以server是主动关闭连接的一方，在TIME_WAIT期间仍然不能再次监听同样的server端口。</span><br></pre></td></tr></table></figure>
@@ -454,7 +462,51 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
 <h4 id="TIME-WAIT为什么是2MSL呢"><a href="#TIME-WAIT为什么是2MSL呢" class="headerlink" title="TIME_WAIT为什么是2MSL呢"></a>TIME_WAIT为什么是2MSL呢</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSL是TCP报文的最大生存时间，因此TIME_WAIT持续在2MSL时间的话:</span><br><span class="line">1.保证在两个传输方向上的尚未被接收或迟到的报文段都已经消失（否则服务器立即重启就会收到来自上一个进程迟到的数据，而这个数据可能是错误的）</span><br><span class="line">2.在理论上保证最后一个报文可靠到达（假设最后一个ACK丢失了，那么服务器会重发一个FIN。这时候虽然客户端进程不在了，但是TCP连接还在，仍然可以重发LAST_ACK）</span><br></pre></td></tr></table></figure>
 <p>​    此时会出现一个新的问题：如果服务器需要处理大量的客户端连接，但是这些连接的生存周期很短，这个时候如果由服务器来主动关闭连接清除不活跃连接就会导致服务器上产生大量TIME_WAIT连接，从而导致服务器的端口不够用无法处理新的连接。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如何解决这个问题呢？</span><br><span class="line">	</span><br><span class="line">	在server代码的socket()和bind()调用之间插入如下代码：</span><br><span class="line">	int opt = 1;</span><br><span class="line">	setsockopt(listenfd,SOL_SOCKET,SO_REUSEADDR,&amp;opt,sizeof(opt));</span><br><span class="line"></span><br><span class="line">	引入了setsockopt()函数。使用setsockopt()设置socket描述符的选项SO_REUSEADDR为1，表示允许创建端口号相同但IP地址不同的多个socket描述符</span><br></pre></td></tr></table></figure>
-<h2 id="确认应答（ACK）机制"><a href="#确认应答（ACK）机制" class="headerlink" title="确认应答（ACK）机制"></a>确认应答（ACK）机制</h2>
+<h2 id="确认应答（ACK）机制"><a href="#确认应答（ACK）机制" class="headerlink" title="确认应答（ACK）机制"></a>确认应答（ACK）机制</h2><p>​    TCP将每一个字节的数据都进行了编号，即为序列号。而每一个ACK都带有对应的确认序列号，意思是告诉发送者，我已经收到了哪些数据，下一次你从哪里开始发。</p>
+<p><img src="/2019/01/07/TCP协议/确认应答.png" alt="确认应答机制"></p>
+<p>​    由图分析：当主机1给主机2发送了1~1000这么多数据时，主机2如果收到了就会给主机1应答（ACK报文段，每一个ACK都带有对应的确认序列号），表示你给我发的1~1000的数据我已经全部收到了（收到哪些数据），下次你再给我发就给我从1001数据开始发（下次从哪里开始发）。那么主机1收到应答之后就知道对方已经收到了1~1000的全部数据，所以再一次发送数据的时候他就会从1001开始发，后面都是依此类推的情况。</p>
+<p>​    当然了，当我们的主机1给主机2发送了数据之后，经过一端时间主机1并没有收到主机2的应答的情况也是有的，所以这个时候为了确保数据的准确到达，TCP就有了超时重传机制。</p>
+<h2 id="超时重传机制"><a href="#超时重传机制" class="headerlink" title="超时重传机制"></a>超时重传机制</h2><p>​    <img src="/2019/01/07/TCP协议/超时重传1.png" alt="超时重传"></p>
+<p>​    如图所示，主机A发送数据给主机B之后，可能因为网络拥堵等原因，数据无法到达主机B;那么主机A在一个特定的时间间隔内没有收到B发来的确认应答就会进行重发。</p>
+<p>​    但是，主机A未收到主机B发来的确认应答，也可能是因为ACK丢失了：</p>
+<p>​    <img src="/2019/01/07/TCP协议/超时重传2.png" alt="超时重传"></p>
+<p>因此主机B会收到很多重复数据，那么TCP协议需要能识别出哪些包是重复的包，并且把重复的丢弃掉，这时候我们可以利用前面提到的序列号就可以很容易做到去重的效果。</p>
+<p>​    那么，超时的时间如何确定呢？</p>
+<p>​    最理想的情况下，找到一个最小的时间，保证“确认应答一定能在这个时间内返回”，但是这个时间的长短随着网络环境的不同是有差异的。如果超时时间设的太长会影响整体的重传效率，如果超时时间设的太短有可能会频繁发送重复的包。</p>
+<p>​    TCP为了保证无论在任何环境下都能比较高性能的通信，因此会动态的计算这个最大超时时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux下，超时以500ms为一个单位进行控制，每次判定超时重发的超时时间都是500ms的整数倍。如果重发一次仍然得不到应答，那么等待2*500ms后再进行重传；如果还得不到应答，等待4*500ms进行重传···依次类推，以指数形式递增。在累计到一定的重传次数后，TCP会认为网络或者对端主机出现异常，强制关闭连接。</span><br></pre></td></tr></table></figure>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p>​    刚才我们讨论了确认应答机制，对每一个发送的数据段，都要给一个ACK确认应答，收到ACK后再发送下一个数据段。这样做有一个比较大的缺点：性能较差。尤其是数据往返时间较长时候。</p>
+<p><img src="/2019/01/07/TCP协议/滑动窗口1.png" alt="滑动窗口"></p>
+<p>​    这样一发一收的方式性能较低，那么我们一次发送多条数据，就可以大大的提高性能（其实是将多个段的等待时间重叠在一起了）。</p>
+<p><img src="/2019/01/07/TCP协议/滑动窗口2.png" alt="滑动窗口"></p>
+<ul>
+<li>窗口大小指的是无需等待确认应答而可以继续发送数据的最大值。上图窗口大小就是4000个字节（四个段）</li>
+<li>发送前四个段的时候，不需要等待任何ACK，直接可以发送</li>
+<li>收到第一个ACK后，滑动窗口向后移动，继续发送第五个段的数据，依次类推</li>
+<li>操作系统为了维护这个滑动窗口，需要开辟发送缓冲区来记录当前还有哪些数据没有应答，只有确认应答过的数据才能从缓冲区删掉</li>
+<li>窗口越大，则网络的吞吐率就越高</li>
+</ul>
+<p><img src="/2019/01/07/TCP协议/滑动窗口3.png" alt="滑动窗口"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">1.凡是已经发送过的数据，在未收到确认之前都必须暂时保留，以便在超时重传时使用。</span><br><span class="line">2.发送窗口前沿通常是不断向前移动的，但也有可能不动。这对于两种情况：一是没有收到新的确认，对方通知的窗口大小也不变；二是收到了新的确认但对方通知的窗口缩小了，使得发送窗口前沿正好不动。</span><br></pre></td></tr></table></figure>
+<p>​    那么，如果出现了丢包，如何进行重传？这里分两种情况讨论。</p>
+<p>情况一：数据包已经抵达，ACK被丢失了</p>
+<p><img src="/2019/01/07/TCP协议/滑动窗口4.png" alt="滑动窗口"></p>
+<p>这种情况下，部分ACK丢失了并不要紧，因为可以通过后续的ACK进行确认。</p>
+<p><img src="/2019/01/07/TCP协议/滑动窗口5.png" alt="滑动窗口"></p>
+<ul>
+<li><p>当某一段报文段丢失之后，发送端会一直收到1001这样的ACK，就像是在提醒发送端“我想要的是1001”一样</p>
+</li>
+<li><p>如果发送端主机连续三次收到了同样一个“1001”这样的应答，就会将对应的数据1001~2000重新发送</p>
+</li>
+<li><p>这个时候接收端收到了1001之后，再次返回的ACK就是7001了（因为2000~7001接收端其实之前已经就收到了，被放到了接收端操作系统内核的接收缓冲区中）</p>
+</li>
+</ul>
+<p>  这种机制也被叫做“高速重发控制”（“快重传”）</p>
+<p>  根据以上所讨论的，我们还要强调三点：</p>
+<p>  ​    第一，虽然A的发送窗口是根据B的接收窗口设置的，但在同一时刻，A的发送窗口并不总是和B的接收窗口一样大。这是因为通过网络传送窗口值需要经历一定的时间滞后（这个时间是不确定的）。另外，发送方A还要根据当时的拥塞情况适当的减小自己的发送窗口数值。</p>
+<p>  ​    第二，对于不按序到达的数据应如何处理，TCP标准并无明确的规定。如果接收方把不按序到达的数据一律丢弃，那么接收窗口的管理就会比较简单，但这样做对网络资源的利用不利（因为发送方会重复发送较多的数据）。因此TCP通常对不按序到达的数据是先临时存放在接收窗口中，等到字节流中所缺少的字节收到后，再按序交付给上层的应用进程。</p>
+<p>  ​    第三，TCP要求接受方必须有累计确认的功能，这样可以减少传输开销。接收方可以在合适的时候发送确认，也可以在自己有数据发送时把确认信息顺便捎带上。但请注意两点：第一，接收方不应过分推迟发送确认，否则会导致发送方不必要的重传，这反而浪费了网络资源。TCP标准规定，确认推迟的时间不应超过0.5秒。若收到一连串具有最大长度的报文段，则必须每隔一个报文段就要发送一个确认。第二，捎带确认实际并不经常发生，因为大多数应用程序不同时在两个方向上发送数据。</p>
+
       
     </div>
     
@@ -601,7 +653,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">20.7k</span>
+      <span class="site-state-item-count">22.5k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -645,7 +697,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认应答（ACK）机制"><span class="nav-number">3.</span> <span class="nav-text">确认应答（ACK）机制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认应答（ACK）机制"><span class="nav-number">3.</span> <span class="nav-text">确认应答（ACK）机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超时重传机制"><span class="nav-number">4.</span> <span class="nav-text">超时重传机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">滑动窗口</span></a></li></ol></div>
             
 
           </div>
