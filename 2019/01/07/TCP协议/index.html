@@ -110,7 +110,9 @@
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口3.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口4.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口5.png">
-<meta property="og:updated_time" content="2019-01-26T13:16:50.454Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/流量控制.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/拥塞窗口.png">
+<meta property="og:updated_time" content="2019-01-27T12:36:27.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议">
 <meta name="twitter:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
@@ -506,6 +508,64 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
 <p>  ​    第一，虽然A的发送窗口是根据B的接收窗口设置的，但在同一时刻，A的发送窗口并不总是和B的接收窗口一样大。这是因为通过网络传送窗口值需要经历一定的时间滞后（这个时间是不确定的）。另外，发送方A还要根据当时的拥塞情况适当的减小自己的发送窗口数值。</p>
 <p>  ​    第二，对于不按序到达的数据应如何处理，TCP标准并无明确的规定。如果接收方把不按序到达的数据一律丢弃，那么接收窗口的管理就会比较简单，但这样做对网络资源的利用不利（因为发送方会重复发送较多的数据）。因此TCP通常对不按序到达的数据是先临时存放在接收窗口中，等到字节流中所缺少的字节收到后，再按序交付给上层的应用进程。</p>
 <p>  ​    第三，TCP要求接受方必须有累计确认的功能，这样可以减少传输开销。接收方可以在合适的时候发送确认，也可以在自己有数据发送时把确认信息顺便捎带上。但请注意两点：第一，接收方不应过分推迟发送确认，否则会导致发送方不必要的重传，这反而浪费了网络资源。TCP标准规定，确认推迟的时间不应超过0.5秒。若收到一连串具有最大长度的报文段，则必须每隔一个报文段就要发送一个确认。第二，捎带确认实际并不经常发生，因为大多数应用程序不同时在两个方向上发送数据。</p>
+<h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><p>  ​    接收端处理数据的速度是有限的。如果发送端发的太快，导致接收端的缓冲区被打满，这个时候如果发送端继续发送，就会造成丢包，继而引起丢包重传等一系列连锁反应。因此，TCP支持根据接收端的处理能力，来决定发送端的发送速度，这个机制就叫做流量控制。</p>
+<p>  ​    下面通过图示例子说明入户利用滑动窗口机制进行流量控制。</p>
+<p>  ​    设A向B发送数据。在连接建立时，B告诉了A：“我的接收窗口rwnd = 400”（这里rwnd表示receiver window）。因此，发送方的发送窗口不能超过接收方给出的接收窗口的数值。请注意，TCP的窗口单位是字节，不是报文段。TCP连接建立时的窗口协商在图中没有显式出来。再设每一个报文段为100字节长，而数据报文段序号的初始值设为1.请注意，途中箭头上边大写ACK表示首部中的确认位ACK，小写ack表示确认字段的值。<img src="/2019/01/07/TCP协议/流量控制.png" alt="流量控制"></p>
+<p>  ​    我们应注意到，接收方的主机B进行了三次流量控制。第一次把窗口减小到rwnd = 300，第二次又减到rwnd=100，最后减到rwnd=0，即不允许发送方再发送数据了。这种使发送方暂停发送的状态将持续到主机B重新发送一个新的窗口值为止。我们还注意到，B向A发送的三个报文段都设置了ACK=1，只有在ACK=1时确认号字段才有意义。</p>
+<p>  ​    现在我们考虑一种情况：B向A发送了零窗口的报文段后不久，B的接收缓存又有了一些存储空间。于是B向A发送了rwnd=400的报文段。然而这个报文段在传送过程中丢失了。A一直等待收到B发送的非零窗口的通知，而B也一直等待A发送的数据。如果没有其他措施，这种互相等待的死锁局面将一直持续下去。</p>
+<p>  ​    为了解决这个问题，TCP为每一个连接设有一个持续计时器。只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器。若持续计时器设置的时间到期，就发送一个零窗口探测报文段（仅携带1字节的数据），而对方就在确认这个探测报文段时给出了现在的窗口值。如果窗口仍是零，那么收到这个报文段的一方就重新设置持续计时器。如果窗口不是零，那么死锁的僵局就可以打破。</p>
+<p>  ​    接收端如何把窗口大小告诉发送端呢？</p>
+<p>  ​    回忆我们的TCP首部中，有一个16位的窗口字段，就是存放了窗口大小信息；那么问题来了，16位数字最大表示65535，那么TCP窗口最大就是65535字节么？实际上，TCP首部40字节选项中还包含了一个窗口扩大因子M，实际窗口大小时窗口字段的值左移M位。（扩大2的M次）</p>
+<h2 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h2><p>  ​    虽然TCP有了滑动窗口这个大杀器，能够高效可靠的发送大量的数据。但是如果在刚开始阶段就发送大量的数据，仍然可能引发问题。因为网络上有很多的计算机，可能当前的网络状态就已经比较拥堵。在不清楚当前网络状态下，贸然发送大量的数据，是很有可能雪上加霜的。</p>
+<p>  ​    发送方维持一个叫做拥塞窗口cwnd的状态变量。拥塞窗口的大小取决于网络的拥塞程度，并且动态地在变化。发送方让自己的发送窗口等于拥塞窗口（如果再考虑到接收方的接受能力，那么发送窗口还可能小于拥塞窗口）。发送方控制拥塞窗口的原则是：只要网络没有出现拥塞，拥塞窗口就再增大一些，以便把更多的分组发送出去。但只要网络出现拥塞，拥塞窗口就减小一些，以减少注入到网络中的分组数。</p>
+<p>  ​    TCP引入慢启动机制，先发少量的数据探探路，摸清当前的网络拥堵状态，再决定按照多大的速度传输数据。</p>
+<p>  ​    慢开始的思路是这样的：当主机开始发送数据时，如果立即把大量数据字节注入到网络，那么就有可能引起网络拥塞，因为现在并不清楚网络的负荷情况。经验证明，较好的方法是先探测一下，即由小到大逐渐增大发送窗口，也就是说，由小到大逐渐增大拥塞窗口数值。通常在刚刚开始发送报文段时，先把拥塞窗口cwnd设置为一个最大报文段MSS的数值。而在每收到一个对新的报文段的确认后，把拥塞窗口增加至多一个MSS的数值。 用这样的方法逐步增大发送方的拥塞窗口cwnd，可以使分组注入到网络的速率更加合理。</p>
+<p><img src="/2019/01/07/TCP协议/拥塞窗口.png" alt="流量控制"></p>
+<ul>
+<li><p>发送开始的时候，，定义拥塞窗口大小为1；</p>
+</li>
+<li><p>每次收到一个ACK应答，拥塞窗口加1</p>
+</li>
+<li>每次发送数据包的时候，将拥塞窗口和接收端主机反馈的窗口大小做比较，取较小的值作为实际发送的窗口</li>
+</ul>
+<p>像上面这样的拥塞窗口增长速度，是指数级别的。“慢启动”只是指初始时慢，但是增长速度非常快。</p>
+<p>为了不增长的那么快，因此不能使拥塞窗口单纯的加倍</p>
+<p>此处引入一个叫做慢启动的阈值</p>
+<p>当拥塞窗口超过这个阈值的时候，不再按照指数方式增长，而是按照线性方式增长</p>
+<p>当TCP开始启动时 ，，慢启动阈值等于窗口最大值</p>
+<p>在每次超时重发的时候，慢启动阈值会变成原来的一半，同时拥塞窗口置为一</p>
+<p>​    那么发送方又是如何知道网络发生了拥塞呢？我们知道，当网络发生拥塞时，路由器会丢弃分组。少量的丢/包，我们仅仅是出发超时重传；大量的丢包，我们就认为网络拥塞。</p>
+<h2 id="延迟应答"><a href="#延迟应答" class="headerlink" title="延迟应答"></a>延迟应答</h2><p>如果接收数据的主机立刻返回ACK应答，这时候返回的窗口可能比较小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假设接收端缓冲区为1M，一次收到了500K的数据；如果立即应答，返回的窗口就是500K,但实际上可能处理端处理的速度很快，10ms之内就把500K数据从缓冲区消费掉了，在这种情况下，接收端处理还远没有达到自己的极限，即使窗口再放大一些也能处理过来，如果接收端稍微等一会再应答，比如等待200ms再应答，那么这个时候返回的窗口就是1M</span><br></pre></td></tr></table></figure>
+<p>​    一定要记得，窗口越大，网络吞吐量就越大，传输效率就越高。我们的目标是在保证网络不拥塞的情况下尽量提高传输效率</p>
+<p>​    那么所有的 包都可以延迟应答吗？当然不是的</p>
+<ul>
+<li>数量限制：每隔N个包就应答一次</li>
+<li>时间限制：超过最大延迟时间就应答一次</li>
+</ul>
+<p>具体的数量和超时时间，依操作系统不同也有差异：一般N取2，超时时间取200ms</p>
+<h2 id="捎带应答"><a href="#捎带应答" class="headerlink" title="捎带应答"></a>捎带应答</h2><p>在延迟应答的基础上，我们发现，很多情况下，客户端服务器在应用层也是“一发一收”的，意味着客户端给服务器说了”How are you”，服务器也会给客户端回一个“Fine”，那么这个时候ACK就可以搭顺风车，和服务器回应的“Fine”一起回给客户端</p>
+<h2 id="面向字节流"><a href="#面向字节流" class="headerlink" title="面向字节流"></a>面向字节流</h2><p>创建一个TCP的socket，同时在内核中创建一个“发送缓冲区”和“接收缓冲区”</p>
+<ul>
+<li>调用send/write时，数据会先写入发送缓冲区中</li>
+<li>如果发送的字节数太长，会被拆分成多个TCP的数据包发出</li>
+<li>如果发送的字节数太短，就会先在缓冲区里等待，等到缓冲区长度差不多了，或者其他合适的时机发送出去</li>
+<li>接收数据的时候，数据也是从网卡驱动程序到达内核的接收缓冲区</li>
+<li>然后应用程序可以调用read从接收缓冲区拿数据</li>
+<li>另一方面，TCP的一个连接，既有发送缓冲区，也有接收缓冲区。那么对于这一个连接，既可以读数据，也可以写数据。（全双工）</li>
+</ul>
+<p>由于缓冲区的存在，TCP程序的读和写不需要一一匹配，例如：</p>
+<ul>
+<li>写100个字节数据时，可以调用一次write写100个字节，也可以调用100次write每次写一个字节</li>
+<li>读100个字节数据时，也完全不需要考虑写的时候是怎么写的，既可以一次read100个字节，也可以重复read100次，一次read一个字节</li>
+</ul>
+<h2 id="粘包问题"><a href="#粘包问题" class="headerlink" title="粘包问题"></a>粘包问题</h2><p>​    首先明确一点，粘包问题中的“包”，是指应用层的数据包。在TCP的协议头中，没有如同UDP一样的“报文长度”这样的字段，但是有一个序号这样的字段。站在传输层的角度，TCP是一个一个报文过来的，按照序号排好序放在缓冲区中。站在应用层的角度，看到的只是一串连续的字节数据，那么应用程序看到了这么一串字节数据就不知道从哪个部分开始到哪个部分，是一个完整的应用层数据包。</p>
+<p>​    那么如何避免粘包问题呢？明确两个包之间的边界！！！</p>
+<ul>
+<li>对于定长的包，保证每次都按固定大小读取即可</li>
+<li>对于变长的包，可以在包头位置，约定一个包总长度的字段，从而就知道了包的结束位置</li>
+<li>对于变长的包，还可以在包和包之间使用明确的分隔符（应用层协议，是程序员自己定的）</li>
+</ul>
 
       
     </div>
@@ -653,7 +713,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">22.5k</span>
+      <span class="site-state-item-count">25.2k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -697,7 +757,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认应答（ACK）机制"><span class="nav-number">3.</span> <span class="nav-text">确认应答（ACK）机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超时重传机制"><span class="nav-number">4.</span> <span class="nav-text">超时重传机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">滑动窗口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP分段格式"><span class="nav-number">1.</span> <span class="nav-text">TCP分段格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接管理机制"><span class="nav-number">2.</span> <span class="nav-text">连接管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接（三次握手）"><span class="nav-number">2.1.</span> <span class="nav-text">建立连接（三次握手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放连接（四次挥手）"><span class="nav-number">2.2.</span> <span class="nav-text">释放连接（四次挥手）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务拒绝式攻击"><span class="nav-number">2.3.</span> <span class="nav-text">服务拒绝式攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么是三次握手？"><span class="nav-number">2.3.1.</span> <span class="nav-text">为什么是三次握手？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解TIME-WAIT"><span class="nav-number">2.4.</span> <span class="nav-text">理解TIME_WAIT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT为什么是2MSL呢"><span class="nav-number">2.4.1.</span> <span class="nav-text">TIME_WAIT为什么是2MSL呢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确认应答（ACK）机制"><span class="nav-number">3.</span> <span class="nav-text">确认应答（ACK）机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超时重传机制"><span class="nav-number">4.</span> <span class="nav-text">超时重传机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口"><span class="nav-number">5.</span> <span class="nav-text">滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流量控制"><span class="nav-number">6.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拥塞控制"><span class="nav-number">7.</span> <span class="nav-text">拥塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟应答"><span class="nav-number">8.</span> <span class="nav-text">延迟应答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捎带应答"><span class="nav-number">9.</span> <span class="nav-text">捎带应答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向字节流"><span class="nav-number">10.</span> <span class="nav-text">面向字节流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#粘包问题"><span class="nav-number">11.</span> <span class="nav-text">粘包问题</span></a></li></ol></div>
             
 
           </div>
