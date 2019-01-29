@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-01-28T12:02:24.119Z</updated>
+  <updated>2019-01-29T11:41:14.340Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,20 +21,21 @@
     <link href="http://xiazi97.github.io/2019/01/28/IP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://xiazi97.github.io/2019/01/28/IP协议/</id>
     <published>2019-01-28T08:03:24.000Z</published>
-    <updated>2019-01-28T12:02:24.119Z</updated>
+    <updated>2019-01-29T11:41:14.340Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;​    &lt;/p&gt;
-
+        &lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;IP协议提供了一种从A主机跨网络将数据传给B主机的能力&lt;/li&gt;
+&lt;li&gt;主机：配有IP地址，但是不进行路由控制
       
     
     </summary>
     
     
-      <category term="Linux，网络协议" scheme="http://xiazi97.github.io/tags/Linux%EF%BC%8C%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -43,7 +44,7 @@
     <link href="http://xiazi97.github.io/2019/01/07/TCP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://xiazi97.github.io/2019/01/07/TCP协议/</id>
     <published>2019-01-07T14:17:56.000Z</published>
-    <updated>2019-01-27T12:36:27.786Z</updated>
+    <updated>2019-01-29T07:58:46.052Z</updated>
     
     <summary type="html">
     
@@ -56,7 +57,7 @@
     </summary>
     
     
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

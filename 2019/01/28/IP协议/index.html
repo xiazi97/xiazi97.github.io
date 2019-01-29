@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux，网络协议,">
+  <meta name="keywords" content="计算机网络,">
 
 
 
@@ -91,18 +91,20 @@
 
 
 
-<meta name="description" content="​">
-<meta name="keywords" content="Linux，网络协议">
+<meta name="description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式  4位版本号：指定IP协议的版本，对于IPV4来说就是4  4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节">
+<meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IP协议">
 <meta property="og:url" content="http://xiazi97.github.io/2019/01/28/IP协议/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="​">
+<meta property="og:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式  4位版本号：指定IP协议的版本，对于IPV4来说就是4  4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-28T12:02:24.119Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/报头.png">
+<meta property="og:updated_time" content="2019-01-29T11:41:14.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP协议">
-<meta name="twitter:description" content="​">
+<meta name="twitter:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式  4位版本号：指定IP协议的版本，对于IPV4来说就是4  4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/01/28/IP协议/报头.png">
 
 
 
@@ -391,7 +393,48 @@
       
 
       
-        <p>​    </p>
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>IP协议提供了一种从A主机跨网络将数据传给B主机的能力</li>
+<li>主机：配有IP地址，但是不进行路由控制的设备</li>
+<li>路由器：既配有IP地址，又可以进行路由控制</li>
+<li>节点：主机和路由器的统称</li>
+</ul>
+<h2 id="IP协议头格式"><a href="#IP协议头格式" class="headerlink" title="IP协议头格式"></a>IP协议头格式</h2><p><img src="/2019/01/28/IP协议/报头.png" alt="IP协议段格式"></p>
+<ul>
+<li><p>4位版本号：指定IP协议的版本，对于IPV4来说就是4</p>
+</li>
+<li><p>4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节</p>
+</li>
+<li><p>8位服务类型：3位优先权字段（已经弃用），4位TOS字段，和1位保留字段（必须置为0）.4位TOS分别表示：最小延时，最大吞吐量，最高可靠性，最小成本。这四者相互冲突，只能选择一个。对于ssh/telnet这样的应用程序，最小延时比较重要；对于ftp这样的程序，最大吞吐量比较重要</p>
+</li>
+<li><p>16位总长度：IP数据报整体占多少个字节</p>
+</li>
+<li><p>16位标识：唯一的标识主机发送的报文。如果IP报文在数据链路层被分片了，那么每一个片里面的这个id是相同的</p>
+</li>
+<li><p>3位标志字段：占3位，但目前只有两位有意义</p>
+<ul>
+<li>标志字段中的最低位记为MF。MF=1即表示后面“还有分片”的数据报。MF=0表示这已经若干数据报片中的最后一个</li>
+<li>标志字段中间的一位记为DF，置为1表示禁止分片，这时候如果报文长度超过MTU，IP模块就会丢弃报文，只有DF=0时才允许分片</li>
+</ul>
+</li>
+<li><p>13位分片偏移：是分片相对于原始IP报文开始处的偏移。其实就是在表示当前分片在原报文中处在哪个位置。实际偏移的字节数*8得到的。因此，除了最后一个报文之外，其他报文的长度必须是8的整倍数（否则报文就不连续了）</p>
+<ul>
+<li><p>片偏移计算为什么以8字节为单位？</p>
+<p>因为在报头中，IP总长度是16位来表示的，也就是总共可能有2^16个字节数据，但是只有13位片偏移，相差2^3，也就是8位。</p>
+</li>
+</ul>
+</li>
+<li><p>8位生存时间：数据报到达目的地的最大报文跳数。一般是64.每次经过一个路由，TTL-=1，一直减到0还没到达，那么就丢弃了。这个字段主要是用来防止出现路由循环</p>
+</li>
+<li><p>8位协议：表示上层协议的类型</p>
+</li>
+<li><p>16位头部校验和：使用CRC进行校验，来鉴别头部是否损坏</p>
+</li>
+<li><p>32位源地址和32位目标地址：表示发送端和接收端</p>
+</li>
+<li><p>选项字段（不定长，最多40字节）</p>
+<h2 id="网段划分"><a href="#网段划分" class="headerlink" title="网段划分"></a>网段划分</h2></li>
+</ul>
 
       
     </div>
@@ -409,7 +452,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux，网络协议/" rel="tag"><i class="fa fa-tag"></i> Linux，网络协议</a>
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           
         </div>
       
@@ -482,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -530,7 +582,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">25.2k</span>
+      <span class="site-state-item-count">25.9k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -564,6 +616,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP协议头格式"><span class="nav-number">2.</span> <span class="nav-text">IP协议头格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网段划分"><span class="nav-number">3.</span> <span class="nav-text">网段划分</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
