@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-02-14T10:47:40.203Z</updated>
+  <updated>2019-02-17T13:12:32.117Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>以太网</title>
+    <link href="http://xiazi97.github.io/2019/02/17/%E4%BB%A5%E5%A4%AA%E7%BD%91/"/>
+    <id>http://xiazi97.github.io/2019/02/17/以太网/</id>
+    <published>2019-02-17T06:55:14.000Z</published>
+    <updated>2019-02-17T13:12:32.117Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;点到点信道的数据链路层协议的数据单元为帧：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将网络层交下来的IP数据报添加首部尾部封装成帧；&lt;/li&gt;
+&lt;li&gt;将封装好的帧发送给接受方的数据链路层；&lt;/li&gt;
+&lt;li&gt;收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃&lt;/li&gt;
+&lt;/ol&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>IP协议</title>
