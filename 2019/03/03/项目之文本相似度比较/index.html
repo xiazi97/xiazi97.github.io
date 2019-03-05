@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,17 +91,18 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="description" content="​    对于当代大学生而言，毕业时写的论文是一个对自己知识的 1.基于jieba库对文件进行分词 123456789101112131415161718192021222324252627282930313233343536373839404142Similarity::wordfreq Similarity::getWordFreq(const char* filename)&amp;#123;	if">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态内存管理">
-<meta property="og:url" content="http://xiazi97.github.io/2018/11/15/动态内存管理/index.html">
+<meta property="og:title" content="项目之文本相似度比较">
+<meta property="og:url" content="http://xiazi97.github.io/2019/03/03/项目之文本相似度比较/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="​    对于当代大学生而言，毕业时写的论文是一个对自己知识的 1.基于jieba库对文件进行分词 123456789101112131415161718192021222324252627282930313233343536373839404142Similarity::wordfreq Similarity::getWordFreq(const char* filename)&amp;#123;	if">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T15:26:17.646Z">
+<meta property="og:updated_time" content="2019-03-03T07:44:59.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态内存管理">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="项目之文本相似度比较">
+<meta name="twitter:description" content="​    对于当代大学生而言，毕业时写的论文是一个对自己知识的 1.基于jieba库对文件进行分词 123456789101112131415161718192021222324252627282930313233343536373839404142Similarity::wordfreq Similarity::getWordFreq(const char* filename)&amp;#123;	if">
 
 
 
@@ -131,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2018/11/15/动态内存管理/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/03/03/项目之文本相似度比较/">
 
 
 
 
 
-  <title>动态内存管理 | Snoopy</title>
+  <title>项目之文本相似度比较 | Snoopy</title>
   
 
 
@@ -316,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/15/动态内存管理/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/03/03/项目之文本相似度比较/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -333,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">动态内存管理</h1>
+          <h1 class="post-title" itemprop="name headline">项目之文本相似度比较</h1>
         
 
         <div class="post-meta">
@@ -345,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T23:26:17+08:00">
-                2018-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T10:05:55+08:00">
+                2019-03-03
               </time>
             
 
@@ -390,7 +391,12 @@
       
 
       
-        
+        <p>​    对于当代大学生而言，毕业时写的论文是一个对自己知识的</p>
+<p>1.基于jieba库对文件进行分词</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Similarity::wordfreq Similarity::getWordFreq(const char* filename)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	ifstream fin(filename);</span><br><span class="line"></span><br><span class="line">	if(!fin.is_open())</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; &quot;Open File&quot; &lt;&lt; filename &lt;&lt; &quot;Failed&quot;&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">		return wordfreq();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    string line;</span><br><span class="line">    wordfreq freq;</span><br><span class="line">    while(!fin.eof())</span><br><span class="line">    &#123;</span><br><span class="line">    	getline(fin,line);</span><br><span class="line">    	//GBK--&gt;UTF8</span><br><span class="line">    	line = GBKToUTF8(line);</span><br><span class="line">    	//分词</span><br><span class="line">    	vector&lt;string&gt; words;</span><br><span class="line">    	_jieba.Cut(line,words,true);</span><br><span class="line">    	//统计词频，统计时先对应停用词表去掉停用词</span><br><span class="line">    	for(const auto&amp; e : words)</span><br><span class="line">    	&#123;</span><br><span class="line">    		if(_StopWordSet.count(e) &gt; 0)</span><br><span class="line">    			continue;</span><br><span class="line">    		else</span><br><span class="line">    		&#123;</span><br><span class="line">    			if(freq.count(e) &gt; 0)</span><br><span class="line">    				freq[e]++;</span><br><span class="line">    			else</span><br><span class="line">    				freq[e] = 1;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return freq;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.而在统计词频时，需要对分好的词去掉停用词，使用jieba中给出的停用词文件构造停用词表（人类语言包含很多功能词。与其他词相比，功能词没有什么实际含义。 停用词主要包括数字、标点符号及使用频率 特高的词(代词，语气助词、副词、介词、连接词 )等。 我 我们 怎么办 总之 此外 然而 不如 不妨 。 , ？ …….. 停用词不代表实际意义，所以不需要统计停用词的词频，停用词不参与构建词频向量 ）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void Similarity::getStopWord(const char* stopwordsFile)</span><br><span class="line">&#123;</span><br><span class="line">	ifstream fin(stopwordsFile);</span><br><span class="line">	if(!fin.is_open())</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;&quot;Open File&quot; &lt;&lt; stopwordsFile &lt;&lt;&quot;Failed&quot; &lt;&lt;endl;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	string line;</span><br><span class="line">	while(!fin.eof())</span><br><span class="line">	&#123;</span><br><span class="line">		getline(fin,line);</span><br><span class="line">		_StopWordSet.insert(line);</span><br><span class="line">	&#125;</span><br><span class="line">	fin.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -405,6 +411,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+        </div>
+      
 
       
       
@@ -414,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/11/父子进程之SIGCHLD/" rel="next" title="父子进程之SIGCHLD">
-                <i class="fa fa-chevron-left"></i> 父子进程之SIGCHLD
+              <a href="/2019/02/17/以太网/" rel="next" title="以太网">
+                <i class="fa fa-chevron-left"></i> 以太网
               </a>
             
           </div>
@@ -423,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/19/模板/" rel="prev" title="模板">
-                模板 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

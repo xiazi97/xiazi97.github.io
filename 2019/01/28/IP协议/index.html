@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/报头.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/IP分类.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/子网划分.png">
-<meta property="og:updated_time" content="2019-02-14T10:47:40.203Z">
+<meta property="og:updated_time" content="2019-03-05T15:06:16.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP协议">
 <meta name="twitter:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节 8位">
@@ -442,6 +442,15 @@
 <p>​    A类地址的网络号占1个字节，只有7位可以使用。可以指派的A类网络号为126（2^7-2）个。A类IP地址中网络字段全0表示的是“本网络（A类网络）”的意思，不用于分配给具体的主机。IP地址中网络号全1表示的是本地环回地址，用于测试本主机的进程之间的通信，即网络号为127的IP地址。A类地址的主机号占3个字节，所以一个A类网络中可以连接的最大主机数为：2^24-2。主机号全0表示该主机连接的单个网络地址（某个A类网络），主机号全1表示该网络中的所有主机。</p>
 <pre><code>B类地址的网络号占2个字节，只有14位可以使用。可以指派的B类网络号为2^14-1（128.0.0.0）不用，最小的网络号为：128.1.0.0。每一个B类网路可以连接的最大主机数为：2^16-2=65534。（扣除主机号全0和全1的IP地址）。
 </code></pre><p>​    C类地址的网络号占3个字节，只有21位可以使用。可以指派的C类网络号为2^21（192.0.0.0不用），最小的网络号为：192.0.1.0。每一个C类主机可以连接的最大主机数为：2^8-2=254（扣除主机号为全0和全1的IP地址）。</p>
+<h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>为什么要划分子网？</p>
+<p>第一，节约IP地址。</p>
+<p>​    这个很容易懂，比如一个C类的地址块，192.168.1.0/24，可以有254个主机，可是你的网络只有20台机器，也就是说你浪费了234个IP地址，实际上拿出来5位作主机地址就够用了，也就是说把你的子网掩码写成255.255.255.224就行了，那么余下的3位就是子网号，可以划分为8个子网，你用一个其余的就可以给别人的网络用</p>
+<p>第二，路由表太大，影响网络性能</p>
+<p>​    路由器需要能够从路由表中找出怎样到达其他网络的下一跳地址，而一个物理网络对应一个网络号，如果网络越多，则路由表越大，路由器的存储空间就需要越大，查找也更耗时，但使用构造子网，则能减少网络数，提升性能</p>
+<p>第三，增加了广播域，减少了广播风暴</p>
+<p>​    明确一点，一个子网一个广播域。</p>
+<p>​    所谓广播传输，就是向本网段中的所有节点都发送同样的数据包，这就势必要占用相当多的网络资源（因为每个广播数据包硬件设备都要对它进行分析）。然而最令人讨厌的就是在这些广播传输中对终端真正有用的只是所有广播接收用户中的一个，因为广播的目的就是查询目标用户的MAC地址，这样也就是在所有广播传输中，绝大多数都是没有取到任何作用的，纯粹是资源的浪费。而且网络规模越大，广播数据包发送所占用的资源就越多（因为广播中要传输的次数越多），很可能就形成广播风暴，正常的网络通信可能被中断，致使网络瘫痪</p>
+<p>​    而又因为广播数据包只能在同一网段中传输，网络规模小了，网络中用户数少了，当然所占用的资源也就少了 </p>
 <h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>​    随着Internet的飞速发展，这种划分方案的局限性就显现出来：IP地址空间的利用率降低——一个B类网络中最多可以表示的IP地址为65534个，而某些种类网络由于链路的特点能够连接的结点个数有限，所以就会造成大量的IP地址浪费；由于C类网络能连接的结点个数有限。所以，单位会申请B类网络，但一般又用不了这么多的IP地址，所以会造成IP地址的浪费。同理，A类网络的IP地址也会造成大量的浪费。</p>
 <p>​    针对这种情况提出了新的划分方案，称为CIDR：</p>
 <ol>
@@ -612,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -642,7 +651,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">30.7k</span>
+      <span class="site-state-item-count">31.6k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -696,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP协议头格式"><span class="nav-number">2.</span> <span class="nav-text">IP协议头格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网段划分"><span class="nav-number">3.</span> <span class="nav-text">网段划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址分类"><span class="nav-number">4.</span> <span class="nav-text">IP地址分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.1.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊的IP地址"><span class="nav-number">4.2.</span> <span class="nav-text">特殊的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的数量限制"><span class="nav-number">4.3.</span> <span class="nav-text">IP地址的数量限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有IP地址和公网IP地址"><span class="nav-number">4.4.</span> <span class="nav-text">私有IP地址和公网IP地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">5.</span> <span class="nav-text">路由</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP协议头格式"><span class="nav-number">2.</span> <span class="nav-text">IP协议头格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网段划分"><span class="nav-number">3.</span> <span class="nav-text">网段划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址分类"><span class="nav-number">4.</span> <span class="nav-text">IP地址分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#子网划分"><span class="nav-number">4.1.</span> <span class="nav-text">子网划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.2.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊的IP地址"><span class="nav-number">4.3.</span> <span class="nav-text">特殊的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址的数量限制"><span class="nav-number">4.4.</span> <span class="nav-text">IP地址的数量限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有IP地址和公网IP地址"><span class="nav-number">4.5.</span> <span class="nav-text">私有IP地址和公网IP地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">5.</span> <span class="nav-text">路由</span></a></li></ol></div>
             
 
           </div>
