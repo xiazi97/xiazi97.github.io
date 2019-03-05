@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-03-03T07:44:59.178Z</updated>
+  <updated>2019-03-05T15:18:02.118Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ARP协议</title>
+    <link href="http://xiazi97.github.io/2019/03/05/ARP%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://xiazi97.github.io/2019/03/05/ARP协议/</id>
+    <published>2019-03-05T15:13:33.000Z</published>
+    <updated>2019-03-05T15:18:02.118Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ARP协议&quot;&gt;&lt;a href=&quot;#ARP协议&quot; class=&quot;headerlink&quot; title=&quot;ARP协议&quot;&gt;&lt;/a&gt;ARP协议&lt;/h2&gt;&lt;p&gt;虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>项目之文本相似度比较</title>
@@ -44,7 +65,7 @@
     <link href="http://xiazi97.github.io/2019/02/17/%E4%BB%A5%E5%A4%AA%E7%BD%91/"/>
     <id>http://xiazi97.github.io/2019/02/17/以太网/</id>
     <published>2019-02-17T06:55:14.000Z</published>
-    <updated>2019-02-17T14:01:22.540Z</updated>
+    <updated>2019-03-05T15:14:06.805Z</updated>
     
     <summary type="html">
     

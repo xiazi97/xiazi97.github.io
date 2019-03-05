@@ -105,9 +105,7 @@
 <meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/ARP.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/RARP.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/MSS.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/ARP流程.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/ARP数据报格式.png">
-<meta property="og:updated_time" content="2019-02-17T14:01:22.540Z">
+<meta property="og:updated_time" content="2019-03-05T15:14:06.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以太网">
 <meta name="twitter:description" content="点到点信道的数据链路层协议的数据单元为帧：  将网络层交下来的IP数据报添加首部尾部封装成帧； 将封装好的帧发送给接受方的数据链路层； 收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃   ​    由上图可知，在 IP 数据包交付的过程中，在数据链路层会对数据包进行添加报头信息。此时就要引出一个新的概念——以太网。那么以太网是什么呢？  以太网不是一种具体的网络，而是一种技术标准。它既包">
@@ -462,26 +460,6 @@
 </ul>
 <h3 id="MSS和MTU的关系"><a href="#MSS和MTU的关系" class="headerlink" title="MSS和MTU的关系"></a>MSS和MTU的关系</h3><p>​    由上可知，MSS 的大小其实就是应用层给传输层的交付的数据的大小。不包括传输层的报头信息。所以在计算 MSS 的时候，用 MTU 减去网络层报头长度以及传输层报头长度即可。 </p>
 <p><img src="/2019/02/17/以太网/MSS.png" alt="以太网帧格式"></p>
-<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议</p>
-<h3 id="ARP协议的作用"><a href="#ARP协议的作用" class="headerlink" title="ARP协议的作用"></a>ARP协议的作用</h3><p>ARP协议建立了主机IP地址和MAC地址的映射关系</p>
-<ul>
-<li>在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址</li>
-<li>数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地址与本机不符则直接丢弃</li>
-<li>因此在通讯前必须获得目的主机的硬件地址</li>
-</ul>
-<h3 id="ARP协议工作流程"><a href="#ARP协议工作流程" class="headerlink" title="ARP协议工作流程"></a>ARP协议工作流程</h3><p><img src="/2019/02/17/以太网/ARP流程.png" alt="ARP工作流程"></p>
-<ul>
-<li>源主机发出ARP请求，询问“IP地址是127.20.1.4的主机的硬件地址是多少”，并将这个请求广播到本地网段（以太网帧首部的硬件地址填FF：FF：FF：FF：FF：FF表示广播）</li>
-<li>目的主机接收到广播的ARP请求，发现其中的IP地址与本机相符合，则发送一个ARP应答数据包给源主机，将自己的硬件地址填写在应答包中</li>
-<li>每台主机都维护一个ARP缓存表，可以用arp -a命令查看。缓存表中的表项有过期时间（一般为20分钟）。如果20分钟内没有再次使用某个表项，则该表项失效，下次还要发ARP请求来获得目的主机的硬件地址</li>
-</ul>
-<h3 id="ARP数据报格式"><a href="#ARP数据报格式" class="headerlink" title="ARP数据报格式"></a>ARP数据报格式</h3><p><img src="/2019/02/17/以太网/ARP数据报格式.png" alt="ARP数据报格式"></p>
-<ul>
-<li>源MAC地址，目的MAC地址在以太网首部和ARP请求中各出现一次，对于链路层为以太网的情况是多余的，但如果链路层是其他类型的网络则有可能是必要的</li>
-<li>硬件类型指链路层网络类型，1为以太网</li>
-<li>协议类型指要转换的地址类型，0x0800为IP地址</li>
-<li>op字段为1表示ARP请求，op字段为2表示ARP应答</li>
-</ul>
 
       
     </div>
@@ -603,7 +581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +611,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">31.6k</span>
+      <span class="site-state-item-count">31.7k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -687,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以太网帧格式"><span class="nav-number">1.</span> <span class="nav-text">以太网帧格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型字段"><span class="nav-number">1.1.</span> <span class="nav-text">类型字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP"><span class="nav-number">1.1.2.</span> <span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RARP"><span class="nav-number">1.1.3.</span> <span class="nav-text">RARP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC地址与IP地址"><span class="nav-number">2.</span> <span class="nav-text">MAC地址与IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU"><span class="nav-number">3.</span> <span class="nav-text">MTU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对IP协议的影响"><span class="nav-number">4.</span> <span class="nav-text">MTU对IP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对UDP协议的影响"><span class="nav-number">5.</span> <span class="nav-text">MTU对UDP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对TCP协议的影响"><span class="nav-number">6.</span> <span class="nav-text">MTU对TCP协议的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MSS和MTU的关系"><span class="nav-number">6.1.</span> <span class="nav-text">MSS和MTU的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP协议"><span class="nav-number">7.</span> <span class="nav-text">ARP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP协议的作用"><span class="nav-number">7.1.</span> <span class="nav-text">ARP协议的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP协议工作流程"><span class="nav-number">7.2.</span> <span class="nav-text">ARP协议工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP数据报格式"><span class="nav-number">7.3.</span> <span class="nav-text">ARP数据报格式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以太网帧格式"><span class="nav-number">1.</span> <span class="nav-text">以太网帧格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型字段"><span class="nav-number">1.1.</span> <span class="nav-text">类型字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP"><span class="nav-number">1.1.2.</span> <span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RARP"><span class="nav-number">1.1.3.</span> <span class="nav-text">RARP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC地址与IP地址"><span class="nav-number">2.</span> <span class="nav-text">MAC地址与IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU"><span class="nav-number">3.</span> <span class="nav-text">MTU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对IP协议的影响"><span class="nav-number">4.</span> <span class="nav-text">MTU对IP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对UDP协议的影响"><span class="nav-number">5.</span> <span class="nav-text">MTU对UDP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对TCP协议的影响"><span class="nav-number">6.</span> <span class="nav-text">MTU对TCP协议的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MSS和MTU的关系"><span class="nav-number">6.1.</span> <span class="nav-text">MSS和MTU的关系</span></a></li></ol></li></ol></div>
             
 
           </div>
