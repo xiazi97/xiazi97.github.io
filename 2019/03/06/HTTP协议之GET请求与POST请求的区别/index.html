@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="计算机网络,">
 
 
 
@@ -91,17 +91,20 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="description" content="GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！ 而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案：  这，恕在下愚钝@-@。在相继查了些资料之后，大概总结如下： GET和POST报文上的区别GET和POST方法其实是没有实质区别的。因为GET和P">
+<meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议之URI与URL区别">
-<meta property="og:url" content="http://xiazi97.github.io/2019/03/06/HTTP协议之URI与URL区别/index.html">
+<meta property="og:title" content="HTTP协议之GET请求与POST请求的区别">
+<meta property="og:url" content="http://xiazi97.github.io/2019/03/06/HTTP协议之GET请求与POST请求的区别/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！ 而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案：  这，恕在下愚钝@-@。在相继查了些资料之后，大概总结如下： GET和POST报文上的区别GET和POST方法其实是没有实质区别的。因为GET和P">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-06T08:45:47.651Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/03/06/HTTP协议之GET请求与POST请求的区别/w3cschool.png">
+<meta property="og:updated_time" content="2019-03-06T13:38:13.709Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP协议之URI与URL区别">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="HTTP协议之GET请求与POST请求的区别">
+<meta name="twitter:description" content="GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！ 而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案：  这，恕在下愚钝@-@。在相继查了些资料之后，大概总结如下： GET和POST报文上的区别GET和POST方法其实是没有实质区别的。因为GET和P">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/03/06/HTTP协议之GET请求与POST请求的区别/w3cschool.png">
 
 
 
@@ -131,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/03/06/HTTP协议之URI与URL区别/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/03/06/HTTP协议之GET请求与POST请求的区别/">
 
 
 
 
 
-  <title>HTTP协议之URI与URL区别 | Snoopy</title>
+  <title>HTTP协议之GET请求与POST请求的区别 | Snoopy</title>
   
 
 
@@ -316,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/03/06/HTTP协议之URI与URL区别/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/03/06/HTTP协议之GET请求与POST请求的区别/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -333,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP协议之URI与URL区别</h1>
+          <h1 class="post-title" itemprop="name headline">HTTP协议之GET请求与POST请求的区别</h1>
         
 
         <div class="post-meta">
@@ -345,7 +348,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T16:45:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T20:02:13+08:00">
                 2019-03-06
               </time>
             
@@ -390,7 +393,32 @@
       
 
       
-        
+        <p>GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！</p>
+<p>而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案：</p>
+<p><img src="/2019/03/06/HTTP协议之GET请求与POST请求的区别/w3cschool.png" alt="GET VS POST"></p>
+<p>这，恕在下愚钝@-@。在相继查了些资料之后，大概总结如下：</p>
+<h3 id="GET和POST报文上的区别"><a href="#GET和POST报文上的区别" class="headerlink" title="GET和POST报文上的区别"></a>GET和POST报文上的区别</h3><p>GET和POST方法其实是没有实质区别的。因为GET和POST只是HTTP协议中的两种请求方式，而HTTP协议是基于TCP/IP的应用层协议，所以无论GET还是POST，用的都是同一个传输层协议，所以在传输上是没有区别的。</p>
+<p>而在报文格式上，不带任何参数时最大的区别就是第一行的方法名不同：</p>
+<ul>
+<li>GET方法请求报文第一行如下：GET + URL +  HTTP/1.1  \r\n</li>
+<li>POST方法请求报文第一行如下：POST+ URL + HTTP/1.1  \r\n</li>
+</ul>
+<p>那么在带参数时报文的区别在哪里呢？</p>
+<p>在约定中，GET方法的参数应该放在URL中，POST方法参数应该放在正文中。</p>
+<p>举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果参数是name=xiazi，email=97</span><br><span class="line">GET方法的简约报文是这样的：</span><br><span class="line">	GET http://job.com/companyLogin.do?name=xiazi&amp;email=97 HTTP/1.1 </span><br><span class="line">	HOST：localhost</span><br><span class="line">POST方法的简约报文是这样的：</span><br><span class="line">	POST http://job.com/companyLogin.do HTTP/1.1</span><br><span class="line">	HOST：localhost</span><br><span class="line">	</span><br><span class="line">	name=xiazi&amp;email=97</span><br></pre></td></tr></table></figure>
+<h3 id="GET方法的安全性问题"><a href="#GET方法的安全性问题" class="headerlink" title="GET方法的安全性问题"></a>GET方法的安全性问题</h3><p>由上边的例子我们可以知道：</p>
+<ol>
+<li>GET方法的参数是写在?后面，用&amp;分割的</li>
+<li>GET方法中参数会在URL中显示，而POST方法则不会</li>
+</ol>
+<p>那么，POST是不是比GET方法安全呢？</p>
+<p>如果是依据数据在地址栏上是否可见来说的话，POST是比GET安全的。然而，从传输的角度来说，他们都是不安全的，因为HTTP在网络上是明文传输的，只要在网络节点上进行抓包就能完整地获取数据报文，所以要想安全传输就只有加密，也就是使用HTTPS</p>
+<h3 id="GET方法的长度限制问题"><a href="#GET方法的长度限制问题" class="headerlink" title="GET方法的长度限制问题"></a>GET方法的长度限制问题</h3><p>在HTTP协议中，并没有对BODY（正文）和URL的长度进行长度限制，对URL限制的大多数是浏览器和服务器的原因。大多数浏览器通常都会限制url长度在2K个字节，而大多数服务器最多处理64K大小的url。超过的部分，恕不处理。 </p>
+<p>浏览器就不用说了，服务器是因为处理长URL要消耗比较多的资源，为了性能和安全（防止恶意构造长URL来攻击服务器）考虑，会给URL限制长度</p>
+<h3 id="POST方法会产生两个TCP数据报问题"><a href="#POST方法会产生两个TCP数据报问题" class="headerlink" title="POST方法会产生两个TCP数据报问题"></a>POST方法会产生两个TCP数据报问题</h3><p>在有些文章中提到，POST方法会将Header和Body分开发送，先发送Header，服务端返回100状态码后再发送Body。</p>
+<p>然而，HTTP协议中并没有规定POST发送时要发送两个数据报。因为能力问题借鉴了大佬的研究，得到了以下结论：大多数框架都是尽量在一个tcp包里面把HTTP请求发出去的，但是也确实存在先发HTTP头，然后发body的框架。但是具体发多少个TCP包，这个是代码的问题，是tcp协议栈的问题，跟HTTP没关系。<a href="https://blog.csdn.net/zerooffdate/article/details/78962818" target="_blank" rel="noopener">详情请戳这里</a> </p>
+
       
     </div>
     
@@ -404,6 +432,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          
+        </div>
       
 
       
@@ -474,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -522,7 +565,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">33.4k</span>
+      <span class="site-state-item-count">34.3k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -566,6 +609,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET和POST报文上的区别"><span class="nav-number">1.</span> <span class="nav-text">GET和POST报文上的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET方法的安全性问题"><span class="nav-number">2.</span> <span class="nav-text">GET方法的安全性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET方法的长度限制问题"><span class="nav-number">3.</span> <span class="nav-text">GET方法的长度限制问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST方法会产生两个TCP数据报问题"><span class="nav-number">4.</span> <span class="nav-text">POST方法会产生两个TCP数据报问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
