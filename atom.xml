@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-03-05T15:39:16.764Z</updated>
+  <updated>2019-03-06T08:45:47.651Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP协议之URI与URL区别</title>
+    <link href="http://xiazi97.github.io/2019/03/06/HTTP%E5%8D%8F%E8%AE%AE%E4%B9%8BURI%E4%B8%8EURL%E5%8C%BA%E5%88%AB/"/>
+    <id>http://xiazi97.github.io/2019/03/06/HTTP协议之URI与URL区别/</id>
+    <published>2019-03-06T08:45:47.000Z</published>
+    <updated>2019-03-06T08:45:47.651Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP协议</title>
+    <link href="http://xiazi97.github.io/2019/03/06/HTTP%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://xiazi97.github.io/2019/03/06/HTTP协议/</id>
+    <published>2019-03-06T08:17:34.000Z</published>
+    <updated>2019-03-06T13:27:27.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;HTTP简介&quot;&gt;&lt;a href=&quot;#HTTP简介&quot; class=&quot;headerlink&quot; title=&quot;HTTP简介&quot;&gt;&lt;/a&gt;HTTP简介&lt;/h2&gt;&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从网络
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>ARP协议</title>
@@ -410,49 +445,6 @@
 &lt;ol&gt;
 &lt;li&gt;operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。&lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。&lt;br&gt;3.若成员变量
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>for循环的基础练习</title>
-    <link href="http://xiazi97.github.io/2018/11/01/for%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/"/>
-    <id>http://xiazi97.github.io/2018/11/01/for循环的基础练习/</id>
-    <published>2018-10-31T16:15:57.000Z</published>
-    <updated>2018-10-31T16:41:23.445Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;无论是对于编程菜鸟或者是大牛来说，for循环是一个不可或缺的C语言语句，在这里其定义如何&lt;br&gt;且按下不表，只是单纯的放几个for循环的适用场景来感受一下。&lt;br&gt;for(表达式1；表达式2；表达式3)，请对应于下图来认真体会一下&lt;br&gt;&lt;img src=&quot;/2018/11
-      
-    
-    </summary>
-    
-    
-      <category term="C初阶基本练习" scheme="http://xiazi97.github.io/tags/C%E5%88%9D%E9%98%B6%E5%9F%BA%E6%9C%AC%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类中默认成员函数浅析（一）</title>
-    <link href="http://xiazi97.github.io/2018/10/30/%E7%B1%BB%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E6%B5%85%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://xiazi97.github.io/2018/10/30/类中默认成员函数浅析（一）/</id>
-    <published>2018-10-29T16:10:05.000Z</published>
-    <updated>2018-10-29T16:12:10.471Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;构造函数：&lt;br&gt;是一个特殊的成员函数（随着对象创建而自动被调用的），用于来初始化对象，在对象的生命周期中只调用一次&lt;br&gt;特征：&lt;br&gt;1.名字与类名相同&lt;br&gt;2.无返回值（并不等同于void）&lt;br&gt;3.可以重载（类可以有多个构造函
       
     
     </summary>
