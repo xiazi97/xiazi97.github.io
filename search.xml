@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[DNS，ICMP协议及NAT技术]]></title>
+    <url>%2F2019%2F03%2F07%2FDNS%EF%BC%8CICMP%E5%8D%8F%E8%AE%AE%E5%8F%8ANAT%E6%8A%80%E6%9C%AF%2F</url>
+    <content type="text"><![CDATA[DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系]]></content>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HTTP协议之GET请求与POST请求的区别]]></title>
     <url>%2F2019%2F03%2F06%2FHTTP%E5%8D%8F%E8%AE%AE%E4%B9%8BGET%E8%AF%B7%E6%B1%82%E4%B8%8EPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！ 而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案： 这，恕在下愚钝@-@。在相继查了些资料之后，大概总结如下： GET和POST报文上的区别GET和POST方法其实是没有实质区别的。因为GET和POST只是HTTP协议中的两种请求方式，而HTTP协议是基于TCP/IP的应用层协议，所以无论GET还是POST，用的都是同一个传输层协议，所以在传输上是没有区别的。 而在报文格式上，不带任何参数时最大的区别就是第一行的方法名不同： GET方法请求报文第一行如下：GET + URL + HTTP/1.1 \r\n POST方法请求报文第一行如下：POST+ URL + HTTP/1.1 \r\n 那么在带参数时报文的区别在哪里呢？ 在约定中，GET方法的参数应该放在URL中，POST方法参数应该放在正文中。 举个栗子： 123456789如果参数是name=xiazi，email=97GET方法的简约报文是这样的： GET http://job.com/companyLogin.do?name=xiazi&amp;email=97 HTTP/1.1 HOST：localhostPOST方法的简约报文是这样的： POST http://job.com/companyLogin.do HTTP/1.1 HOST：localhost name=xiazi&amp;email=97 GET方法的安全性问题由上边的例子我们可以知道： GET方法的参数是写在?后面，用&amp;分割的 GET方法中参数会在URL中显示，而POST方法则不会 那么，POST是不是比GET方法安全呢？ 如果是依据数据在地址栏上是否可见来说的话，POST是比GET安全的。然而，从传输的角度来说，他们都是不安全的，因为HTTP在网络上是明文传输的，只要在网络节点上进行抓包就能完整地获取数据报文，所以要想安全传输就只有加密，也就是使用HTTPS GET方法的长度限制问题在HTTP协议中，并没有对BODY（正文）和URL的长度进行长度限制，对URL限制的大多数是浏览器和服务器的原因。大多数浏览器通常都会限制url长度在2K个字节，而大多数服务器最多处理64K大小的url。超过的部分，恕不处理。 浏览器就不用说了，服务器是因为处理长URL要消耗比较多的资源，为了性能和安全（防止恶意构造长URL来攻击服务器）考虑，会给URL限制长度 POST方法会产生两个TCP数据报问题在有些文章中提到，POST方法会将Header和Body分开发送，先发送Header，服务端返回100状态码后再发送Body。 然而，HTTP协议中并没有规定POST发送时要发送两个数据报。因为能力问题借鉴了大佬的研究，得到了以下结论：大多数框架都是尽量在一个tcp包里面把HTTP请求发出去的，但是也确实存在先发HTTP头，然后发body的框架。但是具体发多少个TCP包，这个是代码的问题，是tcp协议栈的问题，跟HTTP没关系。详情请戳这里]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-03-06T13:38:13.709Z</updated>
+  <updated>2019-03-07T15:39:07.679Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DNS，ICMP协议及NAT技术</title>
+    <link href="http://xiazi97.github.io/2019/03/07/DNS%EF%BC%8CICMP%E5%8D%8F%E8%AE%AE%E5%8F%8ANAT%E6%8A%80%E6%9C%AF/"/>
+    <id>http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/</id>
+    <published>2019-03-07T02:59:30.000Z</published>
+    <updated>2019-03-07T15:39:07.679Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;DNS-Domain-Name-System&quot;&gt;&lt;a href=&quot;#DNS-Domain-Name-System&quot; class=&quot;headerlink&quot; title=&quot;DNS(Domain Name System)&quot;&gt;&lt;/a&gt;DNS(Domain Name Sys
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP协议之GET请求与POST请求的区别</title>
@@ -43,7 +64,7 @@
     <link href="http://xiazi97.github.io/2019/03/06/HTTP%E5%8D%8F%E8%AE%AE/"/>
     <id>http://xiazi97.github.io/2019/03/06/HTTP协议/</id>
     <published>2019-03-06T08:17:34.000Z</published>
-    <updated>2019-03-06T14:21:06.676Z</updated>
+    <updated>2019-03-07T10:12:18.375Z</updated>
     
     <summary type="html">
     
@@ -429,30 +450,6 @@
       
       
         &lt;p&gt;new运算符是给指针分配一片内存空间，与delete运算符一起使用，以达到直接进行动态内存分配和释放的目的&lt;br&gt;new返回指定类型的一个指针，如果分配失败（如没有足够的内存空间），则返回0&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类中默认成员函数浅析（二）</title>
-    <link href="http://xiazi97.github.io/2018/11/05/%E7%B1%BB%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E6%B5%85%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://xiazi97.github.io/2018/11/05/类中默认成员函数浅析（二）/</id>
-    <published>2018-11-05T14:55:24.000Z</published>
-    <updated>2018-11-05T15:06:56.136Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;运算符重载：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;operator + 合法的运算符 构成函数名（举例：重载&amp;lt;运算符的函数名：operator&amp;lt; ）。&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;重载运算符以后，不能改变运算符的 优先级/结合性/操作数个数。&lt;br&gt;3.若成员变量
       
     
     </summary>
