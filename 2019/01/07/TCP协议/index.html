@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/滑动窗口5.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/流量控制.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/07/TCP协议/拥塞窗口.png">
-<meta property="og:updated_time" content="2019-01-29T07:58:46.052Z">
+<meta property="og:updated_time" content="2019-03-13T01:29:49.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议">
 <meta name="twitter:description" content="对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下 TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 。常用于一次传输要交换大量报文的情形，如文件传输，远程登陆等。为了实现这种端到端的可靠">
@@ -534,7 +534,7 @@ FIN：通知对方，本端要关闭了。称携带FIN标识的为结束报文�
 <p>当拥塞窗口超过这个阈值的时候，不再按照指数方式增长，而是按照线性方式增长</p>
 <p>当TCP开始启动时 ，，慢启动阈值等于窗口最大值</p>
 <p>在每次超时重发的时候，慢启动阈值会变成原来的一半，同时拥塞窗口置为一</p>
-<p>​    那么发送方又是如何知道网络发生了拥塞呢？我们知道，当网络发生拥塞时，路由器会丢弃分组。少量的丢/包，我们仅仅是出发超时重传；大量的丢包，我们就认为网络拥塞。</p>
+<p>​    那么发送方又是如何知道网络发生了拥塞呢？我们知道，当网络发生拥塞时，路由器会丢弃分组。少量的丢包，我们仅仅是出发超时重传；大量的丢包，我们就认为网络拥塞。</p>
 <h2 id="延迟应答"><a href="#延迟应答" class="headerlink" title="延迟应答"></a>延迟应答</h2><p>如果接收数据的主机立刻返回ACK应答，这时候返回的窗口可能比较小</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假设接收端缓冲区为1M，一次收到了500K的数据；如果立即应答，返回的窗口就是500K,但实际上可能处理端处理的速度很快，10ms之内就把500K数据从缓冲区消费掉了，在这种情况下，接收端处理还远没有达到自己的极限，即使窗口再放大一些也能处理过来，如果接收端稍微等一会再应答，比如等待200ms再应答，那么这个时候返回的窗口就是1M</span><br></pre></td></tr></table></figure>
 <p>​    一定要记得，窗口越大，网络吞吐量就越大，传输效率就越高。我们的目标是在保证网络不拥塞的情况下尽量提高传输效率</p>

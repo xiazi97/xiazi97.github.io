@@ -91,21 +91,21 @@
 
 
 
-<meta name="description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节 8位">
+<meta name="description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4，IPV6为6 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IP协议">
 <meta property="og:url" content="http://xiazi97.github.io/2019/01/28/IP协议/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节 8位">
+<meta property="og:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4，IPV6为6 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/报头.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/IP分类.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/01/28/IP协议/子网划分.png">
-<meta property="og:updated_time" content="2019-03-05T15:06:16.955Z">
+<meta property="og:updated_time" content="2019-03-17T15:03:54.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP协议">
-<meta name="twitter:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节 8位">
+<meta name="twitter:description" content="基本概念 IP协议提供了一种从A主机跨网络将数据传给B主机的能力 主机：配有IP地址，但是不进行路由控制的设备 路由器：既配有IP地址，又可以进行路由控制 节点：主机和路由器的统称  IP协议头格式 4位版本号：指定IP协议的版本，对于IPV4来说就是4，IPV6为6 4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是">
 <meta name="twitter:image" content="http://xiazi97.github.io/2019/01/28/IP协议/报头.png">
 
 
@@ -402,7 +402,7 @@
 <li>节点：主机和路由器的统称</li>
 </ul>
 <h2 id="IP协议头格式"><a href="#IP协议头格式" class="headerlink" title="IP协议头格式"></a>IP协议头格式</h2><p><img src="/2019/01/28/IP协议/报头.png" alt="IP协议段格式"></p>
-<p>4位版本号：指定IP协议的版本，对于IPV4来说就是4</p>
+<p>4位版本号：指定IP协议的版本，对于IPV4来说就是4，IPV6为6</p>
 <p>4位首部长度：IP头部的长度是多少个32bit，也就是Lenth*4的字节数。4bit表示最大的数字是15，因此IP头部最大长度是60字节</p>
 <p>8位服务类型：3位优先权字段（已经弃用），4位TOS字段，和1位保留字段（必须置为0）.4位TOS分别表示：最小延时，最大吞吐量，最高可靠性，最小成本。这四者相互冲突，只能选择一个。对于ssh/telnet这样的应用程序，最小延时比较重要；对于ftp这样的程序，最大吞吐量比较重要</p>
 <p>16位总长度：IP数据报整体占多少个字节</p>
