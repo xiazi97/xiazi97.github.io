@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="这一章我们主要介绍进程的状态，了解进程的状态有助于我们分析进程在系统中的各种作用等。进程的调度算法，进程的调度算法可以让我们看到内核是如何设计出一套注重效率并且兼顾公平的算法，内核如何为不同的进程分配资源等，帮助我们加深对于进程相关知识的了解。    进程的状态首先我们要知道进程虽然是占有CPU资源的可是就像人不能一直工作一样，进程也不能一直占用CPU资源，同时我们还要考虑并发问题等，具体原因有：">
-<meta name="keywords" content="Linux">
+<meta name="description" content="auto_ptr">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统之进程">
-<meta property="og:url" content="http://xiazi97.github.io/2019/01/03/操作系统之进程/index.html">
+<meta property="og:title" content="智能指针">
+<meta property="og:url" content="http://xiazi97.github.io/2019/03/25/智能指针/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这一章我们主要介绍进程的状态，了解进程的状态有助于我们分析进程在系统中的各种作用等。进程的调度算法，进程的调度算法可以让我们看到内核是如何设计出一套注重效率并且兼顾公平的算法，内核如何为不同的进程分配资源等，帮助我们加深对于进程相关知识的了解。    进程的状态首先我们要知道进程虽然是占有CPU资源的可是就像人不能一直工作一样，进程也不能一直占用CPU资源，同时我们还要考虑并发问题等，具体原因有：">
+<meta property="og:description" content="auto_ptr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-06T12:38:00.101Z">
+<meta property="og:updated_time" content="2019-03-25T15:01:21.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="操作系统之进程">
-<meta name="twitter:description" content="这一章我们主要介绍进程的状态，了解进程的状态有助于我们分析进程在系统中的各种作用等。进程的调度算法，进程的调度算法可以让我们看到内核是如何设计出一套注重效率并且兼顾公平的算法，内核如何为不同的进程分配资源等，帮助我们加深对于进程相关知识的了解。    进程的状态首先我们要知道进程虽然是占有CPU资源的可是就像人不能一直工作一样，进程也不能一直占用CPU资源，同时我们还要考虑并发问题等，具体原因有：">
+<meta name="twitter:title" content="智能指针">
+<meta name="twitter:description" content="auto_ptr">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/01/03/操作系统之进程/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/03/25/智能指针/">
 
 
 
 
 
-  <title>操作系统之进程 | Snoopy</title>
+  <title>智能指针 | Snoopy</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/01/03/操作系统之进程/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/03/25/智能指针/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">操作系统之进程</h1>
+          <h1 class="post-title" itemprop="name headline">智能指针</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T23:20:18+08:00">
-                2019-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T18:18:54+08:00">
+                2019-03-25
               </time>
             
 
@@ -391,41 +391,7 @@
       
 
       
-        <p>这一章我们主要介绍进程的状态，了解进程的状态有助于我们分析进程在系统中的各种作用等。进程的调度算法，进程的调度算法可以让我们看到内核是如何设计出一套注重效率并且兼顾公平的算法，内核如何为不同的进程分配资源等，帮助我们加深对于进程相关知识的了解。   </p>
-<h2 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h2><p>首先我们要知道进程虽然是占有CPU资源的可是就像人不能一直工作一样，进程也不能一直占用CPU资源，同时我们还要考虑并发问题等，具体原因有：   </p>
-<p>1.进程可能需要等待某种外部条件的满足，在满足条件之气那无法继续执行，在这种情况下占用CPU是对资源的浪费   </p>
-<p>2.linux是多用户多任务的操作系统，可能同时存在多个可以运行的进程，进程个数可能远远多于CPU个数，一个进程始终占有CPU对于其他进程来说不公平   </p>
-<p>3.linux支持软实时，实时进程的优先级高于普通进程，实时进程之间也有优先级的差别，软实时进程进入可运行状态的时候，可能会发生抢占，抢占当前运行的进程。  </p>
-<p>接下来我们具体说一下进程的状态，进程的状态一共有七种：       </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">可运行状态   </span><br><span class="line"></span><br><span class="line">首先是可运行状态，这个状态不一定占用CPU资源，这个状态细分可以分成两个状态，正在运行与准备状态，处于准备状态意味随时可以运行，只不过由于CPU资源有限暂时没有运行   </span><br><span class="line"></span><br><span class="line">处于可运行状态的进程是进程调度的对象，如果进程并不处于可运行状态，进程调度就不会选择它投入运行，在Linux中每一个CPU都有它的运行队列，事实上还不止一个，根据调度类别不同可运行状态的进程位于不同的队列，如果是实时进程落入实时调度类的队列中，普通进程落入公平调度类的队列中，这样进程调度器就可以根据一定的算法从运行队列上挑选合适的进程来使用CPU资源   </span><br><span class="line"></span><br><span class="line">处于可运行状态的进程可能正在执行用户态的代码（比如计算排序等），也有可能在执行内核态的代码（类似IO等）Linux的time命令统计了三种时间，分别是实际时间，用户CPU实际以及系统CPU时间，其中最让我们产生误会的是很多人误以为 实际时间就等于用户CPU时间加系统CPU时间。   </span><br><span class="line"></span><br><span class="line">其实比如我们要是多核处理的话后者总和就会大于前者，要是我们一直陷入阻塞的话就会产生前者大于后者总和，我们根据这种时间分配分为计算密集型进程与IO密集型进程，前者是充分利用了多处理器并行的优势，后者多核并行优势并不明显。   </span><br><span class="line"></span><br><span class="line">可中断睡眠状态与不可中断睡眠状态  </span><br><span class="line"></span><br><span class="line"> 进程不是总处于可运行状态的，有的进程需要与慢设备打交道，比如进程和磁盘进行交互，相关的系统调用消耗的时间是非常长的，进程需要等待这些操作完成才能执行下来的指令。   </span><br><span class="line"></span><br><span class="line">在这种情况下占用CPU资源就很浪费了，所以这个时候内核将进程的状态改变为其他状态，将其从CPU的运行队列中移除，同时调度器选择其他的进程来使用CPU资源。  </span><br><span class="line"></span><br><span class="line"> LINUX有两种睡眠状态，可中断睡眠与不可中断睡眠状态，可中断睡眠是指在睡眠中可以被唤醒，其中两种方式可以唤醒可中断睡眠，当收到没有被屏蔽的信号的时候会唤醒，当等待的事情发生了也会被唤醒，可是对于不可中断睡眠来说，只有一种情况就是等待的事情发生了才会醒来，不然就会一直陷入等待，KILL信号也不能将他唤醒。   </span><br><span class="line"></span><br><span class="line">很多人认为在vfork创建子进程的时候，子进程调用exec函数或退出之前，父进程始终处TASK_UNINTERRUPTIBLE状态，其实这个说法是错误的，因为很明显，父进程可以轻易的被信号杀死，这证明并不是处于不可中断睡眠状。   </span><br><span class="line"></span><br><span class="line">TASK_KILLABLE状态   </span><br><span class="line"></span><br><span class="line">事实上在内核2.6.25版本引入了一种新的状态即TASK_KILLABLE状态，这个状态是可中断睡眠与不可中断睡眠的综合版本，除了杀死这个进程的信号要进行唤醒处理之外，其他的信号一概不管。   </span><br><span class="line"></span><br><span class="line">等待队列   </span><br><span class="line"></span><br><span class="line">进程无论是哪一种睡眠状态，有一个数据结构是绕不开的，那就是等待队列，单反进程要进行休眠，必然是等待某个资源或者某个事件，内核必须想办法将进程和它等待的资源关联起来，当等待的资源可用或等待的事件已经发生的时候，可以及时的唤醒相关进程，内核采用的办法是等待队列   </span><br><span class="line"></span><br><span class="line">内核用双向链表来表示等待队列，每一个等待队列都可以用等待队列头来标识，内核中提供了wait_queue和add_queue_exclusive两个函数来吧等待队列元素添加到等待队列头部的双向链表   </span><br><span class="line"></span><br><span class="line">  可是这里有一个新的问题：   </span><br><span class="line"></span><br><span class="line">如果存在多个进程在等待同一个满足条件或同一个事件发生，那么当条件满足的时候，应该吧所有进程一并唤醒还是只唤醒一个或几个进程呢。   </span><br><span class="line"></span><br><span class="line">应该是具体问题具体分析，有的时候我们需要唤醒所有进程，有的时候我们只足够一个进程来获取资源，可是我们要是全部唤醒的话就会发生除了获取到资源的进程外其他资源被唤醒后再次进入睡眠这个也被叫做惊群效应。   </span><br><span class="line"></span><br><span class="line">暂停状态与跟踪状态 </span><br><span class="line"></span><br><span class="line">  暂停状态是一种较为特殊的状态，暂停后不能安装新的信号处理函数，直到收到CIGCONT后才会继续执行程序。   跟踪状态是指进程会停下来等待跟踪他的进程的操作，比如我们gdb调试的时候加断点就会进入暂停   </span><br><span class="line"></span><br><span class="line">僵尸状态与死亡状态   </span><br><span class="line"></span><br><span class="line">严格来说这不是进程的状态，进程与程序的区别就在于进程是正在被执行，而这两种都已经死亡，僵尸状态我们以前提过就是子进程退出后内核发送SIGCLD信号给父进程，父进程要是默认忽略没有等待子进程那么子进程的部分信息没办法进行回收子进程就会进入僵尸状态，死亡状态时间非常短，进程退出的时候就会进入死亡状态，我们一般观察不到。</span><br></pre></td></tr></table></figure>
-<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><p>进程调度是任何一个现代擦欧总系统都要解决的问题，也是我们这篇博客的重点，首先我们要从知道只有TASK_RUNNING状态的进程才可以进入调度队列被调度。   </p>
-<p>Linux是多任务的操作系统，多任务操作系统可以分为两类：抢占式和非抢占式，在非抢占式的操作系统中只有一个进程自己主动退出让出CPU的使用权其他进程才可以使用CPU，所以非抢占式也被叫做合作型多任务。   </p>
-<p>可是对于操作系统设计进程调度来说，合作型多任务没有优先级的概念，很多需要立即执行的进程反而长时间陷入等待，所以大多数操作系统是抢占式的，Linux也不例外，抢占式多任务由操作系统来决定进程调度，对于操作系统来说，面对不同类型的进程设计一个全面考虑的调度算法是很不容易的。   </p>
-<p>他要做到以下的几点：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">公平:每一个进程都可以获得调度的机会，不能出现长时间不被调度的情况  </span><br><span class="line"></span><br><span class="line">良好的调度延迟：尽量确保进程在一定的时间范围内，总可以获得调度的机会  </span><br><span class="line"></span><br><span class="line">差异化：允许重要的进程获得更多的执行时间  </span><br><span class="line"></span><br><span class="line">支持软实时机制：软实时进程比普通的进程有更高的优先级  </span><br><span class="line"></span><br><span class="line">负载均衡：多个CPU要分配均衡，不能出现一些很闲一些很忙的情况  </span><br><span class="line"></span><br><span class="line">高吞吐量：单位时间内处理的进程个数尽可能多  </span><br><span class="line"></span><br><span class="line">简单高效：调度算法要高效，不能在调度上花费太多时间   </span><br><span class="line"></span><br><span class="line">目前Linux采用的是每个CPU都有自己的运行队列，每个CPU去自己的运行队列中选择进程，这样就可以降低竞争，这种方案还有一个好处就是缓存重利用。   </span><br><span class="line"></span><br><span class="line">某个进程位于它所属CPU的运行队列中，经过多次调度之后，内核区域选择相同的CPU去执行该进程，这种情况上次运行的变量很可能仍然处于CPU的缓存之中，提升了效率。   </span><br><span class="line"></span><br><span class="line">可是这样有一个问题，可能会负载不均衡，出现有的CPU的运行队列中有很多进程而有的CPU运行队列中没有进程的情况，为了解决这个问题，Linux提出了load_balance，它的作用就是在一定时机下，通过将任务从一个CPU的运行队列迁移到另一个CPU的运行队列中，实现负载均衡。</span><br></pre></td></tr></table></figure>
-<p>那么进程调度具体是干了些什么呢，其实说白了就是挑选下一个执行的进程，如果下一个被调度的进程和当前进程不是一个进程，就执行上下文切换。   </p>
-<p><strong>Linux是抢占式内核</strong>，从内核2.6开始不仅支持用户态抢占，也支持内核态抢占，可抢占内核的优势在于何以保证系统的响应时间，当高优先级任务一旦就绪，总能及时得到CPU的控制权，但是很明显，内核抢占不能随意发生，某些情况下不能发生内核抢占，为了可以确定什么时候可以发生抢占，内核为每一个进程引入了一个preempt_count计数器，数值为0表示可以发生抢占，数值为1代表不能发生抢占。   </p>
-<p>preempt_count设置了很重要的一个标志位，即PREEMAT_ACTIVE，该标志为用来标记是否正在发生内核抢占，设置了之后就代表preempt_count不再为0，同时不允许再次抢占，PREEMAT_ACTIVE有一个很重要的作用就是设置了这个标志位的进程那么即使不处于RUNNING状态内核也不能将他从运行队列中剔除。   </p>
-<p>因为有一种情况是当前占用CPU的进程刚刚将自己设置为睡眠状态并且打算等待信号，可是这个时候发生了抢占，这个时候他就已经不是运行状态了，按道理说要将它从运行队列中剔除，可是如果我们真的剔除了那么他将永远睡眠再也不会醒来。正确的做法是将他再次放入运行队列，他就还有机会操作CPU资源就还有机会被唤醒。   </p>
-<h2 id="调度类"><a href="#调度类" class="headerlink" title="调度类"></a>调度类</h2><p>在选择下一个占用CPU的进程之前，内核会先根据调度类来更些一些数据，用来保证下一个调度的优先级最高。linux下一共有下面几种调度类：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.stop_sched_class 停止类  </span><br><span class="line"></span><br><span class="line">2.rt_sched_classs 实时类  </span><br><span class="line"></span><br><span class="line">3.fair_sched_classs 完全公平调度类  </span><br><span class="line"></span><br><span class="line">4.idle_sched_classs 空闲类</span><br></pre></td></tr></table></figure>
-<p>   这四种调度类是根据优先级顺序排布的，停止类具有最高的优先级，与之对应的空闲类有最低的优先级，挑选下一个进程的时候就先从停止类里面选择，没有的话从实时类选，以此类推。   </p>
-<p>​    优先级最高的停止类进程，主要用户多个CPU之间的负载均衡和CPU的热拔插，他所作的事情就是停止正在运行的CPU，以进行任务的迁移或拔插CPU，优先级最低的空闲类负责将CPU置于停机状态，直到中断将其唤醒，这两种类都是为了实现CPU调度性能的功能类，真正和应用层有关系的是实时类和完全公平调度类。   </p>
-<h2 id="普通进程的优先级"><a href="#普通进程的优先级" class="headerlink" title="普通进程的优先级"></a>普通进程的优先级</h2><p>除非Linux用在一些特殊领域，不然Linux上的进程都是完全公平调度类，Linux是多任务系统，系统不能让一个进程始终占据CPU资源，那么如何给每一个进程分配多大的时间片就是一个很值得思考的问题。   </p>
-<p>​    Linux实现完全公平调度类使用了一种动态时间片的算法，他给每一个进程分配使用CPU的时间比例，进程调度设计上，有一个很重要的指标是调度延迟，也就是保证每一个可运行的进程都至少运行一次的时间间隔。  </p>
-<p>​     比如我们调度延迟是20毫秒，正在运行的进程一共两个，那么每一个进程运行的时间片就是10毫秒，调度延迟可以让每一个进程都有机会占用CPU进程，可是产生了新的问题，要是我们的调度延迟是10毫秒但是正在运行的进程100个的话，那么根据调度延迟来说每一个进程只能分0.1毫秒的时间片，这显然什么都干不了。   </p>
-<p>​    为了应对这种情况，完全公平调度提供了另一种调度方法，调度最小颗粒，这个就是说任意进程所运行的时间片都有一个基准的最小值，不能小于这个最小值，对于这两种调度方法，进程规定了一个最大活动进程数目，最大活动数目等于调度延迟除以调度颗粒。   </p>
-<p>​    也就是说当当前进程个数小于最大活动数的时候，分得的时间片大于最小颗粒，就用延迟调度，当进程个数太多导致大于最大活动数的时候，分得的时间片小于调度最小颗粒，就按照调度最小颗粒的值来指定时间片。   </p>
-<p>​    到目前为止，我们所有的讨论都基于运行对立额上所有的进程都有相同的优先级，可是事实并非如此，有些任务的优先级高，理应获得更多的运行时间，考虑到这种情况，完全公平调度又引入了优先级的概念。   </p>
-<p>​    完全公平调度是通过引入调度权重来实现优先级的进程之间按照权重的比例，分配CPU时间，分配给进程的运行时间=调度周期*进程权重/运行队列所有进程权重之和。   </p>
-<p>​    Linux下每一个进程都有一个nice值，该值的取值范围是[-20，19]nice值越高代表优先级越低，默认的优先级是0. weight=1024/（1.25^nice_value）。   </p>
-<h2 id="普通进程的组调度"><a href="#普通进程的组调度" class="headerlink" title="普通进程的组调度"></a>普通进程的组调度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假如一个运行队列上一共有四个进程，这四个进程优先级相同，那么根据调度延迟以及调度最小颗粒，每一个进程分25%的时间片，可是如果其中三个进程是A组的，最后一个进程是B组的那么就会造成A组分得了大量的时间片而B组分的很少的情况，针对这种情况，内核先实现组间平衡，再实现组内平衡，也就是说B组的进程最后可以分得50%的时间片而A组的三个进程各自分得16.7%的时间片。</span><br></pre></td></tr></table></figure>
-<h2 id="实时进程的调度"><a href="#实时进程的调度" class="headerlink" title="实时进程的调度"></a>实时进程的调度</h2><p>​    对于普通进程来说，完全公平调度已经可以实现足够好的性能以及响应体验了，但是对于实时性要求更高的进程来说还是不够，严格来说实时系统可以分为两类，硬实时进程和软实时进程，硬实时进程对于响应时间的要求非常严格，必须保证在一定的时间内完成超出相应事件就会失败并且有很严重的后果，比如军用武器系统，航空航天系统里面就很多硬实时进程。   </p>
-<p>​    软实时是硬实时的弱化版本，虽然也要求响应时间，可是超出了规定时间并不会有很严重的后果，比如视频处理，撑死影响用户体验，发生视频丢帧什么的（虽然我觉得视频丢帧也超级重要）。   </p>
-<h2 id="实时调度策略与优先级"><a href="#实时调度策略与优先级" class="headerlink" title="实时调度策略与优先级"></a>实时调度策略与优先级</h2><p>Linux针对实时调度类也提供了两种调度策略，先进先出与时间片轮转策略，无论你使用哪一种策略都会高于前面的公平调度进程。   </p>
-<p>在linux中一共提供了140个优先级等级，0到99都是属于实时调度类的，100到139是属于完全公平调度类的，完全公平调度类的初始值就是120，所以我们知道不管如何调整nice值也不会使它跨类。   </p>
-<p>内核为这99个等级维护了99个队列，当要选下一个进程的时候就挨个去这些队列里边找，同时内核还用一个位图来表示哪个队列有运行的程序。   </p>
-<p>先进先出的调度策略没有时间片的概念，只要没有更高优先级的进程就绪，那么就会一直执行当前最高优先级的进程，除非自动放弃CPU资源或者进程终止。   时间片轮转的调度策略就是在当前相同优先级的优先级队列中所有进程平分时间片。  </p>
+        <p>auto_ptr</p>
 
       
     </div>
@@ -443,7 +409,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
         </div>
       
@@ -456,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/30/网络基础（一）/" rel="next" title="网络基础（一）">
-                <i class="fa fa-chevron-left"></i> 网络基础（一）
+              <a href="/2019/03/07/DNS，ICMP协议及NAT技术/" rel="next" title="DNS，ICMP协议及NAT技术">
+                <i class="fa fa-chevron-left"></i> DNS，ICMP协议及NAT技术
               </a>
             
           </div>
@@ -465,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/07/TCP协议/" rel="prev" title="TCP协议">
-                TCP协议 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,17 +482,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -621,22 +574,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的状态"><span class="nav-number">1.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程调度"><span class="nav-number">2.</span> <span class="nav-text">进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则"><span class="nav-number">2.1.</span> <span class="nav-text">设计原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度类"><span class="nav-number">3.</span> <span class="nav-text">调度类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通进程的优先级"><span class="nav-number">4.</span> <span class="nav-text">普通进程的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通进程的组调度"><span class="nav-number">5.</span> <span class="nav-text">普通进程的组调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时进程的调度"><span class="nav-number">6.</span> <span class="nav-text">实时进程的调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时调度策略与优先级"><span class="nav-number">7.</span> <span class="nav-text">实时调度策略与优先级</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

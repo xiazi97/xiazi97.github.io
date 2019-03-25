@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[智能指针]]></title>
+    <url>%2F2019%2F03%2F25%2F%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%2F</url>
+    <content type="text"><![CDATA[auto_ptr]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[DNS，ICMP协议及NAT技术]]></title>
     <url>%2F2019%2F03%2F07%2FDNS%EF%BC%8CICMP%E5%8D%8F%E8%AE%AE%E5%8F%8ANAT%E6%8A%80%E6%9C%AF%2F</url>
     <content type="text"><![CDATA[DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系]]></content>
