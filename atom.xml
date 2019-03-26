@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-03-25T15:01:21.766Z</updated>
+  <updated>2019-03-26T15:43:32.616Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,14 +21,13 @@
     <link href="http://xiazi97.github.io/2019/03/25/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
     <id>http://xiazi97.github.io/2019/03/25/智能指针/</id>
     <published>2019-03-25T10:18:54.000Z</published>
-    <updated>2019-03-25T15:01:21.766Z</updated>
+    <updated>2019-03-26T15:43:32.616Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;auto_ptr&lt;/p&gt;
-
+        &lt;p&gt;​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是
       
     
     </summary>

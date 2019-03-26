@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[智能指针]]></title>
     <url>%2F2019%2F03%2F25%2F%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%2F</url>
-    <content type="text"><![CDATA[auto_ptr]]></content>
+    <content type="text"><![CDATA[​ C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是有内存泄漏）等问题。而在C++11中引入了智能指针的概念 来管理堆内存。 ​ 智能指针的实现采用了一种RAII（利用对象生命周期来控制程序资源）的技术对普通的指针进行封装，使得智能指针实际是一个对象，其行为表现的却像一个指针。也就是说，在对象构造时获取资源，接着控制对资源的访问使之在对象的生命周期内始终保持有效，最后在对象析构的时候释放资源。那么我们就不需要显式地去释放资源，且对象所需要的资源在生命周期内始终有效。 auto_ptr12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849template&lt;class T&gt;class AutoPtr&#123;private: T* _ptr;public: AutoPtr(T* ptr) :_ptr(ptr) &#123;&#125; AutoPtr(AutoPtr&lt;T&gt;&amp; ap) :_ptr(ap._ptr) &#123; ap._ptr = nullptr; &#125; AutoPtr&lt;T&gt;&amp; operator=(AutoPtr&lt;T&gt;&amp; sp) &#123; if(this != sp) &#123; if(_ptr) delete _ptr; _ptr = sp._ptr; sp._ptr = nullptr; &#125; &#125; ~AutoPtr() &#123; if(_ptr) delete _ptr; &#125; T&amp; operator*() &#123; return *_ptr; &#125; T&amp; operator-&gt;() &#123; return _ptr; &#125; T&amp; Get() &#123; return _ptr; &#125;&#125;;]]></content>
       <tags>
         <tag>C++</tag>
       </tags>
