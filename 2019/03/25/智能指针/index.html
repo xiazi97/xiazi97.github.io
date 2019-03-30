@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Snoopy">
 <meta property="og:description" content="​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是有内存泄漏）等问题。而在C++11中引入了智能指针的概念 来管理堆内存。 ​    智能指针的实现采用了一种RAII（利用对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-29T15:18:59.773Z">
+<meta property="og:updated_time" content="2019-03-30T15:52:21.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智能指针">
 <meta name="twitter:description" content="​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是有内存泄漏）等问题。而在C++11中引入了智能指针的概念 来管理堆内存。 ​    智能指针的实现采用了一种RAII（利用对象">
@@ -399,6 +399,7 @@
 <p>由以上代码可以看到，auto_ptr的实现是利用了管理权转移的思想——一旦发生拷贝，就将ap/sp中资源转移到当前对象中，然后令ap/sp与其所管理资源断开联系，这样就解决了一块空间被多个对象使用而造成程序奔溃问题。</p>
 <p>但是， 通过实现原理层来分析会发现，这里拷贝后把ap对象的指针赋空了，导致ap对象悬空，通过ap对象访问资源时就会出现问题</p>
 <h2 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h2><p>因为在拷贝时经常会出现一些问题，所以引出了一种简单粗暴的方式——禁止拷贝，就问你怕不怕！！！</p>
+<p>也就是说，将拷贝复制函数和运算符重载函数设为私有的</p>
 
       
     </div>
