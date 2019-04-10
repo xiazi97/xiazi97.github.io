@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Snoopy">
 <meta property="og:description" content="​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是有内存泄漏）等问题。而在C++11中引入了智能指针的概念 来管理堆内存。 ​    智能指针的实现采用了一种RAII（利用对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T15:40:19.486Z">
+<meta property="og:updated_time" content="2019-04-10T15:16:36.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智能指针">
 <meta name="twitter:description" content="​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是有内存泄漏）等问题。而在C++11中引入了智能指针的概念 来管理堆内存。 ​    智能指针的实现采用了一种RAII（利用对象">
@@ -416,7 +416,16 @@
 <p>那么为什么要对其进行上锁操作呢？细想一下其实也很简单：</p>
 <p>1.智能指针对象中引用计数是多个智能指针对象共享的，两个线程中智能指针的引用计数同时++或–，这个操作不是原子的，引用计数原来是1，++了两次，可能还是2。这样引用计数就错乱了。会导致资源未释放或者程序崩溃的问题。所以只能指针中引用计数++、–是需要加锁的，也就是说引用计数的操作必须是线程安全的。</p>
 <p>2.智能指针管理的对象存放在堆上，两个线程中同时去访问，会导致线程安全问题</p>
-<h3 id="std-shared-str的循环引用问题："><a href="#std-shared-str的循环引用问题：" class="headerlink" title="std::shared_str的循环引用问题："></a>std::shared_str的循环引用问题：</h3>
+<h3 id="std-shared-str的循环引用问题："><a href="#std-shared-str的循环引用问题：" class="headerlink" title="std::shared_str的循环引用问题："></a>std::shared_str的循环引用问题：</h3><p>循环引用分析：</p>
+<ol>
+<li>node1和node2两个智能指针对象指向两个节点，引用计数变成1，我们不需要手动delete。</li>
+<li>node1的_next指向node2，node2的_prev指向node1，引用计数变成2。</li>
+<li>node1和node2析构，引用计数减到1，但是_next还指向下一个节点。但是_prev还指向上一个节点。</li>
+<li>也就是说_next析构了，node2就释放了。</li>
+<li>也就是说_prev析构了，node1就释放了。</li>
+<li>但是_next属于node的成员，node1释放了，_next才会析构，而node1由_prev管理，_prev属于node2<br>成员，所以这就叫循环引用，谁也不会释放。</li>
+</ol>
+
       
     </div>
     
@@ -563,7 +572,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">36.2k</span>
+      <span class="site-state-item-count">36.4k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
