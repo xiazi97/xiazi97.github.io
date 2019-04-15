@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-11T15:28:48.711Z</updated>
+  <updated>2019-04-15T15:49:48.011Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高级IO</title>
+    <link href="http://xiazi97.github.io/2019/04/15/%E9%AB%98%E7%BA%A7IO/"/>
+    <id>http://xiazi97.github.io/2019/04/15/高级IO/</id>
+    <published>2019-04-15T15:36:10.000Z</published>
+    <updated>2019-04-15T15:49:48.011Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝，记住了这些对于我们下边的理解是很有用的！&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>智能指针</title>
@@ -428,28 +450,6 @@
       
         &lt;p&gt;信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行&lt;br&gt;信号更多的是通知事件发生，如红绿灯&lt;/p&gt;
 &lt;p&gt;在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下c
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Core Dump浅解析</title>
-    <link href="http://xiazi97.github.io/2018/11/08/Core-Dump%E6%B5%85%E8%A7%A3%E6%9E%90/"/>
-    <id>http://xiazi97.github.io/2018/11/08/Core-Dump浅解析/</id>
-    <published>2018-11-08T09:39:53.000Z</published>
-    <updated>2018-11-08T09:48:17.058Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Core Dump（核心转储）：&lt;br&gt;当一个进程要异常终止时，可以选择把进程的用户空间内存数据全部保存到磁盘上，文件名通常是core，叫做Core Dump(保存当前程序运行的数据以及调用栈信息)，可以用于错误原因定位调试&lt;/p&gt;
-&lt;p&gt;为什么不用gdb呢？&lt;br&gt;答：如
       
     
     </summary>
