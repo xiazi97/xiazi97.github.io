@@ -3,9 +3,9 @@
   <entry>
     <title><![CDATA[高级IO]]></title>
     <url>%2F2019%2F04%2F15%2F%E9%AB%98%E7%BA%A7IO%2F</url>
-    <content type="text"><![CDATA[在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝，记住了这些对于我们下边的理解是很有用的！]]></content>
+    <content type="text"><![CDATA[​ 在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝，记住了这些对于我们下边的理解是很有用的！]]></content>
       <tags>
-        <tag>Linux</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
