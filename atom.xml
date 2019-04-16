@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-15T15:52:41.246Z</updated>
+  <updated>2019-04-16T15:51:33.507Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="http://xiazi97.github.io/2019/04/15/%E9%AB%98%E7%BA%A7IO/"/>
     <id>http://xiazi97.github.io/2019/04/15/高级IO/</id>
     <published>2019-04-15T15:36:10.000Z</published>
-    <updated>2019-04-15T15:52:41.246Z</updated>
+    <updated>2019-04-16T15:51:33.507Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;​    在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝，记住了这些对于我们下边的理解是很有用的！&lt;/p&gt;
-
+        &lt;p&gt;在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝&lt;/p&gt;
+&lt;p&gt;正式进入IO时，先来通过一个例子简单理解一下五种IO模型：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
       
     
     </summary>
