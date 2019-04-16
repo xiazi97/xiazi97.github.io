@@ -91,19 +91,23 @@
 
 
 
-<meta name="description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学本来在刷手机，点了餐就又开始刷手机3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手机4.D同学发">
+<meta name="description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学点了餐就开始刷手机，过一会抬头看点的餐是不是好了3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级IO">
 <meta property="og:url" content="http://xiazi97.github.io/2019/04/15/高级IO/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学本来在刷手机，点了餐就又开始刷手机3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手机4.D同学发">
+<meta property="og:description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学点了餐就开始刷手机，过一会抬头看点的餐是不是好了3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/阻塞IO.png">
-<meta property="og:updated_time" content="2019-04-16T15:51:33.507Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/非阻塞IO.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/信号驱动IO.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/IO多路转接.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/异步IO.png">
+<meta property="og:updated_time" content="2019-04-16T16:47:48.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级IO">
-<meta name="twitter:description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学本来在刷手机，点了餐就又开始刷手机3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手机4.D同学发">
+<meta name="twitter:description" content="在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝 正式进入IO时，先来通过一个例子简单理解一下五种IO模型： 123456我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号2.B同学点了餐就开始刷手机，过一会抬头看点的餐是不是好了3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手">
 <meta name="twitter:image" content="http://xiazi97.github.io/2019/04/15/高级IO/D:/BLog/source/_posts/高级IO/阻塞IO.png">
 
 
@@ -395,11 +399,20 @@
       
         <p>在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝</p>
 <p>正式进入IO时，先来通过一个例子简单理解一下五种IO模型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：</span><br><span class="line">1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号</span><br><span class="line">2.B同学本来在刷手机，点了餐就又开始刷手机</span><br><span class="line">3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手机</span><br><span class="line">4.D同学发现有好几个窗口都可以排到这份餐，于是他在这些窗口都排了号，等待任意一个窗口即可</span><br><span class="line">5.E同学则是拜托了另一位同事去帮他点餐等餐，在拿到餐之后通知他来吃就行</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我们在食堂吃饭，需要点餐后等待做好才能吃到。现在有：</span><br><span class="line">1.A同学到达窗口时点了餐以后一动也不动什么都不做就在窗口等着叫号</span><br><span class="line">2.B同学点了餐就开始刷手机，过一会抬头看点的餐是不是好了</span><br><span class="line">3.C同学学点餐之后告诉旁边的同事让饭好了叫一下他就开始低头玩手机</span><br><span class="line">4.D同学发现有好几个窗口都可以排到这份餐，于是他在这些窗口都排了号，等待任意一个窗口即可</span><br><span class="line">5.E同学则是拜托了另一位同事去帮他点餐等餐，在拿到餐之后通知他来吃就行</span><br></pre></td></tr></table></figure>
 <p>看了上边的例子大家是不是更！懵！了！好啦好啦，我们进入正题： </p>
 <h3 id="阻塞IO"><a href="#阻塞IO" class="headerlink" title="阻塞IO"></a>阻塞IO</h3><p>在内核将数据准备好之前，系统调用会一直等待。（所有的套接字默认都是阻塞方式）</p>
 <p><strong>阻塞IO是最常见的IO模型。</strong></p>
 <p><img src="/2019/04/15/高级IO/D:/BLog\source\_posts\高级IO\阻塞IO.png" alt="阻塞IO"></p>
+<h3 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h3><p>如果内核还未将数据准备好，系统调用仍然会直接返回，并且返回EWOULDBLOCK错误码</p>
+<p>非阻塞IO往往需要程序员循环的方式反复尝试读写文件描述符，这个过程称之为轮询。这对CPU来说是极大的浪费，一般只有特定场景下才使用</p>
+<p><img src="/2019/04/15/高级IO/D:/BLog\source\_posts\高级IO\非阻塞IO.png" alt="阻塞IO"></p>
+<h3 id="信号驱动IO"><a href="#信号驱动IO" class="headerlink" title="信号驱动IO"></a>信号驱动IO</h3><p>内核将数据准备好的时候，使用SIGIO信号通知应用程序进行IO操作</p>
+<p><img src="/2019/04/15/高级IO/D:/BLog\source\_posts\高级IO\信号驱动IO.png" alt="阻塞IO"></p>
+<h3 id="IO多路转接"><a href="#IO多路转接" class="headerlink" title="IO多路转接"></a>IO多路转接</h3><p>虽然从流程图上看起来和阻塞IO类似，但是实际上最核心在于IO多路转接能够<strong>同时等待多个文件描述符</strong>的就绪状态</p>
+<p><img src="/2019/04/15/高级IO/D:/BLog\source\_posts\高级IO\IO多路转接.png" alt="阻塞IO"></p>
+<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><p>由内核在数据拷贝完成时，通知应用程序（与信号驱动不同的是，信号驱动是等到了数据告诉应用程序可以拷贝数据了）</p>
+<p><img src="/2019/04/15/高级IO/D:/BLog\source\_posts\高级IO\异步IO.png" alt="阻塞IO"></p>
 
       
     </div>
@@ -547,7 +560,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">36.9k</span>
+      <span class="site-state-item-count">37.1k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -601,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞IO"><span class="nav-number">1.</span> <span class="nav-text">阻塞IO</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞IO"><span class="nav-number">1.</span> <span class="nav-text">阻塞IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞IO"><span class="nav-number">2.</span> <span class="nav-text">非阻塞IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号驱动IO"><span class="nav-number">3.</span> <span class="nav-text">信号驱动IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO多路转接"><span class="nav-number">4.</span> <span class="nav-text">IO多路转接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步IO"><span class="nav-number">5.</span> <span class="nav-text">异步IO</span></a></li></ol></div>
             
 
           </div>
