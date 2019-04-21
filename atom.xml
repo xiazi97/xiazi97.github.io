@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-18T15:17:40.898Z</updated>
+  <updated>2019-04-21T15:50:31.519Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉搜索树</title>
+    <link href="http://xiazi97.github.io/2019/04/20/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+    <id>http://xiazi97.github.io/2019/04/20/二叉搜索树/</id>
+    <published>2019-04-20T12:57:43.000Z</published>
+    <updated>2019-04-21T15:50:31.519Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;顾名思义，二叉搜索树是以一棵二叉树来组织的，这样的一棵树可以用一个链表结构来表示，每个节点除了data还有left、right、parent，分别指向节点的左孩子，右孩子和父节点。如果对应的节点不存在则指向NIL节点。（因为最简单的二叉搜索树中的NIL节点里并没有有用信息，
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>高级IO</title>
@@ -429,28 +450,6 @@
 &lt;p&gt;​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​&lt;/p&gt;
 &lt;p&gt;文件权限值的表示方法：&lt;/p&gt;
 &lt;
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>进程信号之信号周期</title>
-    <link href="http://xiazi97.github.io/2018/11/08/%E8%BF%9B%E7%A8%8B%E4%BF%A1%E5%8F%B7%E4%B9%8B%E4%BF%A1%E5%8F%B7%E5%91%A8%E6%9C%9F/"/>
-    <id>http://xiazi97.github.io/2018/11/08/进程信号之信号周期/</id>
-    <published>2018-11-08T14:26:27.000Z</published>
-    <updated>2018-11-08T14:46:36.181Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行&lt;br&gt;信号更多的是通知事件发生，如红绿灯&lt;/p&gt;
-&lt;p&gt;在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下c
       
     
     </summary>
