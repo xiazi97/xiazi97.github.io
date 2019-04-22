@@ -91,18 +91,23 @@
 
 
 
-<meta name="description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系">
+<meta name="description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系 。也就是说，用户简单的输入一个主机名“host-a”通过查文件就可以对应到其IP地址。 最初是通过互联网信息中心（SRI-">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNS，ICMP协议及NAT技术">
 <meta property="og:url" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系">
+<meta property="og:description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系 。也就是说，用户简单的输入一个主机名“host-a”通过查文件就可以对应到其IP地址。 最初是通过互联网信息中心（SRI-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T15:39:07.679Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog/source/_posts/DNS，ICMP协议及NAT技术/域名解析过程.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog/source/_posts/DNS，ICMP协议及NAT技术/ICMP.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog/source/_posts/DNS，ICMP协议及NAT技术/报文格式.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog/source/_posts/DNS，ICMP协议及NAT技术/NAT转换过程.png">
+<meta property="og:updated_time" content="2019-04-22T17:27:25.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DNS，ICMP协议及NAT技术">
-<meta name="twitter:description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系">
+<meta name="twitter:description" content="DNS(Domain Name System)DNS是一整套从域名映射到IP的系统 在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系 。也就是说，用户简单的输入一个主机名“host-a”通过查文件就可以对应到其IP地址。 最初是通过互联网信息中心（SRI-">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog/source/_posts/DNS，ICMP协议及NAT技术/域名解析过程.png">
 
 
 
@@ -392,7 +397,69 @@
 
       
         <h2 id="DNS-Domain-Name-System"><a href="#DNS-Domain-Name-System" class="headerlink" title="DNS(Domain Name System)"></a>DNS(Domain Name System)</h2><p>DNS是一整套从域名映射到IP的系统</p>
-<p>在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫主机名的东西，是一个字符串，并且使用hosts文件来描述主机名与IP地址之间的关系 </p>
+<p>在TCP/IP中使用IP地址和端口号来确定网络上的一台主机的一个程序，但是IP地址不方便记忆。所以引出了一种叫<strong>主机名</strong>的东西，是一个<strong>字符串</strong>，并且使用hosts文件来描述主机名与IP地址之间的关系 。也就是说，用户简单的输入一个主机名“host-a”通过查文件就可以对应到其IP地址。</p>
+<p>最初是通过互联网信息中心（SRI-NIC）来管理这个文件的，但是这样太麻烦，比如说：如果一个新计算机要接入这个网络，或者某个计算机的IP变更了，都需要到信息中心申请变更hosts文件，而且其他的计算机也需要定期的进行下载更新hosts文件才能正确上网。于是就产生了DNS系统。</p>
+<ul>
+<li>DNS是一个组织的系统管理机构，维护系统内的每个主机的IP和主机名的对应关系</li>
+<li>如果新计算机接入网络，将这个信息注册到数据库中</li>
+<li>用户输入域名的时候，会自动查询DNS服务器，由DNS服务器去检索数据库，得到对应的IP地址</li>
+</ul>
+<h3 id="域名简介"><a href="#域名简介" class="headerlink" title="域名简介"></a>域名简介</h3><p>主域名是用来识别主机名称和主机所属的组织机构的一种分层结构的名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.baidu.com</span><br></pre></td></tr></table></figure>
+<p>域名使用.进行连接</p>
+<ul>
+<li>com：一级域名，表示这是一个企业域名。同级的还有”net”（网络提供商）,”org”（非盈利组织）等</li>
+<li>baidu：二级域名，公司名</li>
+<li>www：只是一种习惯用法，之前人们在使用域名时，往往命名成类似于ftp.xxx.xxx/<a href="http://www.xxx.xxx这样的格式，来表示主机支持的协议" target="_blank" rel="noopener">www.xxx.xxx这样的格式，来表示主机支持的协议</a></li>
+</ul>
+<h3 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h3><p>计算机Li要访问<a href="http://www.lf.org：" target="_blank" rel="noopener">www.lf.org：</a></p>
+<ol>
+<li>向DNS服务器查询IP地址</li>
+<li>由于Feng的DNS服务器并不知道<a href="http://www.lf.org的IP地址是什么，它向根域名服务器请求进行查询" target="_blank" rel="noopener">www.lf.org的IP地址是什么，它向根域名服务器请求进行查询</a></li>
+<li>由于根域名服务器知道<a href="http://www.lf.org的IP地址，因此将地址返回" target="_blank" rel="noopener">www.lf.org的IP地址，因此将地址返回</a></li>
+<li>向<a href="http://www.lf.org的域名服务器查询www.lf.org的IP地址" target="_blank" rel="noopener">www.lf.org的域名服务器查询www.lf.org的IP地址</a></li>
+<li>将查到的IP地址返回给客户端</li>
+<li>pepper开始与<a href="http://www.lf.org进行通信" target="_blank" rel="noopener">www.lf.org进行通信</a></li>
+</ol>
+<p><img src="/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog\source\_posts\DNS，ICMP协议及NAT技术\域名解析过程.png" alt="域名解析过程"></p>
+<p>简单的来说，过程如下：</p>
+<ul>
+<li>输入域名后，先查找自己主机对应的域名服务器</li>
+<li>域名服务器先查找自己的数据库中的数据。如果没有，就向上级域名服务器进行查找，依此类推</li>
+<li>最多回溯到根域名服务器，肯定能找到这个域名的IP地址</li>
+<li>域名服务器自身也会进行一些缓存，把曾经访问过的域名和对应的IP地址缓存起来，可以加速查找过程</li>
+</ul>
+<h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><p>ICMP是一个<strong>网络层协议</strong></p>
+<p>对于一个新搭建好的网络，往往需要先进行一个简单的测试来测试网络是否畅通，但是IP协议并不提供可靠传输。如果丢包了，IP协议并不能通知传输层是否丢包以及丢包的原因。</p>
+<h3 id="ICMP功能"><a href="#ICMP功能" class="headerlink" title="ICMP功能"></a>ICMP功能</h3><ul>
+<li>确认IP包是否成功到达目标地址</li>
+<li>通知在发送过程中IP包被丢弃的原因</li>
+<li>ICMP也是基于IP协议工作，但是它并不能传输层的功能，因此人们仍然把它归结为网络层协议</li>
+<li>ICMP只能搭配IPV4使用。如果是IPV6的话，需要用的是ICMPv6</li>
+</ul>
+<p><img src="/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog\source\_posts\DNS，ICMP协议及NAT技术\ICMP.png" alt="ICMP功能"></p>
+<h3 id="ICMP报文格式"><a href="#ICMP报文格式" class="headerlink" title="ICMP报文格式"></a>ICMP报文格式</h3><p><img src="/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog\source\_posts\DNS，ICMP协议及NAT技术\报文格式.png" alt="报文格式"></p>
+<p>ICMP大概分为两类报文：</p>
+<ul>
+<li>一类是通知出错原因</li>
+<li>一类是用于诊断调查</li>
+</ul>
+<h2 id="NAT技术"><a href="#NAT技术" class="headerlink" title="NAT技术"></a>NAT技术</h2><p>在之前，我们讨论了关于IPv4协议中IP地址数量不足的问题。NAT技术即是当前解决IP地址不够用的主要手段，是路由器的一个功能。</p>
+<p>NAT能将私有IP对外通信时转为全局IP，也就是一种<strong>将私有IP和全局IP相互转化</strong>的技术方法，很多的学校，家庭，公司内部等多采用每个终端设置私有IP，而在路由器或必要的服务器上设置全局IP。全局IP需要唯一，而私有IP则不需要，在不同的局域网中出现相同的私有IP是完全有可能的。</p>
+<h3 id="NAT转换过程"><a href="#NAT转换过程" class="headerlink" title="NAT转换过程"></a>NAT转换过程</h3><p><img src="/2019/03/07/DNS，ICMP协议及NAT技术/D:/BLog\source\_posts\DNS，ICMP协议及NAT技术\NAT转换过程.png" alt="NAT转换过程"></p>
+<ol>
+<li>NAT路由器将源地址从10.0.0.10替换成了全局IP：202.211.174.37</li>
+<li>NAT路由器收到外部的数据时，又会把目标IP从202.211.174.37替换回10.0.0.10</li>
+<li>在NAT路由器内部，有一张自动生成的，用于地址转换的表</li>
+<li>当10.0.0.10第一次向162.221.120.9发送数据时就会生成表中的映射关系</li>
+</ol>
+<h3 id="NAPT"><a href="#NAPT" class="headerlink" title="NAPT"></a>NAPT</h3><p>此时我们意识到一个问题，如果局域网内同时有多个主机都访问同一个外部的服务器，那么对于服务器返回的数据中目的IP都是相同的，那么NAT路由器如何判定要将这个数据包发给哪个局域网的主机呢？这时候就需要有NAPT来解决问题了，它使用了IP+port来形成一个关联的关系，这个关联关系也是由NAT路由表来维护的</p>
+<h3 id="NAT技术的缺陷"><a href="#NAT技术的缺陷" class="headerlink" title="NAT技术的缺陷"></a>NAT技术的缺陷</h3><p>我们发现NAT技术的实现，是很依赖这个转换表的，所以就会产生诸多问题：</p>
+<ol>
+<li>无法从NAT外部向内部服务器建立连接</li>
+<li>转换表的生成和销毁都需要额外开销</li>
+<li>通信过程中一旦NAT设备异常那么所有的连接也将会断开</li>
+</ol>
 
       
     </div>
@@ -544,7 +611,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">38.8k</span>
+      <span class="site-state-item-count">40.2k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -598,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-Domain-Name-System"><span class="nav-number">1.</span> <span class="nav-text">DNS(Domain Name System)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-Domain-Name-System"><span class="nav-number">1.</span> <span class="nav-text">DNS(Domain Name System)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名简介"><span class="nav-number">1.1.</span> <span class="nav-text">域名简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析过程"><span class="nav-number">1.2.</span> <span class="nav-text">域名解析过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICMP协议"><span class="nav-number">2.</span> <span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP功能"><span class="nav-number">2.1.</span> <span class="nav-text">ICMP功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP报文格式"><span class="nav-number">2.2.</span> <span class="nav-text">ICMP报文格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT技术"><span class="nav-number">3.</span> <span class="nav-text">NAT技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT转换过程"><span class="nav-number">3.1.</span> <span class="nav-text">NAT转换过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAPT"><span class="nav-number">3.2.</span> <span class="nav-text">NAPT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT技术的缺陷"><span class="nav-number">3.3.</span> <span class="nav-text">NAT技术的缺陷</span></a></li></ol></li></ol></div>
             
 
           </div>
