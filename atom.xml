@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-21T15:50:31.519Z</updated>
+  <updated>2019-04-24T15:17:22.283Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AVL树</title>
+    <link href="http://xiazi97.github.io/2019/04/23/AVL%E6%A0%91/"/>
+    <id>http://xiazi97.github.io/2019/04/23/AVL树/</id>
+    <published>2019-04-23T12:09:33.000Z</published>
+    <updated>2019-04-24T15:17:22.283Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>二叉搜索树</title>
@@ -426,30 +447,6 @@
 &lt;p&gt;信号并不是立即处理的，而是选择一个合适的时机去处理，合适的时机就是当前程序从内核态切换到用户态的时候&lt;/p&gt;
 &lt;p&gt;注意：程序如何从用户态切换到内核态?&lt;/p&gt;
 &lt;p&gt;答：1.程序异常的时候    2.发起系统调
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件权限</title>
-    <link href="http://xiazi97.github.io/2018/11/08/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/"/>
-    <id>http://xiazi97.github.io/2018/11/08/Linux文件权限/</id>
-    <published>2018-11-08T15:37:20.000Z</published>
-    <updated>2018-11-09T14:55:11.230Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？&lt;/p&gt;
-&lt;p&gt;​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​&lt;/p&gt;
-&lt;p&gt;文件权限值的表示方法：&lt;/p&gt;
-&lt;
       
     
     </summary>

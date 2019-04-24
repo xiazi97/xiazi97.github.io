@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,18 +91,24 @@
 
 
 
-<meta name="description" content="​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子">
-<meta name="keywords" content="Linux">
+<meta name="description" content="上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜索树中插入新结点后，如果能保证每个结点的左右子树高度之差的绝对值不超过1(需要对树中的结点进行调整)，即可降低树的高度，从而减">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="父子进程之SIGCHLD">
-<meta property="og:url" content="http://xiazi97.github.io/2018/11/11/父子进程之SIGCHLD/index.html">
+<meta property="og:title" content="AVL树">
+<meta property="og:url" content="http://xiazi97.github.io/2019/04/23/AVL树/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子">
+<meta property="og:description" content="上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜索树中插入新结点后，如果能保证每个结点的左右子树高度之差的绝对值不超过1(需要对树中的结点进行调整)，即可降低树的高度，从而减">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-11T15:21:47.147Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/AVL树/R.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/AVL树/L.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/AVL树/LR.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/AVL树/RL.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/二叉搜索树/log.png">
+<meta property="og:updated_time" content="2019-04-24T15:17:22.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="父子进程之SIGCHLD">
-<meta name="twitter:description" content="​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子">
+<meta name="twitter:title" content="AVL树">
+<meta name="twitter:description" content="上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜索树中插入新结点后，如果能保证每个结点的左右子树高度之差的绝对值不超过1(需要对树中的结点进行调整)，即可降低树的高度，从而减">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/04/23/AVL树/D:/BLog/source/_posts/AVL树/R.png">
 
 
 
@@ -132,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2018/11/11/父子进程之SIGCHLD/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/04/23/AVL树/">
 
 
 
 
 
-  <title>父子进程之SIGCHLD | Snoopy</title>
+  <title>AVL树 | Snoopy</title>
   
 
 
@@ -317,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/11/父子进程之SIGCHLD/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/04/23/AVL树/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">父子进程之SIGCHLD</h1>
+          <h1 class="post-title" itemprop="name headline">AVL树</h1>
         
 
         <div class="post-meta">
@@ -346,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-11T22:49:55+08:00">
-                2018-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T20:09:33+08:00">
+                2019-04-23
               </time>
             
 
@@ -391,8 +397,57 @@
       
 
       
-        <p>​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时，会给父进程发送SIGCHLD信号，该信号的默认处理是忽略，父进程可以自定义该函数，使得父进程可以专心处理自己的工作不必关心子进程，而在子进程终止时会通知父进程，父进程在信号处理函数中调用wait清理子进程即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;unistd.h&gt;</span><br><span class="line">#include&lt;signal.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">void sigcb()</span><br><span class="line">&#123;</span><br><span class="line">	//使用非阻塞的循环来处理SIGCHLD信号</span><br><span class="line">	//因为SIGCHLD信号是不可靠信号，有可能会丢失</span><br><span class="line">	//一旦接受到信号就处理到不能处理为止</span><br><span class="line">	//!=0代表一直有子程序在退出，所以一直循环，&gt;0返回子进程PID (!=0可能&lt;0，没有子进程）</span><br><span class="line">	while(waitpid(-1,NULL,WNOHANG) != 0);//多个子进程可能会同时退出，如果同时退出了那么有些信号就会丢失，使得少处理一个信号</span><br><span class="line">    printf(&quot;Have a child exit!\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	signal(SIGCHLD,sigcb);</span><br><span class="line">    int pid = fork();</span><br><span class="line">    if(pid == 0)</span><br><span class="line">    &#123;</span><br><span class="line">		exit(0);        </span><br><span class="line">    &#125;</span><br><span class="line">    //waitpid(-1,NULL,0);   //避免产生僵尸子进程，但是使得父进程中后续的操作不能正常继续</span><br><span class="line">    while(1)</span><br><span class="line">    &#123;</span><br><span class="line">     	printf(&quot;--------\n&quot;);</span><br><span class="line">        sleep(1;)</span><br><span class="line">     &#125;</span><br><span class="line">     return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜索树中插入新结点后，如果能保证<strong>每个结点的左右子树高度之差的绝对值不超过1</strong>(需要对树中的结点进行调整)，即可降低树的高度，从而减少平均搜索长度。</p>
+<p>也就是说，AVL树本质上是一颗二叉查找树。</p>
+<p>对于一棵AVL树，要么是一棵空树，要么需要具有如下性质：</p>
+<ul>
+<li>它的左右子树都是AVL树</li>
+<li>左右子树的高度之差（平衡因子）的绝对值不超过1</li>
+</ul>
+<h3 id="AVL节点的定义"><a href="#AVL节点的定义" class="headerlink" title="AVL节点的定义"></a>AVL节点的定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">AVLTreeNode</span>&#123;</span></span><br><span class="line">	AVLTreeNode(<span class="keyword">const</span> T&amp; data)</span><br><span class="line">		:_pLeft(<span class="literal">nullptr</span>)</span><br><span class="line">		,_pRight(<span class="literal">nullptr</span>)</span><br><span class="line">		,_pParent(<span class="literal">nullptr</span>)</span><br><span class="line">		,_data(data)</span><br><span class="line">		,_bf(<span class="number">0</span>)</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">	AVLTreeNode&lt;T&gt;* _pLeft;</span><br><span class="line">	AVLTreeNode&lt;T&gt;* _pRight;</span><br><span class="line">	AVLTreeNode&lt;T&gt;* _pParent;</span><br><span class="line">	T _data;</span><br><span class="line">	<span class="keyword">int</span> _bf;   <span class="comment">//平衡因子</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="AVL节点的插入"><a href="#AVL节点的插入" class="headerlink" title="AVL节点的插入"></a>AVL节点的插入</h3><p>AVL树就是在二叉搜索树的基础上引入了平衡因子，因此AVL树也可以看成是二叉搜索树。那么AVL树的插入<br>过程可以分为两步：</p>
+<ol>
+<li>按照二叉搜索树的方式插入新节点</li>
+<li>更新平衡因子</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">bool Insert(const T&amp; data)</span><br><span class="line">&#123;</span><br><span class="line"> // 1. 先按照二叉搜索树的规则将节点插入到AVL树中</span><br><span class="line"> // ...</span><br><span class="line"> </span><br><span class="line"> // 2. 新节点插入后，AVL树的平衡性可能会遭到破坏，此时就需要更新平衡因子，并检测是否破坏了AVL树</span><br><span class="line"> // 的平衡性</span><br><span class="line"> </span><br><span class="line"> /*</span><br><span class="line"> pCur插入后，pParent的平衡因子一定需要调整，在插入之前，pParent</span><br><span class="line"> 的平衡因子分为三种情况：-1，0, 1, 分以下两种情况：</span><br><span class="line"> 1. 如果pCur插入到pParent的左侧，只需给pParent的平衡因子-1即可</span><br><span class="line"> 2. 如果pCur插入到pParent的右侧，只需给pParent的平衡因子+1即可</span><br><span class="line"> </span><br><span class="line"> 此时：pParent的平衡因子可能有三种情况：0，正负1， 正负2</span><br><span class="line"> 1. 如果pParent的平衡因子为0，说明插入之前pParent的平衡因子为正负1，插入后被调整成0，此时满</span><br><span class="line">足</span><br><span class="line"> AVL树的性质，插入成功</span><br><span class="line"> 2. 如果pParent的平衡因子为正负1，说明插入前pParent的平衡因子一定为0，插入后被更新成正负1，</span><br><span class="line">此</span><br><span class="line"> 时以pParent为根的树的高度增加，需要继续向上更新</span><br><span class="line"> 3. 如果pParent的平衡因子为正负2，则pParent的平衡因子违反平衡树的性质，需要对其进行旋转处理</span><br><span class="line"> */</span><br><span class="line"> while (pParent)</span><br><span class="line"> &#123;</span><br><span class="line"> // 更新双亲的平衡因子</span><br><span class="line"> if (pCur == pParent-&gt;_pLeft)</span><br><span class="line"> pParent-&gt;_bf--;</span><br><span class="line"> else</span><br><span class="line"> pParent-&gt;_bf++;</span><br><span class="line"> // 更新后检测双亲的平衡因子</span><br><span class="line"> if (0 == pParent-&gt;_bf)</span><br><span class="line"> break;</span><br><span class="line"> else if (1 == pParent-&gt;_bf || -1 == pParent-&gt;_bf)</span><br><span class="line"> &#123;</span><br><span class="line"> // 插入前双亲的平衡因子是0，插入后双亲的平衡因为为1 或者 -1 ，说明以双亲为根的二叉</span><br><span class="line">树</span><br><span class="line"> // 的高度增加了一层，因此需要继续向上调整</span><br><span class="line"> pCur = pParent;</span><br><span class="line"> pParent = pCur-&gt;_pParent;</span><br><span class="line"> &#125;</span><br><span class="line"> else</span><br><span class="line"> &#123;</span><br><span class="line"> // 双亲的平衡因子为正负2，违反了AVL树的平衡性，需要对以pParent</span><br><span class="line"> // 为根的树进行旋转处理</span><br><span class="line"> if(2 == pParent-&gt;_bf)</span><br><span class="line"> &#123;</span><br><span class="line"> // ...</span><br><span class="line"> &#125;</span><br><span class="line"> else</span><br><span class="line"> &#123;</span><br><span class="line"> // ...</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="AVL树的旋转"><a href="#AVL树的旋转" class="headerlink" title="AVL树的旋转"></a>AVL树的旋转</h3><p>如果在一棵原本是平衡的AVL树中插入一个新节点，可能会造成不平衡，此时必须调整树的结构，使之平衡<br>化。根据节点插入位置的不同，AVL树的旋转分为四种：</p>
+<ol>
+<li><p>新节点插入较高左子树的左侧—左左：右单旋</p>
+<p><img src="/2019/04/23/AVL树/D:/BLog\source\_posts\AVL树\R.png" alt="R单旋"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RotateR</span><span class="params">(PNode pParent)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		PNode pSubL = pParent-&gt;_pLeft;</span><br><span class="line">		PNode pSubLR = pSubL-&gt;_pRight;</span><br><span class="line">		</span><br><span class="line">		pParent-&gt;_pLeft = pSubLR;</span><br><span class="line">		<span class="keyword">if</span>(pSubLR)</span><br><span class="line">			pSubLR-&gt;_pParent = pParent;</span><br><span class="line"></span><br><span class="line">		pSubL-&gt;_pRight = pParent;</span><br><span class="line">		PNode pPParent = pParent-&gt;_pParent;</span><br><span class="line">		pParent-&gt;_pParent = pSubL;</span><br><span class="line">		pSubL-&gt;_pParent = pPParent;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="literal">nullptr</span> == pPParent)</span><br><span class="line">			_pRoot = pSubL;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(pParent == pPParent-&gt;_pLeft)</span><br><span class="line">				pPParent-&gt;_pLeft = pSubL;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				pPParent-&gt;_pRight = pSubL;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		pParent-&gt;_bf = pSubL-&gt;_bf = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>新节点插入较高右子树的右侧—右右：左单旋</p>
+<p><img src="/2019/04/23/AVL树/D:/BLog\source\_posts\AVL树\L.png" alt="R旋"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RotateL</span><span class="params">(PNode pParent)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		PNode pSubR = pParent-&gt;_pRight;</span><br><span class="line">		PNode pSubRL = pSubR-&gt;_pLeft;</span><br><span class="line"></span><br><span class="line">		pParent-&gt;_pRight = pSubRL;</span><br><span class="line">		<span class="keyword">if</span>(pSubRL)</span><br><span class="line">			pSubRL-&gt;_pParent = pParent;</span><br><span class="line"></span><br><span class="line">		pSubR-&gt;_pLeft = pParent;</span><br><span class="line">		PNode pPParent = pParent-&gt;_pParent;</span><br><span class="line">		pParent-&gt;_pParent = pSubR;</span><br><span class="line">		pSubR-&gt;_pParent = pPParent;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="literal">nullptr</span> == pPParent)</span><br><span class="line">			_pRoot = pSubR;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(pParent == pPParent-&gt;_pLeft)</span><br><span class="line">				pPParent-&gt;_pLeft = pSubR;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				pPParent-&gt;_pRight = pSubR;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		pParent-&gt;_bf = pSubR-&gt;_bf = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p>新节点插入较高左子树的右侧—左右：先左单旋再右单旋</p>
+<p><img src="/2019/04/23/AVL树/D:/BLog\source\_posts\AVL树\LR.png" alt="LR双旋"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RotateLR</span><span class="params">(PNode pParent)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		PNode pSubL = pParent-&gt;_pLeft;</span><br><span class="line">		PNode pSubLR = pSubL-&gt;_pRight;</span><br><span class="line">		<span class="keyword">int</span> bf = pSubLR-&gt;_bf;</span><br><span class="line"></span><br><span class="line">		RotateL(pParent-&gt;_pLeft);</span><br><span class="line">		RotateR(pParent);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//更新平衡因子</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="number">1</span> == bf)</span><br><span class="line">		&#123;</span><br><span class="line">			pSubL-&gt;_bf = <span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">-1</span> == bf)</span><br><span class="line">		&#123;</span><br><span class="line">			pParent-&gt;_bf = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li>新节点插入较高右子树的左侧—右左：先右单旋再左单旋</li>
+</ol>
+<p><img src="/2019/04/23/AVL树/D:/BLog\source\_posts\AVL树\RL.png" alt="RL旋转"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RotateRL</span><span class="params">(PNode pParent)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		PNode pSubR = pParent-&gt;_pRight;</span><br><span class="line">		PNode pSubRL = pSubR-&gt;_pLeft;</span><br><span class="line">		<span class="keyword">int</span> bf = pSubRL-&gt;_bf;</span><br><span class="line"></span><br><span class="line">		RotateR(pParent-&gt;_pRight);</span><br><span class="line">		RotateL(pParent);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="number">1</span> == bf)</span><br><span class="line">			pParent-&gt;_bf = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">-1</span> == bf)</span><br><span class="line">			pSubR-&gt;_bf = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：<br>假如以pParent为根的子树不平衡，即pParent的平衡因子为2或者-2，分以下情况考虑</p>
+<ol>
+<li><p>pParent的平衡因子为2，说明pParent的右子树高，设pParent的右子树的根为pSubR<br>当pSubR的平衡因子为1时，执行左单旋<br>当pSubR的平衡因子为-1时，执行右左双旋</p>
+</li>
+<li><p>pParent的平衡因子为-2，说明pParent的左子树高，设pParent的左子树的根为pSubL<br>当pSubL的平衡因子为-1是，执行右单旋<br>当pSubL的平衡因子为1时，执行左右双旋<br>旋转完成后，原pParent为根的子树个高度降低，已经平衡，不需要再向上更新。</p>
+<h3 id="AVL树的验证"><a href="#AVL树的验证" class="headerlink" title="AVL树的验证"></a>AVL树的验证</h3><p>AVL树是在二叉搜索树的基础上加入了平衡性的限制，因此要验证AVL树，可以分两步：</p>
+</li>
+<li><p>验证其为二叉搜索树<br>如果中序遍历可得到一个有序的序列，就说明为二叉搜索树</p>
+</li>
+<li>验证其为平衡树<br>每个节点子树高度差的绝对值不超过1(注意节点中如果没有平衡因子)<br>节点的平衡因子是否计算正确</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> _Height(PNode pRoot)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="literal">nullptr</span> == pRoot)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> leftHeight = _Height(pRoot-&gt;_pLeft);</span><br><span class="line">		<span class="keyword">int</span> rightHeight = _Height(pRoot-&gt;_pRight);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> leftHeight&gt;rightHeight ? leftHeight+<span class="number">1</span> : rightHeight+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> _IsAVLTree(PNode pRoot)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="literal">nullptr</span> == pRoot)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">int</span> leftHeight = _Height(pRoot-&gt;_pLeft);</span><br><span class="line">		<span class="keyword">int</span> rightHeight = _Height(pRoot-&gt;_pRight);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">abs</span>(pRoot-&gt;_bf)&gt;<span class="number">1</span> || rightHeight - leftHeight != pRoot-&gt;_bf)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">return</span> _IsAVLTree(pRoot-&gt;_pLeft) &amp;&amp; _IsAVLTree(pRoot-&gt;_pRight);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="AVL树的性能"><a href="#AVL树的性能" class="headerlink" title="AVL树的性能"></a>AVL树的性能</h3><p>AVL树是一棵绝对平衡的二叉搜索树，其要求每个节点的左右子树高度差的绝对值都不超过1，这样可以保证<br>查询时高效的时间复杂度，即<img src="/2019/04/23/AVL树/D:/BLog\source\_posts\二叉搜索树\log.png" alt=""> 。但是如果要对AVL树做一些结构修改的操作，性能非常低下，比如：<br>插入时要维护其绝对平衡，旋转的次数比较多，更差的是在删除时，有可能一直要让旋转持续到根的位置。<br>因此：如果需要一种查询高效且有序的数据结构，而且数据的个数为静态的(即不会改变)，可以考虑AVL树，<br>但一个结构经常修改，就不太适合</p>
 
       
     </div>
@@ -410,7 +465,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
         </div>
       
@@ -423,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/10/可重入函数/" rel="next" title="可重入函数">
-                <i class="fa fa-chevron-left"></i> 可重入函数
+              <a href="/2019/04/20/二叉搜索树/" rel="next" title="二叉搜索树">
+                <i class="fa fa-chevron-left"></i> 二叉搜索树
               </a>
             
           </div>
@@ -432,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/15/动态内存管理/" rel="prev" title="动态内存管理">
-                动态内存管理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -579,6 +639,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL节点的定义"><span class="nav-number">1.</span> <span class="nav-text">AVL节点的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL节点的插入"><span class="nav-number">2.</span> <span class="nav-text">AVL节点的插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的旋转"><span class="nav-number">3.</span> <span class="nav-text">AVL树的旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的验证"><span class="nav-number">4.</span> <span class="nav-text">AVL树的验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的性能"><span class="nav-number">5.</span> <span class="nav-text">AVL树的性能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
