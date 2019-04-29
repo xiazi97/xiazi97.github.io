@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-24T15:17:22.283Z</updated>
+  <updated>2019-04-28T14:56:36.412Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>红黑树</title>
+    <link href="http://xiazi97.github.io/2019/04/28/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    <id>http://xiazi97.github.io/2019/04/28/红黑树/</id>
+    <published>2019-04-28T00:49:44.000Z</published>
+    <updated>2019-04-28T14:56:36.412Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>AVL树</title>
@@ -423,30 +445,6 @@
 &lt;p&gt;可重入函数：不管怎么调用都不会对函数内部功能/程序逻辑造成影响（局部变量）&lt;/p&gt;
 &lt;p&gt;下面具体演示：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>进程信号之自定义处理</title>
-    <link href="http://xiazi97.github.io/2018/11/10/%E8%BF%9B%E7%A8%8B%E4%BF%A1%E5%8F%B7%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%A4%84%E7%90%86/"/>
-    <id>http://xiazi97.github.io/2018/11/10/进程信号之自定义处理/</id>
-    <published>2018-11-10T02:22:03.000Z</published>
-    <updated>2018-11-10T02:37:21.966Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;信号的捕捉流程：主要是针对信号的自定义处理方式&lt;/p&gt;
-&lt;p&gt;信号并不是立即处理的，而是选择一个合适的时机去处理，合适的时机就是当前程序从内核态切换到用户态的时候&lt;/p&gt;
-&lt;p&gt;注意：程序如何从用户态切换到内核态?&lt;/p&gt;
-&lt;p&gt;答：1.程序异常的时候    2.发起系统调
       
     
     </summary>
