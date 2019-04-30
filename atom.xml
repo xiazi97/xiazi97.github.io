@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-04-28T14:56:36.412Z</updated>
+  <updated>2019-04-30T14:55:06.456Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://xiazi97.github.io/2019/04/28/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     <id>http://xiazi97.github.io/2019/04/28/红黑树/</id>
     <published>2019-04-28T00:49:44.000Z</published>
-    <updated>2019-04-28T14:56:36.412Z</updated>
+    <updated>2019-04-30T14:55:06.456Z</updated>
     
     <summary type="html">
     
       
       
         &lt;p&gt;红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。&lt;/p&gt;
-
+&lt;h3 id=&quot;红黑树的性质&quot;&gt;&lt;a href=&quot;#红黑树的性质
       
     
     </summary>

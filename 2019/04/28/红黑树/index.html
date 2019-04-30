@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。">
+<meta name="description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。 红黑树的性质 每个结点不是红色就是黑色 根节点是黑色的   如果一个节点是红色的，则它的两个孩子结点是黑色的   对于每个结点，从该结点到其所有后代叶结点的简单路径上，均 包含相同数目的黑色结点">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="红黑树">
 <meta property="og:url" content="http://xiazi97.github.io/2019/04/28/红黑树/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。">
+<meta property="og:description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。 红黑树的性质 每个结点不是红色就是黑色 根节点是黑色的   如果一个节点是红色的，则它的两个孩子结点是黑色的   对于每个结点，从该结点到其所有后代叶结点的简单路径上，均 包含相同数目的黑色结点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T14:56:36.412Z">
+<meta property="og:updated_time" content="2019-04-30T14:55:06.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
-<meta name="twitter:description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。">
+<meta name="twitter:description" content="红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。 红黑树的性质 每个结点不是红色就是黑色 根节点是黑色的   如果一个节点是红色的，则它的两个孩子结点是黑色的   对于每个结点，从该结点到其所有后代叶结点的简单路径上，均 包含相同数目的黑色结点">
 
 
 
@@ -392,6 +392,13 @@
 
       
         <p>红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。</p>
+<h3 id="红黑树的性质"><a href="#红黑树的性质" class="headerlink" title="红黑树的性质"></a>红黑树的性质</h3><ol>
+<li>每个结点不是红色就是黑色</li>
+<li>根节点是黑色的  </li>
+<li>如果一个节点是红色的，则它的两个孩子结点是黑色的  </li>
+<li>对于每个结点，从该结点到其所有后代叶结点的简单路径上，均 包含相同数目的黑色结点  </li>
+<li>每个叶子结点都是黑色的(此处的叶子结点指的是空结点)</li>
+</ol>
 
       
     </div>
@@ -482,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -530,7 +546,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">42.1k</span>
+      <span class="site-state-item-count">42.2k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -574,6 +590,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#红黑树的性质"><span class="nav-number">1.</span> <span class="nav-text">红黑树的性质</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
