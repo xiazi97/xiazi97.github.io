@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-02T14:21:12.338Z</updated>
+  <updated>2019-05-03T07:16:27.381Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数重载，重定义，重写</title>
+    <link href="http://xiazi97.github.io/2019/05/03/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%EF%BC%8C%E9%87%8D%E5%AE%9A%E4%B9%89%EF%BC%8C%E9%87%8D%E5%86%99/"/>
+    <id>http://xiazi97.github.io/2019/05/03/函数重载，重定义，重写/</id>
+    <published>2019-05-03T06:59:48.000Z</published>
+    <updated>2019-05-03T07:16:27.381Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;函数重载&quot;&gt;&lt;a href=&quot;#函数重载&quot; class=&quot;headerlink&quot; title=&quot;函数重载&quot;&gt;&lt;/a&gt;函数重载&lt;/h3&gt;&lt;p&gt;在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>红黑树</title>
@@ -421,30 +442,6 @@
       
       
         &lt;p&gt;​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>可重入函数</title>
-    <link href="http://xiazi97.github.io/2018/11/10/%E5%8F%AF%E9%87%8D%E5%85%A5%E5%87%BD%E6%95%B0/"/>
-    <id>http://xiazi97.github.io/2018/11/10/可重入函数/</id>
-    <published>2018-11-10T07:28:16.000Z</published>
-    <updated>2018-11-11T10:59:27.298Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;不可重入函数：如果函数在不同的地方/时序进行调用，会对函数的功能逻辑造成影响&lt;/p&gt;
-&lt;p&gt;可重入函数：不管怎么调用都不会对函数内部功能/程序逻辑造成影响（局部变量）&lt;/p&gt;
-&lt;p&gt;下面具体演示：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;t
       
     
     </summary>
