@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-03T07:16:27.381Z</updated>
+  <updated>2019-05-04T15:02:03.120Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>static关键字的作用</title>
+    <link href="http://xiazi97.github.io/2019/05/04/static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://xiazi97.github.io/2019/05/04/static关键字的作用/</id>
+    <published>2019-05-04T15:00:23.000Z</published>
+    <updated>2019-05-04T15:02:03.120Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;全局静态变量&quot;&gt;&lt;a href=&quot;#全局静态变量&quot; class=&quot;headerlink&quot; title=&quot;全局静态变量&quot;&gt;&lt;/a&gt;全局静态变量&lt;/h4&gt;&lt;p&gt;在全局变量前加上关键字static，全局变量就定义成一个全局静态变量.&lt;/p&gt;
+&lt;p&gt;静态存储区，在整个程序
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>函数重载，重定义，重写</title>
@@ -427,27 +449,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>父子进程之SIGCHLD</title>
-    <link href="http://xiazi97.github.io/2018/11/11/%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B9%8BSIGCHLD/"/>
-    <id>http://xiazi97.github.io/2018/11/11/父子进程之SIGCHLD/</id>
-    <published>2018-11-11T14:49:55.000Z</published>
-    <updated>2018-11-11T15:21:47.147Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    在用wait和waitpid函数处理僵尸进程时，父进程可以阻塞等待子进程结束，也可以非阻塞的查询是否有子进程结束等待处理。但是，第一种方式父进程阻塞了就不能处理自己的工作了，而第二种父进程在处理自己的工作时还需要时不时的轮询一下，使得程序变得复杂。而在子进程终止时
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
     
   </entry>
   

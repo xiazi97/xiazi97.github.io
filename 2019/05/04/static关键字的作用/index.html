@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,26 +91,18 @@
 
 
 
-<meta name="description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
-<meta name="keywords" content="Linux">
+<meta name="description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件权限">
-<meta property="og:url" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/index.html">
+<meta property="og:title" content="static关键字的作用">
+<meta property="og:url" content="http://xiazi97.github.io/2019/05/04/static关键字的作用/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
+<meta property="og:description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/字符表示法.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/数值表示法.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限1.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限2.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限3.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限4.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/权限5.png">
-<meta property="og:updated_time" content="2018-11-09T14:55:11.230Z">
+<meta property="og:updated_time" content="2019-05-04T15:02:03.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux文件权限">
-<meta name="twitter:description" content="​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？ ​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​ 文件权限值的表示方法： ​    1.字符表示法： ​         2.8进制数值表示法  那么如何设置且更改文件的访问权限呢？ ​    使用chmod命令：格式为chmod[参数]">
-<meta name="twitter:image" content="http://xiazi97.github.io/2018/11/08/Linux文件权限/字符表示法.png">
+<meta name="twitter:title" content="static关键字的作用">
+<meta name="twitter:description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
 
 
 
@@ -140,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2018/11/08/Linux文件权限/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/05/04/static关键字的作用/">
 
 
 
 
 
-  <title>Linux文件权限 | Snoopy</title>
+  <title>static关键字的作用 | Snoopy</title>
   
 
 
@@ -325,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/08/Linux文件权限/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/04/static关键字的作用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -342,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux文件权限</h1>
+          <h1 class="post-title" itemprop="name headline">static关键字的作用</h1>
         
 
         <div class="post-meta">
@@ -354,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T23:37:20+08:00">
-                2018-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T23:00:23+08:00">
+                2019-05-04
               </time>
             
 
@@ -399,49 +391,20 @@
       
 
       
-        <p>​    在Linux系统下，一切皆文件，而对于一个文件必定需要权限去对其进行访问和操作，那么对于用户来说，可以通过哪些权限来访问文件呢？</p>
-<p>​    首先，我们需要对Linux系统下文件访问权限有一定的了解：​</p>
-<p>文件权限值的表示方法：</p>
-<p>​    1.字符表示法：</p>
-<p>​        <img src="/2018/11/08/Linux文件权限/字符表示法.png" alt="字符表示法"></p>
-<p>2.8进制数值表示法</p>
-<p><img src="/2018/11/08/Linux文件权限/数值表示法.png" alt="字符表示法"></p>
-<p>那么如何设置且更改文件的访问权限呢？</p>
-<p>​    <strong><em>使用chmod命令</em></strong>：格式为chmod[参数]权限 文件名</p>
-<p>1.用户标识符+-=权限字符</p>
-<p>​    +：向权限范围增加权限代号所表示的权限</p>
-<p>​    -： 向权限范围取消权限代号所表示的权限</p>
-<p>​    =: 向权限范围赋予权限代号所表示的权限</p>
-<p>​    用户符号：</p>
-<p>​    u：拥有着</p>
-<p>​    g：拥有者同组用</p>
-<p>​    o：其他用户</p>
-<p>​    a：所有用户</p>
-<p>chmod u+w /home/abc/txt</p>
-<p>chmod o-x /home/abc/txt</p>
-<p>chmod a=x /home/abc/txt</p>
-<p>2.三位8进制数字</p>
-<p>chmod 664 /home/abc/txt</p>
-<p>chmod 640 /home/abc/txt</p>
-<p>下面进行具体的操作：</p>
-<p>1.创建一个目录，并将其权限改为000</p>
-<p>​    <img src="/2018/11/08/Linux文件权限/权限1.png" alt="字符表示法"></p>
-<p>2.此时进入目录发现权限不够</p>
-<p><img src="/2018/11/08/Linux文件权限/权限2.png" alt="字符表示法"></p>
-<p>3.给该目录所有者加上读权限，并尝试进入目录，发现权限不够</p>
-<p><img src="/2018/11/08/Linux文件权限/权限3.png" alt="字符表示法"></p>
-<p>4.将该目录所有者的读权限取掉，加上写权限，进入目录，发现权限不够</p>
-<p><img src="/2018/11/08/Linux文件权限/权限4.png" alt="字符表示法"></p>
-<p>5.将该目录所有者的写权限取掉，加上执行权限，进入目录，可以进入</p>
-<p><img src="/2018/11/08/Linux文件权限/权限5.png" alt="字符表示法"></p>
-<p>由此可得：</p>
-<p>1.读（r/4）：<strong><em>Read</em></strong>对文件而言，具有<strong>读取文件内容</strong>的权限</p>
-<p>​                    对于目录来说，具有<strong>浏览该目录信息的</strong>权限</p>
-<p>2.写（w/2）：<strong><em>Write</em></strong>对文件而言，具有<strong>修改</strong>文件内容的权限</p>
-<p>​                    对于目录来货，具有<strong>删除</strong>移动目录内文件的权限</p>
-<p>3.执行（x/1）：<strong><em>Execute</em></strong>对文件而言，具有执行文件的权限</p>
-<p>​                    对于文件而言，具有<strong>执行文件</strong>的权限</p>
-<p>​                    对于目录来说，具有<strong>进入**</strong>目录**的权限</p>
+        <h4 id="全局静态变量"><a href="#全局静态变量" class="headerlink" title="全局静态变量"></a>全局静态变量</h4><p>在全局变量前加上关键字static，全局变量就定义成一个全局静态变量.</p>
+<p>静态存储区，在整个程序运行期间一直存在。</p>
+<p>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）；</p>
+<p>作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。</p>
+<h4 id="局部静态变量"><a href="#局部静态变量" class="headerlink" title="局部静态变量"></a>局部静态变量</h4><p>在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。</p>
+<p>内存中的位置：静态存储区</p>
+<p>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）；</p>
+<p>作用域：作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域结束。但是当局部静态变量离开作用域后，并没有销毁，而是仍然驻留在内存当中，只不过我们不能再对它进行访问，直到该函数再次被调用，并且值不变；</p>
+<h4 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h4><p>在函数返回类型前加static，函数就定义为静态函数。函数的定义和声明在默认情况下都是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用。</p>
+<p>函数的实现使用static修饰，那么这个函数只可在本cpp内使用，不会同其他cpp中的同名函数引起冲突；</p>
+<p>warning：不要再头文件中声明static的全局函数，不要在cpp内声明非static的全局函数，如果你要在多个cpp中复用该函数，就把它的声明提到头文件里去，否则cpp内部声明需加上static修饰；</p>
+<h4 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h4><p>在类中，静态成员可以实现多个对象之间的数据共享，并且使用静态数据成员还不会破坏隐藏的原则，即保证了安全性。因此，静态成员是类的所有对象中共享的成员，而不是某个对象的成员。对多个对象来说，静态数据成员只存储一处，供所有对象共用</p>
+<h4 id="类的静态函数"><a href="#类的静态函数" class="headerlink" title="类的静态函数"></a>类的静态函数</h4><p>静态成员函数和静态数据成员一样，它们都属于类的静态成员，它们都不是对象成员。因此，对静态成员的引用不需要用对象名。</p>
+<p>在静态成员函数的实现中不能直接引用类中说明的非静态成员，可以引用类中说明的静态成员（这点非常重要）。如果静态成员函数中要引用非静态成员时，可通过对象来引用。从中可看出，调用静态成员函数使用如下格式：&lt;类名&gt;::&lt;静态成员函数名&gt;(&lt;参数表&gt;);</p>
 
       
     </div>
@@ -459,7 +422,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
         </div>
       
@@ -472,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/进程信号之信号周期/" rel="next" title="进程信号之信号周期">
-                <i class="fa fa-chevron-left"></i> 进程信号之信号周期
+              <a href="/2019/05/03/函数重载，重定义，重写/" rel="next" title="函数重载，重定义，重写">
+                <i class="fa fa-chevron-left"></i> 函数重载，重定义，重写
               </a>
             
           </div>
@@ -481,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/10/进程信号之自定义处理/" rel="prev" title="进程信号之自定义处理">
-                进程信号之自定义处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,8 +495,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -628,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局静态变量"><span class="nav-number">1.</span> <span class="nav-text">全局静态变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部静态变量"><span class="nav-number">2.</span> <span class="nav-text">局部静态变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态函数"><span class="nav-number">3.</span> <span class="nav-text">静态函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的静态成员"><span class="nav-number">4.</span> <span class="nav-text">类的静态成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的静态函数"><span class="nav-number">5.</span> <span class="nav-text">类的静态函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
