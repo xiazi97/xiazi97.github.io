@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-04T15:02:03.120Z</updated>
+  <updated>2019-05-05T15:15:35.241Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++中四种cast转换</title>
+    <link href="http://xiazi97.github.io/2019/05/05/C-%E4%B8%AD%E5%9B%9B%E7%A7%8Dcast%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://xiazi97.github.io/2019/05/05/C-中四种cast转换/</id>
+    <published>2019-05-05T15:14:23.000Z</published>
+    <updated>2019-05-05T15:15:35.241Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;C++中四种类型转换是：static_cast, dynamic_cast, const_cast, reinterpret_cast&lt;/p&gt;
+&lt;h3 id=&quot;const-cast&quot;&gt;&lt;a href=&quot;#const-cast&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>static关键字的作用</title>
@@ -435,20 +457,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>动态内存管理</title>
-    <link href="http://xiazi97.github.io/2018/11/15/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
-    <id>http://xiazi97.github.io/2018/11/15/动态内存管理/</id>
-    <published>2018-11-15T15:26:17.000Z</published>
-    <updated>2018-11-15T15:26:17.646Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
