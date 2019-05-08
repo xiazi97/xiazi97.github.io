@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-07T04:54:12.403Z</updated>
+  <updated>2019-05-08T12:39:09.312Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Makefile基本使用</title>
+    <link href="http://xiazi97.github.io/2019/05/08/Makefile%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <id>http://xiazi97.github.io/2019/05/08/Makefile基本使用/</id>
+    <published>2019-05-08T10:44:56.000Z</published>
+    <updated>2019-05-08T12:39:09.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;为什么要使用Makefile&quot;&gt;&lt;a href=&quot;#为什么要使用Makefile&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用Makefile&quot;&gt;&lt;/a&gt;为什么要使用Makefile&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;会不会使用Makefile从一个
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>gcc编译过程</title>
@@ -423,27 +445,6 @@
       
         &lt;p&gt;这一章我们主要介绍进程的状态，了解进程的状态有助于我们分析进程在系统中的各种作用等。进程的调度算法，进程的调度算法可以让我们看到内核是如何设计出一套注重效率并且兼顾公平的算法，内核如何为不同的进程分配资源等，帮助我们加深对于进程相关知识的了解。   &lt;/p&gt;
 &lt;h2 id=
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络基础（一）</title>
-    <link href="http://xiazi97.github.io/2018/11/30/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://xiazi97.github.io/2018/11/30/网络基础（一）/</id>
-    <published>2018-11-30T14:45:41.000Z</published>
-    <updated>2018-12-06T15:08:24.183Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;数据传输（-不-同主机上的进程间同信）&quot;&gt;&lt;a href=&quot;#数据传输（-不-同主机上的进程间同信）&quot; class=&quot;headerlink&quot; title=&quot;数据传输（ (不)同主机上的进程间同信）&quot;&gt;&lt;/a&gt;数据传输（ (不)同主机上的进程间同信）&lt;/h1&gt;&lt;h2
       
     
     </summary>
