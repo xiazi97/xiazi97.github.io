@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
+<meta name="description" content="为什么要进行内存对齐123456789101112131415161718192021#include &amp;lt;iostream&amp;gt;using namespace std;struct A&amp;#123;  char a;  int b;  short c;&amp;#125;;struct B&amp;#123;  short c;  char a;  int b;&amp;#125;;int main()&amp;#123;">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="static关键字的作用">
-<meta property="og:url" content="http://xiazi97.github.io/2019/05/04/static关键字的作用/index.html">
+<meta property="og:title" content="结构体对齐规则">
+<meta property="og:url" content="http://xiazi97.github.io/2019/05/09/结构体对齐规则/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
+<meta property="og:description" content="为什么要进行内存对齐123456789101112131415161718192021#include &amp;lt;iostream&amp;gt;using namespace std;struct A&amp;#123;  char a;  int b;  short c;&amp;#125;;struct B&amp;#123;  short c;  char a;  int b;&amp;#125;;int main()&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-04T15:02:03.120Z">
+<meta property="og:updated_time" content="2019-05-09T14:16:23.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="static关键字的作用">
-<meta name="twitter:description" content="全局静态变量在全局变量前加上关键字static，全局变量就定义成一个全局静态变量. 静态存储区，在整个程序运行期间一直存在。 初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）； 作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。 局部静态变量在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。 内">
+<meta name="twitter:title" content="结构体对齐规则">
+<meta name="twitter:description" content="为什么要进行内存对齐123456789101112131415161718192021#include &amp;lt;iostream&amp;gt;using namespace std;struct A&amp;#123;  char a;  int b;  short c;&amp;#125;;struct B&amp;#123;  short c;  char a;  int b;&amp;#125;;int main()&amp;#123;">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/05/04/static关键字的作用/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/05/09/结构体对齐规则/">
 
 
 
 
 
-  <title>static关键字的作用 | Snoopy</title>
+  <title>结构体对齐规则 | Snoopy</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/04/static关键字的作用/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/09/结构体对齐规则/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">static关键字的作用</h1>
+          <h1 class="post-title" itemprop="name headline">结构体对齐规则</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T23:00:23+08:00">
-                2019-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-09T19:58:25+08:00">
+                2019-05-09
               </time>
             
 
@@ -391,20 +391,32 @@
       
 
       
-        <h4 id="全局静态变量"><a href="#全局静态变量" class="headerlink" title="全局静态变量"></a>全局静态变量</h4><p>在全局变量前加上关键字static，全局变量就定义成一个全局静态变量.</p>
-<p>静态存储区，在整个程序运行期间一直存在。</p>
-<p>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）；</p>
-<p>作用域：全局静态变量在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。</p>
-<h4 id="局部静态变量"><a href="#局部静态变量" class="headerlink" title="局部静态变量"></a>局部静态变量</h4><p>在局部变量之前加上关键字static，局部变量就成为一个局部静态变量。</p>
-<p>内存中的位置：静态存储区</p>
-<p>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非他被显式初始化）；</p>
-<p>作用域：作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域结束。但是当局部静态变量离开作用域后，并没有销毁，而是仍然驻留在内存当中，只不过我们不能再对它进行访问，直到该函数再次被调用，并且值不变；</p>
-<h4 id="静态函数"><a href="#静态函数" class="headerlink" title="静态函数"></a>静态函数</h4><p>在函数返回类型前加static，函数就定义为静态函数。函数的定义和声明在默认情况下都是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用。</p>
-<p>函数的实现使用static修饰，那么这个函数只可在本cpp内使用，不会同其他cpp中的同名函数引起冲突；</p>
-<p>warning：不要再头文件中声明static的全局函数，不要在cpp内声明非static的全局函数，如果你要在多个cpp中复用该函数，就把它的声明提到头文件里去，否则cpp内部声明需加上static修饰；</p>
-<h4 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h4><p>在类中，静态成员可以实现多个对象之间的数据共享，并且使用静态数据成员还不会破坏隐藏的原则，即保证了安全性。因此，静态成员是类的所有对象中共享的成员，而不是某个对象的成员。对多个对象来说，静态数据成员只存储一处，供所有对象共用</p>
-<h4 id="类的静态函数"><a href="#类的静态函数" class="headerlink" title="类的静态函数"></a>类的静态函数</h4><p>静态成员函数和静态数据成员一样，它们都属于类的静态成员，它们都不是对象成员。因此，对静态成员的引用不需要用对象名。</p>
-<p>在静态成员函数的实现中不能直接引用类中说明的非静态成员，可以引用类中说明的静态成员（这点非常重要）。如果静态成员函数中要引用非静态成员时，可通过对象来引用。从中可看出，调用静态成员函数使用如下格式：&lt;类名&gt;::&lt;静态成员函数名&gt;(&lt;参数表&gt;);</p>
+        <h3 id="为什么要进行内存对齐"><a href="#为什么要进行内存对齐" class="headerlink" title="为什么要进行内存对齐"></a>为什么要进行内存对齐</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span>&#123;</span></span><br><span class="line">  <span class="keyword">char</span> a;</span><br><span class="line">  <span class="keyword">int</span> b;</span><br><span class="line">  <span class="keyword">short</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>&#123;</span></span><br><span class="line">  <span class="keyword">short</span> c;</span><br><span class="line">  <span class="keyword">char</span> a;</span><br><span class="line">  <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(A) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(B) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上结构体变量数量类型相同，但是sizeof计算出来的却不同，计算之后：sizeof(A) is 12,sizeof(B) is 8，此时我们会发现一个问题，为什么两个一样的结构体，但是sizeof大小却不同？</p>
+<p>答案就是内存对齐导致的结果不同</p>
+<p>那么编译器为什么要进行内存对齐呢？本来sizeof(int + char + short)应该就是7，结果对齐之后反而更大了，为什么？</p>
+<h3 id="内存对齐规则"><a href="#内存对齐规则" class="headerlink" title="内存对齐规则"></a>内存对齐规则</h3><p>我们先来看看内存对齐的规则</p>
+<ol>
+<li><p>第一个成员在与<strong>结构体偏移量0</strong>的地址处</p>
+</li>
+<li><p>其他成员变量必须是要对齐<strong>min(#pragma pack()指定的数,这个数据成员的自身长度)的倍数</strong></p>
+</li>
+<li><p>在所有的数据成员完成各自对齐之后，结构或联合体本身也要进行对齐，对齐将按照 #pragram pack 指定的数值和结构或者联合体最大数据成员长度中比较小的那个  也就是  <strong>min(#pragram pack() , 长度最长的数据成员)</strong>；</p>
+<p>   gcc默认对齐数为4，VS下默认对齐数为8</p>
+<p>以第一个结构体A为例：</p>
+<p>char占一个字节，起始偏移量为0；int占4个字节，min(8,4) = 4，所以偏移量为4，所以应该在char后面加上三个字节，不存放任何东西；short 占两个字节，min(8,2)=2，所以偏移量是2的倍数，而short偏移量是8，是2的倍数，所以无需添加任何字节；此时就像这样一样共占了10个字节：0xxx  0000  00 ；那么此时就要考虑一下结构体本身的对齐，min(8,4)=4；所以总体应该是4的倍数，所以还需要添加两个字节在最后面，所以内存存储状态变为了 0xxx  0000  00xx  ，一共占据了12个字节</p>
+<h4 id="怎样让结构体按照指定的对齐参数进行对齐"><a href="#怎样让结构体按照指定的对齐参数进行对齐" class="headerlink" title="怎样让结构体按照指定的对齐参数进行对齐"></a>怎样让结构体按照指定的对齐参数进行对齐</h4><blockquote>
+<p>pragram pack(4)     设定为4字节对齐</p>
+</blockquote>
+<h4 id="如何知道结构体中某个成员相对于结构体起始位置的偏移量"><a href="#如何知道结构体中某个成员相对于结构体起始位置的偏移量" class="headerlink" title="如何知道结构体中某个成员相对于结构体起始位置的偏移量"></a>如何知道结构体中某个成员相对于结构体起始位置的偏移量</h4></li>
+<li><p>偏移量 = 成员自己的地址 - 结构体的地址</p>
+<p>int num = (int)&amp;s.student - (int)&s;</p>
+</li>
+<li><p>使用宏offsetof</p>
+<p>格式：offsetof(结构体.结构体中的成员变量)</p>
+<p>offsetof(s.student)</p>
+</li>
+</ol>
 
       
     </div>
@@ -435,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/03/函数重载，重定义，重写/" rel="next" title="函数重载，重定义，重写">
-                <i class="fa fa-chevron-left"></i> 函数重载，重定义，重写
+              <a href="/2019/05/08/Makefile基本使用/" rel="next" title="Makefile基本使用">
+                <i class="fa fa-chevron-left"></i> Makefile基本使用
               </a>
             
           </div>
@@ -444,10 +456,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/05/C-中四种cast转换/" rel="prev" title="C++中四种cast转换">
-                C++中四种cast转换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局静态变量"><span class="nav-number">1.</span> <span class="nav-text">全局静态变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部静态变量"><span class="nav-number">2.</span> <span class="nav-text">局部静态变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态函数"><span class="nav-number">3.</span> <span class="nav-text">静态函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的静态成员"><span class="nav-number">4.</span> <span class="nav-text">类的静态成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的静态函数"><span class="nav-number">5.</span> <span class="nav-text">类的静态函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要进行内存对齐"><span class="nav-number">1.</span> <span class="nav-text">为什么要进行内存对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存对齐规则"><span class="nav-number">2.</span> <span class="nav-text">内存对齐规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#怎样让结构体按照指定的对齐参数进行对齐"><span class="nav-number">2.1.</span> <span class="nav-text">怎样让结构体按照指定的对齐参数进行对齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何知道结构体中某个成员相对于结构体起始位置的偏移量"><span class="nav-number">2.2.</span> <span class="nav-text">如何知道结构体中某个成员相对于结构体起始位置的偏移量</span></a></li></ol></li></ol></div>
             
 
           </div>
