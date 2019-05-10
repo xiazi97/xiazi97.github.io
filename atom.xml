@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-09T14:16:23.497Z</updated>
+  <updated>2019-05-10T04:35:52.664Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>类和对象经典面试题（一）</title>
+    <link href="http://xiazi97.github.io/2019/05/10/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://xiazi97.github.io/2019/05/10/类和对象经典面试题（一）/</id>
+    <published>2019-05-10T02:27:47.000Z</published>
+    <updated>2019-05-10T04:35:52.664Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;定位new表达式&quot;&gt;&lt;a href=&quot;#定位new表达式&quot; class=&quot;headerlink&quot; title=&quot;定位new表达式&quot;&gt;&lt;/a&gt;定位new表达式&lt;/h3&gt;&lt;p&gt;在&lt;strong&gt;已分配的原始内存空间&lt;/strong&gt;中&lt;strong&gt;调用构造函数&lt;/s
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>结构体对齐规则</title>
@@ -422,28 +443,6 @@
         &lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;IP协议提供了一种从A主机跨网络将数据传给B主机的能力&lt;/li&gt;
 &lt;li&gt;主机：配有IP地址，但是不进行路由控制
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP协议</title>
-    <link href="http://xiazi97.github.io/2019/01/07/TCP%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://xiazi97.github.io/2019/01/07/TCP协议/</id>
-    <published>2019-01-07T14:17:56.000Z</published>
-    <updated>2019-03-13T01:29:49.147Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;对于常见的网络协议来说，TCP是最为人知晓的，即便是一些业外人士只要对电脑网络有一定的了解也能说上几句，那么广为人知的TCP协议到底是什么呢，下边作为一个初学者的视角来浅谈一下&lt;/p&gt;
-&lt;p&gt;TCP（Transmission Control Protocol &lt;a href
       
     
     </summary>
