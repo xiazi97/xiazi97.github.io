@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-10T04:35:52.664Z</updated>
+  <updated>2019-05-11T10:13:19.619Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://xiazi97.github.io/2019/05/10/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://xiazi97.github.io/2019/05/10/单例模式/</id>
+    <published>2019-05-10T05:56:28.000Z</published>
+    <updated>2019-05-11T10:13:19.619Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;单例模式就是保证&lt;strong&gt;一个类只有一个实例&lt;/strong&gt;，并提供一个访问它的全局访问点。首先，需要保证一个类只有一个实例；在类中，要构造一个实例，就必须调用类的构造函数，如此，为了防止在外部调用类的构造函数而构造实例，需要将构造函数的访问权限标记为protect
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>类和对象经典面试题（一）</title>
@@ -420,29 +441,6 @@
 &lt;li&gt;将封装好的帧发送给接受方的数据链路层；&lt;/li&gt;
 &lt;li&gt;收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃&lt;/li&gt;
 &lt;/ol&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IP协议</title>
-    <link href="http://xiazi97.github.io/2019/01/28/IP%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://xiazi97.github.io/2019/01/28/IP协议/</id>
-    <published>2019-01-28T08:03:24.000Z</published>
-    <updated>2019-03-17T15:03:54.865Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;IP协议提供了一种从A主机跨网络将数据传给B主机的能力&lt;/li&gt;
-&lt;li&gt;主机：配有IP地址，但是不进行路由控制
       
     
     </summary>
