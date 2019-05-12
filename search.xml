@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[STL之string类]]></title>
+    <url>%2F2019%2F05%2F12%2FSTL%E4%B9%8Bstring%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[字符串是表示字符序列的类 标准的字符串提供了对此类对象的支持，其接口类似于标准字符容器的接口，但添加了专门用于操作单字节字符字符串的设计特性 string类是使用char(即作为它的字符类型，使用它的默认char_traits和分配器类型) string类是basic_string模板类的一个实例，它使用char来实例化basic_string模板类，并用char_traits和allocator作为basic_string的默认参数]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[单例模式]]></title>
     <url>%2F2019%2F05%2F10%2F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[单例模式就是保证一个类只有一个实例，并提供一个访问它的全局访问点。首先，需要保证一个类只有一个实例；在类中，要构造一个实例，就必须调用类的构造函数，如此，为了防止在外部调用类的构造函数而构造实例，需要将构造函数的访问权限标记为protected或private；最后，需要提供要给全局访问点，就需要在类中定义一个static函数，返回在类内部唯一构造的实例 饿汉模式程序启动时就创建一个唯一的实例对象 1234567891011121314151617优点：简单缺点：可能导致进程启动慢，且如果有多个单例类对象实例则启动顺序不确定（涉及到资源问题）class singleton&#123; public: static singleton* GetInstance() &#123; return &amp;m_instance; &#125; private: singleton()&#123;&#125; singleton(const singleton&amp;) = delete; singleton&amp; operator=(singleton const&amp;) = delete; static singleton m_instance;&#125;；singleton singleton::m_instance; 懒汉模式第一次使用实例对象时创建对象（延迟加载） 12345678910111213141516171819202122232425262728293031323334353637383940class singleton&#123; public: //在外部调用singleton::GetInstance()时才会初始化对象 static singleton* GetInstance() &#123; if(nullptr == m_pInstance)&#123; m_mtx.lock(); if(nullptr == m_pInstance)&#123; m_pInstance new singleton(); &#125; m_mtx.unlock(); &#125; return m_pInstance; &#125; class CGarbo&#123; public: ~CGarbo()&#123; if(singleton::m_Instance) delete singleton::m_Instance; &#125; &#125;; //定义一个静态成员变量，在程序结束时系统会自动调用它的析构函数从而释放单例对象 static CGarbo Garbo; private: singleton()&#123;&#125; //防拷贝 singleton(const singleton&amp;); singleton operator=(const singleton&amp;); static singleton* m_pInstance; //单例对象指针 static mutex m_mtx; //互斥锁&#125;;singleton* singleton::m_pInstance = nullptr;singleton::CGarbo Garbo;mutex singleton::m_mtx;]]></content>

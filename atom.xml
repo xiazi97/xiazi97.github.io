@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-11T10:13:19.619Z</updated>
+  <updated>2019-05-12T15:31:45.425Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STL之string类</title>
+    <link href="http://xiazi97.github.io/2019/05/12/STL%E4%B9%8Bstring%E7%B1%BB/"/>
+    <id>http://xiazi97.github.io/2019/05/12/STL之string类/</id>
+    <published>2019-05-12T10:48:58.000Z</published>
+    <updated>2019-05-12T15:31:45.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;字符串是表示字符序列的类&lt;/li&gt;
+&lt;li&gt;标准的字符串提供了对此类对象的支持，其接口类似于标准字符容器的接口，但添加了专门用于操作单字节字符字符串的设计特性&lt;/li&gt;
+&lt;li&gt;string类是使用char(即作为它的字符类型，使用它的默认char_traits
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>单例模式</title>
@@ -421,32 +445,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>以太网</title>
-    <link href="http://xiazi97.github.io/2019/02/17/%E4%BB%A5%E5%A4%AA%E7%BD%91/"/>
-    <id>http://xiazi97.github.io/2019/02/17/以太网/</id>
-    <published>2019-02-17T06:55:14.000Z</published>
-    <updated>2019-03-05T15:14:06.805Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;点到点信道的数据链路层协议的数据单元为帧：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;将网络层交下来的IP数据报添加首部尾部封装成帧；&lt;/li&gt;
-&lt;li&gt;将封装好的帧发送给接受方的数据链路层；&lt;/li&gt;
-&lt;li&gt;收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃&lt;/li&gt;
-&lt;/ol&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
