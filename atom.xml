@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-12T15:31:45.425Z</updated>
+  <updated>2019-05-13T14:38:46.876Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://xiazi97.github.io/2019/05/12/STL%E4%B9%8Bstring%E7%B1%BB/"/>
     <id>http://xiazi97.github.io/2019/05/12/STL之string类/</id>
     <published>2019-05-12T10:48:58.000Z</published>
-    <updated>2019-05-12T15:31:45.425Z</updated>
+    <updated>2019-05-13T14:38:46.876Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;字符串是表示字符序列的类&lt;/li&gt;
-&lt;li&gt;标准的字符串提供了对此类对象的支持，其接口类似于标准字符容器的接口，但添加了专门用于操作单字节字符字符串的设计特性&lt;/li&gt;
-&lt;li&gt;string类是使用char(即作为它的字符类型，使用它的默认char_traits
+        &lt;p&gt;之所以抛弃char*的字符串而选用C++标准程序库中的string类，是因为他和前者比较起来，不必担心内存是否足够、字符串长度等等，而且作为一个泛型类出现，他集成的操作函数足以完成我们大多数情况下(甚至是100%)的需要。我们可以用 = 进行赋值操作，== 进行比较，+ 做
       
     
     </summary>
