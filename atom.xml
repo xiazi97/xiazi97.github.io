@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-13T14:40:59.284Z</updated>
+  <updated>2019-05-14T04:44:28.196Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STL之vector类</title>
+    <link href="http://xiazi97.github.io/2019/05/14/STL%E4%B9%8Bvector%E7%B1%BB/"/>
+    <id>http://xiazi97.github.io/2019/05/14/STL之vector类/</id>
+    <published>2019-05-14T01:27:04.000Z</published>
+    <updated>2019-05-14T04:44:28.196Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vector的介绍&quot;&gt;&lt;a href=&quot;#vector的介绍&quot; class=&quot;headerlink&quot; title=&quot;vector的介绍&quot;&gt;&lt;/a&gt;vector的介绍&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;vector是表示可变大小数组的序列容器&lt;/li&gt;
+&lt;li&gt;就像数组一样
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>STL之string类</title>
@@ -419,29 +442,6 @@
     
     
       <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目之文本相似度比较</title>
-    <link href="http://xiazi97.github.io/2019/03/03/%E9%A1%B9%E7%9B%AE%E4%B9%8B%E6%96%87%E6%9C%AC%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%AF%94%E8%BE%83/"/>
-    <id>http://xiazi97.github.io/2019/03/03/项目之文本相似度比较/</id>
-    <published>2019-03-03T02:05:55.000Z</published>
-    <updated>2019-03-03T07:44:59.178Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    对于当代大学生而言，毕业时写的论文是一个对自己知识的&lt;/p&gt;
-&lt;p&gt;1.基于jieba库对文件进行分词&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
