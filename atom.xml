@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-14T04:44:28.196Z</updated>
+  <updated>2019-05-15T14:09:21.686Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单实现string类以及深浅拷贝问题</title>
+    <link href="http://xiazi97.github.io/2019/05/15/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0string%E7%B1%BB%E4%BB%A5%E5%8F%8A%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E9%97%AE%E9%A2%98/"/>
+    <id>http://xiazi97.github.io/2019/05/15/简单实现string类以及深浅拷贝问题/</id>
+    <published>2019-05-15T13:32:40.000Z</published>
+    <updated>2019-05-15T14:09:21.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;对象之间可以进行复制操作，包括采用拷贝构造函数的方式用一个对象去构造另一个对象（用一个对象的值初始化一个新的构造的对象），如同指针的复制一样，对象复制也分为浅复制和深复制&lt;/p&gt;
+&lt;h3 id=&quot;对象浅拷贝：&quot;&gt;&lt;a href=&quot;#对象浅拷贝：&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>STL之vector类</title>
@@ -415,27 +437,6 @@
       
       
         &lt;h2 id=&quot;HTTP简介&quot;&gt;&lt;a href=&quot;#HTTP简介&quot; class=&quot;headerlink&quot; title=&quot;HTTP简介&quot;&gt;&lt;/a&gt;HTTP简介&lt;/h2&gt;&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从网络
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ARP协议</title>
-    <link href="http://xiazi97.github.io/2019/03/05/ARP%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://xiazi97.github.io/2019/03/05/ARP协议/</id>
-    <published>2019-03-05T15:13:33.000Z</published>
-    <updated>2019-03-05T15:39:16.764Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;ARP协议&quot;&gt;&lt;a href=&quot;#ARP协议&quot; class=&quot;headerlink&quot; title=&quot;ARP协议&quot;&gt;&lt;/a&gt;ARP协议&lt;/h2&gt;&lt;p&gt;虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，
       
     
     </summary>
