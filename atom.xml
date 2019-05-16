@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-15T14:09:21.686Z</updated>
+  <updated>2019-05-16T15:23:12.636Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STL之list类</title>
+    <link href="http://xiazi97.github.io/2019/05/16/STL%E4%B9%8Blist%E7%B1%BB/"/>
+    <id>http://xiazi97.github.io/2019/05/16/STL之list类/</id>
+    <published>2019-05-16T12:36:15.000Z</published>
+    <updated>2019-05-16T15:23:12.636Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;list的介绍和使用&quot;&gt;&lt;a href=&quot;#list的介绍和使用&quot; class=&quot;headerlink&quot; title=&quot;list的介绍和使用&quot;&gt;&lt;/a&gt;list的介绍和使用&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;list是可以在常数范围内在任意位置进行插入和删除的序列式容器，
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>简单实现string类以及深浅拷贝问题</title>
@@ -416,27 +438,6 @@
       
         &lt;p&gt;GET和POST是HTTP请求的两种基本方式，对于这两种请求方式的区别，只要是接触过Web开发的就能说出一二：GET把参数包含在URL中，POST通过正文传参！&lt;/p&gt;
 &lt;p&gt;而我想深入了解以下的时候，就去了w3cschool，这是w3cschool给出的标准答案：&lt;/p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP协议</title>
-    <link href="http://xiazi97.github.io/2019/03/06/HTTP%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://xiazi97.github.io/2019/03/06/HTTP协议/</id>
-    <published>2019-03-06T08:17:34.000Z</published>
-    <updated>2019-03-07T10:12:18.375Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;HTTP简介&quot;&gt;&lt;a href=&quot;#HTTP简介&quot; class=&quot;headerlink&quot; title=&quot;HTTP简介&quot;&gt;&lt;/a&gt;HTTP简介&lt;/h2&gt;&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从网络
       
     
     </summary>
