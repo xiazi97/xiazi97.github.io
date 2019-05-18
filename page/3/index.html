@@ -1559,12 +1559,11 @@ TCP（Transmission Control Protocol 传输控制协议）是一种面向连接�
         
           
           如何实现一个通用的函数呢？（如针对不同的参数类型均可）
-使用函数重载可以实现，但是使得代码复用率和可维护性比较低
-泛型编程：
-编写与类型无关，与使用场景无关的通用代码，使得代码可以复用
-模板：
-函数模板：是一个函数家族，与类型无关，使用时才被参数化，根据实参类型产生函数的适用版本
-template 
+在平时的编程中，如何实现一个通用的函数呢？
+首先想到的就是使用函数重载，但是这样一来会有几个不好的地方：
+
+重载的函数仅仅只是类型不同，代码的复用率比较低，只要有新类型出现时就需要增加对应的函数
+代码可维护率比较低，一个函数出错就有可能所有的重
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1688,7 +1687,7 @@ template
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">55.3k</span>
+      <span class="site-state-item-count">55.8k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
