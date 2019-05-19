@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vector与list的区别]]></title>
+    <url>%2F2019%2F05%2F19%2Fvector%E4%B8%8Elist%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[概念：vector连续存储的容器，动态数组，在堆上分配空间 底层实现：数组 两倍容量增长： vector 增加（插入）新元素时，如果未超过当时的容量，则还有剩余空间，那么直接添加到最后（插入指定位置），然后调整迭代器。 如果没有剩余空间了，则会重新配置原有元素个数的两倍空间，然后将原空间元素通过复制的方式初始化新空间，再向新空间增加元素，最后析构并释放原空间，之前的迭代器会失效。 性能： 访问：O(1) 插入：在最后插入（空间够）：很快 在最后插入（空间不够）：需要内存申请和释放，以及对之前数据进行拷贝。 在中间插入（空间够）：内存拷贝 在中间插入（空间不够）：需要内存申请和释放，以及对之前数据进行拷贝。 删除：在最后删除：很快 在中间删除：内存拷贝 适用场景：经常随机访问，且不经常对非尾节点进行插入删除。 list动态链表，在堆上分配空间，每插入一个元数都会分配空间，每删除一个元素都会释放空间。 底层：双向链表 性能： 访问：随机访问性能很差，只能快速访问头尾节点。 插入：很快，一般是常数开销 删除：很快，一般是常数开销 适用场景：经常插入删除大量数据 区别：1）vector底层实现是数组；list是双向 链表。 2）vector支持随机访问，list不支持。 3）vector是顺序内存，list不是。 4）vector在中间节点进行插入删除会导致内存拷贝，list不会。 5）vector一次性分配好内存，不够时才进行2倍扩容；list每次插入新节点都会进行内存申请。 6）vector随机访问性能好，插入删除性能差；list随机访问性能差，插入删除性能好。 应用vector拥有一段连续的内存空间，因此支持随机访问，如果需要高效的随即访问，而不在乎插入和删除的效率，使用vector。 list拥有一段不连续的内存空间，如果需要高效的插入和删除，而不关心随机访问，则应使用list。]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[STL之list类]]></title>
     <url>%2F2019%2F05%2F16%2FSTL%E4%B9%8Blist%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[list的介绍和使用 list是可以在常数范围内在任意位置进行插入和删除的序列式容器，并且该容器可以前后双向迭代 list的底层是双向链表结构，双向链表中每个元素存储在互不相关的独立节点中，在节点中通过指针指向其前一个元素和后一个元素 list与forward_list非常相似：最主要的不同在于forward_list是单链表，只能朝前迭代，已让其更简单高效 与其他的序列式容器相比（array，vector，deque），list通常在任意位置进行插入，移除元素的执行效率更好 与其他序列式容器相比，list和forward_list最大的缺陷是不支持任意位置的随机访问，比如：要访问list的第6个元素，必须从已知的位置（比如头部或者尾部）迭代到该位置，在这段位置上迭代需要线性的时间开销；list还需要一些额外的空间，以保存每个节点的相关联信息（对于存储类型较小元素的大list来说这可能是一个重要的因素） list的使用list构造 构造函数 接口说明 list() 构造空的list list(size_type n,const value_type&amp; val = value_type()) 构造的list中包含n个值为val的元素 list(const list&amp; x) 拷贝构造函数 list(Inputiterator first,Inputiterator last) 用[first,last]区间中的元素构造list lIst iterator的使用 函数声明 接口说明 begin() 返回第一个元素的迭代器 end() 返回最后一个元素下一个位置的迭代器 rbegin() 返回第一个元素的reverse_iterator，即end位置 rend() 返回最后一个元素下一个位置的reverse_iterator,即begin位置 cbegin()(C++11) 返回第一个元素的const_iterator cend()(C++11) 返回最后一个元素下一个位置的const_iterator crbegin(C++11) 即crend()位置 crend(C++11) 即crbegin()位置 注意： begin与end为正向迭代器，对迭代器执行++操作，迭代器向后移动 rbegin(end)与rend(begin)为反向迭代器，对迭代器执行++操作，迭代器向前移动 cbegin与cend为const的正向迭代器，与cbegin和cend不同的是：该迭代器指向节点中的元素值不能修改 crbegin与crend为const的反向迭代器，与rbegin和rend不同的是：该迭代器指向节点中的元素值不能修改 list capacity 函数生命 接口说明 bool eempty() const 检测list是否为空，是返回true，否则返回false size_t size() const 返回list中有效节点个数 list element access 函数声明 接口说明 reference front() 返回list的第一个节点中值的引用 const_reference front() const 返回list的第一个节点中值的const引用 reference back() 返回list的最后一个节点中值的引用 const_reference back() const 返回list的最后一个节点中值的const引用]]></content>
