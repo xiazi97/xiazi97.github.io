@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-19T15:03:22.509Z</updated>
+  <updated>2019-05-20T15:48:17.819Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DNS查询和应答报文详解</title>
+    <link href="http://xiazi97.github.io/2019/05/20/DNS%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%BA%94%E7%AD%94%E6%8A%A5%E6%96%87%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/</id>
+    <published>2019-05-20T11:38:00.000Z</published>
+    <updated>2019-05-20T15:48:17.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;DNS查询和应答报文详解&quot;&gt;&lt;a href=&quot;#DNS查询和应答报文详解&quot; class=&quot;headerlink&quot; title=&quot;DNS查询和应答报文详解&quot;&gt;&lt;/a&gt;DNS查询和应答报文详解&lt;/h3&gt;&lt;p&gt;DNS是一套分布式的域名服务系统。每个DNS服务器上都存放着
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>vector与list的区别</title>
@@ -422,27 +443,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DNS，ICMP协议及NAT技术</title>
-    <link href="http://xiazi97.github.io/2019/03/07/DNS%EF%BC%8CICMP%E5%8D%8F%E8%AE%AE%E5%8F%8ANAT%E6%8A%80%E6%9C%AF/"/>
-    <id>http://xiazi97.github.io/2019/03/07/DNS，ICMP协议及NAT技术/</id>
-    <published>2019-03-07T02:59:30.000Z</published>
-    <updated>2019-04-22T17:27:25.779Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;DNS-Domain-Name-System&quot;&gt;&lt;a href=&quot;#DNS-Domain-Name-System&quot; class=&quot;headerlink&quot; title=&quot;DNS(Domain Name System)&quot;&gt;&lt;/a&gt;DNS(Domain Name Sys
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

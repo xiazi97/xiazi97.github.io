@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="C++,">
+  <meta name="keywords" content="计算机网络,">
 
 
 
@@ -91,18 +91,23 @@
 
 
 
-<meta name="description" content="函数重载在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在同一作用域中声明了名称相同，参数列表不同，返回值可以相同可以不同的函数。 特征： 相同的范围（在同一个作用域中） 函数名字相同 参数不同 virtual 关键字可有可无（注：函数重载与有无virtual修饰无关） 返回值可以不同；  函数重写（覆盖）子类继承了父类，父">
-<meta name="keywords" content="C++">
+<meta name="description" content="DNS查询和应答报文详解DNS是一套分布式的域名服务系统。每个DNS服务器上都存放着大量的机器名和 IP地址的映射，并且是动态更新的。众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。 DNS查询和应答报文的格式如下：  16位标识字段用于标记一对DNS查询和应答，以此区分一个DNS应答是哪个DNS查询的回应 16位标志字段用于协商具体的通信方式和反馈通信状态。DNS报文头">
+<meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数重载，重定义，重写">
-<meta property="og:url" content="http://xiazi97.github.io/2019/05/03/函数重载，重定义，重写/index.html">
+<meta property="og:title" content="DNS查询和应答报文详解">
+<meta property="og:url" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="函数重载在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在同一作用域中声明了名称相同，参数列表不同，返回值可以相同可以不同的函数。 特征： 相同的范围（在同一个作用域中） 函数名字相同 参数不同 virtual 关键字可有可无（注：函数重载与有无virtual修饰无关） 返回值可以不同；  函数重写（覆盖）子类继承了父类，父">
+<meta property="og:description" content="DNS查询和应答报文详解DNS是一套分布式的域名服务系统。每个DNS服务器上都存放着大量的机器名和 IP地址的映射，并且是动态更新的。众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。 DNS查询和应答报文的格式如下：  16位标识字段用于标记一对DNS查询和应答，以此区分一个DNS应答是哪个DNS查询的回应 16位标志字段用于协商具体的通信方式和反馈通信状态。DNS报文头">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-03T07:16:27.381Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/D:/BLog/source/_posts/DNS查询和应答报文详解/查询和应答报文.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/D:/BLog/source/_posts/DNS查询和应答报文详解/DNS报文头部的标志字段.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/D:/BLog/source/_posts/DNS查询和应答报文详解/查询问题格式.png">
+<meta property="og:image" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/D:/BLog/source/_posts/DNS查询和应答报文详解/资源记录格式.png">
+<meta property="og:updated_time" content="2019-05-20T15:48:17.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数重载，重定义，重写">
-<meta name="twitter:description" content="函数重载在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在同一作用域中声明了名称相同，参数列表不同，返回值可以相同可以不同的函数。 特征： 相同的范围（在同一个作用域中） 函数名字相同 参数不同 virtual 关键字可有可无（注：函数重载与有无virtual修饰无关） 返回值可以不同；  函数重写（覆盖）子类继承了父类，父">
+<meta name="twitter:title" content="DNS查询和应答报文详解">
+<meta name="twitter:description" content="DNS查询和应答报文详解DNS是一套分布式的域名服务系统。每个DNS服务器上都存放着大量的机器名和 IP地址的映射，并且是动态更新的。众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。 DNS查询和应答报文的格式如下：  16位标识字段用于标记一对DNS查询和应答，以此区分一个DNS应答是哪个DNS查询的回应 16位标志字段用于协商具体的通信方式和反馈通信状态。DNS报文头">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/D:/BLog/source/_posts/DNS查询和应答报文详解/查询和应答报文.png">
 
 
 
@@ -132,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/05/03/函数重载，重定义，重写/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/">
 
 
 
 
 
-  <title>函数重载，重定义，重写 | Snoopy</title>
+  <title>DNS查询和应答报文详解 | Snoopy</title>
   
 
 
@@ -317,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/03/函数重载，重定义，重写/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/20/DNS查询和应答报文详解/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">函数重载，重定义，重写</h1>
+          <h1 class="post-title" itemprop="name headline">DNS查询和应答报文详解</h1>
         
 
         <div class="post-meta">
@@ -346,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T14:59:48+08:00">
-                2019-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T19:38:00+08:00">
+                2019-05-20
               </time>
             
 
@@ -391,35 +396,39 @@
       
 
       
-        <h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在同一作用域中声明了<strong>名称相同，参数列表不同，返回值可以相同可以不同</strong>的函数。</p>
-<h4 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h4><ol>
-<li>相同的范围（在同一个作用域中）</li>
-<li>函数名字相同</li>
-<li>参数不同</li>
-<li>virtual 关键字可有可无（注：函数重载与有无virtual修饰无关）</li>
-<li>返回值可以不同；</li>
+        <h3 id="DNS查询和应答报文详解"><a href="#DNS查询和应答报文详解" class="headerlink" title="DNS查询和应答报文详解"></a>DNS查询和应答报文详解</h3><p>DNS是一套分布式的域名服务系统。每个DNS服务器上都存放着大量的机器名和 IP地址的映射，并且是动态更新的。众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。</p>
+<p>DNS查询和应答报文的格式如下：</p>
+<p><img src="/2019/05/20/DNS查询和应答报文详解/D:/BLog\source\_posts\DNS查询和应答报文详解\查询和应答报文.png" alt=""></p>
+<p>16位标识字段用于标记一对DNS查询和应答，以此区分一个DNS应答是哪个DNS查询的回应</p>
+<p>16位标志字段用于协商具体的通信方式和反馈通信状态。DNS报文头部的16位标志字段的细节如图</p>
+<p><img src="/2019/05/20/DNS查询和应答报文详解/D:/BLog\source\_posts\DNS查询和应答报文详解\DNS报文头部的标志字段.png" alt=""></p>
+<ol>
+<li>QR：查询/应答标志。0表示这是一个查询报文，1表示这是一个应答报文</li>
+<li>opcode，定义查询和应答的类型。0表示标准查询，1表示反向查询（由IP地址获得主机域名），2表示请求服务器状态</li>
+<li>AA，授权应答标志，仅由应答报文使用。1表示域名服务器是授权服务器</li>
+<li>TC，截断标志，仅当DNS报文使用UDP服务时使用。因为UDP数据报有长度限制，所以过长的DNS报文将被截断。1表示DNS报文超过512字节，并被截断</li>
+<li>RD，递归查询标志。1表示执行递归查询，即如果目标DNS服务器无法解析某个主机名，则它将向其他DNS服务器继续查询，如此递归，直到获得结果并把该结果返回给客户端。0表示执行迭代查询，即如果目标DNS服务器无法解析某个主机名，则它将自己知道的其他DNS服务器的IP地址返回给客户端，以供客户端参考</li>
+<li>RA，允许递归标志。仅由应答报文使用，1表示DNS服务器支持递归查询</li>
+<li>zero，这3位未用，必须设置为0</li>
+<li>rcode，4位返回码，表示应答的状态。常用值有0（无错误）和3（域名不存在）</li>
 </ol>
-<h3 id="函数重写（覆盖）"><a href="#函数重写（覆盖）" class="headerlink" title="函数重写（覆盖）"></a>函数重写（覆盖）</h3><p>子类继承了父类，父类中的函数是虚函数，在子类中重新定义了这个虚函数</p>
-<h4 id="特征：-1"><a href="#特征：-1" class="headerlink" title="特征："></a>特征：</h4><ol>
-<li>不在同一个作用域（分别位于派生类与基类）</li>
-<li>函数名字相同</li>
-<li>参数相同</li>
-<li>基类函数必须有 virtual 关键字，不能有 static</li>
-<li>返回值相同，否则报错</li>
-<li>重写函数的访问修饰符可以不同；</li>
+<p>接下来的4个字段则分别指出DNS报文的最后4个字段的资源记录数目。对查询报文而言，它一般包含1个查询问题，而应答资源记录数，授权资源记录数和额外资源记录数则为0.应答报文的应答资源记录数则至少为1，而授权资源记录数和额外资源记录数可为0或非0</p>
+<p>查询问题的格式：</p>
+<p><img src="/2019/05/20/DNS查询和应答报文详解/D:/BLog\source\_posts\DNS查询和应答报文详解\查询问题格式.png" alt=""></p>
+<p>如图所示，查询名以一定的格式封装了要查询的主机域名。16位查询类型表示如何执行查询操作，常见的类型有如下几种：</p>
+<ol>
+<li>类型A，值是1，表示获取目标主机的IP地址</li>
+<li>类型CNAME，值是5，表示获得目标主机的别名</li>
+<li><p>类型PTR，值是12，表示反向查询</p>
+<p>应答字段，授权字段和额外信息字段都使用资源记录（Resource Record，RR）格式。</p>
+</li>
 </ol>
-<h3 id="函数重定义"><a href="#函数重定义" class="headerlink" title="函数重定义"></a>函数重定义</h3><p><strong>子类重新定义父类中有相同名称的非虚函数</strong>，参数列表可以相同可以不同，会覆盖其父类的方法，未体现多态。</p>
-<h4 id="特征：-2"><a href="#特征：-2" class="headerlink" title="特征："></a>特征：</h4><ol>
-<li>不在同一个作用域（分别位于派生类与基类）</li>
-<li>函数名字相同</li>
-<li>返回值可以不同</li>
-<li>参数不同,此时，不论有无 virtual 关键字，基类的函数将被隐藏（注意别与重载以及覆盖混淆）</li>
-<li>参数相同，但是基类函数没有 virtual关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）</li>
-</ol>
-<h3 id="重载与覆盖的区别："><a href="#重载与覆盖的区别：" class="headerlink" title="重载与覆盖的区别："></a>重载与覆盖的区别：</h3><ol>
-<li>覆盖是子类和父类之间的关系，是垂直关系；重载是同一个类中不同方法之间的关系，是水平关系</li>
-<li>覆盖要求参数列表相同，重载要求参数列表不同；覆盖要求返回类型相同，重载则不要求</li>
-<li>覆盖关系中，调用方法体是根据对象的类型（基类类型还是派生类类型）来决定的，重载关系是根据调用时的实参表与形参表来选择方法体的。</li>
+<p>资源记录格式：</p>
+<p>  <img src="/2019/05/20/DNS查询和应答报文详解/D:/BLog\source\_posts\DNS查询和应答报文详解\资源记录格式.png" alt=""></p>
+<ol>
+<li>32位域名是该记录中与资源对应的名字，其格式和查询问题中的查询名字段相同。16位类型和16位类字段的含义也与DNS查询问题的对应字段相同。</li>
+<li>32位生存时间表示该查询记录结果可被本地客户端程序缓存多长时间，单位是秒</li>
+<li>16位资源数据长度字段和资源数据字段的内容取决于类型字段。对类型A而言。资源数据是32位的IPv4地址，而资源数据长度则为4（以字节为单位）</li>
 </ol>
 
       
@@ -438,7 +447,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           
         </div>
       
@@ -451,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/红黑树/" rel="next" title="红黑树">
-                <i class="fa fa-chevron-left"></i> 红黑树
+              <a href="/2019/05/19/vector与list的区别/" rel="next" title="vector与list的区别">
+                <i class="fa fa-chevron-left"></i> vector与list的区别
               </a>
             
           </div>
@@ -460,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/04/static关键字的作用/" rel="prev" title="static关键字的作用">
-                static关键字的作用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数重载"><span class="nav-number">1.</span> <span class="nav-text">函数重载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征："><span class="nav-number">1.1.</span> <span class="nav-text">特征：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数重写（覆盖）"><span class="nav-number">2.</span> <span class="nav-text">函数重写（覆盖）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征：-1"><span class="nav-number">2.1.</span> <span class="nav-text">特征：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数重定义"><span class="nav-number">3.</span> <span class="nav-text">函数重定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征：-2"><span class="nav-number">3.1.</span> <span class="nav-text">特征：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重载与覆盖的区别："><span class="nav-number">4.</span> <span class="nav-text">重载与覆盖的区别：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS查询和应答报文详解"><span class="nav-number">1.</span> <span class="nav-text">DNS查询和应答报文详解</span></a></li></ol></div>
             
 
           </div>
