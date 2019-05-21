@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-20T15:48:17.819Z</updated>
+  <updated>2019-05-21T13:29:59.676Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>组队竞赛问题</title>
+    <link href="http://xiazi97.github.io/2019/05/21/%E7%BB%84%E9%98%9F%E7%AB%9E%E8%B5%9B%E9%97%AE%E9%A2%98/"/>
+    <id>http://xiazi97.github.io/2019/05/21/组队竞赛问题/</id>
+    <published>2019-05-21T12:24:29.000Z</published>
+    <updated>2019-05-21T13:29:59.676Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;牛牛举办了一次编程比赛,参加比赛的有3*n个选手,每个选手都有一个水平值a_i.现在要将这些选手进行组队,一共组成n个队伍,
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>DNS查询和应答报文详解</title>
@@ -422,27 +443,6 @@
     
     
       <category term="linux" scheme="http://xiazi97.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>智能指针</title>
-    <link href="http://xiazi97.github.io/2019/03/25/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
-    <id>http://xiazi97.github.io/2019/03/25/智能指针/</id>
-    <published>2019-03-25T10:18:54.000Z</published>
-    <updated>2019-04-11T15:28:48.711Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    C++程序设计中，使用堆内存是很繁琐的操作——堆内存的申请和释放都需要程序员自己去管理。虽然说程序员自己管理内存可以提高程序的效率，但是整体来说程序员手动管理内存是比较麻烦的，而且容易出现内存泄漏，异常安全（如果在malloc和free之间如果存在抛异常，那么还是
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
