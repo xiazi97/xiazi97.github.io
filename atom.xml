@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-21T13:29:59.676Z</updated>
+  <updated>2019-05-22T10:23:52.821Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>进程状态</title>
+    <link href="http://xiazi97.github.io/2019/05/22/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
+    <id>http://xiazi97.github.io/2019/05/22/进程状态/</id>
+    <published>2019-05-22T02:46:29.000Z</published>
+    <updated>2019-05-22T10:23:52.821Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态&lt;/p&gt;
+&lt;h3 id=&quot;常见进程状态：&quot;&gt;&lt;a href=&quot;#常见进程状态：&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>组队竞赛问题</title>
@@ -420,29 +442,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高级IO</title>
-    <link href="http://xiazi97.github.io/2019/04/15/%E9%AB%98%E7%BA%A7IO/"/>
-    <id>http://xiazi97.github.io/2019/04/15/高级IO/</id>
-    <published>2019-04-15T15:36:10.000Z</published>
-    <updated>2019-04-18T15:17:40.898Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在进入IO之前，我们需要先明白一个概念，IO实际上是分两步的——1.等待，2.数据拷贝&lt;/p&gt;
-&lt;p&gt;正式进入IO时，先来通过一个例子简单理解一下五种IO模型：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
-      
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://xiazi97.github.io/tags/linux/"/>
     
   </entry>
   

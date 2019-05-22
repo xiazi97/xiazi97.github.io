@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,16 +91,18 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Snoopy">
-<meta property="og:url" content="http://xiazi97.github.io/archives/page/5/index.html">
+<meta name="description" content="众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态 常见进程状态： R：运行状态（running） 并不意味着进程是一定在运行中的，它表明进程要么在运行要么在运行队列里。其实准确的说，这个状态应该叫可执行状态，也就是说，处于此状态的这些进程的task_struct结构被放入对应CPU的可执行队列中（一个">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程状态">
+<meta property="og:url" content="http://xiazi97.github.io/2019/05/22/进程状态/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态 常见进程状态： R：运行状态（running） 并不意味着进程是一定在运行中的，它表明进程要么在运行要么在运行队列里。其实准确的说，这个状态应该叫可执行状态，也就是说，处于此状态的这些进程的task_struct结构被放入对应CPU的可执行队列中（一个">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-22T10:23:52.821Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snoopy">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="进程状态">
+<meta name="twitter:description" content="众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态 常见进程状态： R：运行状态（running） 并不意味着进程是一定在运行中的，它表明进程要么在运行要么在运行队列里。其实准确的说，这个状态应该叫可执行状态，也就是说，处于此状态的这些进程的task_struct结构被放入对应CPU的可执行队列中（一个">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/archives/page/5/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/05/22/进程状态/">
 
 
 
 
 
-  <title>归档 | Snoopy</title>
+  <title>进程状态 | Snoopy</title>
   
 
 
@@ -164,7 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -302,215 +304,178 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 45 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/22/进程状态/">
 
-      
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李峰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Snoopy">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">进程状态</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T10:46:29+08:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/08/Core-Dump浅解析/" itemprop="url">
-              
-                <span itemprop="name">Core Dump浅解析</span>
-              
-            </a>
-        
-      </h2>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+          
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-08T17:39:53+08:00" content="2018-11-08">
-          11-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/07/new与delete的使用/" itemprop="url">
-              
-                <span itemprop="name">new与delete的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-07T16:50:13+08:00" content="2018-11-07">
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/05/类中默认成员函数浅析（二）/" itemprop="url">
-              
-                <span itemprop="name">类中默认成员函数浅析（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-05T22:55:24+08:00" content="2018-11-05">
-          11-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态</p>
+<h3 id="常见进程状态："><a href="#常见进程状态：" class="headerlink" title="常见进程状态："></a>常见进程状态：</h3><ol>
+<li><p>R：运行状态（running）</p>
+<p>并不意味着进程是一定在运行中的，它表明进程要么在运行要么在运行队列里。其实准确的说，这个状态应该叫<strong>可执行状态</strong>，也就是说，处于此状态的这些进程的task_struct结构被放入对应CPU的可执行队列中（一个进程最多只能出现在一个CPU的可执行队列中）。</p>
+</li>
+<li><p>S：可中断睡眠状态（sleeping）</p>
+<p>处于这个状态的进程意味着在等待事件完成，这些进程的task_struct结构被放入对应事件的等待队列中。当这些事件发生时（由外部中断触发、或由其他进程触发），对应的等待队列中的一个或多个进程将被唤醒。在大多数情况下，进程列表中的绝大多数进程都处于此状态</p>
+</li>
+<li><p>D：不可中断睡眠状态（Disk sleep）</p>
+<p>运行的时候，进程会向内核请求一些服务，内核就会将程序挂起进程，并将进程放到parked队列，通常这些进程只会在parked队列中停留很短的时间，在ps(1)列表中是不会出现的。但是如果内核因为某些原因不能提供相应服务的话。例如，进程要读某一个特定的磁盘块，但是磁盘控制器坏了，这时，除非进程完成读磁盘，否则内核无法将该进程移出parked队列，此时该进程标志位就会被置为D。<strong>由于进程只有在运行的时候才能接受到signals，所以此时在parked队列上的进程也就无法接收到信号了。解决这个问题的方法要么是给资源给该进程，要么是reboot。</strong><br>通俗一点说，<strong>产生D状态的原因出现uninterruptible sleep状态的进程一般是因为在等待IO，例如磁盘IO、网络IO等</strong>。在发出的IO请求得不到相应之后，进程一般就会转入uninterruptible sleep状态</p>
+</li>
+<li><p>T：停止状态（stopped）</p>
+<p>向进程发送一个SIGSTOP信号，它就会因响应该信号而进入TASK_STOPPED状态（除非该进程本身处于TASK_UNINTERRUPTIBLE状态而不响应信号）。（SIGSTOP与SIGKILL信号一样，是非常强制的。不允许用户进程通过signal系列的系统调用重新设置对应的信号处理函数。）</p>
+<p>向进程发送一个SIGCONT信号，可以让其从TASK_STOPPED状态恢复到TASK_RUNNING状态。</p>
+<p>当进程正在被跟踪时，它处于TASK_TRACED这个特殊的状态。“正在被跟踪”指的是进程暂停下来，等待跟踪它的进程对它进行操作。比如在gdb中对被跟踪的进程下一个断点，进程在断点处停下来的时候就处于TASK_TRACED状态。而在其他时候，被跟踪的进程还是处于前面提到的那些状态</p>
+</li>
+<li><p>X：死亡状态</p>
+<p>这个状态只是一个返回状态，因为其维持时间非常短，所以不会在任务列表中看到这个状态</p>
+</li>
+</ol>
+<p>这里还有一种比较特殊的状态——僵尸状态（Zombies）</p>
+<h3 id="Z：僵尸状态（Zombies）"><a href="#Z：僵尸状态（Zombies）" class="headerlink" title="Z：僵尸状态（Zombies）"></a>Z：僵尸状态（Zombies）</h3><p>当进程退出并且父进程没有读取到子进程退出的返回代码时就会产生僵尸进程，也就是说，只要子进程退出，父进程还在运行，但父进程没有读取子进程状态，那么此时子进程就会进入Z状态</p>
+<p>在这个退出过程中，进程占有的所有资源将被回收，除了task_struct结构（以及少数资源）以外。于是进程就会<strong>剩下task_struct这么个空壳，故称为僵尸</strong>。<br>之所以保留task_struct，是因为task_struct里面保存了进程的退出码、以及一些统计信息。而其父进程很可能会关心这些信息。比如在shell中，$?变量就保存了最后一个退出的前台进程的退出码，而这个退出码往往被作为if语句的判断条件。<br>当然，内核也可以将这些信息保存在别的地方，而将task_struct结构释放掉，以节省一些空间。但是使用task_struct结构更为方便，因为在内核中已经建立了从pid到task_struct查找关系，还有进程间的父子关系。释放掉task_struct，则需要建立一些新的数据结构，以便让父进程找到它的子进程的退出信息。</p>
+<p><strong>父进程可以通过wait系列的系统调用（如wait4、waitid）来等待某个或某些子进程的退出，并获取它的退出信息。然后wait系列的系统调用会顺便将子进程的尸体（task_struct）也释放掉。</strong></p>
+<p>在上边我们可以看出，产生僵尸进程有可能会造成<strong>内存资源的浪费，内存泄漏，需要一直维护PCB</strong></p>
+<h3 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程"></a>孤儿进程</h3><p>既然说到了僵尸进程，那么不得不提一提与之对应的孤儿进程——<strong>一个父进程退出，而它的一个或多个子进程还在运行，那么那些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。</strong></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/01/for循环的基础练习/" itemprop="url">
-              
-                <span itemprop="name">for循环的基础练习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-01T00:15:57+08:00" content="2018-11-01">
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/30/类中默认成员函数浅析（一）/" itemprop="url">
-              
-                <span itemprop="name">类中默认成员函数浅析（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-30T00:10:05+08:00" content="2018-10-30">
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/21/组队竞赛问题/" rel="next" title="组队竞赛问题">
+                <i class="fa fa-chevron-left"></i> 组队竞赛问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -518,6 +483,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -538,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -630,6 +608,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见进程状态："><span class="nav-number">1.</span> <span class="nav-text">常见进程状态：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z：僵尸状态（Zombies）"><span class="nav-number">2.</span> <span class="nav-text">Z：僵尸状态（Zombies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孤儿进程"><span class="nav-number">3.</span> <span class="nav-text">孤儿进程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -795,6 +789,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
