@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-23T14:40:01.489Z</updated>
+  <updated>2019-05-24T07:13:41.775Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fork的使用</title>
+    <link href="http://xiazi97.github.io/2019/05/24/fork%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://xiazi97.github.io/2019/05/24/fork的使用/</id>
+    <published>2019-05-24T05:50:28.000Z</published>
+    <updated>2019-05-24T07:13:41.775Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在牛客做题时遇到了这样一个问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;int main(){fork()||fork();}共创建几个进程：&lt;strong&gt;_&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;回想之前一直在这里跌倒从来没有爬起来过的经历，痛定
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>彩色的砖块</title>
@@ -415,27 +440,6 @@
       
         &lt;p&gt;红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。&lt;/p&gt;
 &lt;h3 id=&quot;红黑树的性质&quot;&gt;&lt;a href=&quot;#红黑树的性质
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AVL树</title>
-    <link href="http://xiazi97.github.io/2019/04/23/AVL%E6%A0%91/"/>
-    <id>http://xiazi97.github.io/2019/04/23/AVL树/</id>
-    <published>2019-04-23T12:09:33.000Z</published>
-    <updated>2019-04-24T15:17:22.283Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;上一篇所写的二叉搜索树虽可以缩短查找的效率，但如果数据有序或接近有序二叉搜索树将退化为单支树，查找元素相当于在顺序表中搜索元素，效率低下。因此，两位俄罗斯的数学家G.M.Adelson-Velskii和E.M.Landis在1962年发明了一种解决上述问题的方法：当向二叉搜
       
     
     </summary>
