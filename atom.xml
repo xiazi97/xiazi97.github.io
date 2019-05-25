@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-24T07:13:41.775Z</updated>
+  <updated>2019-05-25T13:55:33.111Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>六一儿童节问题</title>
+    <link href="http://xiazi97.github.io/2019/05/25/%E5%85%AD%E4%B8%80%E5%84%BF%E7%AB%A5%E8%8A%82%E9%97%AE%E9%A2%98/"/>
+    <id>http://xiazi97.github.io/2019/05/25/六一儿童节问题/</id>
+    <published>2019-05-25T13:51:07.000Z</published>
+    <updated>2019-05-25T13:55:33.111Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;六一儿童节，老师带了很多好吃的巧克力到幼儿园。每块巧克力j的重量为w[j]，对于每个小朋友i，当他分到的巧克力大小达到h[i
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>fork的使用</title>
@@ -418,28 +439,6 @@
       
       
         &lt;h3 id=&quot;函数重载&quot;&gt;&lt;a href=&quot;#函数重载&quot; class=&quot;headerlink&quot; title=&quot;函数重载&quot;&gt;&lt;/a&gt;函数重载&lt;/h3&gt;&lt;p&gt;在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>红黑树</title>
-    <link href="http://xiazi97.github.io/2019/04/28/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
-    <id>http://xiazi97.github.io/2019/04/28/红黑树/</id>
-    <published>2019-04-28T00:49:44.000Z</published>
-    <updated>2019-05-02T14:21:12.338Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;红黑树，是一种二叉搜索树，但在每个结点增加一个存储位表示结点的颜色，可以是Red和Black，通过对任何一条从根到叶子结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出两倍，因而是接近平衡的。&lt;/p&gt;
-&lt;h3 id=&quot;红黑树的性质&quot;&gt;&lt;a href=&quot;#红黑树的性质
       
     
     </summary>

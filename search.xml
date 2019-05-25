@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[六一儿童节问题]]></title>
+    <url>%2F2019%2F05%2F25%2F%E5%85%AD%E4%B8%80%E5%84%BF%E7%AB%A5%E8%8A%82%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[题目描述六一儿童节，老师带了很多好吃的巧克力到幼儿园。每块巧克力j的重量为w[j]，对于每个小朋友i，当他分到的巧克力大小达到h[i] (即w[j]&gt;=h[i])，他才会上去表演节目。老师的目标是将巧克力分发给孩子们，使得最多的小孩上台表演。可以保证每个w[i]&gt; 0且不能将多块巧克力分给一个孩子或将一块分给多个孩子。 输入描述 12345&gt; 第一行：n，表示h数组元素个数&gt; 第二行：n个h数组元素&gt; 第三行：m，表示w数组元素个数&gt; 第四行：m个w数组元素&gt; 输出描述 12&gt; 上台表演学生人数&gt; 输入12343 2 2 3 2 3 1 输出1 题目链接：https://www.nowcoder.com/questionTerminal/d2dfc62bf1ba42679a0e358c57da9828https://www.nowcoder.com/questionTerminal/6736cc3ffd1444a4a0057dee89be789b?orderByHotValue=1&amp;page=1&amp;onlyReference=false来源：牛客网 解题思路优先想到将数据先排序，然后将两个数组进行比较即可 1234567891011121314151617181920212223242526272829303132333435363738#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int main()&#123; int n,m; cin &gt;&gt; n; vector&lt;int&gt; h(n); for(int i=0;i&lt;n;++i)&#123; cin &gt;&gt; h[i]; &#125; cin &gt;&gt; m; vector&lt;int&gt; w(m); for(int i=0;i&lt;m;++i)&#123; cin &gt;&gt; w[i]; &#125; sort(h.begin(),h.end()); sort(w.begin(),w.end()); int i=0; int j=0; int res = 0; while(i&lt;n &amp;&amp; j&lt;m)&#123; if(h[i] &lt;= w[j])&#123; res++; i++; j++; &#125; else j++; &#125; cout &lt;&lt; res &lt;&lt;endl; return 0;&#125;]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[fork的使用]]></title>
     <url>%2F2019%2F05%2F24%2Ffork%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[在牛客做题时遇到了这样一个问题： int main(){fork()||fork();}共创建几个进程：_ 回想之前一直在这里跌倒从来没有爬起来过的经历，痛定思痛，来好好的思考了一下fork()函数的使用 fork函数初识在linux中fork函数是非常重要的函数，它从已经存在的进程中创建一个新进程。新进程为子进程，而原进程为父进程。 123456#include &lt;unistd.h&gt;pid_t fork(void);返回值： 子进程中返回0 父进程中返回子进程id 出错返回-1 进程调用fork，当控制转移到内核中的fork代码后，内核会做这样的操作： 分配新的内存块和内存数据结构给子进程 将父进程部分数据结构内容拷贝到子进程中 添加子进程到系统进程列表中 fork返回，开始调度器调度 当一个进程调用fork后，就会有两个二进制代码相同的进程，而且他们都运行到相同的地方。 注意：fork后父进程还是子进程先执行决定于调度器 fork调用失败的原因 系统中有太多进程 实际用户的进程数超过了限制 fork常规用法 一个父进程希望复制自己，使父子进程同时执行不同的代码段。例如，父进程等待客户端请求，生成子进程来处理请求 一个进程要执行一个不同的程序。例如子进程从fork返回后，调用exec函数 子进程继承父进程使用fork函数得到的子进程从父进程的继承了整个进程的地址空间，包括：进程上下文、进程堆栈、内存信息、打开的文件描述符、信号控制设置、进程优先级、进程组号、当前工作目录、根目录、资源限制、控制终端等。 子进程与父进程的区别在于： 1、父进程设置的锁，子进程不继承（因为如果是排它锁，被继承的话，矛盾了） 2、各自的进程ID和父进程ID不同 3、子进程的未决告警被清除； 4、子进程的未决信号集设置为空集。]]></content>
