@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-25T13:55:33.111Z</updated>
+  <updated>2019-05-26T14:47:23.523Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STL的内存优化</title>
+    <link href="http://xiazi97.github.io/2019/05/26/STL%E7%9A%84%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/"/>
+    <id>http://xiazi97.github.io/2019/05/26/STL的内存优化/</id>
+    <published>2019-05-26T14:39:49.000Z</published>
+    <updated>2019-05-26T14:47:23.523Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1）二级配置器结构&quot;&gt;&lt;a href=&quot;#1）二级配置器结构&quot; class=&quot;headerlink&quot; title=&quot;1）二级配置器结构&quot;&gt;&lt;/a&gt;1）二级配置器结构&lt;/h3&gt;&lt;p&gt;STL内存管理使用二级内存配置器。&lt;/p&gt;
+&lt;h4 id=&quot;1、第一级配置器&quot;&gt;&lt;a
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>六一儿童节问题</title>
@@ -418,27 +440,6 @@
       
         &lt;h4 id=&quot;全局静态变量&quot;&gt;&lt;a href=&quot;#全局静态变量&quot; class=&quot;headerlink&quot; title=&quot;全局静态变量&quot;&gt;&lt;/a&gt;全局静态变量&lt;/h4&gt;&lt;p&gt;在全局变量前加上关键字static，全局变量就定义成一个全局静态变量.&lt;/p&gt;
 &lt;p&gt;静态存储区，在整个程序
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>函数重载，重定义，重写</title>
-    <link href="http://xiazi97.github.io/2019/05/03/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%EF%BC%8C%E9%87%8D%E5%AE%9A%E4%B9%89%EF%BC%8C%E9%87%8D%E5%86%99/"/>
-    <id>http://xiazi97.github.io/2019/05/03/函数重载，重定义，重写/</id>
-    <published>2019-05-03T06:59:48.000Z</published>
-    <updated>2019-05-03T07:16:27.381Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;函数重载&quot;&gt;&lt;a href=&quot;#函数重载&quot; class=&quot;headerlink&quot; title=&quot;函数重载&quot;&gt;&lt;/a&gt;函数重载&lt;/h3&gt;&lt;p&gt;在一个类中声明多个名称相同但是参数列表不同的函数，这些的参数可能个数或顺序，类型不同，但是不能靠返回类型来判断，也就是说，在
       
     
     </summary>
