@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-26T14:47:23.523Z</updated>
+  <updated>2019-05-28T15:03:50.942Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux虚拟地址空间</title>
+    <link href="http://xiazi97.github.io/2019/05/28/Linux%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4/"/>
+    <id>http://xiazi97.github.io/2019/05/28/Linux虚拟地址空间/</id>
+    <published>2019-05-28T15:02:47.000Z</published>
+    <updated>2019-05-28T15:03:50.942Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;为什么有虚拟地址空间&quot;&gt;&lt;a href=&quot;#为什么有虚拟地址空间&quot; class=&quot;headerlink&quot; title=&quot;为什么有虚拟地址空间&quot;&gt;&lt;/a&gt;为什么有虚拟地址空间&lt;/h3&gt;&lt;p&gt;为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>STL的内存优化</title>
@@ -418,28 +439,6 @@
       
         &lt;p&gt;C++中四种类型转换是：static_cast, dynamic_cast, const_cast, reinterpret_cast&lt;/p&gt;
 &lt;h3 id=&quot;const-cast&quot;&gt;&lt;a href=&quot;#const-cast&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>static关键字的作用</title>
-    <link href="http://xiazi97.github.io/2019/05/04/static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <id>http://xiazi97.github.io/2019/05/04/static关键字的作用/</id>
-    <published>2019-05-04T15:00:23.000Z</published>
-    <updated>2019-05-04T15:02:03.120Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;全局静态变量&quot;&gt;&lt;a href=&quot;#全局静态变量&quot; class=&quot;headerlink&quot; title=&quot;全局静态变量&quot;&gt;&lt;/a&gt;全局静态变量&lt;/h4&gt;&lt;p&gt;在全局变量前加上关键字static，全局变量就定义成一个全局静态变量.&lt;/p&gt;
-&lt;p&gt;静态存储区，在整个程序
       
     
     </summary>

@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="计算机网络,">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,25 +91,18 @@
 
 
 
-<meta name="description" content="点到点信道的数据链路层协议的数据单元为帧：  将网络层交下来的IP数据报添加首部尾部封装成帧； 将封装好的帧发送给接受方的数据链路层； 收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃   ​    由上图可知，在 IP 数据包交付的过程中，在数据链路层会对数据包进行添加报头信息。此时就要引出一个新的概念——以太网。那么以太网是什么呢？  以太网不是一种具体的网络，而是一种技术标准。它既包">
-<meta name="keywords" content="计算机网络">
+<meta name="description" content="为什么有虚拟地址空间为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。 虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="以太网">
-<meta property="og:url" content="http://xiazi97.github.io/2019/02/17/以太网/index.html">
+<meta property="og:title" content="Linux虚拟地址空间">
+<meta property="og:url" content="http://xiazi97.github.io/2019/05/28/Linux虚拟地址空间/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="点到点信道的数据链路层协议的数据单元为帧：  将网络层交下来的IP数据报添加首部尾部封装成帧； 将封装好的帧发送给接受方的数据链路层； 收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃   ​    由上图可知，在 IP 数据包交付的过程中，在数据链路层会对数据包进行添加报头信息。此时就要引出一个新的概念——以太网。那么以太网是什么呢？  以太网不是一种具体的网络，而是一种技术标准。它既包">
+<meta property="og:description" content="为什么有虚拟地址空间为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。 虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/传输.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/以太网帧.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/IP.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/ARP.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/RARP.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/02/17/以太网/MSS.png">
-<meta property="og:updated_time" content="2019-03-05T15:14:06.805Z">
+<meta property="og:updated_time" content="2019-05-28T15:03:50.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以太网">
-<meta name="twitter:description" content="点到点信道的数据链路层协议的数据单元为帧：  将网络层交下来的IP数据报添加首部尾部封装成帧； 将封装好的帧发送给接受方的数据链路层； 收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃   ​    由上图可知，在 IP 数据包交付的过程中，在数据链路层会对数据包进行添加报头信息。此时就要引出一个新的概念——以太网。那么以太网是什么呢？  以太网不是一种具体的网络，而是一种技术标准。它既包">
-<meta name="twitter:image" content="http://xiazi97.github.io/2019/02/17/以太网/传输.png">
+<meta name="twitter:title" content="Linux虚拟地址空间">
+<meta name="twitter:description" content="为什么有虚拟地址空间为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。 虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不">
 
 
 
@@ -139,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/02/17/以太网/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/05/28/Linux虚拟地址空间/">
 
 
 
 
 
-  <title>以太网 | Snoopy</title>
+  <title>Linux虚拟地址空间 | Snoopy</title>
   
 
 
@@ -324,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/02/17/以太网/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/28/Linux虚拟地址空间/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -341,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">以太网</h1>
+          <h1 class="post-title" itemprop="name headline">Linux虚拟地址空间</h1>
         
 
         <div class="post-meta">
@@ -353,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T14:55:14+08:00">
-                2019-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-28T23:02:47+08:00">
+                2019-05-28
               </time>
             
 
@@ -398,68 +391,20 @@
       
 
       
-        <p>点到点信道的数据链路层协议的数据单元为帧：</p>
-<ol>
-<li>将网络层交下来的IP数据报添加首部尾部封装成帧；</li>
-<li>将封装好的帧发送给接受方的数据链路层；</li>
-<li>收到的帧无差错则从中提取到IP数据报交给网络层，否则丢弃</li>
-</ol>
-<p><img src="/2019/02/17/以太网/传输.png" alt="传输格式"></p>
-<p>​    由上图可知，在 IP 数据包交付的过程中，在数据链路层会对数据包进行添加报头信息。此时就要引出一个新的概念——以太网。那么以太网是什么呢？</p>
-<ul>
-<li>以太网不是一种具体的网络，而是一种技术标准。它既包含了数据链路层的内容，也包含了一些物理层的内容。例如：规定了网络拓扑结构，访问控制方式，传输速率等</li>
-<li>以太网是当前应用最广泛的局域网技术（和以太网并列的还有令牌环网，无线LAN等）</li>
-</ul>
-<h2 id="以太网帧格式"><a href="#以太网帧格式" class="headerlink" title="以太网帧格式"></a>以太网帧格式</h2><p>​    以太网帧就是将网络层交付的数据添加报头信息后，此时的数据以帧的形式传递。</p>
-<p>​    以太网格式如下：</p>
-<p><img src="/2019/02/17/以太网/以太网帧.png" alt="以太网帧格式"></p>
-<p>在这里，目的地址与源地址这里都指的是 MAC 地址。每一个主机对应唯一的一个 MAC 地址，是由网卡决定的，长度是 48 位，所以这里的目的地址与源地址都是 6 个字节，也就是 48 个比特位。</p>
-<p>在以太网帧的最后，还有一个 CRC 校验码，来校验数据是否异常。</p>
-<p>在中间，有一个两个字节的类型标识。这个类型字段有三种值，分别对应IP、ARP、RARP。</p>
-<h3 id="类型字段"><a href="#类型字段" class="headerlink" title="类型字段"></a>类型字段</h3><h4 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h4><p><img src="/2019/02/17/以太网/IP.png" alt="以太网帧格式"></p>
-<p>如果类型码为 0800 那么在数据链路层解包完毕后，将该数据交付给网络层的 IP 协议来处理该报文。 </p>
-<h4 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h4><p><img src="/2019/02/17/以太网/ARP.png" alt="以太网帧格式"></p>
-<p>如果类型码是 0806 ， 那么在向上层交付的时候就交付给 ARP 协议，这里要说的是 ARP 协议是处于数据链路层与网络层之间的一种协议，也叫作地址解析协议。它将 IP 地址转换为 MAC 地址。 </p>
-<h4 id="RARP"><a href="#RARP" class="headerlink" title="RARP"></a>RARP</h4><p><img src="/2019/02/17/以太网/RARP.png" alt="以太网帧格式"></p>
-<p>RARP 协议，就是 Reverse ARP，与 ARP 协议相同，是将 MAC 地址转换为 IP 地址的协议 </p>
-<p>注意：一般来说，数据第一次发送给目的主机时，在这之前应该发送 ARP 协议，根据目的主机的 IP 地址来确定目的主机的 MAC 地址，从而为后面的数据发送与接收提供便利 </p>
-<h2 id="MAC地址与IP地址"><a href="#MAC地址与IP地址" class="headerlink" title="MAC地址与IP地址"></a>MAC地址与IP地址</h2><ul>
-<li>MAC地址用来识别数据链路层中相连的节点</li>
-<li>MAC地址长度为48位，即6个字节。一般用16进制数字加上冒号的形式来表示（例如：08：00：27：03：fb：19）</li>
-<li>MAC地址在网卡出场时就确定了，不能被修改。MAC地址通常时唯一的</li>
-<li>在数据发送传输的过程中，目的 IP 地址与源 IP 地址是永远不会变的，这是这个数据的起始与终点，而 MAC 地址是一直在变化的，由于数据在传输的过程中会经历很多的主机等，所以在这个过程中 MAC 地址一直在变。类似于我们坐车，要坐车从 A 出发，目的地是 D。这个过程中我们会经过 B C，在到达 B 的时候，此时的 MAC 地址相当于我们上一站是 A ， 下一站是 C。而目的 IP 地址与 源 IP 地址 分别是 D 与 A，这样说的话就很好理解了（MAC 地址与 IP 地址，一个代表的目的与终点，一个代表着途中的经过。所以在到达目的局域网后，数据包并不知道要传输给哪台主机，因为 MAC 地址的变化，但是目的 IP 地址一直没有变化，所以此时就需要 ARP 协议来确定目的主机的 MAC 地址）</li>
-</ul>
-<h2 id="MTU"><a href="#MTU" class="headerlink" title="MTU"></a>MTU</h2><p>在谈 IP 协议的时候说到， IP数据报的长度受数据链路层的 MTU 影响。数据链路层要求在网络层传输过来的数据包必须在 MTU 范围内 。MTU相当于发快递时对包裹尺寸的限制。这个限制是不同的数据链路对应的物理层产生的限制。</p>
-<ul>
-<li>以太网帧中的数据长度规定最小46个字节，最大1500字节。ARP数据包的长度不够46字节，那么要在后面补充填充位（PAD）</li>
-<li>最大值1500称之为以太网的最大传输单元（MTU），不同的网络类型有不同的MTU</li>
-<li>如果一个数据包从以太网路由到拨号链路上，数据包长度大于拨号链路的MTU了，则需要对数据包进行分片</li>
-</ul>
-<h2 id="MTU对IP协议的影响"><a href="#MTU对IP协议的影响" class="headerlink" title="MTU对IP协议的影响"></a>MTU对IP协议的影响</h2><p>由于MTU的限制，对于较大的IP数据包要进行分包</p>
-<ul>
-<li>在IP层在添加报头信息之前，要判断此时由传输层传输过来的数据段是否超过了1480个字节（以太网帧中的数据包括IP协议的报头信息，IP协议的报头信息为20字节），如果超过了那么则要对该数据段进行分片）</li>
-<li>将较大的IP包分成多个小包，并给每个小包打上标签</li>
-<li>每个小包IP协议头的16位标识是相同的</li>
-<li>每个小包的IP协议头的3位标志字段中，第二位置0表示允许分片，第3位表示结束标记（当前是否是最后一个小包，如果是则置为1，否则置为0）</li>
-<li>到达对端后再将这些小包按顺序重组，拼装到一起返回给传输层</li>
-<li>一旦这些小包中任意一个小包丢失，接收端的重组就会失败，但是IP层不会负责重新传输数据</li>
-</ul>
-<h2 id="MTU对UDP协议的影响"><a href="#MTU对UDP协议的影响" class="headerlink" title="MTU对UDP协议的影响"></a>MTU对UDP协议的影响</h2><ul>
-<li>因为IP数据报的首部为20字节,所以IP数据报的数据区长度最大为1480字节. 而这个1480字节就是用来放TCP传来的TCP报文段或UDP传来的UDP数据报的. 又因为UDP数据报的首部8字节,所以UDP数据报的数据区最大长度为1472字节. 这个1472字节就是我们可以使用的字节数。 </li>
-<li>一旦UDP携带的数据超过1472，那么就会在网络层分成多个IP数据报</li>
-<li>这些多个数据报有任意一个丢失都会引起接收端网络层重组失败。这就意味着，如果UDP数据报在网络层被分片，整个数据被丢失的概率就大大增加了</li>
-</ul>
-<h2 id="MTU对TCP协议的影响"><a href="#MTU对TCP协议的影响" class="headerlink" title="MTU对TCP协议的影响"></a>MTU对TCP协议的影响</h2><p>我们先来回忆一下TCP协议：</p>
-<ul>
-<li>TCP的一个数据报也不能无限大，还是受制于MTU。TCP的单个数据报的最大消息长度，称为MSS（Max Segment Size）</li>
-<li>TCP在建立连接的过程中，通信双方会进行MSS协商</li>
-<li>最理想的情况下，MSS的值正好是在IP不会被分片处理的最大长度（这个长度仍然受制于数据链路层的MTU）</li>
-<li>双方在发送SYN的时候会在TCP头部写入自己能支持的MSS值</li>
-<li>然后双方得知对方的MSS值之后，选择较小的作为最终MSS</li>
-<li>MSS的值就是在TCP首部的40字节变长选项中</li>
-</ul>
-<h3 id="MSS和MTU的关系"><a href="#MSS和MTU的关系" class="headerlink" title="MSS和MTU的关系"></a>MSS和MTU的关系</h3><p>​    由上可知，MSS 的大小其实就是应用层给传输层的交付的数据的大小。不包括传输层的报头信息。所以在计算 MSS 的时候，用 MTU 减去网络层报头长度以及传输层报头长度即可。 </p>
-<p><img src="/2019/02/17/以太网/MSS.png" alt="以太网帧格式"></p>
+        <h3 id="为什么有虚拟地址空间"><a href="#为什么有虚拟地址空间" class="headerlink" title="为什么有虚拟地址空间"></a>为什么有虚拟地址空间</h3><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
+<p>虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不立即就把虚拟内存对应位置的程序数据和代码（比如.text .data段）拷贝到物理内存中，只是建立好虚拟内存和磁盘文件之间的映射就好（叫做存储器映射），等到运行到对应的程序时，才会通过缺页异常，来拷贝数据。还有进程运行过程中，要动态分配内存，比如malloc时，也只是分配了虚拟内存，即为这块虚拟内存对应的页表项做相应设置，当进程真正访问到此数据时，才引发缺页异常。</p>
+<p>请求分页系统、请求分段系统和请求段页式系统都是针对虚拟内存的，通过请求实现内存与外存的信息置换。</p>
+<h3 id="虚拟内存的好处："><a href="#虚拟内存的好处：" class="headerlink" title="虚拟内存的好处："></a>虚拟内存的好处：</h3><p>1.扩大地址空间；</p>
+<p>2.内存保护：每个进程运行在各自的虚拟内存地址空间，互相不能干扰对方。虚存还对特定的内存地址提供写保护，可以防止代码或数据被恶意篡改。</p>
+<p>3.公平内存分配。采用了虚存之后，每个进程都相当于有同样大小的虚存空间。</p>
+<p>4.当进程通信时，可采用虚存共享的方式实现。</p>
+<p>5.当不同的进程使用同样的代码时，比如库文件中的代码，物理内存中可以只存储一份这样的代码，不同的进程只需要把自己的虚拟内存映射过去就可以了，节省内存</p>
+<p>6.虚拟内存很适合在多道程序设计系统中使用，许多程序的片段同时保存在内存中。当一个程序等待它的一部分读入内存时，可以把CPU交给另一个进程使用。在内存中可以保留多个进程，系统并发度提高</p>
+<p>7.在程序需要分配连续的内存空间的时候，只需要在虚拟内存空间分配连续空间，而不需要实际物理内存的连续空间，可以利用碎片</p>
+<h3 id="虚拟内存的代价："><a href="#虚拟内存的代价：" class="headerlink" title="虚拟内存的代价："></a>虚拟内存的代价：</h3><p>1.虚存的管理需要建立很多数据结构，这些数据结构要占用额外的内存</p>
+<p>2.虚拟地址到物理地址的转换，增加了指令的执行时间。</p>
+<p>3.页面的换入换出需要磁盘I/O，这是很耗时的</p>
+<p>4.如果一页中只有一部分数据，会浪费内存。</p>
 
       
     </div>
@@ -477,7 +422,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -490,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/IP协议/" rel="next" title="IP协议">
-                <i class="fa fa-chevron-left"></i> IP协议
+              <a href="/2019/05/26/STL的内存优化/" rel="next" title="STL的内存优化">
+                <i class="fa fa-chevron-left"></i> STL的内存优化
               </a>
             
           </div>
@@ -499,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/03/项目之文本相似度比较/" rel="prev" title="项目之文本相似度比较">
-                项目之文本相似度比较 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以太网帧格式"><span class="nav-number">1.</span> <span class="nav-text">以太网帧格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型字段"><span class="nav-number">1.1.</span> <span class="nav-text">类型字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP"><span class="nav-number">1.1.2.</span> <span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RARP"><span class="nav-number">1.1.3.</span> <span class="nav-text">RARP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC地址与IP地址"><span class="nav-number">2.</span> <span class="nav-text">MAC地址与IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU"><span class="nav-number">3.</span> <span class="nav-text">MTU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对IP协议的影响"><span class="nav-number">4.</span> <span class="nav-text">MTU对IP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对UDP协议的影响"><span class="nav-number">5.</span> <span class="nav-text">MTU对UDP协议的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MTU对TCP协议的影响"><span class="nav-number">6.</span> <span class="nav-text">MTU对TCP协议的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MSS和MTU的关系"><span class="nav-number">6.1.</span> <span class="nav-text">MSS和MTU的关系</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么有虚拟地址空间"><span class="nav-number">1.</span> <span class="nav-text">为什么有虚拟地址空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存的好处："><span class="nav-number">2.</span> <span class="nav-text">虚拟内存的好处：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存的代价："><span class="nav-number">3.</span> <span class="nav-text">虚拟内存的代价：</span></a></li></ol></div>
             
 
           </div>
