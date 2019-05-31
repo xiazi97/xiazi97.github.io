@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-05-30T14:31:28.277Z</updated>
+  <updated>2019-05-31T15:49:45.214Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fork与vfork的区别</title>
+    <link href="http://xiazi97.github.io/2019/05/31/fork%E4%B8%8Evfork%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://xiazi97.github.io/2019/05/31/fork与vfork的区别/</id>
+    <published>2019-05-31T15:48:25.000Z</published>
+    <updated>2019-05-31T15:49:45.214Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;fork的基础知识：&quot;&gt;&lt;a href=&quot;#fork的基础知识：&quot; class=&quot;headerlink&quot; title=&quot;fork的基础知识：&quot;&gt;&lt;/a&gt;fork的基础知识：&lt;/h3&gt;&lt;p&gt;fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -415,27 +436,6 @@
       
         &lt;h3 id=&quot;为什么要使用Makefile&quot;&gt;&lt;a href=&quot;#为什么要使用Makefile&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用Makefile&quot;&gt;&lt;/a&gt;为什么要使用Makefile&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;会不会使用Makefile从一个
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gcc编译过程</title>
-    <link href="http://xiazi97.github.io/2019/05/07/gcc%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"/>
-    <id>http://xiazi97.github.io/2019/05/07/gcc编译过程/</id>
-    <published>2019-05-07T02:00:08.000Z</published>
-    <updated>2019-05-07T04:54:12.403Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;程序的编译过程&quot;&gt;&lt;a href=&quot;#程序的编译过程&quot; class=&quot;headerlink&quot; title=&quot;程序的编译过程&quot;&gt;&lt;/a&gt;程序的编译过程&lt;/h3&gt;&lt;h4 id=&quot;预处理（宏替换）&quot;&gt;&lt;a href=&quot;#预处理（宏替换）&quot; class=&quot;headerli
       
     
     </summary>
