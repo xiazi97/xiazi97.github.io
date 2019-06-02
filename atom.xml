@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-01T14:41:40.317Z</updated>
+  <updated>2019-06-02T14:10:26.151Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>继承</title>
+    <link href="http://xiazi97.github.io/2019/06/02/%E7%BB%A7%E6%89%BF/"/>
+    <id>http://xiazi97.github.io/2019/06/02/继承/</id>
+    <published>2019-06-02T13:31:56.000Z</published>
+    <updated>2019-06-02T14:10:26.151Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;继承的概念：&quot;&gt;&lt;a href=&quot;#继承的概念：&quot; class=&quot;headerlink&quot; title=&quot;继承的概念：&quot;&gt;&lt;/a&gt;继承的概念：&lt;/h3&gt;&lt;p&gt;继承(inheritance)机制是面向对象程序设计使代码可以复用的最重要的手段，它允许程序员在保持原有类特
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>覆盖与隐藏</title>
@@ -414,27 +435,6 @@
       
       
         &lt;h3 id=&quot;定位new表达式&quot;&gt;&lt;a href=&quot;#定位new表达式&quot; class=&quot;headerlink&quot; title=&quot;定位new表达式&quot;&gt;&lt;/a&gt;定位new表达式&lt;/h3&gt;&lt;p&gt;在&lt;strong&gt;已分配的原始内存空间&lt;/strong&gt;中&lt;strong&gt;调用构造函数&lt;/s
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>结构体对齐规则</title>
-    <link href="http://xiazi97.github.io/2019/05/09/%E7%BB%93%E6%9E%84%E4%BD%93%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/"/>
-    <id>http://xiazi97.github.io/2019/05/09/结构体对齐规则/</id>
-    <published>2019-05-09T11:58:25.000Z</published>
-    <updated>2019-05-09T14:16:23.497Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;为什么要进行内存对齐&quot;&gt;&lt;a href=&quot;#为什么要进行内存对齐&quot; class=&quot;headerlink&quot; title=&quot;为什么要进行内存对齐&quot;&gt;&lt;/a&gt;为什么要进行内存对齐&lt;/h3&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;
       
     
     </summary>
