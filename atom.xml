@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-02T14:10:26.151Z</updated>
+  <updated>2019-06-03T15:18:04.234Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多态</title>
+    <link href="http://xiazi97.github.io/2019/06/03/%E5%A4%9A%E6%80%81/"/>
+    <id>http://xiazi97.github.io/2019/06/03/多态/</id>
+    <published>2019-06-03T05:39:31.000Z</published>
+    <updated>2019-06-03T15:18:04.234Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;多态的概念&quot;&gt;&lt;a href=&quot;#多态的概念&quot; class=&quot;headerlink&quot; title=&quot;多态的概念&quot;&gt;&lt;/a&gt;多态的概念&lt;/h3&gt;&lt;p&gt;通俗来说，就是多种形态，具体而言就是为了完成某一个行为，当不同的对象去完成时会产生不同的状态。&lt;/p&gt;
+&lt;p&gt;举个栗
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>继承</title>
@@ -414,27 +436,6 @@
       
       
         &lt;p&gt;单例模式就是保证&lt;strong&gt;一个类只有一个实例&lt;/strong&gt;，并提供一个访问它的全局访问点。首先，需要保证一个类只有一个实例；在类中，要构造一个实例，就必须调用类的构造函数，如此，为了防止在外部调用类的构造函数而构造实例，需要将构造函数的访问权限标记为protect
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类和对象经典面试题（一）</title>
-    <link href="http://xiazi97.github.io/2019/05/10/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://xiazi97.github.io/2019/05/10/类和对象经典面试题（一）/</id>
-    <published>2019-05-10T02:27:47.000Z</published>
-    <updated>2019-05-10T04:35:52.664Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;定位new表达式&quot;&gt;&lt;a href=&quot;#定位new表达式&quot; class=&quot;headerlink&quot; title=&quot;定位new表达式&quot;&gt;&lt;/a&gt;定位new表达式&lt;/h3&gt;&lt;p&gt;在&lt;strong&gt;已分配的原始内存空间&lt;/strong&gt;中&lt;strong&gt;调用构造函数&lt;/s
       
     
     </summary>
