@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-03T15:18:04.234Z</updated>
+  <updated>2019-06-04T14:43:55.227Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>进程间通信</title>
+    <link href="http://xiazi97.github.io/2019/06/04/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/"/>
+    <id>http://xiazi97.github.io/2019/06/04/进程间通信/</id>
+    <published>2019-06-04T14:39:38.000Z</published>
+    <updated>2019-06-04T14:43:55.227Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。&lt;/p&gt;
+&lt;h3 id=&quot;管道：&quot;&gt;&lt;a href=&quot;#管道：&quot; class=&quot;headerlink&quot; title=&quot;管道：&quot;&gt;&lt;/a&gt;管道：&lt;/h3&gt;&lt;p&gt;管道主要包括无
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>多态</title>
@@ -415,27 +437,6 @@
       
       
         &lt;h3 id=&quot;为什么要用string类&quot;&gt;&lt;a href=&quot;#为什么要用string类&quot; class=&quot;headerlink&quot; title=&quot;为什么要用string类&quot;&gt;&lt;/a&gt;为什么要用string类&lt;/h3&gt;&lt;p&gt;在C语言中，字符串是以’\0’结尾的一些字符的集合，为了操作
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="http://xiazi97.github.io/2019/05/10/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://xiazi97.github.io/2019/05/10/单例模式/</id>
-    <published>2019-05-10T05:56:28.000Z</published>
-    <updated>2019-05-11T10:13:19.619Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;单例模式就是保证&lt;strong&gt;一个类只有一个实例&lt;/strong&gt;，并提供一个访问它的全局访问点。首先，需要保证一个类只有一个实例；在类中，要构造一个实例，就必须调用类的构造函数，如此，为了防止在外部调用类的构造函数而构造实例，需要将构造函数的访问权限标记为protect
       
     
     </summary>

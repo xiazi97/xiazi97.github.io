@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="C++,">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="vector的介绍 vector是表示可变大小数组的序列容器 就像数组一样，vector也采用的连续存储空间来存储元素。也就是意味着可以采用下标对vector的元素进行访问，和数组一样高效，但是又不像数组一样，它的大小是可以动态改变的，而且它的大小会被容器自动处理 本质讲，vector使用动态分配数组来存储它的元素。当新元素插入时，这个数组需要被重新分配大小来增加存储空间。其做法是，分配一个新的数">
-<meta name="keywords" content="C++">
+<meta name="description" content="进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。 管道：管道主要包括无名管道和命名管道:管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信 1.1 普通管道PIPE：1）它是半双工的（即数据只能在一个方向上流动），具有固定的读端和写端 2）它只能用于具有亲缘关系的进程之间的通信（也是父子">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL之vector类">
-<meta property="og:url" content="http://xiazi97.github.io/2019/05/14/STL之vector类/index.html">
+<meta property="og:title" content="进程间通信">
+<meta property="og:url" content="http://xiazi97.github.io/2019/06/04/进程间通信/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="vector的介绍 vector是表示可变大小数组的序列容器 就像数组一样，vector也采用的连续存储空间来存储元素。也就是意味着可以采用下标对vector的元素进行访问，和数组一样高效，但是又不像数组一样，它的大小是可以动态改变的，而且它的大小会被容器自动处理 本质讲，vector使用动态分配数组来存储它的元素。当新元素插入时，这个数组需要被重新分配大小来增加存储空间。其做法是，分配一个新的数">
+<meta property="og:description" content="进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。 管道：管道主要包括无名管道和命名管道:管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信 1.1 普通管道PIPE：1）它是半双工的（即数据只能在一个方向上流动），具有固定的读端和写端 2）它只能用于具有亲缘关系的进程之间的通信（也是父子">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-14T04:44:28.196Z">
+<meta property="og:updated_time" content="2019-06-04T14:43:55.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="STL之vector类">
-<meta name="twitter:description" content="vector的介绍 vector是表示可变大小数组的序列容器 就像数组一样，vector也采用的连续存储空间来存储元素。也就是意味着可以采用下标对vector的元素进行访问，和数组一样高效，但是又不像数组一样，它的大小是可以动态改变的，而且它的大小会被容器自动处理 本质讲，vector使用动态分配数组来存储它的元素。当新元素插入时，这个数组需要被重新分配大小来增加存储空间。其做法是，分配一个新的数">
+<meta name="twitter:title" content="进程间通信">
+<meta name="twitter:description" content="进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。 管道：管道主要包括无名管道和命名管道:管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信 1.1 普通管道PIPE：1）它是半双工的（即数据只能在一个方向上流动），具有固定的读端和写端 2）它只能用于具有亲缘关系的进程之间的通信（也是父子">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/05/14/STL之vector类/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/06/04/进程间通信/">
 
 
 
 
 
-  <title>STL之vector类 | Snoopy</title>
+  <title>进程间通信 | Snoopy</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/14/STL之vector类/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/06/04/进程间通信/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">STL之vector类</h1>
+          <h1 class="post-title" itemprop="name headline">进程间通信</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-14T09:27:04+08:00">
-                2019-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T22:39:38+08:00">
+                2019-06-04
               </time>
             
 
@@ -391,147 +391,31 @@
       
 
       
-        <h3 id="vector的介绍"><a href="#vector的介绍" class="headerlink" title="vector的介绍"></a>vector的介绍</h3><ol>
-<li>vector是表示可变大小数组的序列容器</li>
-<li>就像数组一样，vector也采用的连续存储空间来存储元素。也就是意味着可以采用下标对vector的元素进行访问，和数组一样高效，但是又不像数组一样，它的大小是可以动态改变的，而且它的大小会被容器自动处理</li>
-<li>本质讲，vector使用动态分配数组来存储它的元素。当新元素插入时，这个数组需要被重新分配大小来增加存储空间。其做法是，分配一个新的数组，然后将全部元素移到这个数组。就时间而言，这是一个相对代价高的任务，因为每当一个新的元素加入到容器的时候，vector并不会每次都重新分配大小</li>
-<li>vector分配空间策略：vector会分配一些额外的空间以适应可能的增长，因为存储空间比实际需要的存储空间更大。不同的库采用不同的策略权衡空间的使用和重新分配。但是无论如何，重新分配都应该是对数增长的间隔大小，以至于在末尾插入一个元素的时候是在常数时间的复杂度完成的</li>
-<li>因此，vector占用了更多的存储空间，为了获得管理存储空间的能力，并且以一种有效的方式动态增长</li>
-<li>与其他动态序列容器（deques,lists和forward_lists）相比，vector在访问元素的时候更加高效，在末尾添加和删除元素相对高效。对于其他不在末尾的删除和插入操作效率更低，比起lists和forward_lists统一的迭代器和引用更好</li>
-</ol>
-<h3 id="vector的使用"><a href="#vector的使用" class="headerlink" title="vector的使用"></a>vector的使用</h3><h4 id="vector的定义"><a href="#vector的定义" class="headerlink" title="vector的定义"></a>vector的定义</h4><table>
-<thead>
-<tr>
-<th>构造函数声明</th>
-<th>接口说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vector()</td>
-<td>无参构造</td>
-</tr>
-<tr>
-<td>vector(size_type n,const value_type&amp; val=value_type())</td>
-<td>构造并初始化n个val</td>
-</tr>
-<tr>
-<td>vector(const vector&amp; x)</td>
-<td>拷贝构造</td>
-</tr>
-<tr>
-<td>vector(InputIterator first,InputIterator last)</td>
-<td>使用迭代器进行初始化构造</td>
-</tr>
-</tbody>
-</table>
-<h4 id="vector-iterator的使用"><a href="#vector-iterator的使用" class="headerlink" title="vector iterator的使用"></a>vector iterator的使用</h4><table>
-<thead>
-<tr>
-<th>iterator的使用</th>
-<th>接口说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>begin()</td>
-<td>获取第一个数据位置的iterator</td>
-</tr>
-<tr>
-<td>end()</td>
-<td>获取最后一个数据的下一位置的iterator</td>
-</tr>
-<tr>
-<td>rbegin()</td>
-<td>获取最后一个数据位置的reverse_iterator</td>
-</tr>
-<tr>
-<td>rend()</td>
-<td>获取第一个数据前一个位置的reverse_iterator</td>
-</tr>
-<tr>
-<td>cbegin()</td>
-<td>获取第一个数据位置的const_iterator</td>
-</tr>
-<tr>
-<td>cend()</td>
-<td>获取最后一个数据的下一个位置的const_iterator</td>
-</tr>
-</tbody>
-</table>
-<h4 id="vector空间增长问题"><a href="#vector空间增长问题" class="headerlink" title="vector空间增长问题"></a>vector空间增长问题</h4><table>
-<thead>
-<tr>
-<th>容量空间</th>
-<th>接口说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>size()</td>
-<td>获取数据个数</td>
-</tr>
-<tr>
-<td>capacity()</td>
-<td>获取容量大小</td>
-</tr>
-<tr>
-<td>empty()</td>
-<td>判断是否为空</td>
-</tr>
-<tr>
-<td>void resize(size_type n,value_type val=value_type())</td>
-<td>改变vector的size</td>
-</tr>
-<tr>
-<td>void reserve(size_type n)</td>
-<td>改变vector放入capacity</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>capacity的代码在VS和g++下分别运行时会发现，VS下capacity是按1.5倍增长的，g++是按2倍增长的</li>
-<li>reserve只负责开辟空间，如果确定知道需要用多少空间，reserve可以缓解vector增容的代价缺陷问题</li>
-<li>resize在开空间的同时还会进行初始化，影响size</li>
-</ol>
-<h4 id="vector的增删改查"><a href="#vector的增删改查" class="headerlink" title="vector的增删改查"></a>vector的增删改查</h4><table>
-<thead>
-<tr>
-<th>vector增删改查</th>
-<th>接口说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>void push_back(const value_type&amp; val)</td>
-<td>尾插</td>
-</tr>
-<tr>
-<td>void pop_back()</td>
-<td>尾删</td>
-</tr>
-<tr>
-<td>InputIterator find(InputIterator first,InoutIterator last,const T&amp; val)</td>
-<td>查找</td>
-</tr>
-<tr>
-<td>Iterator insert(iterator position,const value_type&amp; val)</td>
-<td>在position之前插入val</td>
-</tr>
-<tr>
-<td>iterator erase(iterator position)</td>
-<td>删除position位置的数据</td>
-</tr>
-<tr>
-<td>void swap(vector&amp; x)</td>
-<td>交换两个vector的数据空间</td>
-</tr>
-<tr>
-<td>reference operator[] (size_type n)</td>
-<td>像数组一样通过下标访问</td>
-</tr>
-</tbody>
-</table>
+        <p>进程间通信主要包括管道、系统IPC（包括消息队列、信号量、信号、共享内存等）、以及套接字socket。</p>
+<h3 id="管道："><a href="#管道：" class="headerlink" title="管道："></a>管道：</h3><p>管道主要包括无名管道和命名管道:管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信</p>
+<h4 id="1-1-普通管道PIPE："><a href="#1-1-普通管道PIPE：" class="headerlink" title="1.1 普通管道PIPE："></a>1.1 普通管道PIPE：</h4><p>1）它是<strong>半双工</strong>的（即数据只能在一个方向上流动），具有固定的读端和写端</p>
+<p>2）它只能用于具有亲缘关系的进程之间的通信（也是父子进程或者兄弟进程之间）</p>
+<p>3）它可以看成是一种特殊的文件，对于它的读写也可以使用普通的read、write等函数。但是它不是普通的文件，并不属于其他任何文件系统，并且只存在于内存中。</p>
+<h4 id="1-2-命名管道FIFO："><a href="#1-2-命名管道FIFO：" class="headerlink" title="1.2 命名管道FIFO："></a>1.2 命名管道FIFO：</h4><p>1）FIFO可以在无关的进程之间交换数据</p>
+<p>2）FIFO有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统中。</p>
+<h3 id="系统IPC："><a href="#系统IPC：" class="headerlink" title="系统IPC："></a>系统IPC：</h3><h4 id="2-1-消息队列"><a href="#2-1-消息队列" class="headerlink" title="2.1 消息队列"></a>2.1 消息队列</h4><p>消息队列，是消息的链接表，存放在内核中。<strong>一个消息队列由一个标识符（即队列ID）来标记</strong>。 (<strong>消息队列克服了信号传递信息少，管道只能承载无格式字节流以及缓冲区大小受限等特点</strong>)具有写权限得进程可以按照一定得规则向消息队列中添加新信息；对消息队列有读权限得进程则可以从消息队列中读取信息；</p>
+<p>特点：</p>
+<p>1）消息队列是面向记录的，其中的消息具有特定的格式以及特定的优先级。</p>
+<p>2）消息队列独立于发送与接收进程。进程终止时，消息队列及其内容并不会被删除。</p>
+<p>3）消息队列可以实现消息的随机查询,消息不一定要以先进先出的次序读取,也可以按消息的类型读取。</p>
+<h4 id="2-2-信号量semaphore"><a href="#2-2-信号量semaphore" class="headerlink" title="2.2 信号量semaphore"></a>2.2 信号量semaphore</h4><p>信号量（semaphore）与已经介绍过的 IPC 结构不同，它是一个计数器，可以用来控制多个进程对共享资源的访问。信号量用于实现进程间的互斥与同步，而不是用于存储进程间通信数据。</p>
+<p>特点：</p>
+<p>1）信号量用于进程间同步，若要在进程间传递数据需要结合共享内存。</p>
+<p>2）信号量基于操作系统的 PV 操作，程序对信号量的操作都是原子操作。</p>
+<p>3）每次对信号量的 PV 操作不仅限于对信号量值加 1 或减 1，而且可以加减任意正整数。</p>
+<p>4）支持信号量组。</p>
+<h4 id="2-3-信号signal"><a href="#2-3-信号signal" class="headerlink" title="2.3 信号signal"></a>2.3 信号signal</h4><p>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</p>
+<h4 id="2-4-共享内存（Shared-Memory）"><a href="#2-4-共享内存（Shared-Memory）" class="headerlink" title="2.4 共享内存（Shared Memory）"></a>2.4 共享内存（Shared Memory）</h4><p>它使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据得更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等</p>
+<p>特点：</p>
+<p>1）共享内存是最快的一种IPC，因为进程是直接对内存进行存取</p>
+<p>2）因为多个进程可以同时操作，所以需要进行同步</p>
+<p>3）信号量+共享内存通常结合在一起使用，信号量用来同步对共享内存的访问</p>
+<h3 id="套接字SOCKET："><a href="#套接字SOCKET：" class="headerlink" title="套接字SOCKET："></a>套接字SOCKET：</h3><p>socket也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同主机之间的进程通信。</p>
 
       
     </div>
@@ -549,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -562,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/12/STL之string类/" rel="next" title="STL之string类">
-                <i class="fa fa-chevron-left"></i> STL之string类
+              <a href="/2019/06/03/多态/" rel="next" title="多态">
+                <i class="fa fa-chevron-left"></i> 多态
               </a>
             
           </div>
@@ -571,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/15/简单实现string类以及深浅拷贝问题/" rel="prev" title="简单实现string类以及深浅拷贝问题">
-                简单实现string类以及深浅拷贝问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -737,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vector的介绍"><span class="nav-number">1.</span> <span class="nav-text">vector的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector的使用"><span class="nav-number">2.</span> <span class="nav-text">vector的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的定义"><span class="nav-number">2.1.</span> <span class="nav-text">vector的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector-iterator的使用"><span class="nav-number">2.2.</span> <span class="nav-text">vector iterator的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector空间增长问题"><span class="nav-number">2.3.</span> <span class="nav-text">vector空间增长问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector的增删改查"><span class="nav-number">2.4.</span> <span class="nav-text">vector的增删改查</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#管道："><span class="nav-number">1.</span> <span class="nav-text">管道：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-普通管道PIPE："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 普通管道PIPE：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-命名管道FIFO："><span class="nav-number">1.2.</span> <span class="nav-text">1.2 命名管道FIFO：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统IPC："><span class="nav-number">2.</span> <span class="nav-text">系统IPC：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-消息队列"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 消息队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-信号量semaphore"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 信号量semaphore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-信号signal"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 信号signal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-共享内存（Shared-Memory）"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 共享内存（Shared Memory）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#套接字SOCKET："><span class="nav-number">3.</span> <span class="nav-text">套接字SOCKET：</span></a></li></ol></div>
             
 
           </div>
