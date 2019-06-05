@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-04T14:43:55.227Z</updated>
+  <updated>2019-06-05T14:37:28.793Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序内存管理</title>
+    <link href="http://xiazi97.github.io/2019/06/05/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    <id>http://xiazi97.github.io/2019/06/05/程序内存管理/</id>
+    <published>2019-06-05T14:08:04.000Z</published>
+    <updated>2019-06-05T14:37:28.793Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;程序内存管理：&quot;&gt;&lt;a href=&quot;#程序内存管理：&quot; class=&quot;headerlink&quot; title=&quot;程序内存管理：&quot;&gt;&lt;/a&gt;程序内存管理：&lt;/h3&gt;&lt;p&gt;一个程序本质上都是由&lt;strong&gt;BSS段、data段、text段&lt;/strong&gt;三个组成的。可
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>进程间通信</title>
@@ -416,27 +437,6 @@
         &lt;h3 id=&quot;vector的介绍&quot;&gt;&lt;a href=&quot;#vector的介绍&quot; class=&quot;headerlink&quot; title=&quot;vector的介绍&quot;&gt;&lt;/a&gt;vector的介绍&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;vector是表示可变大小数组的序列容器&lt;/li&gt;
 &lt;li&gt;就像数组一样
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>STL之string类</title>
-    <link href="http://xiazi97.github.io/2019/05/12/STL%E4%B9%8Bstring%E7%B1%BB/"/>
-    <id>http://xiazi97.github.io/2019/05/12/STL之string类/</id>
-    <published>2019-05-12T10:48:58.000Z</published>
-    <updated>2019-05-13T14:40:59.284Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;为什么要用string类&quot;&gt;&lt;a href=&quot;#为什么要用string类&quot; class=&quot;headerlink&quot; title=&quot;为什么要用string类&quot;&gt;&lt;/a&gt;为什么要用string类&lt;/h3&gt;&lt;p&gt;在C语言中，字符串是以’\0’结尾的一些字符的集合，为了操作
       
     
     </summary>
