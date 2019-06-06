@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -91,16 +91,20 @@
 
 
 
-<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Snoopy">
-<meta property="og:url" content="http://xiazi97.github.io/archives/2019/05/index.html">
+<meta name="description" content="static修饰符static修饰成员变量对于非静态数据成员，每个类对象都有自己的拷贝。而静态数据成员被当做是类的成员，无论这个类被定义了多少个，静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类)。所以，静态数据成员的值对每个对象都是一样的，它的值可以更新。 因为静态数据成员在全局数据区分配内存，属于本类的所有对象共享，所以它不属于特定的类对象，在没有产生类对象前就可以使用。 s">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类中成员内存分布">
+<meta property="og:url" content="http://xiazi97.github.io/2019/06/06/类中成员内存分布/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:description" content="static修饰符static修饰成员变量对于非静态数据成员，每个类对象都有自己的拷贝。而静态数据成员被当做是类的成员，无论这个类被定义了多少个，静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类)。所以，静态数据成员的值对每个对象都是一样的，它的值可以更新。 因为静态数据成员在全局数据区分配内存，属于本类的所有对象共享，所以它不属于特定的类对象，在没有产生类对象前就可以使用。 s">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://xiazi97.github.io/2019/06/06/类中成员内存分布/D:/BLog/source/_posts/类中成员内存分布/内存分布.png">
+<meta property="og:updated_time" content="2019-06-06T14:05:24.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snoopy">
-<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta name="twitter:title" content="类中成员内存分布">
+<meta name="twitter:description" content="static修饰符static修饰成员变量对于非静态数据成员，每个类对象都有自己的拷贝。而静态数据成员被当做是类的成员，无论这个类被定义了多少个，静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类)。所以，静态数据成员的值对每个对象都是一样的，它的值可以更新。 因为静态数据成员在全局数据区分配内存，属于本类的所有对象共享，所以它不属于特定的类对象，在没有产生类对象前就可以使用。 s">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/06/06/类中成员内存分布/D:/BLog/source/_posts/类中成员内存分布/内存分布.png">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/archives/2019/05/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/06/06/类中成员内存分布/">
 
 
 
 
 
-  <title>归档 | Snoopy</title>
+  <title>类中成员内存分布 | Snoopy</title>
   
 
 
@@ -164,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -302,390 +306,167 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
   
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/06/06/类中成员内存分布/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="李峰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Snoopy">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">类中成员内存分布</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T21:59:46+08:00">
+                2019-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        好! 目前共计 59 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/31/fork与vfork的区别/" itemprop="url">
-              
-                <span itemprop="name">fork与vfork的区别</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-31T23:48:25+08:00" content="2019-05-31">
-          05-31
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/30/C-11新特性/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-30T22:17:52+08:00" content="2019-05-30">
-          05-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/29/HTTP代理服务器的工作原理/" itemprop="url">
-              
-                <span itemprop="name">HTTP代理服务器的工作原理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-29T21:30:21+08:00" content="2019-05-29">
-          05-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="static修饰符"><a href="#static修饰符" class="headerlink" title="static修饰符"></a>static修饰符</h3><h4 id="static修饰成员变量"><a href="#static修饰成员变量" class="headerlink" title="static修饰成员变量"></a>static修饰成员变量</h4><p>对于非静态数据成员，每个类对象都有自己的拷贝。而静态数据成员被当做是类的成员，无论这个类被定义了多少个，静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类)。所以，静态数据成员的值对每个对象都是一样的，它的值可以更新。</p>
+<p>因为<strong>静态数据成员在全局数据区分配内存</strong>，<strong>属于本类的所有对象共享，所以它不属于特定的类对象，在没有产生类对象前就可以使用。</strong></p>
+<h4 id="static修饰成员函数"><a href="#static修饰成员函数" class="headerlink" title="static修饰成员函数"></a>static修饰成员函数</h4><p>与普通的成员函数相比，静态成员函数由于不是与任何的对象相联系，因此它<strong>不具有this指针</strong>。从这个意义上来说，<strong>它无法访问属于类对象的非静态数据成员，也无法访问非静态成员函数，只能调用其他的静态成员函数</strong>。</p>
+<p>static修饰的成员函数，<strong>在代码区分配内存</strong>。</p>
+<h3 id="C-继承和虚函数"><a href="#C-继承和虚函数" class="headerlink" title="C++继承和虚函数"></a>C++继承和虚函数</h3><p>C++多态分为静态多态和动态多态。静态多态是通过重载和模板技术实现，在编译的时候确定。动态多态通过虚函数和继承关系来实现，执行动态绑定，在运行的时候确定。</p>
+<p>动态多态实现有几个条件：</p>
+<p>(1) 虚函数；</p>
+<p>(2) 一个基类的指针或引用指向派生类的对象；</p>
+<p><strong>基类指针在调用成员函数(虚函数)时，就会去查找该对象的虚函数表</strong>。虚函数表的<strong>地址在每个对象的首地址</strong>。查找该虚函数表中该函数的指针进行调用。</p>
+<p><strong>每个对象中保存的只是一个虚函数表的指针</strong>，C++内部为每一个类维持一个虚函数表，该类的对象的都指向这同一个虚函数表。</p>
+<p>虚函数表中为什么就能准确查找相应的函数指针呢？因为在类设计的时候，虚函数表直接从基类也继承过来，如果覆盖了其中的某个虚函数，那么虚函数表的指针就会被替换，因此可以根据指针准确找到该调用哪个函数。</p>
+<h3 id="virtual修饰符"><a href="#virtual修饰符" class="headerlink" title="virtual修饰符"></a>virtual修饰符</h3><p>如果一个类是局部变量则该类数据存储在栈区，如果一个类是通过new/malloc动态申请的，则该类数据存储在堆区。</p>
+<p>如果该类是virutal继承而来的子类，则该类的虚函数表指针和该类其他成员一起存储。<strong>虚函数表指针指向只读数据段中的类虚函数表</strong>，<strong>虚函数表中存放着一个个函数指针，函数指针指向代码段中的具体函数</strong>。</p>
+<p>如果类中成员是virtual属性，会隐藏父类对应的属性。</p>
+<p><img src="/2019/06/06/类中成员内存分布/D:/BLog\source\_posts\类中成员内存分布\内存分布.png" alt=""></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/28/Linux虚拟地址空间/" itemprop="url">
-              
-                <span itemprop="name">Linux虚拟地址空间</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-28T23:02:47+08:00" content="2019-05-28">
-          05-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/26/STL的内存优化/" itemprop="url">
-              
-                <span itemprop="name">STL的内存优化</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-26T22:39:49+08:00" content="2019-05-26">
-          05-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/25/六一儿童节问题/" itemprop="url">
-              
-                <span itemprop="name">六一儿童节问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-25T21:51:07+08:00" content="2019-05-25">
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/24/fork的使用/" itemprop="url">
-              
-                <span itemprop="name">fork的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-24T13:50:28+08:00" content="2019-05-24">
-          05-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/23/彩色的砖块/" itemprop="url">
-              
-                <span itemprop="name">彩色的砖块</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-23T22:14:20+08:00" content="2019-05-23">
-          05-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/22/进程状态/" itemprop="url">
-              
-                <span itemprop="name">进程状态</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-22T10:46:29+08:00" content="2019-05-22">
-          05-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/21/组队竞赛问题/" itemprop="url">
-              
-                <span itemprop="name">组队竞赛问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-21T20:24:29+08:00" content="2019-05-21">
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/05/程序内存管理/" rel="next" title="程序内存管理">
+                <i class="fa fa-chevron-left"></i> 程序内存管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/05/page/2/">2</a><a class="page-number" href="/archives/2019/05/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/05/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -693,6 +474,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -713,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -805,6 +599,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#static修饰符"><span class="nav-number">1.</span> <span class="nav-text">static修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static修饰成员变量"><span class="nav-number">1.1.</span> <span class="nav-text">static修饰成员变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static修饰成员函数"><span class="nav-number">1.2.</span> <span class="nav-text">static修饰成员函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-继承和虚函数"><span class="nav-number">2.</span> <span class="nav-text">C++继承和虚函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#virtual修饰符"><span class="nav-number">3.</span> <span class="nav-text">virtual修饰符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -970,6 +780,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
