@@ -91,20 +91,20 @@
 
 
 
-<meta name="description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地址">
+<meta name="description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系：  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARP协议">
 <meta property="og:url" content="http://xiazi97.github.io/2019/03/05/ARP协议/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地址">
+<meta property="og:description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系：  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiazi97.github.io/2019/03/05/ARP协议/ARP流程.png">
 <meta property="og:image" content="http://xiazi97.github.io/2019/03/05/ARP协议/ARP数据报格式.png">
-<meta property="og:updated_time" content="2019-03-05T15:39:16.764Z">
+<meta property="og:updated_time" content="2019-06-07T15:33:40.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARP协议">
-<meta name="twitter:description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地址">
+<meta name="twitter:description" content="ARP协议虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议 ARP协议的作用ARP协议建立了主机IP地址和MAC地址的映射关系：  在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址 数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地">
 <meta name="twitter:image" content="http://xiazi97.github.io/2019/03/05/ARP协议/ARP流程.png">
 
 
@@ -395,7 +395,7 @@
 
       
         <h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>虽然我们把ARP协议单独列出来了，但是在介绍ARP协议之前我们需要强调一点——ARP不是一个单纯的数据链路层的协议，而是一个介于数据链路层和网络层之间的协议</p>
-<h3 id="ARP协议的作用"><a href="#ARP协议的作用" class="headerlink" title="ARP协议的作用"></a>ARP协议的作用</h3><p>ARP协议建立了主机IP地址和MAC地址的映射关系</p>
+<h3 id="ARP协议的作用"><a href="#ARP协议的作用" class="headerlink" title="ARP协议的作用"></a>ARP协议的作用</h3><p>ARP协议建立了<strong>主机IP地址和MAC地址的映射关系</strong>：</p>
 <ul>
 <li>在网络通信时，源主机的应用程序知道目的主机的IP地址和端口号，却不知道目的主机的硬件地址</li>
 <li>数据包首先是被网卡接收到再去处理上层协议的，如果接收到的数据包的硬件地址与本机不符则直接丢弃</li>
