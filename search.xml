@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[非阻塞IO]]></title>
+    <url>%2F2019%2F06%2F10%2F%E9%9D%9E%E9%98%BB%E5%A1%9EIO%2F</url>
+    <content type="text"><![CDATA[首先，我们知道，socket() 调用创建指定系列和指定类型的套接字。 s = socket(family, type, protocol); socket将返回套接字句柄。套接字句柄即为文件描述符s，而一般情况下文件描述符默认都是阻塞的。为了满足某些时候的需要，我们使用fcntl函数来对其进行非阻塞的设置。 函数原型1234#include &lt;unistd.h&gt;#include &lt;fcntl.h&gt;int fcntl(int fd,int cmd,.../*arg*/); 传入的cmd的值不同，后面追加的参数也不相同。 fctnl函数有五种功能： 复制一个现有的文件描述符（cmd = F_DUPFD） 获得/设置文件描述符标记（cmd = FGETFD或FSETFD） 获得/设置文件状态标记（cmd = FGETFL或FSETFL） 获得/设置异步I/O所有权（cmd = FGETOWN 或 FSETOWN） 获得/设置记录锁（cmd = FGETLK，FSETLK或F_SETLKW） 我们此处只是用第三种功能，获得/设置文件状态标记，就可以将一个文件描述符设置为非阻塞。 实现函数SetNoBlock基于fcntl，我们实现一个SetNoBlock函数，将文件描述符设置为非阻塞 1234567891011void SetNoBlock(int fd)&#123; int f1 = fcntl(fd,F_GETFL); if(f1 &lt; 0)&#123; perror("fcntl"); return; &#125; fcntl(fd,F_SETFL,f1 | O_NONBLOCK);&#125; 使用F_GETFL将当前的文件描述符的属性取出来（这是一个位图） 然后再使用FSETFL将文件描述符设置回去。设置回去的同时，加上一个O_NONBLOCK参数 轮询方式读取标准输入1234567891011121314151617181920212223242526272829#include &lt;stdio.h&gt;#include &lt;unistd.h&gt;#include &lt;fcntl.h&gt;void SetNoBlock(int fd)&#123; int f1 = fcntl(fd,F_GETFL); if(f1 &lt; 0)&#123; perror("fcntl"); return; &#125; fcntl(fd,F_SETFL,f1 | O_NONBLOCK); &#125;int main()&#123; SetNoBlock(0); while(1)&#123; char buf[1024] = &#123;0&#125;; ssize_t read_size = read(0,buf,sizeof(buf)-1); if(read_size &lt; 0)&#123; perror("read"); slepp(1); continue; &#125; printf("input :%s\n",buf); &#125; return 0;&#125;]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[类中成员内存分布]]></title>
     <url>%2F2019%2F06%2F06%2F%E7%B1%BB%E4%B8%AD%E6%88%90%E5%91%98%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83%2F</url>
     <content type="text"><![CDATA[static修饰符static修饰成员变量对于非静态数据成员，每个类对象都有自己的拷贝。而静态数据成员被当做是类的成员，无论这个类被定义了多少个，静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类)。所以，静态数据成员的值对每个对象都是一样的，它的值可以更新。 因为静态数据成员在全局数据区分配内存，属于本类的所有对象共享，所以它不属于特定的类对象，在没有产生类对象前就可以使用。 static修饰成员函数与普通的成员函数相比，静态成员函数由于不是与任何的对象相联系，因此它不具有this指针。从这个意义上来说，它无法访问属于类对象的非静态数据成员，也无法访问非静态成员函数，只能调用其他的静态成员函数。 static修饰的成员函数，在代码区分配内存。 C++继承和虚函数C++多态分为静态多态和动态多态。静态多态是通过重载和模板技术实现，在编译的时候确定。动态多态通过虚函数和继承关系来实现，执行动态绑定，在运行的时候确定。 动态多态实现有几个条件： (1) 虚函数； (2) 一个基类的指针或引用指向派生类的对象； 基类指针在调用成员函数(虚函数)时，就会去查找该对象的虚函数表。虚函数表的地址在每个对象的首地址。查找该虚函数表中该函数的指针进行调用。 每个对象中保存的只是一个虚函数表的指针，C++内部为每一个类维持一个虚函数表，该类的对象的都指向这同一个虚函数表。 虚函数表中为什么就能准确查找相应的函数指针呢？因为在类设计的时候，虚函数表直接从基类也继承过来，如果覆盖了其中的某个虚函数，那么虚函数表的指针就会被替换，因此可以根据指针准确找到该调用哪个函数。 virtual修饰符如果一个类是局部变量则该类数据存储在栈区，如果一个类是通过new/malloc动态申请的，则该类数据存储在堆区。 如果该类是virutal继承而来的子类，则该类的虚函数表指针和该类其他成员一起存储。虚函数表指针指向只读数据段中的类虚函数表，虚函数表中存放着一个个函数指针，函数指针指向代码段中的具体函数。 如果类中成员是virtual属性，会隐藏父类对应的属性。]]></content>

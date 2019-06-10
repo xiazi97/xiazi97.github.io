@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-06T14:05:24.149Z</updated>
+  <updated>2019-06-10T12:35:52.350Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>非阻塞IO</title>
+    <link href="http://xiazi97.github.io/2019/06/10/%E9%9D%9E%E9%98%BB%E5%A1%9EIO/"/>
+    <id>http://xiazi97.github.io/2019/06/10/非阻塞IO/</id>
+    <published>2019-06-10T06:29:30.000Z</published>
+    <updated>2019-06-10T12:35:52.350Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先，我们知道，socket() 调用创建指定系列和指定类型的套接字。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;s = socket(family, type, protocol);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;socket将返回套接字句柄。套接字句柄即为文件描述符s，而&lt;str
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>类中成员内存分布</title>
@@ -413,28 +436,6 @@
       
         &lt;h3 id=&quot;list的介绍和使用&quot;&gt;&lt;a href=&quot;#list的介绍和使用&quot; class=&quot;headerlink&quot; title=&quot;list的介绍和使用&quot;&gt;&lt;/a&gt;list的介绍和使用&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;list是可以在常数范围内在任意位置进行插入和删除的序列式容器，
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简单实现string类以及深浅拷贝问题</title>
-    <link href="http://xiazi97.github.io/2019/05/15/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0string%E7%B1%BB%E4%BB%A5%E5%8F%8A%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E9%97%AE%E9%A2%98/"/>
-    <id>http://xiazi97.github.io/2019/05/15/简单实现string类以及深浅拷贝问题/</id>
-    <published>2019-05-15T13:32:40.000Z</published>
-    <updated>2019-05-15T14:09:21.686Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;对象之间可以进行复制操作，包括采用拷贝构造函数的方式用一个对象去构造另一个对象（用一个对象的值初始化一个新的构造的对象），如同指针的复制一样，对象复制也分为浅复制和深复制&lt;/p&gt;
-&lt;h3 id=&quot;对象浅拷贝：&quot;&gt;&lt;a href=&quot;#对象浅拷贝：&quot; class=&quot;header
       
     
     </summary>
