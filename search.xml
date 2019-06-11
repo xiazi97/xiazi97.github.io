@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[迭代器]]></title>
+    <url>%2F2019%2F06%2F11%2F%E8%BF%AD%E4%BB%A3%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[迭代器Iterator（迭代器）模式又称Cursor（游标）模式，用于提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内部表示。或者这样说可能更容易理解：Iterator模式是运用于聚合对象的一种模式，通过运用该模式，使得我们可以在不知道对象内部表示的情况下，按照一定顺序（由iterator提供的方法）访问聚合对象中的各个元素。 由于Iterator模式的以上特性：与聚合对象耦合，在一定程度上限制了它的广泛运用，一般仅用于底层聚合支持类，如STL的list、vector、stack等容器类及ostream_iterator等扩展iterator。 迭代器和指针的区别迭代器不是指针，是类模板，表现的像指针。他只是模拟了指针的一些功能，通过重载了指针的一些操作符，-&gt;、*、++、–等。迭代器封装了指针，是一个“可遍历STL（ Standard Template Library）容器内全部或部分元素”的对象， 本质是封装了原生指针，是指针概念的一种提升（lift），提供了比指针更高级的行为，相当于一种智能指针，他可以根据不同类型的数据结构来实现不同的++，–等操作。 迭代器返回的是对象引用而不是对象的值，所以cout只能输出迭代器使用*取值后的值而不能直接输出其自身。 容器和string有迭代器类型同时拥有返回迭代器的成员。如：容器有成员begin和end,其中begin成员复制返回指向第一个元素的迭代器，而end成员返回指向容器尾元素的下一个位置的迭代器，也就是说end指示的是一个不存在的元素，所以end返回的是尾后迭代器。 迭代器的使用下面列出了迭代器的常用运算操作: 12345678*iter //对iter进行解引用，返回迭代器iter指向的元素的引用iter-&gt;men //对iter进行解引用，获取指定元素中名为men的成员。等效于(*iter).men++iter //给iter加1，使其指向容器的下一个元素iter++--iter //给iter减1，使其指向容器的前一个元素iter--iter1==iter2 //比较两个迭代器是否相等，当它们指向同一个容器的同一个元素或者都指向同同一个容器的超出末端的下一个位置时，它们相等 iter1!=iter2 常用迭代器：]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[非阻塞IO]]></title>
     <url>%2F2019%2F06%2F10%2F%E9%9D%9E%E9%98%BB%E5%A1%9EIO%2F</url>
     <content type="text"><![CDATA[首先，我们知道，socket() 调用创建指定系列和指定类型的套接字。 s = socket(family, type, protocol); socket将返回套接字句柄。套接字句柄即为文件描述符s，而一般情况下文件描述符默认都是阻塞的。为了满足某些时候的需要，我们使用fcntl函数来对其进行非阻塞的设置。 函数原型1234#include &lt;unistd.h&gt;#include &lt;fcntl.h&gt;int fcntl(int fd,int cmd,.../*arg*/); 传入的cmd的值不同，后面追加的参数也不相同。 fctnl函数有五种功能： 复制一个现有的文件描述符（cmd = F_DUPFD） 获得/设置文件描述符标记（cmd = FGETFD或FSETFD） 获得/设置文件状态标记（cmd = FGETFL或FSETFL） 获得/设置异步I/O所有权（cmd = FGETOWN 或 FSETOWN） 获得/设置记录锁（cmd = FGETLK，FSETLK或F_SETLKW） 我们此处只是用第三种功能，获得/设置文件状态标记，就可以将一个文件描述符设置为非阻塞。 实现函数SetNoBlock基于fcntl，我们实现一个SetNoBlock函数，将文件描述符设置为非阻塞 1234567891011void SetNoBlock(int fd)&#123; int f1 = fcntl(fd,F_GETFL); if(f1 &lt; 0)&#123; perror("fcntl"); return; &#125; fcntl(fd,F_SETFL,f1 | O_NONBLOCK);&#125; 使用F_GETFL将当前的文件描述符的属性取出来（这是一个位图） 然后再使用FSETFL将文件描述符设置回去。设置回去的同时，加上一个O_NONBLOCK参数 轮询方式读取标准输入1234567891011121314151617181920212223242526272829#include &lt;stdio.h&gt;#include &lt;unistd.h&gt;#include &lt;fcntl.h&gt;void SetNoBlock(int fd)&#123; int f1 = fcntl(fd,F_GETFL); if(f1 &lt; 0)&#123; perror("fcntl"); return; &#125; fcntl(fd,F_SETFL,f1 | O_NONBLOCK); &#125;int main()&#123; SetNoBlock(0); while(1)&#123; char buf[1024] = &#123;0&#125;; ssize_t read_size = read(0,buf,sizeof(buf)-1); if(read_size &lt; 0)&#123; perror("read"); slepp(1); continue; &#125; printf("input :%s\n",buf); &#125; return 0;&#125;]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-10T12:35:52.350Z</updated>
+  <updated>2019-06-11T15:07:51.644Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>迭代器</title>
+    <link href="http://xiazi97.github.io/2019/06/11/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
+    <id>http://xiazi97.github.io/2019/06/11/迭代器/</id>
+    <published>2019-06-11T12:55:13.000Z</published>
+    <updated>2019-06-11T15:07:51.644Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;迭代器&quot;&gt;&lt;a href=&quot;#迭代器&quot; class=&quot;headerlink&quot; title=&quot;迭代器&quot;&gt;&lt;/a&gt;迭代器&lt;/h3&gt;&lt;p&gt;Iterator（迭代器）模式又称Cursor（游标）模式，用于提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>非阻塞IO</title>
@@ -414,28 +435,6 @@
       
       
         &lt;h3 id=&quot;概念：&quot;&gt;&lt;a href=&quot;#概念：&quot; class=&quot;headerlink&quot; title=&quot;概念：&quot;&gt;&lt;/a&gt;概念：&lt;/h3&gt;&lt;h4 id=&quot;vector&quot;&gt;&lt;a href=&quot;#vector&quot; class=&quot;headerlink&quot; title=&quot;vector&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>STL之list类</title>
-    <link href="http://xiazi97.github.io/2019/05/16/STL%E4%B9%8Blist%E7%B1%BB/"/>
-    <id>http://xiazi97.github.io/2019/05/16/STL之list类/</id>
-    <published>2019-05-16T12:36:15.000Z</published>
-    <updated>2019-05-16T15:23:12.636Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;list的介绍和使用&quot;&gt;&lt;a href=&quot;#list的介绍和使用&quot; class=&quot;headerlink&quot; title=&quot;list的介绍和使用&quot;&gt;&lt;/a&gt;list的介绍和使用&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;list是可以在常数范围内在任意位置进行插入和删除的序列式容器，
       
     
     </summary>
