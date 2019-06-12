@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-11T15:07:51.644Z</updated>
+  <updated>2019-06-12T14:17:08.656Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Top K问题</title>
+    <link href="http://xiazi97.github.io/2019/06/12/Top-K%E9%97%AE%E9%A2%98/"/>
+    <id>http://xiazi97.github.io/2019/06/12/Top-K问题/</id>
+    <published>2019-06-12T14:09:48.000Z</published>
+    <updated>2019-06-12T14:17:08.656Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、直接全部排序（只适用于内存够的情况）&lt;/p&gt;
+&lt;p&gt;当数据量较小的情况下，内存中可以容纳所有数据。则最简单也是最容易想到的方法是将数据全部排序，然后取排序后的数据中的前K个。&lt;/p&gt;
+&lt;p&gt;这种方法对数据量比较敏感，&lt;strong&gt;当数据量较大的情况下，内存不能完全容纳
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>迭代器</title>
@@ -420,27 +443,6 @@
     
     
       <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vector与list的区别</title>
-    <link href="http://xiazi97.github.io/2019/05/19/vector%E4%B8%8Elist%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://xiazi97.github.io/2019/05/19/vector与list的区别/</id>
-    <published>2019-05-19T14:53:55.000Z</published>
-    <updated>2019-05-19T15:03:22.509Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;概念：&quot;&gt;&lt;a href=&quot;#概念：&quot; class=&quot;headerlink&quot; title=&quot;概念：&quot;&gt;&lt;/a&gt;概念：&lt;/h3&gt;&lt;h4 id=&quot;vector&quot;&gt;&lt;a href=&quot;#vector&quot; class=&quot;headerlink&quot; title=&quot;vector&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
