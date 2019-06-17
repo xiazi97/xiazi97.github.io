@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-13T14:08:49.196Z</updated>
+  <updated>2019-06-17T13:45:11.098Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I/O多路转接之select</title>
+    <link href="http://xiazi97.github.io/2019/06/17/I-O%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E4%B9%8Bselect/"/>
+    <id>http://xiazi97.github.io/2019/06/17/I-O多路转接之select/</id>
+    <published>2019-06-17T09:38:02.000Z</published>
+    <updated>2019-06-17T13:45:11.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;select系统调用是用来让我们的程序监视多个文件句柄的状态变化的。程序会停在select这里等待，直到被监视的文件句柄有一个或多个发生了状态改变。关于文件句柄，其实就是一个整数，我们最熟悉的句柄是0、1、2三个，0是标准输入，1是标准输出，2是标准错误输出。&lt;/p&gt;
+&lt;h
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>排序算法</title>
@@ -422,27 +444,6 @@
     
     
       <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组队竞赛问题</title>
-    <link href="http://xiazi97.github.io/2019/05/21/%E7%BB%84%E9%98%9F%E7%AB%9E%E8%B5%9B%E9%97%AE%E9%A2%98/"/>
-    <id>http://xiazi97.github.io/2019/05/21/组队竞赛问题/</id>
-    <published>2019-05-21T12:24:29.000Z</published>
-    <updated>2019-05-21T13:29:59.676Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;牛牛举办了一次编程比赛,参加比赛的有3*n个选手,每个选手都有一个水平值a_i.现在要将这些选手进行组队,一共组成n个队伍,
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
