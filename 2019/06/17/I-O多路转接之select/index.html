@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Snoopy">
 <meta property="og:description" content="select系统调用是用来让我们的程序监视多个文件句柄的状态变化的。程序会停在select这里等待，直到被监视的文件句柄有一个或多个发生了状态改变。关于文件句柄，其实就是一个整数，我们最熟悉的句柄是0、1、2三个，0是标准输入，1是标准输出，2是标准错误输出。 select函数原型123#include &amp;lt;sys/select.h&amp;gt;int select(int nfds,fd_set">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T13:45:11.098Z">
+<meta property="og:updated_time" content="2019-06-17T13:50:14.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="I&#x2F;O多路转接之select">
 <meta name="twitter:description" content="select系统调用是用来让我们的程序监视多个文件句柄的状态变化的。程序会停在select这里等待，直到被监视的文件句柄有一个或多个发生了状态改变。关于文件句柄，其实就是一个整数，我们最熟悉的句柄是0、1、2三个，0是标准输入，1是标准输出，2是标准错误输出。 select函数原型123#include &amp;lt;sys/select.h&amp;gt;int select(int nfds,fd_set">
@@ -454,7 +454,7 @@
 <li>每次调用select都需要在内核遍历传递进来的所有fd，这个开销在fd很多时也很大</li>
 <li>select支持的文件描述符数量太小，适用于拥有大量链接但只有部分活跃的场景</li>
 </ul>
-
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3>
       
     </div>
     
@@ -493,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/IO多路转接之epoll/" rel="prev" title="IO多路转接之epoll">
+                IO多路转接之epoll <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -571,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -601,7 +605,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">79.1k</span>
+      <span class="site-state-item-count">81.6k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -655,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#select函数原型"><span class="nav-number">1.</span> <span class="nav-text">select函数原型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数timeout取值："><span class="nav-number">1.1.</span> <span class="nav-text">参数timeout取值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fd-set接口："><span class="nav-number">1.2.</span> <span class="nav-text">fd_set接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于timeval结构"><span class="nav-number">1.3.</span> <span class="nav-text">关于timeval结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数返回值"><span class="nav-number">1.4.</span> <span class="nav-text">函数返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的程序片段如下："><span class="nav-number">1.5.</span> <span class="nav-text">常见的程序片段如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select执行过程"><span class="nav-number">2.</span> <span class="nav-text">select执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#socket就绪条件"><span class="nav-number">2.1.</span> <span class="nav-text">socket就绪条件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读就绪"><span class="nav-number">2.1.1.</span> <span class="nav-text">读就绪</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#写就绪"><span class="nav-number">2.1.2.</span> <span class="nav-text">写就绪</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select的特点"><span class="nav-number">3.</span> <span class="nav-text">select的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select的缺点"><span class="nav-number">4.</span> <span class="nav-text">select的缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#select函数原型"><span class="nav-number">1.</span> <span class="nav-text">select函数原型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数timeout取值："><span class="nav-number">1.1.</span> <span class="nav-text">参数timeout取值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fd-set接口："><span class="nav-number">1.2.</span> <span class="nav-text">fd_set接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于timeval结构"><span class="nav-number">1.3.</span> <span class="nav-text">关于timeval结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数返回值"><span class="nav-number">1.4.</span> <span class="nav-text">函数返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的程序片段如下："><span class="nav-number">1.5.</span> <span class="nav-text">常见的程序片段如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select执行过程"><span class="nav-number">2.</span> <span class="nav-text">select执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#socket就绪条件"><span class="nav-number">2.1.</span> <span class="nav-text">socket就绪条件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读就绪"><span class="nav-number">2.1.1.</span> <span class="nav-text">读就绪</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#写就绪"><span class="nav-number">2.1.2.</span> <span class="nav-text">写就绪</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select的特点"><span class="nav-number">3.</span> <span class="nav-text">select的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#select的缺点"><span class="nav-number">4.</span> <span class="nav-text">select的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">5.</span> <span class="nav-text">代码：</span></a></li></ol></div>
             
 
           </div>

@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="C++,">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -91,26 +91,20 @@
 
 
 
-<meta name="description" content="顾名思义，二叉搜索树是以一棵二叉树来组织的，这样的一棵树可以用一个链表结构来表示，每个节点除了data还有left、right、parent，分别指向节点的左孩子，右孩子和父节点。如果对应的节点不存在则指向NIL节点。（因为最简单的二叉搜索树中的NIL节点里并没有有用信息，所以在实现时简单的指向NULL也是可以的，本文中就会这么实现） 二叉搜索树的性质 若它的左子树不为空，则左子树上所有节点的值都">
-<meta name="keywords" content="C++">
+<meta name="description" content="相对于select来说，epoll没有描述符个数限制，使用一个文件描述符管理多个描述符，将用户关心的文件描述符的事件存放到内核的一个事件表中，这样在用户空间和内核空间的copy只需一次。 epoll的相关系统调用：epoll_create1int epoll_create(int size); 创建一个epoll的句柄。 注意：  自从linux2.6.8之后，size参数是被忽略的 用完之后，必">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉搜索树">
-<meta property="og:url" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/index.html">
+<meta property="og:title" content="IO多路转接之epoll">
+<meta property="og:url" content="http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="顾名思义，二叉搜索树是以一棵二叉树来组织的，这样的一棵树可以用一个链表结构来表示，每个节点除了data还有left、right、parent，分别指向节点的左孩子，右孩子和父节点。如果对应的节点不存在则指向NIL节点。（因为最简单的二叉搜索树中的NIL节点里并没有有用信息，所以在实现时简单的指向NULL也是可以的，本文中就会这么实现） 二叉搜索树的性质 若它的左子树不为空，则左子树上所有节点的值都">
+<meta property="og:description" content="相对于select来说，epoll没有描述符个数限制，使用一个文件描述符管理多个描述符，将用户关心的文件描述符的事件存放到内核的一个事件表中，这样在用户空间和内核空间的copy只需一次。 epoll的相关系统调用：epoll_create1int epoll_create(int size); 创建一个epoll的句柄。 注意：  自从linux2.6.8之后，size参数是被忽略的 用完之后，必">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/Find.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/根节点.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/insert.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/完全二叉树.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/单支树.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/log.png">
-<meta property="og:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/分子.png">
-<meta property="og:updated_time" content="2019-04-21T15:50:31.519Z">
+<meta property="og:image" content="http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/D:/BLog/source/_posts/IO多路转接之epoll/惊群.png">
+<meta property="og:updated_time" content="2019-06-30T15:19:26.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉搜索树">
-<meta name="twitter:description" content="顾名思义，二叉搜索树是以一棵二叉树来组织的，这样的一棵树可以用一个链表结构来表示，每个节点除了data还有left、right、parent，分别指向节点的左孩子，右孩子和父节点。如果对应的节点不存在则指向NIL节点。（因为最简单的二叉搜索树中的NIL节点里并没有有用信息，所以在实现时简单的指向NULL也是可以的，本文中就会这么实现） 二叉搜索树的性质 若它的左子树不为空，则左子树上所有节点的值都">
-<meta name="twitter:image" content="http://xiazi97.github.io/2019/04/20/二叉搜索树/D:/BLog/source/_posts/二叉搜索树/Find.png">
+<meta name="twitter:title" content="IO多路转接之epoll">
+<meta name="twitter:description" content="相对于select来说，epoll没有描述符个数限制，使用一个文件描述符管理多个描述符，将用户关心的文件描述符的事件存放到内核的一个事件表中，这样在用户空间和内核空间的copy只需一次。 epoll的相关系统调用：epoll_create1int epoll_create(int size); 创建一个epoll的句柄。 注意：  自从linux2.6.8之后，size参数是被忽略的 用完之后，必">
+<meta name="twitter:image" content="http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/D:/BLog/source/_posts/IO多路转接之epoll/惊群.png">
 
 
 
@@ -140,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/04/20/二叉搜索树/">
+  <link rel="canonical" href="http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/">
 
 
 
 
 
-  <title>二叉搜索树 | Snoopy</title>
+  <title>IO多路转接之epoll | Snoopy</title>
   
 
 
@@ -325,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/04/20/二叉搜索树/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -342,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉搜索树</h1>
+          <h1 class="post-title" itemprop="name headline">IO多路转接之epoll</h1>
         
 
         <div class="post-meta">
@@ -354,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T20:57:43+08:00">
-                2019-04-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T16:51:12+08:00">
+                2019-06-30
               </time>
             
 
@@ -399,43 +393,107 @@
       
 
       
-        <p>顾名思义，二叉搜索树是以一棵二叉树来组织的，这样的一棵树可以用一个链表结构来表示，每个节点除了data还有left、right、parent，分别指向节点的左孩子，右孩子和父节点。如果对应的节点不存在则指向NIL节点。（因为最简单的二叉搜索树中的NIL节点里并没有有用信息，所以在实现时简单的指向NULL也是可以的，本文中就会这么实现）</p>
-<h3 id="二叉搜索树的性质"><a href="#二叉搜索树的性质" class="headerlink" title="二叉搜索树的性质"></a>二叉搜索树的性质</h3><ol>
-<li>若它的左子树不为空，则左子树上所有节点的值都小于根节点的值</li>
-<li>若它的右子树不为空，则右子树上所有节点的值都大于根节点的值</li>
-<li>它的左右子树也分别是二叉搜索树</li>
-</ol>
-<h3 id="二叉树的常用操作"><a href="#二叉树的常用操作" class="headerlink" title="二叉树的常用操作"></a>二叉树的常用操作</h3><h4 id="二叉树的查找"><a href="#二叉树的查找" class="headerlink" title="二叉树的查找"></a>二叉树的查找</h4><p><img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\Find.png" alt="Find操作"></p>
-<p>若根节点不为空，则：</p>
+        <p>相对于select来说，epoll没有描述符个数限制，使用一个文件描述符管理多个描述符，将用户关心的文件描述符的事件存放到内核的一个事件表中，这样在用户空间和内核空间的copy只需一次。</p>
+<h3 id="epoll的相关系统调用："><a href="#epoll的相关系统调用：" class="headerlink" title="epoll的相关系统调用："></a>epoll的相关系统调用：</h3><h4 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create"></a>epoll_create</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_create(int size);</span><br></pre></td></tr></table></figure>
+<p>创建一个epoll的句柄。</p>
+<p>注意：</p>
 <ol>
-<li>如果要查找的值与根节点的值相同，即要查找data==根节点data，则返回true;</li>
-<li>如果要查找的值比根节点的值小，即要查找data&lt;根节点data，则在其左子树进行查找</li>
-<li>如果要查找的值比根节点的值大，即要查找data&gt;根节点data，则在其右子树进行查找</li>
+<li>自从linux2.6.8之后，size参数是被忽略的</li>
+<li>用完之后，必须调用close()关闭</li>
 </ol>
-<h4 id="二叉树的插入"><a href="#二叉树的插入" class="headerlink" title="二叉树的插入"></a>二叉树的插入</h4><ul>
-<li><p>树为空，则直接进行插入</p>
-<p> <img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\根节点.png" alt="Insert操作"></p>
+<h4 id="epoll-ctl"><a href="#epoll-ctl" class="headerlink" title="epoll_ctl"></a>epoll_ctl</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_ctl(int epfd,int op,int fd,struct epoll_event *event);</span><br></pre></td></tr></table></figure>
+<p>epoll的时间注册函数。</p>
+<ul>
+<li>它不同于select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型</li>
+<li>第一个参数是epoll_create()的返回值（epoll的句柄）</li>
+<li>第二个参数表示动作，用三个宏来表示</li>
+<li>第三个参数是需要监听的fd</li>
+<li>第四个参数是告诉内核需要监听什么事件</li>
+</ul>
+<h5 id="第二个参数的取值："><a href="#第二个参数的取值：" class="headerlink" title="第二个参数的取值："></a>第二个参数的取值：</h5><ul>
+<li>EPOLL_CTL_ADD：注册新的fd到epfd中</li>
+<li>EPOLL_CTL_MOD：修改已经注册的fd的监听事件</li>
+<li>EPOLL_CTL_DEL：从epfd中删除一个fd</li>
+</ul>
+<h5 id="struct-epoll-event结构如下："><a href="#struct-epoll-event结构如下：" class="headerlink" title="struct epoll_event结构如下："></a>struct epoll_event结构如下：</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> epoll_data</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">void</span> *ptr;</span><br><span class="line">	<span class="keyword">int</span> fd;</span><br><span class="line">	<span class="keyword">uint32_t</span> u32;</span><br><span class="line">	<span class="keyword">uint64_t</span> u64;</span><br><span class="line">&#125;<span class="keyword">epoll_data_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">uint32_t</span> events;</span><br><span class="line">	<span class="keyword">epoll_data_t</span> data;</span><br><span class="line">&#125;_EPOLL_PACKED;</span><br></pre></td></tr></table></figure>
+<p>events可以是以下几个宏的集合：</p>
+<ol>
+<li>EPOLLIN：表示对应的文件描述符可以读（包括对端socket正常关闭）</li>
+<li>EPOLLOUT：表示对应的文件描述符可以写</li>
+<li>EPOLLPRI：表示对应的文件描述符有紧急的数据可读（这里应该表示有带外数据到来）</li>
+<li>EPOLLERR：表示对应的文件描述符发生错误</li>
+<li>EPOLLHUP：表示对应的文件描述符被挂断</li>
+<li>EPOLLET：将EPOLL设为边缘触发（Edge Triggered）模式，这是相对于水平触发（Level Triggered）来说的</li>
+<li>EPOLLONESHOT：只监听一次事件，当监听完这次事件之后，如果还需要继续监听这个socket的话，需要再次把这个socket加入到EPOLL队列中。</li>
+</ol>
+<h4 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait"></a>epoll_wait</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_wait(int epfd,struct epoll_event *events,int maxevents,int timeout);</span><br></pre></td></tr></table></figure>
+<p>收集在epoll监控的事件中已经发送的事件。</p>
+<ul>
+<li>参数events是分配好的epoll_event结构体数组</li>
+<li>epoll<strong>将会把发生好的事件赋值到events数组中</strong>（events不可以是空指针，内核只负责把数据复制到这个events数组中，不会去帮助我们在用户态中分配内存）</li>
+<li>maxevents告诉内核这个events有多大，这个maxevents的值不能大于创建epoll_create()时的size</li>
+<li>参数timeout是超时时间（毫秒，0会立即返回，-1是永久阻塞）</li>
+<li>如果函数调用成功，返回对应I/O上已经准备好的文件描述符数目，如果返回0表示已经超时，返回小于0表示函数失败</li>
+</ul>
+<h3 id="epoll工作原理"><a href="#epoll工作原理" class="headerlink" title="epoll工作原理"></a>epoll工作原理</h3><p>就绪队列 + 红黑树 + 回调机制</p>
+<ul>
+<li><p>当某一进程调用epoll_create方法时，Linux内核会创建一个eventpoll结构体，这个结构体中有两个成员与epoll的使用方式密切相关</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct eventpoll&#123;</span><br><span class="line">	...</span><br><span class="line">	//红黑树的根节点，这棵树中存储着所有添加到epoll中的需要监控的事件</span><br><span class="line">	struct rb_root rbr;</span><br><span class="line">	//双链表中存放着将要通过epoll——wait返回给用户的满足条件的事件</span><br><span class="line">	struct list_head rdlist;</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>树不空，按二叉搜索树性质查找插入位置，插入新节点</p>
-<p> <img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\insert.png" alt="Insert操作"></p>
-<p> 1.按照二叉树的性质，先找到插入节点的位置</p>
-<p> ​    root-&gt;5,5&lt;10,root = root-&gt;right,parent = root;</p>
-<p> ​    root-&gt;7,7&lt;10,root = root-&gt;right,parent = root;</p>
-<p> ​    root-&gt;8,8&lt;10,root = root-&gt;right,parent = root;</p>
-<p> ​    root-&gt;9,9&lt;10,root = root-&gt;right,parnet = root;</p>
-<p> 2.插入新节点</p>
-<h4 id="二叉树的删除"><a href="#二叉树的删除" class="headerlink" title="二叉树的删除"></a>二叉树的删除</h4><p> 首先查找元素是否在二叉搜索树中，如果不存在，则返回, 否则要删除的结点可能分下面四种情况：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a. 要删除的结点无孩子结点</span><br><span class="line">b. 要删除的结点只有左孩子结点</span><br><span class="line">c. 要删除的结点只有右孩子结点</span><br><span class="line">d. 要删除的结点有左、右孩子结点</span><br></pre></td></tr></table></figure>
-<p> 看起来有待删除节点有4中情况，实际情况a可以与情况b或者c合并起来，因此真正的删除过程如下：<br> 情况b：删除该结点且使被删除节点的双亲结点指向被删除节点的左孩子结点<br> 情况c：删除该结点且使被删除节点的双亲结点指向被删除结点的右孩子结点<br> 情况d：在它的右子树中寻找中序下的第一个结点(关键码最小)，用它的值填补到被删除节点中，<br> 再来处理该结点的删除操作</p>
+<li><p>每一个epoll对象都有一个独立的eventpoll结构体，用于存放通过epoll_ctl方法向epoll对象中添加进来的事件</p>
+</li>
+<li><p>这些事件都会挂载在红黑树中，如此，重复添加的事件就可以通过红黑树而高效的识别出来（红黑树的插入时间效率是lgn，其中n为树的高度）</p>
+</li>
+<li><p>而所有添加到epoll中的事件都会与设备（网卡）驱动程序建立回调关系，也就是说，当响应的事件发生时会调用这个回调方法</p>
+</li>
+<li><p>这个回调方法在内核中叫epollcallback，它会将发生的事件添加到rdlist双链表中</p>
+</li>
+<li><p>在epoll中，对于每一个事件，都会建立一个epitem结构体</p>
 </li>
 </ul>
-<h3 id="二叉树的实现"><a href="#二叉树的实现" class="headerlink" title="二叉树的实现"></a>二叉树的实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">struct BSTNode&#123;</span><br><span class="line">	T _data;</span><br><span class="line">	BSTNode&lt;T&gt;* _pLeft;</span><br><span class="line">	BSTNode&lt;T&gt;* _pRight;</span><br><span class="line"></span><br><span class="line">	BSTNode(const T&amp; data)</span><br><span class="line">		:_data(data)</span><br><span class="line">		,_pLeft(nullptr)</span><br><span class="line">		,_pRight(nullptr)</span><br><span class="line">	&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">class BSTree&#123;</span><br><span class="line">	typedef BSTNode&lt;T&gt; Node;</span><br><span class="line">	typedef Node* PNode;</span><br><span class="line">private:</span><br><span class="line">	PNode _pRoot;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">	public:</span><br><span class="line">	BSTree()</span><br><span class="line">		: _pRoot(nullptr)</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">	~BSTree()</span><br><span class="line">	&#123;</span><br><span class="line">		_Destroy(_pRoot);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	bool Insert(const T&amp; data)</span><br><span class="line">	&#123;</span><br><span class="line">		if(nullptr == _pRoot)&#123;</span><br><span class="line">			_pRoot = new Node(data);</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line">		//非空则先找到应插入的位置</span><br><span class="line">		PNode pParent = nullptr;</span><br><span class="line">		PNode pCur = _pRoot;  //记录一下pCur的双亲位置</span><br><span class="line">		while(pCur)&#123;</span><br><span class="line">			pParent = pCur;</span><br><span class="line">			if(data &lt; pCur-&gt;_data)</span><br><span class="line">				pCur = pCur-&gt;_pLeft;</span><br><span class="line">			else if(data &gt; pCur-&gt;_data)</span><br><span class="line">				pCur = pCur-&gt;_pRight;</span><br><span class="line">			else</span><br><span class="line">				return true;</span><br><span class="line">		&#125;</span><br><span class="line">		//插入节点</span><br><span class="line">		pCur = new Node(data);</span><br><span class="line">		if(data &lt; pParent-&gt;_data)</span><br><span class="line">			pParent-&gt;_pLeft = pCur;</span><br><span class="line">		else</span><br><span class="line">			pParent-&gt;_pRight = pCur;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	bool Erase(const T&amp; data)</span><br><span class="line">	&#123;</span><br><span class="line">		//找待删除节点的位置</span><br><span class="line">		PNode pCur = _pRoot;</span><br><span class="line">		PNode pParent = nullptr;</span><br><span class="line">		while(pCur)</span><br><span class="line">		&#123;</span><br><span class="line">			//pParent = pCur;    不能放在这里，这里时能找到待删除节点，但是不能记录下双亲的位置</span><br><span class="line">			if(data == pCur-&gt;_data)</span><br><span class="line">				break;</span><br><span class="line">			else if(data &lt; pCur-&gt;_data)</span><br><span class="line">			&#123;</span><br><span class="line">				pParent = pCur;</span><br><span class="line">				pCur = pCur-&gt;_pLeft;</span><br><span class="line">			&#125;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				pParent = pCur;</span><br><span class="line">				pCur = pCur-&gt;_pRight;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(nullptr == pCur)			//没有找到</span><br><span class="line">			return false;</span><br><span class="line"></span><br><span class="line">		//分情况删除节点：</span><br><span class="line">		//1.叶子节点||只有右孩子，则左孩子为空—— pParnet-&gt;right = pCur-&gt;right;（为双亲的右孩子） 或者 pParent-&gt;left = pCur-&gt;right（为双亲的左孩子）;(待删除节点为非根节点)  为根节点则更新pRoot然后直接删除节点即可</span><br><span class="line">		//2.只有左孩子</span><br><span class="line">		//3.左右孩子均存在</span><br><span class="line">		if(nullptr == pCur-&gt;_pLeft)   //情况1</span><br><span class="line">		&#123;</span><br><span class="line">			if(_pRoot == pCur)</span><br><span class="line">				_pRoot = pCur-&gt;_pRight;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				if(pCur == pParent-&gt;_pLeft)</span><br><span class="line">					pParent-&gt;_pLeft = pCur-&gt;_pRight;</span><br><span class="line">				else</span><br><span class="line">					pParent-&gt;_pRight = pCur-&gt;_pRight;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		else if(nullptr == pCur-&gt;_pRight)  //情况2</span><br><span class="line">		&#123;</span><br><span class="line">			if(pCur == _pRoot)</span><br><span class="line">				_pRoot = pCur-&gt;_pLeft;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				if(pCur == pParent-&gt;_pLeft)</span><br><span class="line">					pParent-&gt;_pLeft = pCur-&gt;_pLeft;</span><br><span class="line">				else</span><br><span class="line">					pParent-&gt;_pRight = pCur-&gt;_pLeft;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			//左右孩子均存在---不能直接删除，找一个替代节点</span><br><span class="line">			//可以在左子树中找：左子树中最右侧节点</span><br><span class="line">			//也可以在右子树中找：右子树中最左侧节点</span><br><span class="line">			PNode pFirstOfIn = pCur-&gt;_pRight;</span><br><span class="line">			PNode pParent = pCur;</span><br><span class="line">			while(pFirstOfIn-&gt;_pLeft)</span><br><span class="line">			&#123;</span><br><span class="line">				pParent = pFirstOfIn;</span><br><span class="line">				pFirstOfIn = pFirstOfIn-&gt;_pLeft;</span><br><span class="line">			&#125;//找到右子树的最左侧节点,替代节点，一定没有左孩子，可能有右孩子</span><br><span class="line"></span><br><span class="line">			pCur-&gt;_data = pFirstOfIn-&gt;_data;</span><br><span class="line">			//删除替代节点</span><br><span class="line">			if(pFirstOfIn == pParent-&gt;_pLeft)</span><br><span class="line">				pParent-&gt;_pLeft = pFirstOfIn-&gt;_pRight;</span><br><span class="line">			else</span><br><span class="line">				pParent-&gt;_pRight = pFirstOfIn-&gt;_pRight;</span><br><span class="line">			pCur = pFirstOfIn;</span><br><span class="line">		&#125;</span><br><span class="line">		delete pCur;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void Inorder()</span><br><span class="line">	&#123;</span><br><span class="line">		_InOrder(_pRoot);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	PNode Find(const T&amp; data)</span><br><span class="line">	&#123;</span><br><span class="line">		PNode pCur = _pRoot;</span><br><span class="line">		while (pCur)</span><br><span class="line">		&#123;</span><br><span class="line">			if(data &lt; pCur-&gt;_data)</span><br><span class="line">				pCur = pCur-&gt;_pLeft;</span><br><span class="line">			else if(data &gt; pCur-&gt;_data)</span><br><span class="line">				pCur = pCur-&gt;_pRight;</span><br><span class="line">			else</span><br><span class="line">				return pCur;</span><br><span class="line">		&#125;</span><br><span class="line">		return nullptr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">	void _InOrder(PNode _pRoot)  //中序遍历</span><br><span class="line">	&#123;</span><br><span class="line">		if (_pRoot)</span><br><span class="line">			&#123;</span><br><span class="line">				_InOrder(_pRoot-&gt;_pLeft);</span><br><span class="line">				cout &lt;&lt; _pRoot-&gt;_data &lt;&lt; &quot; &quot;;</span><br><span class="line">				_InOrder(_pRoot-&gt;_pRight);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void _Destroy(PNode&amp; pRoot)</span><br><span class="line">	&#123;</span><br><span class="line">		if (pRoot)  //后序销毁</span><br><span class="line">		&#123;</span><br><span class="line">			_Destroy(pRoot-&gt;_pLeft);</span><br><span class="line">			_Destroy(pRoot-&gt;_pRight);</span><br><span class="line">			delete pRoot;</span><br><span class="line">			pRoot = nullptr;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void TestBSTree()</span><br><span class="line">&#123;</span><br><span class="line">	int a[] = &#123;5,3,4,1,7,8,2,6,0,9&#125;;</span><br><span class="line">	BSTree&lt;int&gt; t;</span><br><span class="line">	for(auto e : a)</span><br><span class="line">		t.Insert(e);</span><br><span class="line"></span><br><span class="line">	t.Inorder();</span><br><span class="line"></span><br><span class="line">	BSTNode&lt;int&gt;* pNode = t.Find(0);</span><br><span class="line">	if(pNode)</span><br><span class="line">		cout &lt;&lt; &quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">	else</span><br><span class="line">		cout &lt;&lt; &quot;No&quot;&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">	t.Erase(6);</span><br><span class="line">	t.Inorder();</span><br><span class="line">	cout &lt;&lt;endl;</span><br><span class="line">	t.Erase(8);</span><br><span class="line">	t.Inorder();</span><br><span class="line">	cout &lt;&lt;endl;</span><br><span class="line">	t.Erase(5);</span><br><span class="line">	t.Inorder();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="二叉树的性能分析"><a href="#二叉树的性能分析" class="headerlink" title="二叉树的性能分析"></a>二叉树的性能分析</h3><p>插入和删除操作都必须先查找，查找效率代表了二叉搜索树中各个操作的性能。<br>对于有n个结点的二叉搜索树，若每个元素查找的概率相等，则二叉搜索树平均查找长度是结点在二叉搜索树的深度的函数，即结点越深，则比较次数越多。<br>但对于同一个关键码集合，如果各关键码插入的次序不同，可能得到不同结构的二叉搜索树：</p>
-<p><img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\完全二叉树.png" alt="完全二叉树"></p>
-<p><img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\单支树.png" alt="右单支树"></p>
-<p>也就是说：</p>
-<p>最优情况下，二叉搜索树为完全二叉树，其平均比较次数为：<img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\log.png" alt="log"></p>
-<p>最差情况下，二叉搜索树退化为单支树，其平均比较次数为：<img src="/2019/04/20/二叉搜索树/D:/BLog\source\_posts\二叉搜索树\分子.png" alt="N/2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct epitem&#123;</span><br><span class="line">	struct rb_node rbn;//红黑树节点</span><br><span class="line">    struct list_head rdllink;//双向链表节点</span><br><span class="line">	struct epoll_filefd ffd; //事件句柄信息</span><br><span class="line">	struct eventpoll *ep; //指向其所属的eventpoll对象</span><br><span class="line">	struct epoll_event event; //期待发生的事件类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当调用epoll_wait检查是否有事件发生时，只需要检查eventpoll对象中的rdlist双链表中是否有epitem元素即可</li>
+<li>如果rdlist不为空，则把发生的事件复制到用户态，同时将事件数量返回给用户。这个操作的时间复杂度是O(1)</li>
+</ul>
+<p>总结一下，epoll的使用过程就是三步：</p>
+<ol>
+<li>调用epoll_create创建一个epoll句柄</li>
+<li>调用epoll_ctl，将要监控的文件描述符进行注册</li>
+<li>调用epoll_wait，等待文件描述符就绪</li>
+</ol>
+<h3 id="epoll的优点"><a href="#epoll的优点" class="headerlink" title="epoll的优点"></a>epoll的优点</h3><ul>
+<li>文件描述符数目无上限：通过epoll_ctl()来注册一个文件描述符，内核中使用红黑树的数据结构来管理所有需要监控的文件描述符</li>
+<li>基于时间的就绪通知方式：一旦被监听的某个文件描述符就绪，内核会采用类似于callback的回调机制，迅速激活这个文件描述符。这样随着文件描述符数量的增加，也不会影响判定就绪的性能</li>
+<li>维护就绪队列：当文件描述符就绪，就会被放到内核中的一个就绪队列中。这样调用epoll_wait获取就绪文件描述符的时候，只要去队列中的元素即可，操作的时间复杂度是O(1)</li>
+<li>内存映射机制：内核直接将就绪队列通过mmap的方式映射到用户态，避免了拷贝内存这样的额外性能开销</li>
+</ul>
+<h3 id="epoll工作方式"><a href="#epoll工作方式" class="headerlink" title="epoll工作方式"></a>epoll工作方式</h3><p>epoll有两种工作方式——水平触发（LT）和边缘触发（ET）</p>
+<p>假如说有这样的一个例子：</p>
+<p>我们已经将一个tcp socket添加到epoll描述符，这个时候socket的另一端被写入了2KB的数据，调用epoll_wait，并且他会返回，说明它已经准备好读取操作，然后调用read，只读取1KB的数据，继续调用epoll_wait·····</p>
+<h4 id="水平触发模式"><a href="#水平触发模式" class="headerlink" title="水平触发模式"></a>水平触发模式</h4><p>epoll默认状态下就是LT工作模式。</p>
+<ul>
+<li>当epoll检测到socket上事件就绪的时候，可以不立刻进行处理，或者只处理一部分</li>
+<li>如上边的例子，由于只读取了1KB的数据，缓冲区还剩1KB数据，在第二次调用epoll_wait时，epoll_wait仍然会立刻返回并通知socket读时间就绪</li>
+<li>直到缓冲区上所有的数据都被处理完，epoll_wait才不会立刻返回</li>
+<li>支持阻塞读写和非阻塞读写</li>
+</ul>
+<h4 id="边缘触发模式"><a href="#边缘触发模式" class="headerlink" title="边缘触发模式"></a>边缘触发模式</h4><p>如果我们在第一步将socket添加到epoll描述符的时候使用了EPOLLET标志，epoll进入ET工作模式。</p>
+<ul>
+<li>当epoll检测到socket上事件就绪时，必须立刻处理</li>
+<li>如上边的例子，虽然只读了1K的数据，缓冲区还剩1K的数据，在第二次调用epoll_wait时，epoll_wait不会再返回了</li>
+<li>也就是说，ET模式下，文件描述符上的事件就绪后，只有一次处理机会</li>
+<li>ET的性能比LT性能更高（epoll_wait返回的次数少了）。</li>
+<li>只支持非阻塞的读写</li>
+</ul>
+<h3 id="ET模式非阻塞的原因"><a href="#ET模式非阻塞的原因" class="headerlink" title="ET模式非阻塞的原因"></a>ET模式非阻塞的原因</h3><p>ET模式，数据就绪只会通知一次，也就是说，如果要使用ET模式，当数据就绪时，需要一直read，直到出错或完成为止。</p>
+<p>但是这就会出现一个问题，如果当前的fd为阻塞的（默认），那么在读完缓冲区数据时，如果对端并没有关闭写端，那么该read函数会一直阻塞在此处，影响其他的fd及后续逻辑</p>
+<p>所以在这里应该将fd设置为非阻塞，当没有数据的时候，read虽然读取不到任何内容，但是肯定不会被卡住，那么此时，说明缓冲区数据已经全部读取完毕，需要继续处理后续逻辑（读取其他的fd或者进入wait）</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>epoll适用于多连接，且多连接中只有一部分连接比较活跃的时候</p>
+<h3 id="epoll的惊群问题"><a href="#epoll的惊群问题" class="headerlink" title="epoll的惊群问题"></a>epoll的惊群问题</h3><p>如今网络编程中经常用到多进程或多线程模型，大概的思路是父进程创建socket，bind、listen后，通过fork创建多个子进程，每个子进程继承了父进程的socket，调用accpet开始监听等待网络连接。这个时候有多个进程同时等待网络的连接事件，当这个事件发生时，这些进程被同时唤醒，就是“惊群”。这样会导致什么问题呢？我们知道进程被唤醒，需要进行内核重新调度，这样每个进程同时去响应这一个事件，而最终只有一个进程能处理事件成功，其他的进程在处理该事件失败后重新休眠或其他。网络模型如下图所示：</p>
+<p><img src="/2019/06/30/IO多路转接之epoll/D:/BLog\source\_posts\IO多路转接之epoll\惊群.png" alt=""></p>
+<p>简而言之，<strong>惊群现象（thundering herd）就是当多个进程或线程在同时阻塞等待同一个事件时，如果这个事件发生，会唤醒所有的进程，但最终只可能有一个进程/线程对该事件进行处理，其他进程/线程会在失败后重新休眠，这种性能浪费就是惊群</strong></p>
+<p>在早期的Linux版本中，内核对于阻塞在epoll_wait的进程，也是采用全部唤醒的机制，所以存在和accept相似的“惊群”问题。新版本的的解决方案也是<strong>只会唤醒等待队列上的第一个进程或线程</strong>，所以，新版本Linux <strong>部分的</strong>解决了epoll的“惊群”问题。所谓<strong>部分的</strong>解决，意思就是：对于部分特殊场景，使用epoll机制，已经不存在“惊群”的问题了，但是对于大多数场景，epoll机制仍然存在“惊群”。</p>
 
       
     </div>
@@ -453,7 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           
         </div>
       
@@ -466,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/高级IO/" rel="next" title="高级IO">
-                <i class="fa fa-chevron-left"></i> 高级IO
+              <a href="/2019/06/17/I-O多路转接之select/" rel="next" title="I/O多路转接之select">
+                <i class="fa fa-chevron-left"></i> I/O多路转接之select
               </a>
             
           </div>
@@ -475,10 +533,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/23/AVL树/" rel="prev" title="AVL树">
-                AVL树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉搜索树的性质"><span class="nav-number">1.</span> <span class="nav-text">二叉搜索树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的常用操作"><span class="nav-number">2.</span> <span class="nav-text">二叉树的常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的查找"><span class="nav-number">2.1.</span> <span class="nav-text">二叉树的查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的插入"><span class="nav-number">2.2.</span> <span class="nav-text">二叉树的插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树的删除"><span class="nav-number">2.3.</span> <span class="nav-text">二叉树的删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的实现"><span class="nav-number">3.</span> <span class="nav-text">二叉树的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的性能分析"><span class="nav-number">4.</span> <span class="nav-text">二叉树的性能分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll的相关系统调用："><span class="nav-number">1.</span> <span class="nav-text">epoll的相关系统调用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#epoll-create"><span class="nav-number">1.1.</span> <span class="nav-text">epoll_create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#epoll-ctl"><span class="nav-number">1.2.</span> <span class="nav-text">epoll_ctl</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第二个参数的取值："><span class="nav-number">1.2.1.</span> <span class="nav-text">第二个参数的取值：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#struct-epoll-event结构如下："><span class="nav-number">1.2.2.</span> <span class="nav-text">struct epoll_event结构如下：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#epoll-wait"><span class="nav-number">1.3.</span> <span class="nav-text">epoll_wait</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll工作原理"><span class="nav-number">2.</span> <span class="nav-text">epoll工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll的优点"><span class="nav-number">3.</span> <span class="nav-text">epoll的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll工作方式"><span class="nav-number">4.</span> <span class="nav-text">epoll工作方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平触发模式"><span class="nav-number">4.1.</span> <span class="nav-text">水平触发模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#边缘触发模式"><span class="nav-number">4.2.</span> <span class="nav-text">边缘触发模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ET模式非阻塞的原因"><span class="nav-number">5.</span> <span class="nav-text">ET模式非阻塞的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">6.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll的惊群问题"><span class="nav-number">7.</span> <span class="nav-text">epoll的惊群问题</span></a></li></ol></div>
             
 
           </div>

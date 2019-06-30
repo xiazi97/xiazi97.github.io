@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-17T13:45:11.098Z</updated>
+  <updated>2019-06-30T15:19:26.481Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>IO多路转接之epoll</title>
+    <link href="http://xiazi97.github.io/2019/06/30/IO%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E4%B9%8Bepoll/"/>
+    <id>http://xiazi97.github.io/2019/06/30/IO多路转接之epoll/</id>
+    <published>2019-06-30T08:51:12.000Z</published>
+    <updated>2019-06-30T15:19:26.481Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;相对于select来说，epoll没有描述符个数限制，使用一个文件描述符管理多个描述符，将用户关心的文件描述符的事件存放到内核的一个事件表中，这样在用户空间和内核空间的copy只需一次。&lt;/p&gt;
+&lt;h3 id=&quot;epoll的相关系统调用：&quot;&gt;&lt;a href=&quot;#epoll的
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>I/O多路转接之select</title>
     <link href="http://xiazi97.github.io/2019/06/17/I-O%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E4%B9%8Bselect/"/>
     <id>http://xiazi97.github.io/2019/06/17/I-O多路转接之select/</id>
     <published>2019-06-17T09:38:02.000Z</published>
-    <updated>2019-06-17T13:45:11.098Z</updated>
+    <updated>2019-06-17T13:50:14.580Z</updated>
     
     <summary type="html">
     
@@ -422,28 +444,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>进程状态</title>
-    <link href="http://xiazi97.github.io/2019/05/22/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
-    <id>http://xiazi97.github.io/2019/05/22/进程状态/</id>
-    <published>2019-05-22T02:46:29.000Z</published>
-    <updated>2019-05-22T10:23:52.821Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;众所周知，linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，这样就必然会产生很多的进。而对于一个进程而言，它可以有如下几个状态&lt;/p&gt;
-&lt;h3 id=&quot;常见进程状态：&quot;&gt;&lt;a href=&quot;#常见进程状态：&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
     
   </entry>
   
