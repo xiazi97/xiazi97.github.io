@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -91,25 +91,16 @@
 
 
 
-<meta name="description" content="信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行信号更多的是通知事件发生，如红绿灯 在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下ctrl+C时，产生一个硬中断，如果说CPU当前正在执行这个进程的代码，则该进程的用户空间代码暂停执行，CPU从用户态切换到内核态处理硬件中断（终端驱">
-<meta name="keywords" content="Linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="进程信号之信号周期">
-<meta property="og:url" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/index.html">
+<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Snoopy">
+<meta property="og:url" content="http://xiazi97.github.io/archives/2019/07/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行信号更多的是通知事件发生，如红绿灯 在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下ctrl+C时，产生一个硬中断，如果说CPU当前正在执行这个进程的代码，则该进程的用户空间代码暂停执行，CPU从用户态切换到内核态处理硬件中断（终端驱">
+<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/信号种类.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/信号注册1.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/信号注册2.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/信号阻塞.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/sigpending1.png">
-<meta property="og:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/sigpending2.png">
-<meta property="og:updated_time" content="2018-11-08T14:46:36.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程信号之信号周期">
-<meta name="twitter:description" content="信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行信号更多的是通知事件发生，如红绿灯 在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下ctrl+C时，产生一个硬中断，如果说CPU当前正在执行这个进程的代码，则该进程的用户空间代码暂停执行，CPU从用户态切换到内核态处理硬件中断（终端驱">
-<meta name="twitter:image" content="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/信号种类.png">
+<meta name="twitter:title" content="Snoopy">
+<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
 
 
 
@@ -139,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/">
+  <link rel="canonical" href="http://xiazi97.github.io/archives/2019/07/">
 
 
 
 
 
-  <title>进程信号之信号周期 | Snoopy</title>
+  <title>归档 | Snoopy</title>
   
 
 
@@ -173,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -311,177 +302,71 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
   
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
-  
-  
+      <span class="archive-page-counter">
+        
+        
+         
+          
+        好! 目前共计 66 篇日志。 继续努力。
+      </span>
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2019">2019</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/11/08/进程信号之信号周期/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="李峰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Snoopy">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">进程信号之信号周期</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2019/07/05/lambda表达式/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name"> lambda表达式</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T22:26:27+08:00">
-                2018-11-08
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-07-05T22:55:58+08:00" content="2019-07-05">
+          07-05
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">本文阅读数 <i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
-            </span>
-          
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>信号是为了通知进程发生了某个事件，因为事件比较紧急，因此会打断当前进程正在执行的工作，然后去处理事件，事件处理完毕之后进程回到原先运行位置继续运行<br>信号更多的是通知事件发生，如红绿灯</p>
-<p>在LInux下，用户输入命令在Shell下启动一个前台进程，而当按下ctrl+C时，产生一个硬中断，如果说CPU当前正在执行这个进程的代码，则该进程的用户空间代码暂停执行，CPU从用户态切换到内核态处理硬件中断（终端驱动程序将 ctrl+c 解释成一个SIGINT信号，记在其进程的PCB中(也可以说是发送了一个SIGINT信号给该进程)),而当要从内核返回到进程的用户空间代码继续执行之前，首先处理PCB中记录的信号，此时会发现有一个SIGINT信号待处理，而这个信号的默认处理动作是终止进程，所以直接终止进程而不再返回它的用户空间代码执行</p>
-<p>信号产生之后第一时间也不是直接处理而是先存储下来，处理信号</p>
-<h3 id="信号的生命周期："><a href="#信号的生命周期：" class="headerlink" title="信号的生命周期："></a>信号的生命周期：</h3><p>信号的产生  =》信号的注册  =》信号的注销    =》(信号的阻塞（只是不处理）)   =》信号的处理</p>
-<h3 id="信号处理常见方式："><a href="#信号处理常见方式：" class="headerlink" title="信号处理常见方式："></a>信号处理常见方式：</h3><p>1.忽略此信号<br>2.执行该信号的默认处理动作<br>3.提供一个对信号处理的函数，要求内核在处理该信号时切换到用户状态执行这个函数（捕捉信号）</p>
-<p><img src="/2018/11/08/进程信号之信号周期/信号种类.png" alt="信号种类"><br>信号分了两类：<br>1.非实时信号（不可靠信号）1~31</p>
-<ol start="2">
-<li>实时信号 (可靠信号)   34~64</li>
-</ol>
-<h4 id="信号的产生："><a href="#信号的产生：" class="headerlink" title="信号的产生："></a>信号的产生：</h4><p>1.通过硬件中断产生 （ctrl+c）<br>2.程序异常产生  SIGFPE  SIGSEGV<br>3.软件条件(代码)产生<br>软件条件产生：<br>1.直接使用kill命令：<br>kill并不是真的杀死进程，而是向一个进程发送一个信号（SIGTERM）<br>kill -15 PID    kill -15 PID<br>2.kill接口<br>int kill(pid_t pid, int sig);   向指定的进程发送指定的信号<br>int raise(int sig);  发送一个信号给自身<br>void abort(void);     使当前进程接受到信号而异常终止(像exit一样总会成功，所以没有返回值)</p>
-<p>unsigned int alarm(unsigned int seconds);<br>在second秒之后，给进程发送一个STGALRM信号，在函数中可以多次调用<br>如：设置一个定时器，取消上一个定时器，并且返回上一个定时器剩余时间</p>
-<h4 id="信号的注册："><a href="#信号的注册：" class="headerlink" title="信号的注册："></a>信号的注册：</h4><p><img src="/2018/11/08/进程信号之信号周期/信号注册1.png" alt="注册定义"><br>信号的注册（给一个进程发送信号），就是修改这个进程pcb中关于信号的pending位图，将相应的信号位置1<br><img src="/2018/11/08/进程信号之信号周期/信号注册2.png" alt="注册流程"></p>
-<h4 id="信号的阻塞："><a href="#信号的阻塞：" class="headerlink" title="信号的阻塞："></a>信号的阻塞：</h4><p>暂时不处理信号，并不是不接收信号，实际是暂时阻止信号的递达<br>原理：要阻塞一个信号，那么就是修改pcb中关于信号的block位图，将相应的信号位置1，这个位图就像是 一个备注说明如果接收到这个信号暂时不处理<br><img src="/2018/11/08/进程信号之信号周期/信号阻塞.png" alt="阻塞流程"><br>注意：<br>1.实际执行信号的处理动作称之为信号递达（动作）<br>2.信号从产生到递达之间的状态，称之为信号未决（状态）<br>3.进程可以选择阻塞某个信号<br>4.被阻塞的信号产生时将保持在未决状态，知道进程解除对该信号的阻塞才执行递达动作<br>5.阻塞和忽略时不同的，阻塞就不会递达，而忽略则是在递达之后可选的一种处理的动作</p>
-<p><strong><em>sigprocmask：</em></strong><br>int sigprocmask(int how, const sigset_t <em>set, sigset_t </em>oldset);<br>调用sigprcmask（）接口，要么阻塞函数，要么对信号进行解除阻塞<br>set：要阻塞或解除阻塞的集合<br>oldset：保存原先阻塞集合中的信号<br>如果oset非空，则读取进程当前的信号屏蔽字通过oset传出；<br>若set非空，则根据how参数指示更改进程的信号屏蔽字；（解除阻塞或者设置阻塞）<br>若oset和set均非空，则将原来的信号屏蔽字备份到oset中，然后根据how参数更改信号屏蔽字<br>how参数：SIGBLOCK<br>SIG_UNBLOCK<br>SIG_SETMASK<br>int sigemptyset(sigset_t <em>set);<br>       int sigfillset(sigset_t </em>set);<br>       int sigaddset(sigset_t <em>set, int signum);<br>       int sigdelset(sigset_t </em>set, int signum)；<br>       int sigismember(const sigset_t *set, int signum);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/* 这是一个演示信号阻塞的demo</span><br><span class="line"> 2  */</span><br><span class="line"> 3 </span><br><span class="line"> 4 #include&lt;stdio.h&gt;</span><br><span class="line"> 5 #include&lt;unistd.h&gt;</span><br><span class="line"> 6 #include&lt;signal.h&gt;</span><br><span class="line"> 7 </span><br><span class="line"> 8 int main()</span><br><span class="line"> 9 &#123;</span><br><span class="line">10     //我要阻塞这个集合中的信号</span><br><span class="line">11     sigset_t new_block;</span><br><span class="line">12     //用于保存原来阻塞集合中的信号,防止后续要将阻塞集合还原回去</span><br><span class="line">13     sigset_t old_block;</span><br><span class="line">14 </span><br><span class="line">15     //int sigemptyset(sigset_t *set);</span><br><span class="line">16     //清空一个信号集合</span><br><span class="line">17     sigemptyset(&amp;new_block);</span><br><span class="line">18     //int sigfillset(sigset_t *set);</span><br><span class="line">19     //将所有的信号添加到set集合中</span><br><span class="line">20     // int sigaddset(sigset_t *set, int signum);</span><br><span class="line">21     //添加指定的单个信号到set集合中</span><br><span class="line">22     //int sigdelset(sigset_t *set, int signum);</span><br><span class="line">23     //从集合中移除一个信号</span><br><span class="line">24     //int sigismember(const sigset_t *set, int signum);</span><br><span class="line">25     //判断一个信号是否在一个集合中 </span><br><span class="line">26     sigfillset(&amp;new_block);</span><br><span class="line">27     //int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);</span><br><span class="line">28     //阻塞信号或解除阻塞</span><br><span class="line">29     //SIGBLOCK  阻塞集合中的信号</span><br><span class="line">30     //SIG_UNBLOCK   对集合中的信号解除阻塞</span><br><span class="line">31     //SIG_SETMASK    将集合中的信号设置到阻塞集合中</span><br><span class="line">32     //set：要阻塞或解除阻塞的集合</span><br><span class="line">33     //oldset：保存原先阻塞集合中的信号</span><br><span class="line">34     sigprocmask(SIG_BLOCK,&amp;new_block,&amp;old_block);</span><br><span class="line">35     //不按回车不往下走</span><br><span class="line">36     getchar();</span><br><span class="line">37     //解除阻塞</span><br><span class="line">38     sigprocmask(SIG_UNBLOCK,&amp;new_block,NULL);</span><br><span class="line">39     //将原先阻塞集合中的信号还原回去</span><br><span class="line">40     //sigprocmask(SIG_BLOCK,&amp;old_block,NULL);</span><br><span class="line">41     return 0;</span><br><span class="line">42 &#125;</span><br></pre></td></tr></table></figure></p>
-<p>有两个信号是不会被阻塞的：1.SIGKILL    2. SIGSTOP<br>sigpending：<br>获取一个未决信号<br>int sigpending(sigset_t *set);<br>（如果调用了sigpending接口，并且传入了一个集合地址，那么就会将pending集合中所有数据返回回来，相当于有哪些信号没有被处理则会返回回来）<br><img src="/2018/11/08/进程信号之信号周期/sigpending1.png" alt="sigpending使用"><br><img src="/2018/11/08/进程信号之信号周期/sigpending2.png" alt="sigpending使用"></p>
-<h4 id="信号注销："><a href="#信号注销：" class="headerlink" title="信号注销："></a>信号注销：</h4><p>就是从pending集合中将即将要处理的信号置0（从pcb的pending集合中移除）<br>非可靠信号注册就是将相应pending位图置1，然后添加一个sigqueue链表结构到链表中（一意味着这个信号来过），之后如果有相同信号到来，一看位图已经置1了，就不做操作了（意味着后来的信号在前一个信号未处理之前不会重复注册，代表丢了）<br>可靠信号注册不管之前有没有注册都要置1 ，并且添加节点到链表中，所以不会丢掉信号 </p>
-<p>非可靠注销就是删除链表结点，相应位图置0<br>可靠信号注销就是删除节点，判断是否有相同信号节点，如果没有位图置0，如果有就不置0，位图该位置还为1，下次会还处理这个信号<br>struct sigqueue；</p>
-<h4 id="信号处理："><a href="#信号处理：" class="headerlink" title="信号处理："></a>信号处理：</h4><p>1.忽略此信号——-直接将信号丢掉<br>2.执行该信号的默认处理动作——-按照操作系统中对信号事件的既定处理方式<br>3.自定义———-用户自己提供一个对信号处理的函数，要求内核在处理该信号时切换到用户状态执行这个函数（捕捉信号）<br>哪些接口可以供我们改变处理方式：<br>1.signal</p>
-<p>#include &lt;signal.h&gt;<br>       typedef void (<em>sighandler_t)(int);   //函数指针的类型定义<br>       sighandler_t signal(int signum, sighandler_t handler);
-</em>signum:<em>信号的ID，指定要改变的信号
-</em>sighandler_t handler：*信号的处理方式<br>SIG_IGN（忽略信号）   SIG_DFL（默认处理方式）  or   自定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">  2  * 这是一个演示signal接口修改信号处理方式的demo</span><br><span class="line">  3  * 信号的处理方式有三种：</span><br><span class="line">  4  *      忽略</span><br><span class="line">  5  *      默认</span><br><span class="line">  6  *      自定义</span><br><span class="line">  7  */</span><br><span class="line">  8 </span><br><span class="line">  9 #include&lt;stdio.h&gt;</span><br><span class="line"> 10 #include&lt;unistd.h&gt;</span><br><span class="line"> 11 #include&lt;signal.h&gt;</span><br><span class="line"> 12 </span><br><span class="line"> 13 </span><br><span class="line"> 14 void sigcb(int signo)</span><br><span class="line"> 15 &#123;</span><br><span class="line"> 16     printf(&quot;receive signo:%d\n&quot;,signo);</span><br><span class="line"> 17   /*  if(signo == SIGINT )    //因为可能有很多信号来调用这个函数，所以需要做出判断</span><br><span class="line"> 18     &#123;</span><br><span class="line"> 19     &#125;</span><br><span class="line"> 20     else</span><br><span class="line"> 21     &#123;</span><br><span class="line"> 22     &#125;</span><br><span class="line"> 23     */   </span><br><span class="line"> 24     return;</span><br><span class="line"> 25 &#125;</span><br><span class="line"> 26 </span><br><span class="line"> 27 </span><br><span class="line"> 28 int main()</span><br><span class="line"> 29 &#123;  </span><br><span class="line"> 30    // sighandler_t signal(int signum, sighandler_t handler);</span><br><span class="line"> 31    //signum:信号的编号</span><br><span class="line"> 32    //handler：处理方式</span><br><span class="line"> 33    //   SIG_IGN   忽略</span><br><span class="line"> 34    //   SIG_DFL   默认</span><br><span class="line"> 35     int i = 0;</span><br><span class="line"> 36     //signal(SIGINT,SIG_IGN);   //提前备注，当这个信号到来时忽略它</span><br><span class="line"> 37     signal(SIGINT,sigcb);    //自定义方式处理</span><br><span class="line"> 38     while(1)</span><br><span class="line"> 39     &#123;</span><br><span class="line"> 40         printf(&quot;--------------\n&quot;);</span><br><span class="line"> 41         kill(getpid(),SIGINT);</span><br><span class="line"> 42         if(++i == 3)</span><br><span class="line"> 43         &#123;</span><br><span class="line"> 44          signal(SIGINT,SIG_DFL);</span><br><span class="line"> 45         &#125;</span><br><span class="line"> 46     &#125;</span><br><span class="line"> 47     return 0;</span><br><span class="line"> 48 &#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/11/08/Core-Dump浅解析/" rel="next" title="Core Dump浅解析">
-                <i class="fa fa-chevron-left"></i> Core Dump浅解析
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/08/Linux文件权限/" rel="prev" title="Linux文件权限">
-                Linux文件权限 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -489,10 +374,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -513,17 +394,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -614,22 +486,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#信号的生命周期："><span class="nav-number">1.</span> <span class="nav-text">信号的生命周期：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号处理常见方式："><span class="nav-number">2.</span> <span class="nav-text">信号处理常见方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信号的产生："><span class="nav-number">2.1.</span> <span class="nav-text">信号的产生：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号的注册："><span class="nav-number">2.2.</span> <span class="nav-text">信号的注册：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号的阻塞："><span class="nav-number">2.3.</span> <span class="nav-text">信号的阻塞：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号注销："><span class="nav-number">2.4.</span> <span class="nav-text">信号注销：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号处理："><span class="nav-number">2.5.</span> <span class="nav-text">信号处理：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -795,10 +651,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

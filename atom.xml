@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-06-30T15:19:26.481Z</updated>
+  <updated>2019-07-05T15:15:40.502Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> lambda表达式</title>
+    <link href="http://xiazi97.github.io/2019/07/05/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://xiazi97.github.io/2019/07/05/lambda表达式/</id>
+    <published>2019-07-05T14:55:58.000Z</published>
+    <updated>2019-07-05T15:15:40.502Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在C++98中，如果想要对一个数据集合中的元素进行排序，可以使用std::sort方法。 &lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>IO多路转接之epoll</title>
@@ -423,27 +445,6 @@
     
     
       <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>彩色的砖块</title>
-    <link href="http://xiazi97.github.io/2019/05/23/%E5%BD%A9%E8%89%B2%E7%9A%84%E7%A0%96%E5%9D%97/"/>
-    <id>http://xiazi97.github.io/2019/05/23/彩色的砖块/</id>
-    <published>2019-05-23T14:14:20.000Z</published>
-    <updated>2019-05-23T14:40:01.489Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;小易有一些彩色的砖块。每种颜色由一个大写字母表示。各个颜色砖块看起来都完全一样。现在有一个给定的字符串s,s中每个字符代表小
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
     
   </entry>
   
