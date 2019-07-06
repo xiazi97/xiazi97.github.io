@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-07-05T15:15:40.502Z</updated>
+  <updated>2019-07-06T15:14:30.203Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>变量类型推导</title>
+    <link href="http://xiazi97.github.io/2019/07/06/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/"/>
+    <id>http://xiazi97.github.io/2019/07/06/变量类型推导/</id>
+    <published>2019-07-06T09:47:20.000Z</published>
+    <updated>2019-07-06T15:14:30.203Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;为什么需要类型推导&quot;&gt;&lt;a href=&quot;#为什么需要类型推导&quot; class=&quot;headerlink&quot; title=&quot;为什么需要类型推导&quot;&gt;&lt;/a&gt;为什么需要类型推导&lt;/h3&gt;&lt;p&gt;在我们编程的时候会发现：在定义变量时必须先给出变量的实际类型编译器才会允许定义，但是
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title> lambda表达式</title>
@@ -420,31 +441,6 @@
     
     
       <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fork的使用</title>
-    <link href="http://xiazi97.github.io/2019/05/24/fork%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://xiazi97.github.io/2019/05/24/fork的使用/</id>
-    <published>2019-05-24T05:50:28.000Z</published>
-    <updated>2019-05-24T07:13:41.775Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在牛客做题时遇到了这样一个问题：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;int main(){fork()||fork();}共创建几个进程：&lt;strong&gt;_&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;回想之前一直在这里跌倒从来没有爬起来过的经历，痛定
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
     
   </entry>
   
