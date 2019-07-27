@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-07-06T15:14:30.203Z</updated>
+  <updated>2019-07-27T05:30:48.709Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>异常</title>
+    <link href="http://xiazi97.github.io/2019/07/27/%E5%BC%82%E5%B8%B8/"/>
+    <id>http://xiazi97.github.io/2019/07/27/异常/</id>
+    <published>2019-07-26T23:57:09.000Z</published>
+    <updated>2019-07-27T05:30:48.709Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在C语言中，传统的错误处理机制是这样子的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;终止程序，如**&lt;/strong&gt;assert**，缺陷：用户难以接受。如发生内存错误，除0错误时就会终止程序；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;返回错误码&lt;/st
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>变量类型推导</title>
@@ -414,27 +439,6 @@
       
         &lt;h3 id=&quot;1）二级配置器结构&quot;&gt;&lt;a href=&quot;#1）二级配置器结构&quot; class=&quot;headerlink&quot; title=&quot;1）二级配置器结构&quot;&gt;&lt;/a&gt;1）二级配置器结构&lt;/h3&gt;&lt;p&gt;STL内存管理使用二级内存配置器。&lt;/p&gt;
 &lt;h4 id=&quot;1、第一级配置器&quot;&gt;&lt;a
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>六一儿童节问题</title>
-    <link href="http://xiazi97.github.io/2019/05/25/%E5%85%AD%E4%B8%80%E5%84%BF%E7%AB%A5%E8%8A%82%E9%97%AE%E9%A2%98/"/>
-    <id>http://xiazi97.github.io/2019/05/25/六一儿童节问题/</id>
-    <published>2019-05-25T13:51:07.000Z</published>
-    <updated>2019-05-25T13:55:33.111Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;六一儿童节，老师带了很多好吃的巧克力到幼儿园。每块巧克力j的重量为w[j]，对于每个小朋友i，当他分到的巧克力大小达到h[i
       
     
     </summary>
