@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-08-17T06:18:20.347Z</updated>
+  <updated>2019-08-18T15:45:29.232Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试题</title>
+    <link href="http://xiazi97.github.io/2019/08/18/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://xiazi97.github.io/2019/08/18/面试题/</id>
+    <published>2019-08-17T23:53:57.000Z</published>
+    <updated>2019-08-18T15:45:29.232Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、C-的三大特性&quot;&gt;&lt;a href=&quot;#一、C-的三大特性&quot; class=&quot;headerlink&quot; title=&quot;一、C++的三大特性&quot;&gt;&lt;/a&gt;一、C++的三大特性&lt;/h3&gt;&lt;p&gt;封装，继承，多态。&lt;/p&gt;
+&lt;h4 id=&quot;请介绍一下什么是封装？&quot;&gt;&lt;a hr
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://xiazi97.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>STL中list类的模拟实现</title>
@@ -424,27 +446,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP代理服务器的工作原理</title>
-    <link href="http://xiazi97.github.io/2019/05/29/HTTP%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
-    <id>http://xiazi97.github.io/2019/05/29/HTTP代理服务器的工作原理/</id>
-    <published>2019-05-29T13:30:21.000Z</published>
-    <updated>2019-05-29T14:34:30.356Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    在HTTP通信链上，客户端和目标服务器之间通常存在某些中转代理服务器，它们提供对目标资源的中转访问。一个HTTP请求可能被多个代理服务器转发，后面的服务器称为前面服务器的上游服务器。代理服务器按照其使用方式和作用，分为&lt;strong&gt;正向代理服务器，反向代理服务器
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

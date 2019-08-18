@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -91,18 +91,16 @@
 
 
 
-<meta name="description" content="fork的基础知识：fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用： #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; pid_t fork(void); ​    成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返">
-<meta name="keywords" content="Linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="fork与vfork的区别">
-<meta property="og:url" content="http://xiazi97.github.io/2019/05/31/fork与vfork的区别/index.html">
+<meta name="description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Snoopy">
+<meta property="og:url" content="http://xiazi97.github.io/page/8/index.html">
 <meta property="og:site_name" content="Snoopy">
-<meta property="og:description" content="fork的基础知识：fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用： #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; pid_t fork(void); ​    成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返">
+<meta property="og:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-31T15:49:45.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fork与vfork的区别">
-<meta name="twitter:description" content="fork的基础知识：fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用： #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; pid_t fork(void); ​    成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返">
+<meta name="twitter:title" content="Snoopy">
+<meta name="twitter:description" content="这是一个弱鸡的博客，如果有问题请大家原谅并提醒我。3Q！">
 
 
 
@@ -132,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://xiazi97.github.io/2019/05/31/fork与vfork的区别/">
+  <link rel="canonical" href="http://xiazi97.github.io/page/8/">
 
 
 
 
 
-  <title>fork与vfork的区别 | Snoopy</title>
+  <title>Snoopy</title>
   
 
 
@@ -166,7 +164,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
 <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -303,9 +302,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
   
 
   
@@ -317,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2019/05/31/fork与vfork的区别/">
+    <link itemprop="mainEntityOfPage" href="http://xiazi97.github.io/2018/10/30/类中默认成员函数浅析（一）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李峰">
@@ -334,7 +333,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">fork与vfork的区别</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/类中默认成员函数浅析（一）/" itemprop="url">类中默认成员函数浅析（一）</a></h1>
         
 
         <div class="post-meta">
@@ -346,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-31T23:48:25+08:00">
-                2019-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T00:10:05+08:00">
+                2018-10-30
               </time>
             
 
@@ -365,11 +366,6 @@
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">本文阅读数 <i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
-            </span>
           
           
           
@@ -391,36 +387,19 @@
       
 
       
-        <h3 id="fork的基础知识："><a href="#fork的基础知识：" class="headerlink" title="fork的基础知识："></a>fork的基础知识：</h3><p>fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
-<p>#include &lt;sys/types.h&gt;</p>
-<p>#include &lt;unistd.h&gt;</p>
-<p>pid_t fork(void);</p>
-<p>​    成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返回0。在父进程中fork( )返回子进程的pid。如果出现错误，fork( )返回一个负值。</p>
-<p>​    最常见的fork( )用法是创建一个新的进程，然后使用exec( )载入二进制映像，替换当前进程的映像。这种情况下，派生（fork）了新的进程，而这个子进程会执行一个新的二进制可执行文件的映像。这种“派生加执行”的方式是很常见的。</p>
-<p>​    在早期的Unix系统中，创建进程比较原始。当调用fork时，内核会把所有的内部数据结构复制一份，复制进程的页表项，然后把父进程的地址空间中的内容逐页的复制到子进程的地址空间中。但从内核角度来说，逐页的复制方式是十分耗时的。现代的Unix系统采取了更多的优化，例如Linux，采用了写时复制的方法，而不是对父进程空间进程整体复制。</p>
-<h3 id="vfork的基础知识："><a href="#vfork的基础知识：" class="headerlink" title="vfork的基础知识："></a>vfork的基础知识：</h3><p>在实现写时复制之前，Unix的设计者们就一直很关注在fork后立刻执行exec所造成的地址空间的浪费。BSD的开发者们在3.0的BSD系统中引入了vfork( )系统调用。</p>
-<p>#include &lt;sys/types.h&gt;</p>
-<p>#include &lt;unistd.h&gt;</p>
-<p>pid_t vfork(void);</p>
-<p>除了子进程必须要立刻执行一次对exec的系统调用，或者调用_exit( )退出，对vfork( )的成功调用所产生的结果和fork( )是一样的。vfork( )会挂起父进程直到子进程终止或者运行了一个新的可执行文件的映像。通过这样的方式，vfork( )避免了地址空间的按页复制。在这个过程中，父进程和子进程共享相同的地址空间和页表项。实际上vfork( )只完成了一件事：复制内部的内核数据结构。因此，子进程也就不能修改地址空间中的任何内存。</p>
-<p>vfork( )是一个历史遗留产物，Linux本不应该实现它。需要注意的是，即使增加了写时复制，vfork( )也要比fork( )快，因为它没有进行页表项的复制。然而，写时复制的出现减少了对于替换fork( )争论。实际上，直到2.2.0内核，vfork( )只是一个封装过的fork( )。因为对vfork( )的需求要小于fork( )，所以vfork( )的这种实现方式是可行的。</p>
-<h3 id="补充知识点：写时复制"><a href="#补充知识点：写时复制" class="headerlink" title="补充知识点：写时复制"></a>补充知识点：写时复制</h3><p>Linux采用了写时复制的方法，以减少fork时对父进程空间进程整体复制带来的开销。</p>
-<p>​    写时复制是一种采取了惰性优化方法来避免复制时的系统开销。它的前提很简单：如果有多个进程要读取它们自己的那部门资源的副本，那么复制是不必要的。每个进程只要保存一个指向这个资源的指针就可以了。只要没有进程要去修改自己的“副本”，就存在着这样的幻觉：每个进程好像独占那个资源。从而就避免了复制带来的负担。如果一个进程要修改自己的那份资源“副本”，那么就会复制那份资源，并把复制的那份提供给进程。不过其中的复制对进程来说是透明的。这个进程就可以修改复制后的资源了，同时其他的进程仍然共享那份没有修改过的资源。所以这就是名称的由来：在写入时进行复制。</p>
-<p>​    写时复制的主要好处在于：如果进程从来就不需要修改资源，则不需要进行复制。惰性算法的好处就在于它们尽量推迟代价高昂的操作，直到必要的时刻才会去执行。</p>
-<p>​    在使用虚拟内存的情况下，写时复制（Copy-On-Write）是以页为基础进行的。所以，只要进程不修改它全部的地址空间，那么就不必复制整个地址空间。在fork( )调用结束后，父进程和子进程都相信它们有一个自己的地址空间，但实际上它们共享父进程的原始页，接下来这些页又可以被其他的父进程或子进程共享。</p>
-<p>​    写时复制在内核中的实现非常简单。与内核页相关的数据结构可以被标记为只读和写时复制。如果有进程试图修改一个页，就会产生一个缺页中断。内核处理缺页中断的方式就是对该页进行一次透明复制。这时会清除页面的COW属性，表示着它不再被共享。</p>
-<p>现代的计算机系统结构中都在内存管理单元（MMU）提供了硬件级别的写时复制支持，所以实现是很容易的。</p>
-<p>​    在调用fork( )时，写时复制是有很大优势的。因为大量的fork之后都会跟着执行exec，那么复制整个父进程地址空间中的内容到子进程的地址空间完全是在浪费时间：如果子进程立刻执行一个新的二进制可执行文件的映像，它先前的地址空间就会被交换出去。写时复制可以对这种情况进行优化。</p>
-<h3 id="fork和vfork的区别："><a href="#fork和vfork的区别：" class="headerlink" title="fork和vfork的区别："></a>fork和vfork的区别：</h3><ol>
-<li><p>fork( )的子进程拷贝父进程的数据段和代码段；vfork( )的子进程与父进程共享数据段</p>
-</li>
-<li><p>fork( )的父子进程的执行次序不确定；vfork( )保证子进程先运行，在调用exec或exit之前与父进程数据是共享的，在它调用exec或exit之后父进程才可能被调度运行。</p>
-</li>
-<li><p>vfork( )保证子进程先运行，在它调用exec或exit之后父进程才可能被调度运行。如果在调用这两个函数之前子进程依赖于父进程的进一步动作，则会导致死锁。</p>
-</li>
-<li>当需要改变共享数据段中变量的值，则拷贝父进程。</li>
-</ol>
-
+        
+          
+          
+构造函数：是一个特殊的成员函数（随着对象创建而自动被调用的），用于来初始化对象，在对象的生命周期中只调用一次特征：1.名字与类名相同2.无返回值（并不等同于void）3.可以重载（类可以有多个构造函数，其名字都必须相同但参数列表可以不同）4.类对象创建时自动执行！！！5.构造函数可以在类中定义，也
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/30/类中默认成员函数浅析（一）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -435,40 +414,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/05/30/C-11新特性/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/01/覆盖与隐藏/" rel="prev" title="覆盖与隐藏">
-                覆盖与隐藏 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -478,11 +431,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+  </nav>
+
 
 
           </div>
@@ -490,10 +446,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -514,17 +466,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -615,22 +558,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#fork的基础知识："><span class="nav-number">1.</span> <span class="nav-text">fork的基础知识：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vfork的基础知识："><span class="nav-number">2.</span> <span class="nav-text">vfork的基础知识：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充知识点：写时复制"><span class="nav-number">3.</span> <span class="nav-text">补充知识点：写时复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fork和vfork的区别："><span class="nav-number">4.</span> <span class="nav-text">fork和vfork的区别：</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -796,10 +723,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
