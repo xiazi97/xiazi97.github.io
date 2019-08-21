@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Snoopy">
 <meta property="og:description" content="一、C++的三大特性封装，继承，多态。 请介绍一下什么是封装？答：封装的意义在于保护或者防止数据被我们故意破坏。在面向对象程序设计中，数据被看作是一个中心的元素并且和使用它的方法关联很密切，所以说封装就是将数据与操作数据的方法进行有机结合，隐藏对象的属性和实现细节，仅对外公开接口来和对象进行交互。C++实现封装的方式就是用类将对象的属性和方法结合在一起，通过访问权限选择性的将其接口提供给外部的用户">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-20T15:06:46.383Z">
+<meta property="og:updated_time" content="2019-08-21T15:30:30.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题">
 <meta name="twitter:description" content="一、C++的三大特性封装，继承，多态。 请介绍一下什么是封装？答：封装的意义在于保护或者防止数据被我们故意破坏。在面向对象程序设计中，数据被看作是一个中心的元素并且和使用它的方法关联很密切，所以说封装就是将数据与操作数据的方法进行有机结合，隐藏对象的属性和实现细节，仅对外公开接口来和对象进行交互。C++实现封装的方式就是用类将对象的属性和方法结合在一起，通过访问权限选择性的将其接口提供给外部的用户">
@@ -476,7 +476,32 @@
 <p>移动语义中一些问题：</p>
 <p>1.如果将移动构造函数声明为常右值引用或者返回右值的函数声明为常量，都会导致移动语义无法实现。</p>
 <p>2.在C++11中，拷贝构造/移动构造/赋值/移动赋值函数必须同时提供或者同时不提供，程序才能保证类同时具有拷贝和移动语义</p>
-<h4 id="5-lamda表达式"><a href="#5-lamda表达式" class="headerlink" title="5.lamda表达式"></a>5.lamda表达式</h4>
+<h4 id="5-lamda表达式"><a href="#5-lamda表达式" class="headerlink" title="5.lamda表达式"></a>5.lamda表达式</h4><p>[capture_list]/(parameters)mutable-&gt;return_type{statement};</p>
+<p>1.capture_list是指捕捉列表，编译器就是根据[]来判断接下来的代码是否为lamda函数。它描述了上下文中那些数据可以被lambda使用，以及使用的方式传值还是传引用。 </p>
+<p>[var]：表示值传递方式捕捉变量var     [=]：表示值传递方式捕获所有父作用域中的变量(包括this) </p>
+<p>[&amp;var]：表示引用传递捕捉变量var      [&amp;]：表示引用传递捕捉所有父作用域中的变量(包括this) </p>
+<p>[this]：表示值传递方式捕捉当前的this指针 </p>
+<p>要注意捕捉列表不允许重复捕捉，lamda表达式之间不能相互赋值，即便看起来类型相同。</p>
+<p>2.参数列表，如果不需要参数就可以连()一起省略</p>
+<p>3.默认情况下lamda表达式是一个const函数，他可以取消其常量性。使用该修饰符时参数列表不能为空</p>
+<p>4.返回值类型。返回值类型明确情况下，也可省略，由编译器对返回类型进行推导。</p>
+<h5 id="函数对象和lamda表达式"><a href="#函数对象和lamda表达式" class="headerlink" title="函数对象和lamda表达式"></a>函数对象和lamda表达式</h5><p>函数对象，又称为仿函数，即可以想函数一样使用的对象，就是在类中重载了operator()运算符的类对象。从使用方式上来看，函数对象与lambda表达式完全一样。函数对象将rate作为其成员变量，在定义对象时给出初始值即可，lambda表达式通过捕获列表可以直接将该变量捕获到。实际在底层编译器对于lambda表达式的处理方式，完全就是按照函数对象的方式处理的，即：如果定义了一个lambda表达式，编译器会自动生成一个类，在该类中重载了operator()。</p>
+<h3 id="关联式容器"><a href="#关联式容器" class="headerlink" title="关联式容器"></a>关联式容器</h3><h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>是一种二叉搜索树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。 通过对任何一条从根到叶子的路径上各个结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。</p>
+<p> <strong>红黑树的性质</strong> </p>
+<ol>
+<li><p>每个结点不是红色就是黑色</p>
+</li>
+<li><p>根节点是黑色的</p>
+</li>
+<li><p>如果一个节点是红色的，则它的两个孩子结点是黑色的</p>
+</li>
+<li><p>对于每个结点，从该结点到其所有后代叶结点的简单路径上，均包含相同数目的黑色结点   </p>
+</li>
+<li><p>每个叶子结点都是黑色的(此处的叶子结点指的是空结点）</p>
+</li>
+</ol>
+<p>在结点的定义中，默认把结点颜色给成红色。</p>
+
       
     </div>
     
@@ -623,7 +648,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">95.6k</span>
+      <span class="site-state-item-count">96.3k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -677,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、C-的三大特性"><span class="nav-number">1.</span> <span class="nav-text">一、C++的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是封装？"><span class="nav-number">1.1.</span> <span class="nav-text">请介绍一下什么是封装？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是继承？"><span class="nav-number">1.2.</span> <span class="nav-text">请介绍一下什么是继承？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请介绍一下什么是多态？"><span class="nav-number">2.</span> <span class="nav-text">请介绍一下什么是多态？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是接口继承和实现继承"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是接口继承和实现继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重载，重写，重定义"><span class="nav-number">2.0.2.</span> <span class="nav-text">重载，重写，重定义</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、泛型编程"><span class="nav-number">3.</span> <span class="nav-text">二、泛型编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模板的特化"><span class="nav-number">3.1.</span> <span class="nav-text">模板的特化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、动态内存管理"><span class="nav-number">4.</span> <span class="nav-text">三、动态内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">4.1.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能指针"><span class="nav-number">4.2.</span> <span class="nav-text">智能指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-11"><span class="nav-number">5.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-列表初始化"><span class="nav-number">5.1.</span> <span class="nav-text">1.列表初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-变量类型推导"><span class="nav-number">5.2.</span> <span class="nav-text">2.变量类型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-缺省"><span class="nav-number">5.3.</span> <span class="nav-text">3.缺省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-右值引用"><span class="nav-number">5.4.</span> <span class="nav-text">4.右值引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-lamda表达式"><span class="nav-number">5.5.</span> <span class="nav-text">5.lamda表达式</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、C-的三大特性"><span class="nav-number">1.</span> <span class="nav-text">一、C++的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是封装？"><span class="nav-number">1.1.</span> <span class="nav-text">请介绍一下什么是封装？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是继承？"><span class="nav-number">1.2.</span> <span class="nav-text">请介绍一下什么是继承？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请介绍一下什么是多态？"><span class="nav-number">2.</span> <span class="nav-text">请介绍一下什么是多态？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是接口继承和实现继承"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是接口继承和实现继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重载，重写，重定义"><span class="nav-number">2.0.2.</span> <span class="nav-text">重载，重写，重定义</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、泛型编程"><span class="nav-number">3.</span> <span class="nav-text">二、泛型编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模板的特化"><span class="nav-number">3.1.</span> <span class="nav-text">模板的特化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、动态内存管理"><span class="nav-number">4.</span> <span class="nav-text">三、动态内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">4.1.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能指针"><span class="nav-number">4.2.</span> <span class="nav-text">智能指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-11"><span class="nav-number">5.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-列表初始化"><span class="nav-number">5.1.</span> <span class="nav-text">1.列表初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-变量类型推导"><span class="nav-number">5.2.</span> <span class="nav-text">2.变量类型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-缺省"><span class="nav-number">5.3.</span> <span class="nav-text">3.缺省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-右值引用"><span class="nav-number">5.4.</span> <span class="nav-text">4.右值引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-lamda表达式"><span class="nav-number">5.5.</span> <span class="nav-text">5.lamda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数对象和lamda表达式"><span class="nav-number">5.5.1.</span> <span class="nav-text">函数对象和lamda表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联式容器"><span class="nav-number">6.</span> <span class="nav-text">关联式容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">6.1.</span> <span class="nav-text">红黑树</span></a></li></ol></li></div>
             
 
           </div>
