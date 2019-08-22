@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Snoopy">
 <meta property="og:description" content="一、C++的三大特性封装，继承，多态。 请介绍一下什么是封装？答：封装的意义在于保护或者防止数据被我们故意破坏。在面向对象程序设计中，数据被看作是一个中心的元素并且和使用它的方法关联很密切，所以说封装就是将数据与操作数据的方法进行有机结合，隐藏对象的属性和实现细节，仅对外公开接口来和对象进行交互。C++实现封装的方式就是用类将对象的属性和方法结合在一起，通过访问权限选择性的将其接口提供给外部的用户">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-21T15:30:30.124Z">
+<meta property="og:updated_time" content="2019-08-22T14:36:42.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题">
 <meta name="twitter:description" content="一、C++的三大特性封装，继承，多态。 请介绍一下什么是封装？答：封装的意义在于保护或者防止数据被我们故意破坏。在面向对象程序设计中，数据被看作是一个中心的元素并且和使用它的方法关联很密切，所以说封装就是将数据与操作数据的方法进行有机结合，隐藏对象的属性和实现细节，仅对外公开接口来和对象进行交互。C++实现封装的方式就是用类将对象的属性和方法结合在一起，通过访问权限选择性的将其接口提供给外部的用户">
@@ -427,6 +427,15 @@
 <p>5.malloc申请空间失败时返回NULL，new会抛异常</p>
 <p>6.申请自定义类型对象时malloc只会开辟空间，而new会调用构造函数，delete会调用析构函数</p>
 <p>7.new/delete比malloc/free效率稍微低一点。</p>
+<h4 id="堆与栈的区别"><a href="#堆与栈的区别" class="headerlink" title="堆与栈的区别"></a>堆与栈的区别</h4><p>1.管理方式不同，堆是由程序员控制申请释放的，栈是操作系统自动分配释放的</p>
+<p>2.空间大小不同，每个进程拥有栈的大小为1M(64位windows),10M(64位Linux)，理论上可申请的堆大小是虚拟内存大小</p>
+<p>3.生长方向不同，堆向上生长内存由低到高，栈向下生长由高到低</p>
+<p>4.分配方式不同，堆是动态分配没有静态分配，栈有两种方式——静态（操作系统完成）和动态（alloca）</p>
+<p>5.分配效率不同</p>
+<p>6.存放内容不同，栈存放的是函数返回地址，相关参数，局部变量，寄存器内容等</p>
+<h4 id="定位new表达式"><a href="#定位new表达式" class="headerlink" title="定位new表达式"></a>定位new表达式</h4><p>在已分配的原始内存空间中调用构造函数初始化一个对象</p>
+<p>new(place_address) type  place_address必须是一个指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test* pt = (Test*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Test));</span><br><span class="line">    <span class="keyword">new</span>(pt) Test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><p>是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。内存泄漏分为堆内存泄漏和系统资源泄露。</p>
 <p>堆内存泄露是指程序执行中通过malloc/realloc/calloc/new等从堆中分配的一块内存，用完以后必须通过调用相应的free或者delete删掉。系统资源泄露指使用系统分配的资源比如：套接字，文件描述符，管道等没有使用相应的函数释放掉导致系统资源的浪费，严重时可能会导致系统效能减少系统执行不稳定。</p>
 <p>如何避免：1.养成良好的编码规范    2.采用RALL思想或者智能指针来管理资源    </p>
@@ -487,7 +496,7 @@
 <p>4.返回值类型。返回值类型明确情况下，也可省略，由编译器对返回类型进行推导。</p>
 <h5 id="函数对象和lamda表达式"><a href="#函数对象和lamda表达式" class="headerlink" title="函数对象和lamda表达式"></a>函数对象和lamda表达式</h5><p>函数对象，又称为仿函数，即可以想函数一样使用的对象，就是在类中重载了operator()运算符的类对象。从使用方式上来看，函数对象与lambda表达式完全一样。函数对象将rate作为其成员变量，在定义对象时给出初始值即可，lambda表达式通过捕获列表可以直接将该变量捕获到。实际在底层编译器对于lambda表达式的处理方式，完全就是按照函数对象的方式处理的，即：如果定义了一个lambda表达式，编译器会自动生成一个类，在该类中重载了operator()。</p>
 <h3 id="关联式容器"><a href="#关联式容器" class="headerlink" title="关联式容器"></a>关联式容器</h3><h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>是一种二叉搜索树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。 通过对任何一条从根到叶子的路径上各个结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。</p>
-<p> <strong>红黑树的性质</strong> </p>
+<p> <strong>红黑树的性质 </strong></p>
 <ol>
 <li><p>每个结点不是红色就是黑色</p>
 </li>
@@ -501,6 +510,72 @@
 </li>
 </ol>
 <p>在结点的定义中，默认把结点颜色给成红色。</p>
+<p><strong>平衡二叉树的性质</strong> </p>
+<p>它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。这个方案很好的解决了二叉查找树退化成链表的问题，把插入，查找，删除的时间复杂度最好情况和最坏情况都维持在O(logN)。但是频繁旋转会使插入和删除牺牲掉O(logN)左右的时间，不过相对二叉查找树来说，时间上稳定了很多。<br><strong>区别：</strong></p>
+<p>红黑树和AVL树都是高效的平衡二叉树，增删改查的时间复杂度都是O( nlog2n)，红黑树不追求绝对平衡，其只需保证最长路径不超过最短路径的2倍，相对而言，降低了插入和旋转的次数，所以在经常进行增删的结构中性能比AVL树更优，而且红黑树实现比较简单，所以实际运用中红黑树更多。</p>
+<h4 id="哈希结构"><a href="#哈希结构" class="headerlink" title="哈希结构"></a>哈希结构</h4><p>不经过任何比较，一次直接从表中得到要搜索的元素。 如果构造一种存储结构，通过某种函数(hashFunc)使元素的存储位置与它的关键码之间能够建立一一映射的关系，那么在查找时通过该函数可以很快找到该元素。</p>
+<p><strong>哈希冲突</strong></p>
+<p>不同关键字通过相同哈希哈数计算出相同的哈希地址，该种现象称为哈希冲突或哈希碰撞。</p>
+<p><strong>怎么解决：</strong></p>
+<p>1.闭散列</p>
+<p>当发生哈希冲突时，如果哈希表未被装满，说明在哈希表中必然还有空位置，那么可以把key存放到冲突位置中的下一个空位置中去（填入表中元素/散列表长度在0.7~0.8之间，否则触发增容）</p>
+<ul>
+<li><p>线性探测</p>
+<p>从发生冲突的位置开始，依次向后探测，直到寻找到下一个空位置为止（删除时采用了假删除）</p>
+</li>
+<li><p>二次探测</p>
+<p>找下一个空位置的方法为：H<em>i</em>= (H<em>0</em> +i^2)% m,或者：H<em>i</em>= (H<em>0</em> -i^2)% m。其中：i = 1,2,3…， 是通过散列函数Hash(x)对元素的关键码key 进行计算得到的位置，m是表的大小</p>
+</li>
+</ul>
+<p>2.开散列</p>
+<p>又叫链地址法，首先对关键码集合用散列函数计算散列地址，具有相同地址的关键码归于同一子集合，每一个子集合称之为桶各个桶中元素通过一个单链表链接起来，各链表的头节点存储在哈希表中</p>
+<p>开散列中在元素个数和桶个数相同时可以给哈希表增容</p>
+<p><strong>常用哈希函数</strong></p>
+<p>1.直接定制：取关键字的某个线性函数为散列地址：Hash（Key）= A*Key + B</p>
+<p>2.除留余数法</p>
+<p>设散列表中允许的地址数为m，取一个不大于m，但最接近或者等于m的质数p作为除数，按照哈希函数：Hash(key) = key% p(p&lt;=m),将关键码转换成哈希地址</p>
+<p>3.平方去中法（了解，对关键字进行平方，取其中间元素）</p>
+<h4 id="位图和布隆过滤器"><a href="#位图和布隆过滤器" class="headerlink" title="位图和布隆过滤器"></a>位图和布隆过滤器</h4><h3 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h3><h4 id="static的作用"><a href="#static的作用" class="headerlink" title="static的作用"></a>static的作用</h4><p>1.修饰全局变量，将之变为全局静态变量，存储在静态区，整个程序运行期间一直存在，作用域在声明他的文件之外是不可见的，准确地说是从定义之处开始，到文件结尾。</p>
+<p>2.修饰局部变量，将之变为局部静态变量，作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域结束。但是当局部静态变量离开作用域后，并没有销毁，而是仍然驻留在内存当中，只不过我们不能再对它进行访问，直到该函数再次被调用，并且值不变；</p>
+<p>3.修饰函数，函数的实现使用static修饰，那么这个函数只可在本cpp内使用，不会同其他cpp中的同名函数引起冲突；</p>
+<p>4.类的静态成员，静态成员是类的所有对象中共享的成员，而不是某个对象的成员。对多个对象来说，静态数据成员只存储一处，供所有对象共用</p>
+<p>5.类的静态成员函数，静态成员函数和静态数据成员一样，它们都属于类的静态成员，它们都不是对象成员。因此，对静态成员的引用不需要用对象名。</p>
+<h4 id="四种cast转换"><a href="#四种cast转换" class="headerlink" title="四种cast转换"></a>四种cast转换</h4><h5 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h5><p>a、用于类层次结构中基类和派生类之间指针或引用的转换</p>
+<p>上行转换（派生类—-&gt;基类）是安全的；</p>
+<p>下行转换（基类—-&gt;派生类）由于没有动态类型检查，所以是不安全的。</p>
+<p>b、用于基本数据类型之间的转换，如把int转换为char，这种带来安全性问题由程序员来保证</p>
+<p>c、把空指针转换成目标类型的空指针</p>
+<p>d、把任何类型的表达式转为void类型</p>
+<p>使用特点</p>
+<p>a、主要执行<strong>非多态的转换操作</strong>，用于代替C中通常的转换操作</p>
+<p>b、<strong>隐式转换</strong>都建议使用static_cast进行标明和替换</p>
+<h5 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h5><p>用于将一种类型转换为另一种不同的类型（不到万不得已，不用使用这个转换符，高危操作）</p>
+<p>使用特点：</p>
+<p>a、reinterpret_cast是从底层对数据进行重新解释，依赖具体的平台，可移植性差</p>
+<p>b、reinterpret_cast可以将整型转换为指针，也可以把指针转换为数组</p>
+<p>c、reinterpret_cast可以在指针和引用里进行肆无忌惮的转换</p>
+<h5 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h5><p>a、常量指针转换为非常量指针，并且仍然指向原来的对象</p>
+<p>b、常量引用被转换为非常量引用，并且仍然指向原来的对象</p>
+<p>3.使用特点：</p>
+<p>a、cosnt_cast是四种类型转换符中唯一可以对常量进行操作的转换符</p>
+<p>b、去除常量性是一个危险的动作，尽量避免使用。一个特定的场景是：类通过const提供重载时，一般都是非常量函数调用const_cast将参数转换为常量，然后调用常量函数，然后得到结果再调用const_cast 去除常量性</p>
+<h5 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h5><p>只有在派生类之间转换时才使用dynamic_cast，type-id必须是类指针，类引用或者void*。</p>
+<p>使用特点：</p>
+<p>a、基类必须要有虚函数，因为dynamic_cast是运行时类型检查，需要运行时类型信息，而这个信息是存储在类的虚函数表中，只有一个类定义了虚函数，才会有虚函数表（如果一个类没有虚函数，那么一般意义上，这个类的设计者也不想它成为一个基类）。</p>
+<p>b、对于下行转换，dynamic_cast是安全的（当类型不一致时，转换过来的是空指针），而static_cast是不安全的（当类型不一致时，转换过来的是错误意义的指针，可能造成踩内存，非法访问等各种问题）</p>
+<p>c、dynamic_cast还可以进行交叉转换</p>
+<p>向上转型：子类对象指针-&gt;父类指针/引用(不需要转换，赋值兼容规则)</p>
+<p>向下转型：父类对象指针-&gt;子类指针/引用(用dynamic_cast转型是安全的)</p>
+<h4 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h4><p>1.引用在定义时必须初始化，指针没有要求</p>
+<p>2.引用在初始化时引用一个实体后不能再引用其他实体，而指针任意时刻均可指向其他同一类型实体</p>
+<p>3.没有NULL引用，只有NULL的指针</p>
+<p>4.在sizeof中含义不同</p>
+<p>5.++操作不同，引用是引用的实体增加1，指针自加即指针先后偏移一个类型大小</p>
+<p>6.有多级指针没有多级引用</p>
+<p>7.访问实体方式不同，指针需要显式解引用，引用则是编译器处理</p>
+<h4 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h4><p>C++编译器给每个成员函数增加了一个隐藏的指针参数，让该指针指向当前对象。在函数体中所有成员变量的操作都是通过该指针去访问。</p>
+<p>特性：1.this指针的类型 类类型*  const    2.只能在成员函数中使用    3.this指针本质上其实是一个成员函数的形参，是对象调用成员函数时将对象地址作为实参传递给this形参    4.this指针是成员函数第一个隐含的指针形参</p>
+<p>5.this指针存在栈上</p>
 
       
     </div>
@@ -648,7 +723,7 @@
      <span class="site-state-item-name">访客量</span>
 </div>
 <div class="site-state-item site-state-posts">
-      <span class="site-state-item-count">96.3k</span>
+      <span class="site-state-item-count">98.7k</span>
       <span class="site-state-item-name">总字数</span>
 </div>
 
@@ -702,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、C-的三大特性"><span class="nav-number">1.</span> <span class="nav-text">一、C++的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是封装？"><span class="nav-number">1.1.</span> <span class="nav-text">请介绍一下什么是封装？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是继承？"><span class="nav-number">1.2.</span> <span class="nav-text">请介绍一下什么是继承？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请介绍一下什么是多态？"><span class="nav-number">2.</span> <span class="nav-text">请介绍一下什么是多态？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是接口继承和实现继承"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是接口继承和实现继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重载，重写，重定义"><span class="nav-number">2.0.2.</span> <span class="nav-text">重载，重写，重定义</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、泛型编程"><span class="nav-number">3.</span> <span class="nav-text">二、泛型编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模板的特化"><span class="nav-number">3.1.</span> <span class="nav-text">模板的特化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、动态内存管理"><span class="nav-number">4.</span> <span class="nav-text">三、动态内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">4.1.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能指针"><span class="nav-number">4.2.</span> <span class="nav-text">智能指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-11"><span class="nav-number">5.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-列表初始化"><span class="nav-number">5.1.</span> <span class="nav-text">1.列表初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-变量类型推导"><span class="nav-number">5.2.</span> <span class="nav-text">2.变量类型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-缺省"><span class="nav-number">5.3.</span> <span class="nav-text">3.缺省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-右值引用"><span class="nav-number">5.4.</span> <span class="nav-text">4.右值引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-lamda表达式"><span class="nav-number">5.5.</span> <span class="nav-text">5.lamda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数对象和lamda表达式"><span class="nav-number">5.5.1.</span> <span class="nav-text">函数对象和lamda表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联式容器"><span class="nav-number">6.</span> <span class="nav-text">关联式容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">6.1.</span> <span class="nav-text">红黑树</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、C-的三大特性"><span class="nav-number">1.</span> <span class="nav-text">一、C++的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是封装？"><span class="nav-number">1.1.</span> <span class="nav-text">请介绍一下什么是封装？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请介绍一下什么是继承？"><span class="nav-number">1.2.</span> <span class="nav-text">请介绍一下什么是继承？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请介绍一下什么是多态？"><span class="nav-number">2.</span> <span class="nav-text">请介绍一下什么是多态？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是接口继承和实现继承"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是接口继承和实现继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重载，重写，重定义"><span class="nav-number">2.0.2.</span> <span class="nav-text">重载，重写，重定义</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、泛型编程"><span class="nav-number">3.</span> <span class="nav-text">二、泛型编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模板的特化"><span class="nav-number">3.1.</span> <span class="nav-text">模板的特化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、动态内存管理"><span class="nav-number">4.</span> <span class="nav-text">三、动态内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#堆与栈的区别"><span class="nav-number">4.1.</span> <span class="nav-text">堆与栈的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定位new表达式"><span class="nav-number">4.2.</span> <span class="nav-text">定位new表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">4.3.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#智能指针"><span class="nav-number">4.4.</span> <span class="nav-text">智能指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-11"><span class="nav-number">5.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-列表初始化"><span class="nav-number">5.1.</span> <span class="nav-text">1.列表初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-变量类型推导"><span class="nav-number">5.2.</span> <span class="nav-text">2.变量类型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-缺省"><span class="nav-number">5.3.</span> <span class="nav-text">3.缺省</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-右值引用"><span class="nav-number">5.4.</span> <span class="nav-text">4.右值引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-lamda表达式"><span class="nav-number">5.5.</span> <span class="nav-text">5.lamda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数对象和lamda表达式"><span class="nav-number">5.5.1.</span> <span class="nav-text">函数对象和lamda表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联式容器"><span class="nav-number">6.</span> <span class="nav-text">关联式容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">6.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希结构"><span class="nav-number">6.2.</span> <span class="nav-text">哈希结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位图和布隆过滤器"><span class="nav-number">6.3.</span> <span class="nav-text">位图和布隆过滤器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小知识点"><span class="nav-number">7.</span> <span class="nav-text">小知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static的作用"><span class="nav-number">7.1.</span> <span class="nav-text">static的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四种cast转换"><span class="nav-number">7.2.</span> <span class="nav-text">四种cast转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#static-cast"><span class="nav-number">7.2.1.</span> <span class="nav-text">static_cast</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reinterpret-cast"><span class="nav-number">7.2.2.</span> <span class="nav-text">reinterpret_cast</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const-cast"><span class="nav-number">7.2.3.</span> <span class="nav-text">const_cast</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dynamic-cast"><span class="nav-number">7.2.4.</span> <span class="nav-text">dynamic_cast</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针和引用的区别"><span class="nav-number">7.3.</span> <span class="nav-text">指针和引用的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this指针"><span class="nav-number">7.4.</span> <span class="nav-text">this指针</span></a></li></ol></li></div>
             
 
           </div>
