@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiazi97.github.io/"/>
-  <updated>2019-08-27T12:47:38.662Z</updated>
+  <updated>2019-08-28T12:19:00.701Z</updated>
   <id>http://xiazi97.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>浏览器访问url的过程</title>
+    <link href="http://xiazi97.github.io/2019/08/28/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AEurl%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
+    <id>http://xiazi97.github.io/2019/08/28/浏览器访问url的过程/</id>
+    <published>2019-08-28T09:35:30.000Z</published>
+    <updated>2019-08-28T12:19:00.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1.打开浏览器输入网址，浏览器对用户输入的网址做初步的格式化检查&lt;/p&gt;
+&lt;p&gt;2.根据域名到DNS中进行IP查找，浏览器先查自己内存中的DNS Cache，如果有则直接返回，如果没有则查看本地的hosts文件&lt;/p&gt;
+&lt;p&gt;3.如果还是没有操作系统就向本地域名服务器发起请
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://xiazi97.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面试题</title>
     <link href="http://xiazi97.github.io/2019/08/18/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://xiazi97.github.io/2019/08/18/面试题/</id>
     <published>2019-08-17T23:53:57.000Z</published>
-    <updated>2019-08-27T12:47:38.662Z</updated>
+    <updated>2019-08-28T13:56:33.177Z</updated>
     
     <summary type="html">
     
@@ -426,25 +449,6 @@
     
     
       <category term="Linux" scheme="http://xiazi97.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://xiazi97.github.io/2019/05/30/C-11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-    <id>http://xiazi97.github.io/2019/05/30/C-11新特性/</id>
-    <published>2019-05-30T14:17:52.522Z</published>
-    <updated>2019-05-30T14:31:28.277Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;可变参数模板：&quot;&gt;&lt;a href=&quot;#可变参数模板：&quot; class=&quot;headerlink&quot; title=&quot;可变参数模板：&quot;&gt;&lt;/a&gt;可变参数模板：&lt;/h3&gt;&lt;p&gt;C++11的可变参数模板，对参数进行了高度泛化，可以表示任意数目、任意类型的参数，其语法为：在cla
-      
-    
-    </summary>
-    
     
   </entry>
   
